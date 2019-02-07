@@ -1,3 +1,3 @@
 # Radiology Information System
 
-A technical proposalis needed. (Will do later)
+A technical proposal needed. (Will do later)
