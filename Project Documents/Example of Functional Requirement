@@ -1,0 +1,8 @@
+Functional Requirements:
+-a Referring Physician should be able to place an order into the system to allow a patient to go and get imaging by the selected modality 
+that is listed in the system. 
+-a Referring Physician should be able to track the patients progress to ensure the patient is properly imaged.
+-a Radiologist should be able to access the work order from the referring physicians 
+
+Non-Funtional Requirements:
+-A session time out needs to be put in place in case the system is left idle more then 2 minutes. 
