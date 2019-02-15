@@ -1,8 +1,0 @@
-Lisa was playing outside with her dog and fell fracturing her fibula. She decides to go to a clinic to get an x-ray to see why she is in 
-so much pain. She arrives at the clinic and Bobby the administrative assistant asks her does she have an appointment. Lisa tells him she 
-doesn’t have appointment but believes she broke something and wants to get x-rayed to find out for sure. Bobby accesses RIS and doesn’t 
-see her information in the system and that she wasn’t referred by a physician. Bobby then lets Lisa know that without a referral no one 
-can perform an image studying on her, this is due to needing to allocate the proper resources in order to ensure the patient can be 
-accommodate. Bobby also lets her know that only certified technicians can use their machines due to the polices put in place by the 
-manufactures. Lisa clearly mad at this point leaves limping, headed to see her doctor to get the referral she needs in order to get x-
-rayed. 
