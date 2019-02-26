@@ -24,3 +24,20 @@ PACs Pop-up
 
 Appointment
 -Admin assistant should be able to create appointments, and view a list of all appointments
+
+
+THINGS TO ADD:
+patient list - add a submit button to the register patient without schedule appointment
+patient list - add a submit button to the register patient with schedule appointment
+
+move additional charges section to tech entry
+
+add a billing table to patient view
+
+add the files view
+
+add report review view
+
+add work list view
+
+add tech entry
