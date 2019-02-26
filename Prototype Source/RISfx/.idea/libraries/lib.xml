@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/javafx/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$MAVEN_REPOSITORY$/javafx/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/javafx/lib" recursive="false" />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/javafx/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
