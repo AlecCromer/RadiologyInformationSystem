@@ -1,28 +1,114 @@
 package Controller;
-
+import Model.Patient;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
-public class PatientController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-    private boolean EditPatientLock = false;
+public class PatientController  implements Initializable {
+
+    ///////////////////////
+    //PatientView Methods//
+    ///////////////////////
+
+    @FXML
+    private TableView<Patient> PatientList;
+
+    @FXML
+    private TableColumn<Patient, String> patientID, firstname, lastname, dob, sex, pnumber, email;
+
+
+    public void initialize(URL url, ResourceBundle arg1) {
+
+
+        //setSQLQuery("select title, description, content FROM item");
+        patientListFill("select PatientID, firstname, lastname, DoB, Sex, pnumber, email FROM patientlist");
+    }
+
+
 
     public static void setPatientView()throws Exception{
         Main.setCenterPane("PatientViews/PatientView.fxml");
     }
+
+
     public static void setPatientList()throws Exception{
         Main.setCenterPane("PatientViews/PatientList.fxml");
     }
+
+    public void patientListFill(String string) {
+        try {
+
+            PatientList.setItems(getPatientList(string));
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("UNABLE TO FILL TABLE");
+            e.printStackTrace();
+        }
+        PatientList.setOnMouseClicked((MouseEvent event) -> {
+            //DOUBLE CLICK ON CELL
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try{
+                    setPatientView();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));
+        System.out.println(new PropertyValueFactory<Patient, String>("patientID"));
+        firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
+        dob.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
+        sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
+        pnumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("pumber"));
+        email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
+    }
+
+    public ObservableList<Patient>/*<String>*/  getPatientList(String SQL) throws IOException
+    {
+        ObservableList<Patient>/*<String>*/ patients = FXCollections.observableArrayList();
+
+        try(
+                Connection conn = databaseConnector.getConnection();
+                PreparedStatement displayprofile = conn.prepareStatement(SQL);
+                ResultSet resultSet = displayprofile.executeQuery();
+
+        ){
+            while (resultSet.next()){
+                patients.add(new Patient(resultSet.getInt("PatientID"), resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("DoB"), resultSet.getString("Sex"), resultSet.getString("pnumber"), resultSet.getString("email")));
+
+
+            }
+        }catch(SQLException ex){
+            databaseConnector.displayException(ex);
+            System.out.println("Someone didn't set up their DATABASE!!");
+            return null;
+        }
+        return patients;
+
+
+    }
+
+
+
     public void setAddPatientView()throws Exception{
         Main.setPopupWindow("PatientViews/addPatient.fxml");
     }
-    public void setBackPage()throws Exception{
-        Main.setBackPage();
-    }
+
 
       ///////////////////////
      //PatientList Methods//
@@ -32,52 +118,8 @@ public class PatientController {
     }
 
 
-      ///////////////////////
-     //PatientView Methods//
-    ///////////////////////
-    @FXML TextField
-              fNameField,    lNameField,      pNumberField,
-              addressField,  dobField,        sNumberField,
-              emailField,    InsuranceField,  balanceField;
-    @FXML Button EditPatientInfoButton;
 
-    //Allows the editing of the patient's information
-    public void editPatientInfo(ActionEvent actionEvent) throws Exception {
-        if (!EditPatientLock) {
-            EditPatientLock = true;
-            fNameField.setDisable(false);
-            lNameField.setDisable(false);
-            pNumberField.setDisable(false);
-            addressField.setDisable(false);
-            dobField.setDisable(false);
-            sNumberField.setDisable(false);
-            InsuranceField.setDisable(false);
-            balanceField.setDisable(false);
-            emailField.setDisable(false);
-            EditPatientInfoButton.setText("Submit");
-        }
-        else{
-            EditPatientLock = false;
-            fNameField.setDisable(true);
-            lNameField.setDisable(true);
-            pNumberField.setDisable(true);
-            addressField.setDisable(true);
-            dobField.setDisable(true);
-            sNumberField.setDisable(true);
-            emailField.setDisable(true);
-            InsuranceField.setDisable(true);
-            balanceField.setDisable(true);
-            EditPatientInfoButton.setText("Edit Patient Info.");
-        }
-    }
 
-    public void setAppointmentView(ActionEvent actionEvent) throws Exception {
-        AppointmentController.setAppointmentView();
-    }
-
-    public void setAddAppointment(ActionEvent actionEvent) throws Exception {
-        AppointmentController.setAddAppointment();
-    }
 
       //////////////////////////
      //addPatientView Methods//
