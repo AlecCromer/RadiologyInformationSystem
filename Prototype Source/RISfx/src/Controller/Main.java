@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.PatientControllers.PatientListController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,7 +37,7 @@ public class Main extends Application {
         });
 
         //Set the initial start to our PatientList
-        PatientController.setPatientList();
+        PatientListController.setPatientList();
 
         //Finally show initial stage
         primaryStage.show();

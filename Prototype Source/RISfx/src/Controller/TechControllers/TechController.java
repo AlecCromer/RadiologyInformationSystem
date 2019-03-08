@@ -1,4 +1,6 @@
-package Controller;
+package Controller.TechControllers;
+
+import Controller.Main;
 
 public class TechController {
 

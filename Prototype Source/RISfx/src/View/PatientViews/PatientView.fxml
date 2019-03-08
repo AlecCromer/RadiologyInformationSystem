@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="447.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientViewController">
+<AnchorPane prefHeight="447.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.PatientViewController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="33.0" prefWidth="42.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Text layoutX="61.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="10.0">
