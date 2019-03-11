@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import Controller.databaseConnector;
 
 public class NewPatientController extends Controller {
@@ -47,38 +49,60 @@ public class NewPatientController extends Controller {
         if (validateForm()){
             Connection conn = databaseConnector.getConnection();
 
-            PreparedStatement insertAddress = conn.prepareStatement(
-                    "INSERT INTO address(street_name, city, state, zip)" +
-                            "VALUES(?, ?, ?, ?)");
-            insertAddress.setString(1, addressField.getText());
-            insertAddress.setString(2, cityField.getText());
-            insertAddress.setString(3, stateField.getText());
-            insertAddress.setInt(4, Integer.parseInt(zipField.getText()));
+            if(insertAddress() == 1) {
 
-            int address_id = insertAddress.executeUpdate();
+                PreparedStatement addressQuery = conn.prepareStatement("SELECT address_id FROM address " +
+                        "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
+                prepareAddressStatement(addressQuery);
 
-            PreparedStatement insertNewUser = conn.prepareStatement(
-                    "INSERT INTO patient(first_name, last_name,  address_id, home_phone, second_phone, email, insurance_number, policy_number, status, sex)" +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            );
-            insertNewUser.setString(1, fNameField.getText());
-            insertNewUser.setString(2, lNameField.getText());
-            //insertNewUser.setString(3, dobField.getText());
-            insertNewUser.setInt(3, address_id);
-            insertNewUser.setString(4, pNumberField.getText());
-            insertNewUser.setString(5, sNumberField.getText());
-            insertNewUser.setString(6, emailField.getText());
-            insertNewUser.setString(7, insuranceField.getText());
-            insertNewUser.setString(8, policyField.getText());
-            insertNewUser.setInt(9, 1);
-            insertNewUser.setString(10, sexField.getText());
-            int result = insertNewUser.executeUpdate();
+                ResultSet addressSet = addressQuery.executeQuery();
+                addressSet.next();
+                int address_id = addressSet.getInt("address_id");
 
-            exitView();
+                PreparedStatement insertNewUser = conn.prepareStatement(
+                        "INSERT INTO patient(first_name, last_name,  address_id, home_phone, second_phone, email, insurance_number, policy_number, status, sex)" +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                );
+                insertNewUser.setString(1, fNameField.getText());
+                insertNewUser.setString(2, lNameField.getText());
+                //insertNewUser.setString(3, dobField.getText());
+                insertNewUser.setInt(3, address_id);
+                insertNewUser.setString(4, pNumberField.getText());
+                insertNewUser.setString(5, sNumberField.getText());
+                insertNewUser.setString(6, emailField.getText());
+                insertNewUser.setString(7, insuranceField.getText());
+                insertNewUser.setString(8, policyField.getText());
+                insertNewUser.setInt(9, 1);
+                insertNewUser.setString(10, sexField.getText());
+                int result = insertNewUser.executeUpdate();
+
+                exitView();
+            }
+            else{
+                System.out.println("You Fucked up");
+            }
         }
         else{
 
         }
+    }
+
+    private void prepareAddressStatement(PreparedStatement addressQuery) throws SQLException {
+        addressQuery.setString(1, addressField.getText());
+        addressQuery.setString(2, cityField.getText());
+        addressQuery.setString(3, stateField.getText());
+        addressQuery.setInt(4, Integer.parseInt(zipField.getText()));
+    }
+
+    private int insertAddress() throws Exception{
+        Connection conn = databaseConnector.getConnection();
+
+        PreparedStatement insertAddress = conn.prepareStatement(
+                "INSERT INTO address(street_name, city, state, zip)" +
+                        "VALUES(?, ?, ?, ?)");
+        prepareAddressStatement(insertAddress);
+
+        return insertAddress.executeUpdate();
     }
 
     private void exitView() throws Exception{
