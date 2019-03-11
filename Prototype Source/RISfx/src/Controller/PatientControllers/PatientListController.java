@@ -31,7 +31,7 @@ public class PatientListController implements Initializable {
 
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
-        patientListFill("select PatientID, firstname, lastname, DoB, Sex, pnumber, email FROM patientlist");
+        patientListFill();
         PatientList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -44,10 +44,10 @@ public class PatientListController implements Initializable {
         });
     }
 
-    public void patientListFill(String string) {
+    public void patientListFill() {
         try {
 
-            PatientList.setItems(getPatientList(string));
+            PatientList.setItems(getPatientList());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println("UNABLE TO FILL TABLE");
@@ -63,17 +63,21 @@ public class PatientListController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 
-    public ObservableList<Patient>/*<String>*/  getPatientList(String SQL) throws IOException {
+    public ObservableList<Patient>/*<String>*/  getPatientList() throws IOException {
         ObservableList<Patient>/*<String>*/ patients = FXCollections.observableArrayList();
 
         try(
                 Connection conn = databaseConnector.getConnection();
-                PreparedStatement displayprofile = conn.prepareStatement(SQL);
+                PreparedStatement displayprofile = conn.prepareStatement(
+                        "select user_id, first_name, last_name, date_of_birth, sex, home_phone, email " +
+                                "FROM patient");
                 ResultSet resultSet = displayprofile.executeQuery();
 
         ){
             while (resultSet.next()){
-                patients.add(new Patient(resultSet.getInt("PatientID"), resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("DoB"), resultSet.getString("Sex"), resultSet.getString("pnumber"), resultSet.getString("email")));
+                patients.add(new Patient(resultSet.getInt("user_id"), resultSet.getString("first_name"),
+                        resultSet.getString("last_name"), resultSet.getString("date_of_birth"), resultSet.getString("sex"),
+                        resultSet.getString("home_phone"), resultSet.getString("email")));
 
 
             }

@@ -85,6 +85,7 @@ public class Main extends Application {
     public static BorderPane getRIS_Container(){
         return RIS_Container;
     }
+    public static BorderPane getOuter(){return Outer;}
 
 
 

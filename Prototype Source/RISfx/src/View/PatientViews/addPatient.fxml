@@ -11,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="502.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.NewPatientController">
+<AnchorPane prefHeight="493.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.NewPatientController">
 
     <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
         <font>
             <Font name="Calibri" size="18.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient First Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
+    <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
@@ -28,53 +28,53 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="223.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="233.5751953125">
+    <Text layoutX="178.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" AnchorPane.leftAnchor="178.0" AnchorPane.rightAnchor="278.5751953125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="371.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoB:" AnchorPane.leftAnchor="370.2216796875" AnchorPane.rightAnchor="121.7783203125">
+    <Text layoutX="321.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoB:" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="171.7783203125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Phone Number:" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="361.5556640625">
+    <Text layoutX="17.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Phone Number:" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="156.5">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="243.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Phone Number:" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="124.6533203125">
+    <Text layoutX="239.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Phone Number:" AnchorPane.leftAnchor="239.0" AnchorPane.topAnchor="156.5">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail Address:">
+    <Text layoutX="17.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail Address:">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Information:">
+    <Text layoutX="17.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Number:" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="213.0">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
 
-    <TextField fx:id="fNameField" layoutX="130.0" layoutY="55.0" prefHeight="25.0" prefWidth="86.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="lNameField" layoutX="284.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="pNumberField" layoutX="398.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="119.0" />
-    <TextField fx:id="addressField" layoutX="73.0" layoutY="87.0" prefHeight="25.0" prefWidth="296.0" AnchorPane.leftAnchor="72.0" AnchorPane.topAnchor="82.0" />
-    <TextField fx:id="dobField" layoutX="159.0" layoutY="119.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="sNumberField" layoutX="398.0" layoutY="119.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="398.0" AnchorPane.topAnchor="119.0" />
-    <TextField fx:id="emailField" layoutX="115.0" layoutY="146.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="146.0" />
-    <TextField fx:id="InsuranceField" layoutX="159.0" layoutY="174.0" prefHeight="25.0" prefWidth="329.0" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="174.0" />
-   <Text layoutX="21.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule Appointment" underline="true" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="213.5">
+    <TextField fx:id="fNameField" layoutX="91.0" layoutY="55.0" prefHeight="25.0" prefWidth="86.0" AnchorPane.leftAnchor="91.0" AnchorPane.topAnchor="55.0" />
+    <TextField fx:id="lNameField" layoutX="242.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="242.0" AnchorPane.topAnchor="55.0" />
+    <TextField fx:id="pNumberField" layoutX="156.0" layoutY="153.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="150.0" />
+    <TextField fx:id="addressField" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="407.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="86.0" />
+    <TextField fx:id="dobField" layoutX="352.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="352.0" AnchorPane.topAnchor="55.0" />
+    <TextField fx:id="sNumberField" layoutX="394.0" layoutY="153.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="394.0" AnchorPane.topAnchor="150.0" />
+    <TextField fx:id="emailField" layoutX="106.0" layoutY="180.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="180.0" />
+    <TextField fx:id="insuranceField" layoutX="127.0" layoutY="207.0" prefHeight="25.0" prefWidth="138.0" AnchorPane.leftAnchor="127.0" AnchorPane.topAnchor="210.0" />
+   <Text layoutX="17.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule Appointment" underline="true" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="247.5">
       <font>
          <Font name="Calibri" size="18.0" />
       </font>
    </Text>
-   <CheckBox fx:id="toggler" layoutX="203.0" layoutY="214.0" mnemonicParsing="false" onAction="#toggleSchedule" />
-   <DatePicker fx:id="scheduleDate" layoutX="21.0" layoutY="265.0" prefHeight="25.0" prefWidth="202.0" visible="false" />
-   <TableView fx:id="scheduleTime" layoutX="237.0" layoutY="265.0" prefHeight="221.0" prefWidth="261.0" visible="false">
+   <CheckBox fx:id="toggler" layoutX="199.0" layoutY="248.0" mnemonicParsing="false" onAction="#toggleSchedule" />
+   <DatePicker fx:id="scheduleDate" layoutX="16.0" layoutY="278.0" prefHeight="25.0" prefWidth="202.0" visible="false" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="278.0" />
+   <TableView fx:id="scheduleTime" layoutX="232.0" layoutY="278.0" prefHeight="221.0" prefWidth="261.0" visible="false">
      <columns>
        <TableColumn prefWidth="75.0" text="Time Slot" />
        <TableColumn prefWidth="75.0" text="Technician" />
@@ -85,8 +85,38 @@
       </columnResizePolicy>
    </TableView>
    <Text layoutX="20.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a Date to display available time slots" visible="false" />
-   <ComboBox layoutX="21.0" layoutY="290.0" prefHeight="25.0" prefWidth="202.0" promptText="Procedure Type" visible="false" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="300.0" />
-   <Button fx:id="patientSubmit" layoutX="427.0" layoutY="210.0" mnemonicParsing="false" text="Submit" />
+   <ComboBox layoutX="16.0" layoutY="313.0" prefHeight="25.0" prefWidth="202.0" promptText="Procedure Type" visible="false" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="320.0" />
+   <Button fx:id="patientSubmit" layoutX="423.0" layoutY="244.0" mnemonicParsing="false" onAction="#submitNewPatient" text="Submit" />
    <ComboBox fx:id="appointmentCBox" layoutX="21.0" layoutY="298.0" prefHeight="25.0" prefWidth="202.0" promptText="Procedure Type..." visible="false" />
+   <Text layoutX="269.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Number:" AnchorPane.leftAnchor="269.0" AnchorPane.topAnchor="213.0">
+      <font>
+         <Font name="Calibri" size="14.0" />
+      </font>
+   </Text>
+   <TextField fx:id="policyField" layoutX="356.0" layoutY="207.0" prefHeight="25.0" prefWidth="118.0" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="210.0" />
+   <Text layoutX="21.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+      <font>
+         <Font name="Calibri" size="14.0" />
+      </font>
+   </Text>
+   <Text layoutX="201.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:">
+      <font>
+         <Font name="Calibri" size="14.0" />
+      </font>
+   </Text>
+   <Text layoutX="357.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code:">
+      <font>
+         <Font name="Calibri" size="14.0" />
+      </font>
+   </Text>
+   <TextField fx:id="cityField" layoutX="51.0" layoutY="118.0" prefHeight="25.0" prefWidth="143.0" />
+   <TextField fx:id="stateField" layoutX="236.0" layoutY="118.0" prefHeight="25.0" prefWidth="112.0" />
+   <TextField fx:id="zipField" layoutX="415.0" layoutY="118.0" prefHeight="25.0" prefWidth="62.0" />
+   <Text layoutX="432.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex:" AnchorPane.leftAnchor="432.0" AnchorPane.topAnchor="57.0">
+      <font>
+         <Font name="Calibri" size="14.0" />
+      </font>
+   </Text>
+   <TextField fx:id="sexField" layoutX="454.0" layoutY="53.0" prefHeight="25.0" prefWidth="25.0" AnchorPane.leftAnchor="454.0" AnchorPane.topAnchor="53.0" />
 
 </AnchorPane>
