@@ -9,15 +9,15 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="600.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.AppointmentListController">
    <children>
-      <TableView fx:id="AppointmentTable" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+      <TableView fx:id="AppointmentList" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
         <columns>
-          <TableColumn prefWidth="38.0" text="ID" />
-          <TableColumn prefWidth="86.0" text="Patient Name" />
-            <TableColumn prefWidth="75.0" text="Date/Time" />
-            <TableColumn prefWidth="75.0" text="Procedure" />
-            <TableColumn prefWidth="75.0" text="Technician" />
-            <TableColumn prefWidth="107.0" text="Status" />
-            <TableColumn prefWidth="25.0" text="Balance" />
+          <TableColumn fx:id="appointmentID" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="patientFullName" prefWidth="118.0" text="Patient Name" />
+            <TableColumn fx:id="DateTime" prefWidth="103.0" text="Date/Time" />
+            <TableColumn fx:id="ProcedureType" prefWidth="85.0" text="Procedure" />
+            <TableColumn fx:id="Technician" prefWidth="104.0" text="Technician" />
+            <TableColumn fx:id="Status" text="Status" />
+            <TableColumn fx:id="Balance" prefWidth="71.0" text="Balance" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

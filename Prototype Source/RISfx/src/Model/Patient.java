@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Patient {
 
@@ -8,6 +9,7 @@ public class Patient {
     private LocalDate dob;
     private int phoneNumber, patientID, insuranceNumber;
     private int policyNumber;
+    private ArrayList<Appointment> AppointmentList;
 
     public String getFirstname() {
         return firstname;
@@ -75,6 +77,17 @@ public class Patient {
         this.policyNumber = policyNumber;
     }
 
+    public ArrayList<Appointment> getAppointmentList() {
+        return AppointmentList;
+    }
+    public void setAppointmentList(ArrayList<Appointment> appointmentList) {
+        AppointmentList = appointmentList;
+    }
+
+
+      ///////////////
+     //Constructor//
+    ///////////////
     public Patient(){
         this.patientID          = -1;
         this.firstname          = null;
@@ -86,6 +99,7 @@ public class Patient {
         this.address            = null;
         this.insuranceNumber    = -1;
         this.policyNumber       = -1;
+        this.AppointmentList    = new ArrayList<>();
     }
     public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, int phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
         this.patientID          = PatientID;
@@ -98,5 +112,6 @@ public class Patient {
         this.insuranceNumber    = insuranceNumber;
         this.policyNumber       = policyNumber;
         this.address            = address;
+        this.AppointmentList    = new ArrayList<>();
     }
 }

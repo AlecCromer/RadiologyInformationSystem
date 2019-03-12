@@ -99,8 +99,6 @@ public class PatientListController implements Initializable {
             return null;
         }
         return patients;
-
-
     }
 
       ///////////////////////
