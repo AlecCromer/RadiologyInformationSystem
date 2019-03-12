@@ -27,7 +27,13 @@ public class PatientListController implements Initializable {
     ///////////////////////
 
     @FXML private TableView<Patient> PatientList;
-    @FXML private TableColumn<Patient, String> patientID, firstname, lastname, dob, sex, pnumber, email;
+    @FXML private TableColumn<Patient, String> patientID;
+    @FXML private TableColumn<Patient, String> firstname;
+    @FXML private TableColumn<Patient, String> lastname;
+    @FXML private TableColumn<Patient, String> dob;
+    @FXML private TableColumn<Patient, String> sex;
+    @FXML private TableColumn<Patient, Integer> pnumber;
+    @FXML private TableColumn<Patient, String> email;
 
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
@@ -54,12 +60,11 @@ public class PatientListController implements Initializable {
             e.printStackTrace();
         }
         patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));
-        System.out.println(new PropertyValueFactory<Patient, String>("patientID"));
         firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
         lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
         dob.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
         sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
-        pnumber.setCellValueFactory(new PropertyValueFactory<Patient, String>("pumber"));
+        pnumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("pnumber"));
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 
@@ -69,15 +74,15 @@ public class PatientListController implements Initializable {
         try(
                 Connection conn = databaseConnector.getConnection();
                 PreparedStatement displayprofile = conn.prepareStatement(
-                        "select user_id, first_name, last_name, date_of_birth, sex, home_phone, email " +
+                        "select * " +
                                 "FROM patient");
                 ResultSet resultSet = displayprofile.executeQuery();
 
         ){
             while (resultSet.next()){
-                patients.add(new Patient(resultSet.getInt("user_id"), resultSet.getString("first_name"),
+                patients.add(new Patient(resultSet.getInt("patient_id"), resultSet.getString("first_name"),
                         resultSet.getString("last_name"), resultSet.getString("date_of_birth"), resultSet.getString("sex"),
-                        resultSet.getString("home_phone"), resultSet.getString("email")));
+                        resultSet.getInt("home_phone"), resultSet.getString("email")));
 
 
             }

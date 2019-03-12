@@ -3,48 +3,45 @@ package Controller.PatientControllers;
 import Controller.Controller;
 import Controller.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 import Controller.databaseConnector;
 
-public class NewPatientController extends Controller {
+import javax.swing.text.DateFormatter;
 
+public class NewPatientController implements Initializable {
+
+    @FXML TextField addressField, cityField, stateField, zipField;
+    @FXML TextField fNameField, lNameField,  pNumberField, sNumberField,
+            emailField, insuranceField, policyField, sexField;
     @FXML Button patientSubmit;
     @FXML CheckBox toggler;
-    @FXML DatePicker scheduleDate;
+    @FXML DatePicker scheduleDate, dobField;
     @FXML TableView scheduleTime;
     @FXML ComboBox appointmentCBox;
-    public void toggleSchedule(){
-        if (toggler.isSelected()){
-            scheduleDate.setVisible(true);
-            scheduleTime.setVisible(true);
-            appointmentCBox.setVisible(true);
-            Main.popup.setHeight(Main.popup.getHeight() + 250);
-            patientSubmit.setLayoutY(patientSubmit.getLayoutY() + 265);
-            patientSubmit.setLayoutX(patientSubmit.getLayoutX() + 18);
-        }
-        else {
-            scheduleDate.setVisible(false);
-            scheduleTime.setVisible(false);
-            appointmentCBox.setVisible(false);
-            Main.popup.setHeight( Main.popup.getHeight() - 240);
-            patientSubmit.setLayoutY(patientSubmit.getLayoutY() - 265);
-            patientSubmit.setLayoutX(patientSubmit.getLayoutX() - 18);
-        }
+
+    public void initialize(URL url, ResourceBundle arg1){
+        dobField.setValue(LocalDate.of(1950, 1, 1));
     }
 
     public static void setView()throws Exception{
+        Main.popup.setWidth(620);
+        Main.popup.setHeight(300);
         Main.setPopupWindow("PatientViews/addPatient.fxml");
     }
 
-    @FXML TextField addressField, cityField, stateField, zipField;
-    @FXML TextField fNameField, lNameField, dobField, pNumberField,
-            sNumberField, emailField, insuranceField, policyField, sexField;
+
     public void submitNewPatient() throws Exception{
         if (validateForm()){
             Connection conn = databaseConnector.getConnection();
@@ -60,40 +57,71 @@ public class NewPatientController extends Controller {
                 int address_id = addressSet.getInt("address_id");
 
                 PreparedStatement insertNewUser = conn.prepareStatement(
-                        "INSERT INTO patient(first_name, last_name,  address_id, home_phone, second_phone, email, insurance_number, policy_number, status, sex)" +
-                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                        "INSERT INTO patient(patient_id, first_name, last_name, date_of_birth, sex, home_phone, email, insurance_number, policy_number, address_id, status, patient_medications_list)" +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null)"
                 );
-                insertNewUser.setString(1, fNameField.getText());
-                insertNewUser.setString(2, lNameField.getText());
-                //insertNewUser.setString(3, dobField.getText());
-                insertNewUser.setInt(3, address_id);
-                insertNewUser.setString(4, pNumberField.getText());
-                insertNewUser.setString(5, sNumberField.getText());
-                insertNewUser.setString(6, emailField.getText());
-                insertNewUser.setString(7, insuranceField.getText());
-                insertNewUser.setString(8, policyField.getText());
-                insertNewUser.setInt(9, 1);
-                insertNewUser.setString(10, sexField.getText());
+                insertNewUser.setInt(1, Math.abs((new Random()).nextInt(50000)));
+                insertNewUser.setString(2, fNameField.getText());
+                insertNewUser.setString(3, lNameField.getText());
+                insertNewUser.setString(4, dateFormatter(dobField.getValue()));
+                insertNewUser.setString(5, sexField.getText());
+                insertNewUser.setString(6, pNumberField.getText());
+                insertNewUser.setString(7, emailField.getText());
+                insertNewUser.setString(8, insuranceField.getText());
+                insertNewUser.setString(9, policyField.getText());
+                insertNewUser.setInt(10, address_id);
+                insertNewUser.setString(11, "New Patient");
+
                 int result = insertNewUser.executeUpdate();
 
                 exitView();
             }
             else{
-                System.out.println("You Fucked up");
+                System.out.println("Your form is invalid");
             }
         }
         else{
 
         }
     }
+    public void toggleSchedule(){
+        if (toggler.isSelected()){
+            scheduleDate.setVisible(true);
+            scheduleTime.setVisible(true);
+            appointmentCBox.setVisible(true);
+            Main.popup.setHeight(Main.popup.getHeight() + 260);
+            patientSubmit.setLayoutY(patientSubmit.getLayoutY() + 265);
+            patientSubmit.setLayoutX(patientSubmit.getLayoutX() + 18);
+        }
+        else {
+            scheduleDate.setVisible(false);
+            scheduleTime.setVisible(false);
+            appointmentCBox.setVisible(false);
+            Main.popup.setHeight( Main.popup.getHeight() - 260);
+            patientSubmit.setLayoutY(patientSubmit.getLayoutY() - 265);
+            patientSubmit.setLayoutX(patientSubmit.getLayoutX() - 18);
+        }
+    }
 
+
+    private void exitView() throws Exception{
+        Main.popup.close();
+        Main.getOuter().setDisable(false);
+        PatientListController.setPatientList();
+    }
+
+
+    private boolean validateForm(){
+        //TODO: Implement actual form validation
+
+        return true;
+    }
     private void prepareAddressStatement(PreparedStatement addressQuery) throws SQLException {
         addressQuery.setString(1, addressField.getText());
         addressQuery.setString(2, cityField.getText());
         addressQuery.setString(3, stateField.getText());
         addressQuery.setInt(4, Integer.parseInt(zipField.getText()));
     }
-
     private int insertAddress() throws Exception{
         Connection conn = databaseConnector.getConnection();
 
@@ -104,16 +132,8 @@ public class NewPatientController extends Controller {
 
         return insertAddress.executeUpdate();
     }
-
-    private void exitView() throws Exception{
-        Main.popup.close();
-        Main.getOuter().setDisable(false);
-        PatientListController.setPatientList();
-    }
-
-    private boolean validateForm(){
-
-
-        return true;
+    private String dateFormatter(LocalDate date){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        return date.format(format);
     }
 }
