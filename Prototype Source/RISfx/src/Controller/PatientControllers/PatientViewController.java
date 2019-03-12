@@ -3,6 +3,7 @@ package Controller.PatientControllers;
 import Controller.AppointmentControllers.*;
 import Controller.Controller;
 import Controller.Main;
+import Model.Patient;
 import com.sun.org.apache.xml.internal.security.Init;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +34,13 @@ public class PatientViewController implements Initializable {
         Main.setBackPage();
     }
     public void initialize(URL url, ResourceBundle arg1) {
+        fNameField.setText(Main.getPatientFocus().getFirstname());
+        lNameField.setText(Main.getPatientFocus().getLastname());
+        pNumberField.setText(String.valueOf(Main.getPatientFocus().getPhoneNumber()));
+        addressField.setText(Main.getPatientFocus().getAddress());
+        dobField.setText(Main.getPatientFocus().getDob());
+        emailField.setText(Main.getPatientFocus().getEmail());
+        InsuranceField.setText(String.valueOf(Main.getPatientFocus().getInsuranceNumber()));
     }
 
     //Allows the editing of the patient's information

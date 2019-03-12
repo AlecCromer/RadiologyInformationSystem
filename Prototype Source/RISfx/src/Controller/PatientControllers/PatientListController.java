@@ -27,13 +27,8 @@ public class PatientListController implements Initializable {
     ///////////////////////
 
     @FXML private TableView<Patient> PatientList;
-    @FXML private TableColumn<Patient, String> patientID;
-    @FXML private TableColumn<Patient, String> firstname;
-    @FXML private TableColumn<Patient, String> lastname;
-    @FXML private TableColumn<Patient, String> dob;
-    @FXML private TableColumn<Patient, String> sex;
-    @FXML private TableColumn<Patient, Integer> pnumber;
-    @FXML private TableColumn<Patient, String> email;
+    @FXML private TableColumn<Patient, String> patientID, firstname, lastname, dob, sex, email;
+    @FXML private TableColumn<Patient, Integer> phoneNumber;
 
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
@@ -42,7 +37,9 @@ public class PatientListController implements Initializable {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
+                    sendPatientToView(PatientList.getSelectionModel().getSelectedItem());
                     setPatientView();
+
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -64,7 +61,7 @@ public class PatientListController implements Initializable {
         lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
         dob.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
         sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
-        pnumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("pnumber"));
+        phoneNumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("phoneNumber"));
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 
@@ -80,9 +77,17 @@ public class PatientListController implements Initializable {
 
         ){
             while (resultSet.next()){
-                patients.add(new Patient(resultSet.getInt("patient_id"), resultSet.getString("first_name"),
-                        resultSet.getString("last_name"), resultSet.getString("date_of_birth"), resultSet.getString("sex"),
-                        resultSet.getInt("home_phone"), resultSet.getString("email")));
+                patients.add(new Patient(
+                        resultSet.getInt("patient_id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("date_of_birth"),
+                        resultSet.getString("sex"),
+                        resultSet.getInt("home_phone"),
+                        resultSet.getString("email"),
+                        resultSet.getInt("insurance_number"),
+                        ""
+                ));
 
 
             }
@@ -109,5 +114,36 @@ public class PatientListController implements Initializable {
 
     public static void setPatientList()throws Exception{
         Main.setCenterPane("PatientViews/PatientList.fxml");
+    }
+
+    private void sendPatientToView(Patient selectedItem) throws Exception{
+        int patient_id = selectedItem.getPatientID();
+
+        Connection conn = databaseConnector.getConnection();
+        PreparedStatement selectPatient = conn.prepareStatement(
+                "select * FROM patient WHERE `patient_id` = ?");
+        selectPatient.setInt(1, patient_id);
+
+        PreparedStatement addressFill = conn.prepareStatement(
+                "SELECT * FROM `address` WHERE `address_id` = ?");
+
+        ResultSet rs = selectPatient.executeQuery();
+        rs.next();
+
+        addressFill.setInt(1, rs.getInt("address_id"));
+        ResultSet addr = addressFill.executeQuery();
+        addr.next();
+        String address = addr.getString("street_name") + ", " + addr.getString("city") + ", " + addr.getString("state") + ", " + addr.getInt("zip") ;
+        Main.setPatientFocus((new Patient(
+                rs.getInt("patient_id"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getString("date_of_birth"),
+                rs.getString("sex"),
+                rs.getInt("home_phone"),
+                rs.getString("email"),
+                rs.getInt("insurance_number"),
+                address
+                )));
     }
 }

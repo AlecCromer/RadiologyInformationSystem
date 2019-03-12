@@ -16,7 +16,7 @@
             <TableColumn fx:id="lastname" prefWidth="75.0" text="Last Name" />
             <TableColumn fx:id="dob" prefWidth="49.0" text="DoB" />
             <TableColumn fx:id="sex" prefWidth="25.0" text="Sex" />
-            <TableColumn fx:id="pnumber" prefWidth="84.0" text="P. Number" />
+            <TableColumn fx:id="phoneNumber" prefWidth="84.0" text="P. Number" />
             <TableColumn fx:id="email" prefWidth="92.0" text="E-mail" />
         </columns>
          <columnResizePolicy>

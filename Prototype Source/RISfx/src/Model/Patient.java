@@ -2,8 +2,13 @@ package Model;
 
 public class Patient {
 
-    String  firstname, lastname, dob, sex, email;
-    int  pnumber, patientID;
+    String  firstname;
+    String lastname;
+    String dob;
+    String sex;
+    String email;
+    String address;
+    int phoneNumber, patientID, insuranceNumber;
 
     public String getFirstname() {
         return firstname;
@@ -33,11 +38,11 @@ public class Patient {
         this.sex = sex;
     }
 
-    public int getPnumber() {
-        return pnumber;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
-    public void setPnumber(int pnumber) {
-        this.pnumber = pnumber;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -54,13 +59,36 @@ public class Patient {
         this.patientID = patientID;
     }
 
-    public Patient(int PatientID, String firstname, String lastname, String DoB, String Sex, int pnumber, String email){
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getInsuranceNumber(){return insuranceNumber;}
+    public void setInsuranceNumber(int insuranceNumber){this.insuranceNumber = insuranceNumber;}
+
+    public Patient(){
+        this.patientID          = -1;
+        this.firstname          = null;
+        this.lastname           = null;
+        this.dob                = null;
+        this.sex                = null;
+        this.phoneNumber        = -1;
+        this.email              = null;
+        this.address            = null;
+        this.insuranceNumber    = -1;
+    }
+    public Patient(int PatientID, String firstname, String lastname, String DoB, String Sex, int phoneNumber, String email, int insuranceNumber, String address ){
         this.patientID = PatientID;
         this.firstname = firstname;
         this.lastname = lastname;
         this.dob = DoB;
         this.sex = Sex;
-        this.pnumber = pnumber;
+        this.phoneNumber = phoneNumber;
         this.email = email;
+        this.insuranceNumber = insuranceNumber;
+        this.address = address;
     }
 }

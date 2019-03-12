@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.PatientControllers.PatientListController;
+import Model.Patient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,6 +21,8 @@ public class Main extends Application {
     private static BorderPane RIS_Container = new BorderPane();
     private static ArrayList<Node> backNodeList = new ArrayList<>();
     private static Scene MainScene = new Scene(Outer,1600, 900);
+
+    private static Patient patientFocus = new Patient();
     public static Stage popup = new Stage();
 
     @Override
@@ -87,7 +90,12 @@ public class Main extends Application {
     }
     public static BorderPane getOuter(){return Outer;}
 
-
+    public static Patient getPatientFocus() {
+        return patientFocus;
+    }
+    public static void setPatientFocus(Patient patientFocus) {
+        Main.patientFocus = patientFocus;
+    }
 
 
 
