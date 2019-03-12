@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PatientViewController implements Initializable {
@@ -20,7 +22,7 @@ public class PatientViewController implements Initializable {
     TextField
             fNameField,    lNameField,      pNumberField,
             addressField,  dobField,        sNumberField,
-            emailField,    InsuranceField,  balanceField;
+            emailField,    InsuranceField,  balanceField, policyField;
     @FXML
     Button EditPatientInfoButton;
 
@@ -38,9 +40,10 @@ public class PatientViewController implements Initializable {
         lNameField.setText(Main.getPatientFocus().getLastname());
         pNumberField.setText(String.valueOf(Main.getPatientFocus().getPhoneNumber()));
         addressField.setText(Main.getPatientFocus().getAddress());
-        dobField.setText(Main.getPatientFocus().getDob());
+        dobField.setText(dateFormatter(Main.getPatientFocus().getDob()));
         emailField.setText(Main.getPatientFocus().getEmail());
         InsuranceField.setText(String.valueOf(Main.getPatientFocus().getInsuranceNumber()));
+        policyField.setText(String.valueOf(Main.getPatientFocus().getPolicyNumber()));
     }
 
     //Allows the editing of the patient's information
@@ -80,5 +83,10 @@ public class PatientViewController implements Initializable {
 
     public void setAddAppointment(ActionEvent actionEvent) throws Exception {
         AddAppointmentController.setView();
+    }
+
+    private String dateFormatter(LocalDate date){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(format);
     }
 }

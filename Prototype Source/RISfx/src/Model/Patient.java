@@ -1,14 +1,13 @@
 package Model;
 
+import java.time.LocalDate;
+
 public class Patient {
 
-    String  firstname;
-    String lastname;
-    String dob;
-    String sex;
-    String email;
-    String address;
-    int phoneNumber, patientID, insuranceNumber;
+    private String  firstname, lastname, sex, email, address;
+    private LocalDate dob;
+    private int phoneNumber, patientID, insuranceNumber;
+    private int policyNumber;
 
     public String getFirstname() {
         return firstname;
@@ -24,10 +23,10 @@ public class Patient {
         this.lastname = lastname;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
@@ -69,6 +68,13 @@ public class Patient {
     public int getInsuranceNumber(){return insuranceNumber;}
     public void setInsuranceNumber(int insuranceNumber){this.insuranceNumber = insuranceNumber;}
 
+    public int getPolicyNumber() {
+        return this.policyNumber;
+    }
+    public void setPolicyNumber(int policyNumber) {
+        this.policyNumber = policyNumber;
+    }
+
     public Patient(){
         this.patientID          = -1;
         this.firstname          = null;
@@ -79,16 +85,18 @@ public class Patient {
         this.email              = null;
         this.address            = null;
         this.insuranceNumber    = -1;
+        this.policyNumber       = -1;
     }
-    public Patient(int PatientID, String firstname, String lastname, String DoB, String Sex, int phoneNumber, String email, int insuranceNumber, String address ){
-        this.patientID = PatientID;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.dob = DoB;
-        this.sex = Sex;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.insuranceNumber = insuranceNumber;
-        this.address = address;
+    public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, int phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
+        this.patientID          = PatientID;
+        this.firstname          = firstname;
+        this.lastname           = lastname;
+        this.dob                = DoB;
+        this.sex                = Sex;
+        this.phoneNumber        = phoneNumber;
+        this.email              = email;
+        this.insuranceNumber    = insuranceNumber;
+        this.policyNumber       = policyNumber;
+        this.address            = address;
     }
 }

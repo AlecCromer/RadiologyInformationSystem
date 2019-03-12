@@ -18,6 +18,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PatientListController implements Initializable {
@@ -65,14 +67,13 @@ public class PatientListController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 
-    public ObservableList<Patient>/*<String>*/  getPatientList() throws IOException {
-        ObservableList<Patient>/*<String>*/ patients = FXCollections.observableArrayList();
+    public ObservableList<Patient>  getPatientList() throws IOException {
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
 
         try(
                 Connection conn = databaseConnector.getConnection();
                 PreparedStatement displayprofile = conn.prepareStatement(
-                        "select * " +
-                                "FROM patient");
+                        "select * FROM patient");
                 ResultSet resultSet = displayprofile.executeQuery();
 
         ){
@@ -81,11 +82,12 @@ public class PatientListController implements Initializable {
                         resultSet.getInt("patient_id"),
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),
-                        resultSet.getString("date_of_birth"),
+                        dateFormatter(resultSet.getString("date_of_birth")),
                         resultSet.getString("sex"),
                         resultSet.getInt("home_phone"),
                         resultSet.getString("email"),
                         resultSet.getInt("insurance_number"),
+                        resultSet.getInt("policy_number"),
                         ""
                 ));
 
@@ -116,6 +118,11 @@ public class PatientListController implements Initializable {
         Main.setCenterPane("PatientViews/PatientList.fxml");
     }
 
+    private LocalDate dateFormatter(String date){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(date, format);
+    }
+
     private void sendPatientToView(Patient selectedItem) throws Exception{
         int patient_id = selectedItem.getPatientID();
 
@@ -138,11 +145,12 @@ public class PatientListController implements Initializable {
                 rs.getInt("patient_id"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
-                rs.getString("date_of_birth"),
+                LocalDate.parse(rs.getString("date_of_birth")),
                 rs.getString("sex"),
                 rs.getInt("home_phone"),
                 rs.getString("email"),
                 rs.getInt("insurance_number"),
+                rs.getInt("policy_number"),
                 address
                 )));
     }

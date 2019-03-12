@@ -7,17 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PatientViews/PatientList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PatientViews/PatientList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+            <state relative-caret-position="578">
+              <caret line="134" column="8" selection-start-line="134" selection-start-column="4" selection-end-line="137" selection-end-column="5" />
               <folding>
                 <element signature="method#setView#0;class#NewPatientController#0" />
                 <element signature="method#submitNewPatient#0;class#NewPatientController#0" />
@@ -124,28 +117,53 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
+            <state relative-caret-position="503">
+              <caret line="152" column="43" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
               <folding>
-                <element signature="method#patientListFill#0;class#PatientListController#0" />
+                <element signature="method#initialize#0;class#PatientListController#0" />
+                <element signature="method#getPatientList#0;class#PatientListController#0" />
                 <element signature="method#setAddPatientView#0;class#PatientListController#0" />
+                <element signature="method#setPatientView#0;class#PatientListController#0" />
                 <element signature="method#setPatientList#0;class#PatientListController#0" />
-                <element signature="method#sendPatientToView#0;class#PatientListController#0" />
+                <element signature="method#dateFormatter#0;class#PatientListController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="186" selection-start-line="11" selection-start-column="163" selection-end-line="11" selection-end-column="186" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="289">
+              <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
               <folding>
                 <element signature="method#setBackPage#0;class#PatientViewController#0" />
                 <element signature="method#editPatientInfo#0;class#PatientViewController#0" />
                 <element signature="method#setAppointmentView#0;class#PatientViewController#0" />
                 <element signature="method#setAddAppointment#0;class#PatientViewController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+              <folding>
+                <element signature="method#Patient#0;class#Patient#0" />
+                <element signature="method#Patient#1;class#Patient#0" />
               </folding>
             </state>
           </provider>
@@ -197,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/Controller/AppointmentController.java" />
         <option value="$PROJECT_DIR$/src/Controller/TechController.java" />
         <option value="$PROJECT_DIR$/src/Controller/databaseConnector.java" />
-        <option value="$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/PatientController.java" />
         <option value="$PROJECT_DIR$/src/Controller/PatientViewController.java" />
         <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" />
@@ -226,6 +243,7 @@
         <option value="$PROJECT_DIR$/src/View/PatientViews/addPatient.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" />
         <option value="$PROJECT_DIR$/src/Controller/Main.java" />
+        <option value="$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java" />
         <option value="$PROJECT_DIR$/src/Model/Patient.java" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" />
@@ -233,7 +251,7 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="470" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -271,13 +289,6 @@
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="PatientControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -285,6 +296,13 @@
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="PatientViews" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -307,7 +325,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552367470334" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552377085766" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/" />
@@ -438,12 +456,12 @@
       <workItem from="1551923227722" duration="9019000" />
       <workItem from="1552297244001" duration="5224000" />
       <workItem from="1552342843215" duration="550000" />
-      <workItem from="1552343700851" duration="10819000" />
+      <workItem from="1552343700851" duration="12840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69615000" />
+    <option name="totallyTimeSpent" value="71636000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,7 +486,7 @@
       <window_info anchor="bottom" id="Duplicate detector" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13976164" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25785482" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3575298" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -696,14 +714,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="186" selection-start-line="11" selection-start-column="163" selection-end-line="11" selection-end-column="186" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -875,13 +885,6 @@
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="jar://$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/result/ResultSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="810" selection-start-line="810" selection-end-line="810" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -921,22 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
-          <folding>
-            <element signature="method#setView#0;class#NewPatientController#0" />
-            <element signature="method#submitNewPatient#0;class#NewPatientController#0" />
-            <element signature="method#toggleSchedule#0;class#NewPatientController#0" />
-            <element signature="method#exitView#0;class#NewPatientController#0" />
-            <element signature="method#prepareAddressStatement#0;class#NewPatientController#0" />
-            <element signature="method#insertAddress#0;class#NewPatientController#0" />
-            <element signature="method#dateFormatter#0;class#NewPatientController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/ClientPreparedStatement.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -957,10 +944,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="134" column="8" selection-start-line="134" selection-start-column="4" selection-end-line="137" selection-end-column="5" />
+          <folding>
+            <element signature="method#setView#0;class#NewPatientController#0" />
+            <element signature="method#submitNewPatient#0;class#NewPatientController#0" />
+            <element signature="method#toggleSchedule#0;class#NewPatientController#0" />
+            <element signature="method#exitView#0;class#NewPatientController#0" />
+            <element signature="method#prepareAddressStatement#0;class#NewPatientController#0" />
+            <element signature="method#insertAddress#0;class#NewPatientController#0" />
+            <element signature="method#dateFormatter#0;class#NewPatientController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/result/ResultSetImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="877" selection-start-line="877" selection-end-line="877" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="186" selection-start-line="11" selection-start-column="163" selection-end-line="11" selection-end-column="186" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="289">
+          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
           <folding>
             <element signature="method#setBackPage#0;class#PatientViewController#0" />
             <element signature="method#editPatientInfo#0;class#PatientViewController#0" />
@@ -972,20 +990,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        <state relative-caret-position="697">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+          <folding>
+            <element signature="method#Patient#0;class#Patient#0" />
+            <element signature="method#Patient#1;class#Patient#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
+        <state relative-caret-position="503">
+          <caret line="152" column="43" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
           <folding>
-            <element signature="method#patientListFill#0;class#PatientListController#0" />
+            <element signature="method#initialize#0;class#PatientListController#0" />
+            <element signature="method#getPatientList#0;class#PatientListController#0" />
             <element signature="method#setAddPatientView#0;class#PatientListController#0" />
+            <element signature="method#setPatientView#0;class#PatientListController#0" />
             <element signature="method#setPatientList#0;class#PatientListController#0" />
-            <element signature="method#sendPatientToView#0;class#PatientListController#0" />
+            <element signature="method#dateFormatter#0;class#PatientListController#0" />
           </folding>
         </state>
       </provider>
