@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.stage.Modality;
+
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -10,7 +12,8 @@ public class Appointment {
     private int appointmentId, procedure, patientId, machineId, employeeId;
     private Date appointmentDate;
     private Time appointmentTime, patientSignIn, patientSignOut;
-    private String refferalReason, Comments, patientFullName, patientStatus, dateTime;
+    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, room;
+    private Modality modality;
 
     public int getAppointmentId() {
         return appointmentId;
@@ -102,8 +105,21 @@ public class Appointment {
     public String getDateTime(){ return dateTime; }
     public void setDateTime(String dateTime){ this.dateTime = dateTime; }
 
+    public String getRoom() {
+        return room;
+    }
+    public void setRoom(String room) {
+        this.room = room;
+    }
 
-      ///////////////
+    public Modality getModality() {
+        return modality;
+    }
+    public void setModality(Modality modality) {
+        this.modality = modality;
+    }
+
+    ///////////////
      //Constructor//
     ///////////////
     public Appointment(){
@@ -119,7 +135,16 @@ public class Appointment {
         this.machineId = -1;
         this.employeeId = -1;
     }
-    public Appointment(int appointmentId, int procedure,  int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
+
+    public Appointment(int machineId, int employeeId, Date appointmentDate, Time appointmentTime) {
+        this.machineId = machineId;
+        this.employeeId = employeeId;
+        this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
+        this.modality = modality;
+    }
+
+    public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
                        Time appointmentTime, Time patientSignIn, Time patientSignOut, String refferalReason, String Comments, String patientStatus, String dateTime){
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;

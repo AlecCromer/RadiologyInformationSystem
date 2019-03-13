@@ -7,12 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Modality.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Procedures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/ScheduleConflict.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ris.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ris.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,6 +92,28 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="DockManager">
+    <window id="9">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="170">
+                    <caret line="138" column="74" selection-start-line="138" selection-start-column="54" selection-end-line="138" selection-end-column="74" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
@@ -86,102 +122,82 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="320">
+              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#start#0;class#Main#0" />
-                <element signature="method#setBackPage#0;class#Main#0" />
-                <element signature="e#3407#3408#0" expanded="true" />
+                <element signature="method#setCenterPane#0;class#Main#0" />
+                <element signature="e#4472#4473#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="165" column="51" selection-start-line="165" selection-start-column="51" selection-end-line="165" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#AddAppointmentController#0" />
+                <element signature="e#1123#1225#1" />
+                <element signature="e#1445#1619#0" />
+                <element signature="method#updateTable#0;class#AddAppointmentController#0" />
+                <element signature="method#queryTimeSlots#0;class#AddAppointmentController#0" />
+                <element signature="e#0#312#1" />
+                <element signature="method#queryConflicts#0;class#AddAppointmentController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            <state relative-caret-position="450">
+              <caret line="114" column="59" lean-forward="true" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#setView#0;class#AppointmentListController#0" />
                 <element signature="method#initialize#0;class#AppointmentListController#0" />
-                <element signature="method#AppointmentListFill#0;class#AppointmentListController#0" />
-                <element signature="method#getAppointmentList#0;class#AppointmentListController#0" />
-                <element signature="e#2638#3325#0" />
+                <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
                 <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
-                <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setView#0;class#AppointmentViewController#0" />
-                <element signature="method#setBackPage#0;class#AppointmentViewController#0" />
-                <element signature="method#initialize#0;class#AppointmentViewController#0" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Modality.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
-              <folding>
-                <element signature="method#setAddPatientView#0;class#PatientListController#0" />
-                <element signature="method#setPatientView#0;class#PatientListController#0" />
-                <element signature="method#setPatientList#0;class#PatientListController#0" />
-                <element signature="method#dateFormatter#0;class#PatientListController#0" />
-                <element signature="method#sendPatientToView#0;class#PatientListController#0" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+            <state relative-caret-position="201">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Appointment#0;class#Appointment#0" />
+                <element signature="method#setBackPage#0;class#PatientViewController#0" />
+                <element signature="method#editPatientInfo#0;class#PatientViewController#0" />
+                <element signature="method#setAppointmentView#0;class#PatientViewController#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Patient#0;class#Patient#0" />
-                <element signature="method#Patient#1;class#Patient#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="53" lean-forward="true" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -211,12 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/View/PatientList.fxml" />
-        <option value="$PROJECT_DIR$/src/View/addPatient.fxml" />
-        <option value="$PROJECT_DIR$/src/View/AppointmentView.fxml" />
-        <option value="$PROJECT_DIR$/src/View/addAppointment.fxml" />
-        <option value="$PROJECT_DIR$/src/View/AppointmentList.fxml" />
-        <option value="$PROJECT_DIR$/src/View/RIS_Tabs.fxml" />
         <option value="$PROJECT_DIR$/src/View/TechEntry.fxml" />
         <option value="$PROJECT_DIR$/src/View/WorkList.fxml" />
         <option value="$PROJECT_DIR$/src/View/ReferralList.fxml" />
@@ -240,10 +250,7 @@
         <option value="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" />
-        <option value="$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml" />
         <option value="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentReport.fxml" />
-        <option value="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml" />
         <option value="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentFiles.fxml" />
         <option value="$PROJECT_DIR$/src/View/BillingViews/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
@@ -251,25 +258,35 @@
         <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentFilesController.java" />
         <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/ReportFormController.java" />
         <option value="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" />
         <option value="$PROJECT_DIR$/src/View/PatientViews/addPatient.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Main.java" />
         <option value="$PROJECT_DIR$/src/View/PatientViews/PatientView.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java" />
         <option value="$PROJECT_DIR$/src/Model/Patient.java" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" />
         <option value="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml" />
-        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Procedures.java" />
+        <option value="$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml" />
+        <option value="$PROJECT_DIR$/src/Model/Schedule.java" />
+        <option value="$PROJECT_DIR$/src/Model/TimeSlot.java" />
+        <option value="$PROJECT_DIR$/src/Model/ScheduleConflict.java" />
+        <option value="$PROJECT_DIR$/src/Model/Modality.java" />
+        <option value="$PROJECT_DIR$/src/Model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Main.java" />
         <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-132" />
+    <option name="y" value="-9" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -317,6 +334,12 @@
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -347,7 +370,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552382041441" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552464390569" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/" />
@@ -478,12 +501,12 @@
       <workItem from="1551923227722" duration="9019000" />
       <workItem from="1552297244001" duration="5224000" />
       <workItem from="1552342843215" duration="550000" />
-      <workItem from="1552343700851" duration="17792000" />
+      <workItem from="1552343700851" duration="42226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76588000" />
+    <option name="totallyTimeSpent" value="101022000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,8 +531,8 @@
       <window_info anchor="bottom" id="Duplicate detector" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25785482" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3716143" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5742145" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40195015" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
@@ -519,7 +542,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3846154" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.3846154" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.32936078" />
@@ -536,30 +559,31 @@
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13219616" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15031983" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3531961" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31419286" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="bottom" id="Changes" order="10" />
-      <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3846154" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Terminal" order="16" weight="0.32936078" />
+      <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3206934" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4626219" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
+      <window_info anchor="bottom" id="Problems" order="10" />
+      <window_info anchor="bottom" id="Changes" order="11" />
+      <window_info anchor="bottom" id="Profiler" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3846154" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="17" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -580,90 +604,19 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((ResultsetRowsStatic)((ResultSetImpl)rs).rowData).rows" custom="com.mysql.cj.jdbc.result.ResultSetImpl,com.mysql.cj.protocol.a.result.ResultsetRowsStatic" />
+        <watch expression="((ResultSetImpl)rs).rowData" custom="com.mysql.cj.jdbc.result.ResultSetImpl" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="11" column="193" selection-start-line="11" selection-start-column="193" selection-end-line="11" selection-end-column="193" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/addReferredPatient.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/MenuViews/RIS_Container.fxml" />
-    <entry file="file://$PROJECT_DIR$/ris.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="71" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../RISfx/src/Controller/PatientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding>
-            <element signature="method#setPatientView#1;class#PatientController#0" />
-            <element signature="method#editPatientInfo#0;class#PatientController#0" />
-            <element signature="method#setAppointmentView#0;class#PatientController#0" />
-            <element signature="method#setAddAppointment#0;class#PatientController#0" />
-            <element signature="method#toggleSchedule#0;class#PatientController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../RISfx/src/View/ReferralViews/ReferralList.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="32" selection-end-column="15" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="method#setBackPage#0;class#TechController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="93" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../RISfx/src/Controller/ReferralController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -689,21 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BillingViews/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -716,14 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -872,24 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="2494" selection-start-line="2494" selection-end-line="2494" />
-          <folding>
-            <element signature="e#66572#66573#0" expanded="true" />
-            <element signature="e#66618#66619#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/Initializable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -919,19 +831,6 @@
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
-          <folding>
-            <element signature="method#setBackPage#0;class#PatientViewController#0" />
-            <element signature="method#editPatientInfo#0;class#PatientViewController#0" />
-            <element signature="method#setAppointmentView#0;class#PatientViewController#0" />
-            <element signature="method#setAddAppointment#0;class#PatientViewController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -960,39 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setView#0;class#AppointmentViewController#0" />
-            <element signature="method#setBackPage#0;class#AppointmentViewController#0" />
-            <element signature="method#initialize#0;class#AppointmentViewController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="2547" selection-start-line="2547" selection-end-line="2547" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#start#0;class#Main#0" />
-            <element signature="method#setBackPage#0;class#Main#0" />
-            <element signature="e#3407#3408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1001,11 +867,41 @@
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Procedures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Procedures#0;class#Procedures#0" />
+            <element signature="method#Procedures#1;class#Procedures#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/addAppointment.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="100" column="24" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+        <state relative-caret-position="306">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
+            <element signature="method#initialize#0;class#PatientListController#0" />
+            <element signature="method#patientListFill#0;class#PatientListController#0" />
             <element signature="method#setAddPatientView#0;class#PatientListController#0" />
             <element signature="method#setPatientView#0;class#PatientListController#0" />
             <element signature="method#setPatientList#0;class#PatientListController#0" />
@@ -1015,29 +911,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+        <state relative-caret-position="183">
+          <caret line="8411" selection-start-line="8411" selection-end-line="8411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/ComboBoxBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="2494" selection-start-line="2494" selection-end-line="2494" />
+          <folding>
+            <element signature="e#66572#66573#0" expanded="true" />
+            <element signature="e#66618#66619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="method#setBackPage#0;class#PatientViewController#0" />
+            <element signature="method#editPatientInfo#0;class#PatientViewController#0" />
+            <element signature="method#setAppointmentView#0;class#PatientViewController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/ObjectPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="e#2623#2624#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/javafx/binding/ExpressionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="2442" selection-start-line="2442" selection-end-line="2442" />
+          <folding>
+            <element signature="e#66921#66922#0" expanded="true" />
+            <element signature="e#66966#66967#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="72" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="72" />
+          <folding>
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/TimeSlot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Appointment#0;class#Appointment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Modality.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setView#0;class#AppointmentViewController#0" />
+            <element signature="method#setBackPage#0;class#AppointmentViewController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setCenterPane#0;class#Main#0" />
+            <element signature="e#4472#4473#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="450">
+          <caret line="114" column="59" lean-forward="true" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#setView#0;class#AppointmentListController#0" />
             <element signature="method#initialize#0;class#AppointmentListController#0" />
-            <element signature="method#AppointmentListFill#0;class#AppointmentListController#0" />
-            <element signature="method#getAppointmentList#0;class#AppointmentListController#0" />
-            <element signature="e#2638#3325#0" />
+            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
             <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
-            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="138" column="74" selection-start-line="138" selection-start-column="54" selection-end-line="138" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="165" column="51" selection-start-line="165" selection-start-column="51" selection-end-line="165" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#AddAppointmentController#0" />
+            <element signature="e#1123#1225#1" />
+            <element signature="e#1445#1619#0" />
+            <element signature="method#updateTable#0;class#AddAppointmentController#0" />
+            <element signature="method#queryTimeSlots#0;class#AddAppointmentController#0" />
+            <element signature="e#0#312#1" />
+            <element signature="method#queryConflicts#0;class#AddAppointmentController#0" />
           </folding>
         </state>
       </provider>

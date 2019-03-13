@@ -1,8 +1,12 @@
 package Controller;
 
 import Controller.PatientControllers.PatientListController;
+import Model.Appointment;
 import Model.Patient;
+import Model.Procedures;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -23,6 +29,8 @@ public class Main extends Application {
     private static Scene MainScene = new Scene(Outer,1600, 900);
 
     private static Patient patientFocus = new Patient();
+    private static Appointment appointmentFocus = new Appointment();
+
     public static Stage popup = new Stage();
 
     @Override
@@ -97,9 +105,24 @@ public class Main extends Application {
         Main.patientFocus = patientFocus;
     }
 
+    public static Appointment getAppointmentFocus(){ return appointmentFocus; }
+    public static void setAppointmentFocus(Appointment appointmentFocus){
+        Main.appointmentFocus = appointmentFocus;
+    }
 
+    public static ObservableList<String> getProcedureList() throws Exception{
+        ObservableList<String> rtn = FXCollections.observableArrayList();
 
+        Connection conn = databaseConnector.getConnection();
+        ResultSet rs = conn.prepareStatement("SELECT * FROM `procedures`").executeQuery();
+        while (rs.next()){
+            rtn.add(
+                rs.getInt("procedure_id") + ": " + rs.getString("procedure_name")
+            );
+        }
 
+        return rtn;
+    }
 
 
 

@@ -3,6 +3,7 @@ package Controller.AppointmentControllers;
 import Controller.databaseConnector;
 import Controller.Main;
 import Model.Appointment;
+import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,7 +39,7 @@ public class AppointmentListController implements Initializable {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
-                    //sendPatientToView(PatientList.getSelectionModel().getSelectedItem());
+                    sendAppointmentToView(AppointmentList.getSelectionModel().getSelectedItem());
                     AppointmentViewController.setView();
                 }catch(Exception e){
                     e.printStackTrace();
@@ -65,37 +66,12 @@ public class AppointmentListController implements Initializable {
         Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
 
-    private ObservableList<Appointment> getAppointmentList() throws SQLException {
+    //@SuppressWarnings(value = "Duplicates")
+    private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-
-         Connection conn = databaseConnector.getConnection();
-        try(ResultSet resultSet = (conn.prepareStatement("select * FROM appointments")).executeQuery()){
+        try(ResultSet resultSet = (databaseConnector.getConnection().prepareStatement("select * FROM appointments")).executeQuery()){
             while (resultSet.next()){
-                ResultSet patientInfo = conn.prepareStatement(
-                        "SELECT first_name, last_name, status FROM patient " +
-                             "WHERE patient_id = " + resultSet.getInt("patient_id")).executeQuery();
-                patientInfo.next();
-                String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
-
-                SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-                SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
-
-                appointments.add(new Appointment(
-                        resultSet.getInt("appointment_id"),
-                        resultSet.getInt("procedure_id"),
-                        resultSet.getInt("patient_id"),
-                        patientFullName,
-                        resultSet.getInt("machine_id"),
-                        resultSet.getInt("employee_id"),
-                        resultSet.getDate("appointment_date"),
-                        resultSet.getTime("appointment_time"),
-                        resultSet.getTime("patient_sign_in_time"),
-                        resultSet.getTime("patient_sign_out_time"),
-                        resultSet.getString("reason_for_referral"),
-                        resultSet.getString("special_comments"),
-                        patientInfo.getString("status"),
-                        String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time")))
-                ));
+                appointments.add(generateAppointment(resultSet));
             }
         }catch(SQLException ex){
             databaseConnector.displayException(ex);
@@ -104,7 +80,45 @@ public class AppointmentListController implements Initializable {
         }
         return appointments;
     }
+    private void sendAppointmentToView(Appointment selectedItem) throws Exception{
+        int appointmentId = selectedItem.getAppointmentId();
 
+        Connection conn = databaseConnector.getConnection();
+
+        ResultSet rs = (conn.prepareStatement("select * FROM appointments WHERE appointment_id = " + appointmentId)).executeQuery();
+        rs.next();
+        Main.setAppointmentFocus(generateAppointment(rs));
+    }
+
+    public Appointment generateAppointment(ResultSet resultSet) throws Exception{
+        Connection conn = databaseConnector.getConnection();
+
+        ResultSet patientInfo = conn.prepareStatement(
+                "SELECT first_name, last_name, status FROM patient " +
+                        "WHERE patient_id = " + resultSet.getInt("patient_id")).executeQuery();
+        patientInfo.next();
+        String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
+
+        return new Appointment(
+                resultSet.getInt("appointment_id"),
+                resultSet.getInt("procedure_id"),
+                resultSet.getInt("patient_id"),
+                patientFullName,
+                resultSet.getInt("machine_id"),
+                resultSet.getInt("employee_id"),
+                resultSet.getDate("appointment_date"),
+                resultSet.getTime("appointment_time"),
+                resultSet.getTime("patient_sign_in_time"),
+                resultSet.getTime("patient_sign_out_time"),
+                resultSet.getString("reason_for_referral"),
+                resultSet.getString("special_comments"),
+                patientInfo.getString("status"),
+                String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time")))
+        );
+    }
 
     /////////////////////////
      //Button Function Calls//
@@ -112,7 +126,10 @@ public class AppointmentListController implements Initializable {
     public void setAppointmentView(ActionEvent actionEvent) throws Exception{
         AppointmentViewController.setView();
     }
+
+    //Reset the Patient Focus when pressing this button to clear the patient ID Field
     public void setAddAppointment(ActionEvent actionEvent) throws Exception{
+        Main.setPatientFocus(new Patient());
         AddAppointmentController.setView();
     }
 }

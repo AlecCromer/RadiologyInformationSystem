@@ -251,10 +251,10 @@ CREATE TABLE `role_relationship` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Table structure for table `timeSlot`
 --
 
-CREATE TABLE `schedule` (
+CREATE TABLE `timeSlot` (
   `schedule_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -359,9 +359,9 @@ ALTER TABLE `role_relationship`
   ADD PRIMARY KEY (`role_relationship_id`);
 
 --
--- Indexes for table `schedule`
+-- Indexes for table `timeSlot`
 --
-ALTER TABLE `schedule`
+ALTER TABLE `timeSlot`
   ADD PRIMARY KEY (`schedule_id`);
 
 --
@@ -459,9 +459,9 @@ ALTER TABLE `role_relationship`
   MODIFY `role_relationship_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `schedule`
+-- AUTO_INCREMENT for table `timeSlot`
 --
-ALTER TABLE `schedule`
+ALTER TABLE `timeSlot`
   MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
