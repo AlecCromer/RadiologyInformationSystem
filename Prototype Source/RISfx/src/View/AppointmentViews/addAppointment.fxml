@@ -15,13 +15,13 @@
     <DatePicker fx:id="scheduleDate" layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="70.0" />
     <TableView fx:id="scheduleTime" layoutX="14.0" layoutY="75.0" prefHeight="221.0" prefWidth="261.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="105.0">
         <columns>
-            <TableColumn fx:id="timeSlotCol" prefWidth="75.0" text="Time Slot" />
-            <TableColumn fx:id="techCol" prefWidth="75.0" text="Technician" />
-            <TableColumn fx:id="modCol" prefWidth="110.0" text="Modality Name" />
+            <TableColumn fx:id="timeSlotCol" prefWidth="161.0" text="Time Slot" />
+            <TableColumn fx:id="techCol" minWidth="0.0" prefWidth="200.0" text="Technician" />
+            <TableColumn fx:id="modCol" prefWidth="174.0" text="Modality Name" />
         </columns>
-        <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-        </columnResizePolicy>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
     </TableView>
    <Text layoutX="21.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule New Appointment" underline="true" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="14.0">
       <font>
@@ -35,6 +35,6 @@
       </font>
    </Text>
    <TextField fx:id="patientIDField" layoutX="81.0" layoutY="40.0" prefHeight="25.0" prefWidth="74.0" AnchorPane.leftAnchor="82.0" AnchorPane.topAnchor="40.0" />
-   <Button layoutX="527.0" layoutY="515.0" mnemonicParsing="false" text="Submit" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+   <Button layoutX="527.0" layoutY="515.0" mnemonicParsing="false" onAction="#submitNewAppointment" text="Submit" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="21.0" />
 
 </AnchorPane>

@@ -1,6 +1,7 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
+import Controller.PatientControllers.PatientListController;
 import Model.Appointment;
 import Model.ScheduleConflict;
 import javafx.collections.FXCollections;
@@ -17,10 +18,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import Controller.databaseConnector;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 public class AddAppointmentController implements Initializable {
 
     public static void setView() throws Exception{
+        Main.popup.setHeight(500);
+        Main.popup.setWidth(600);
         Main.setPopupWindow("AppointmentViews/addAppointment.fxml");
     }
 
@@ -42,9 +47,7 @@ public class AddAppointmentController implements Initializable {
         scheduleDate.valueProperty().addListener((ov, oldValue, newValue) -> {
             try {
                 updateTable();
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
+            }catch (Exception e) { e.printStackTrace(); }
         });
 
         try {
@@ -54,30 +57,32 @@ public class AddAppointmentController implements Initializable {
         //Procedure Section
         try {
             ObservableList<String> procedureList = Main.getProcedureList();
-            //TODO: When sending selected procedure, split string and trim for id
             procedureBox.setItems(procedureList);
             procedureBox.valueProperty().addListener((ov, oldValue, newValue) -> {
                 try {
                     comboSelection = Integer.parseInt(procedureBox.getValue().split(": ")[0]);
                     updateTable();
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
+                }catch (Exception e) { e.printStackTrace(); }
             });
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        catch (Exception e){ e.printStackTrace(); }
+        scheduleTime.setOnMouseClicked((MouseEvent event) -> {
+            //DOUBLE CLICK ON CELL
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try{
+
+                        submitNewAppointment();
+
+                }catch(Exception e){ e.printStackTrace(); }
+            } });
     }
 
     private void updateTable() throws Exception{
-        System.out.println("Table Updated");
         scheduleTime.setItems(FXCollections.observableArrayList());
         scheduleTime.setItems(generateTimeSlots(60));
-
         timeSlotCol.setCellValueFactory(new PropertyValueFactory<Appointment, LocalTime>("appointmentTime"));
-        modCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("machineId"));
-        modCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
+        techCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
+        modCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("machineName"));
     }
 
     private ResultSet queryEmployeeSchedule() throws Exception{
@@ -85,7 +90,7 @@ public class AddAppointmentController implements Initializable {
 
         PreparedStatement employeeSchedule = conn.prepareStatement(
             "SELECT  CONCAT(employees.first_name, \" \", employees.last_name) AS employee_name, employees.employee_id, " +
-                    "employee_schedule.start_time, employee_schedule.end_time, modality.machine_id " +
+                    "employee_schedule.start_time, employee_schedule.end_time, modality.machine_id, modality.machine_name " +
                     "FROM modality, employee_schedule " +
                     "INNER JOIN employees ON employee_schedule.employee_id=employees.employee_id " +
                     "WHERE " +
@@ -124,53 +129,103 @@ public class AddAppointmentController implements Initializable {
         ObservableList<Appointment> timeSlotList = FXCollections.observableArrayList();
 
         LocalTime employeeStartTime, employeeEndTime;
-        int employeeId, machineId;
-        String technician, machine;
 
         while(employeeSchedule.next()){
-            employeeStartTime = employeeSchedule.getTime("start_time").toLocalTime();
-            employeeEndTime = employeeSchedule.getTime("end_time").toLocalTime();
-            employeeId = employeeSchedule.getInt("employee_id");
-            technician = employeeSchedule.getString("employee_name");
-            machineId = employeeSchedule.getInt("machine_id");
+            employeeStartTime   = employeeSchedule.getTime("start_time").toLocalTime();
+            employeeEndTime     = employeeSchedule.getTime("end_time").toLocalTime();
 
-            //Check for all conflicts with current employee that is scheduled
-            ResultSet rs = queryConflicts(employeeId);
-            ArrayList<ScheduleConflict> conflicts = new ArrayList<>();
-            while (rs.next()) {
-                LocalDate cDate = rs.getDate("appointment_date").toLocalDate();
-                LocalTime cTime = rs.getTime("appointment_time").toLocalTime();
 
-                conflicts.add(new ScheduleConflict(
-                        rs.getInt("procedure_length"),
-                        LocalDateTime.of(cDate, cTime)
-                ));
-            }
+            ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
 
             while (employeeStartTime.isBefore(employeeEndTime)) {
                 for (ScheduleConflict scheduleConflict:
                         conflicts) {
                     if ((scheduleConflict.getConflictDateTime().plusMinutes(scheduleConflict.getConflictLength()*60).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().minusMinutes(scheduleConflict.getConflictLength()*60).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().plusMinutes(scheduleConflict.getConflictLength()*30).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().minusMinutes(scheduleConflict.getConflictLength()*30).toLocalTime() == employeeStartTime)||
+                        (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) + 30).toLocalTime() == employeeStartTime) ||
+                        (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) - 30).toLocalTime() == employeeStartTime) ||
                         (scheduleConflict.getConflictDateTime().toLocalTime() == employeeStartTime)){
-
                         employeeStartTime = employeeStartTime.plusMinutes(scheduleConflict.getConflictLength()*60);
-                        System.out.println("There was a conflict");
                     }
                 }
-                timeSlotList.add(new Appointment(
-                    machineId,
-                    employeeId,
-                    Date.valueOf(employeeSchedule.getDate("start_time").toLocalDate()),
-                    Time.valueOf(employeeStartTime)
-                ));
+                Appointment timeSlot = new Appointment(employeeSchedule.getInt("machine_id"), employeeSchedule.getString("machine_name"),
+                        employeeSchedule.getInt("employee_id"), employeeSchedule.getString("employee_name"));
+                timeSlot.setAppointmentTime(Time.valueOf(employeeStartTime));
+                timeSlot.setAppointmentDate(Date.valueOf(employeeSchedule.getDate("start_time").toLocalDate()));
+                timeSlotList.add(timeSlot);
                 employeeStartTime = employeeStartTime.plusMinutes(minuteIncrement);
             }
         }
-
         return timeSlotList;
     }
 
+    private ArrayList<ScheduleConflict> generateConflictList(int employeeId) throws Exception{
+        //Check for all conflicts with current employee that is scheduled
+        ResultSet rs = queryConflicts(employeeId);
+        ArrayList<ScheduleConflict> conflicts = new ArrayList<>();
+        while (rs.next()) {
+            LocalDate cDate = rs.getDate("appointment_date").toLocalDate();
+            LocalTime cTime = rs.getTime("appointment_time").toLocalTime();
+
+            conflicts.add(new ScheduleConflict(
+                    rs.getInt("procedure_length"),
+                    LocalDateTime.of(cDate, cTime)
+            ));
+        }
+        return conflicts;
+    }
+
+    @FXML
+    private void submitNewAppointment() throws Exception{
+        if (validateAppointment()) {
+            Appointment appointmentToSubmit = scheduleTime.getSelectionModel().getSelectedItem();
+            appointmentToSubmit.setProcedure(comboSelection);
+            appointmentToSubmit.setPatientId(Integer.parseInt(patientIDField.getText()));
+
+            Connection conn = databaseConnector.getConnection();
+            PreparedStatement update = conn.prepareStatement(
+                    "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`) " +
+                            "VALUES (?, ?, ?, ?, ?, ?);");
+            update.setInt(1, appointmentToSubmit.getPatientId());
+            update.setDate(2, appointmentToSubmit.getAppointmentDate());
+            update.setTime(3, appointmentToSubmit.getAppointmentTime());
+            update.setInt(4, appointmentToSubmit.getProcedureId());
+            update.setInt(5, appointmentToSubmit.getMachineId());
+            update.setInt(6, appointmentToSubmit.getEmployeeId());
+
+            update.executeUpdate();
+            exitView();
+        }
+    }
+
+    private Boolean validateAppointment(){
+        Appointment selectedTimeSlot = scheduleTime.getSelectionModel().getSelectedItem();
+
+        try{
+            selectedTimeSlot.setPatientId(Integer.parseInt(patientIDField.getText()));
+        }catch (Exception e){return false;}
+
+        //Validate everything but the table
+        if((scheduleDate.getValue().toString() != "" && !(scheduleDate.getValue().isBefore(LocalDate.now()))) &&
+            (comboSelection != 0)){
+
+            selectedTimeSlot.setProcedure(comboSelection);
+            //Table rows are appointment objects; Validate the object here
+            if ((selectedTimeSlot.getAppointmentDate() != null) &&
+                (selectedTimeSlot.getAppointmentTime() != null) &&
+                (selectedTimeSlot.getProcedureId() > 0) &&
+                (selectedTimeSlot.getPatientId() > 0) &&
+                (selectedTimeSlot.getMachineId() > 0) &&
+                (selectedTimeSlot.getEmployeeId() > 0)) {
+
+                return true;
+            }
+        }
+        System.out.println("Something was not set");
+        return false;
+    }
+    private void exitView() throws Exception{
+        Main.popup.close();
+        Main.getOuter().setDisable(false);
+        AppointmentListController.setView();
+    }
 }

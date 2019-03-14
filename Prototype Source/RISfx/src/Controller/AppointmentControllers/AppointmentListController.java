@@ -60,8 +60,8 @@ public class AppointmentListController implements Initializable {
         appointmentID.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("appointmentId"));
         patientFullName.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientFullName"));
         DateTime.setCellValueFactory(new PropertyValueFactory<Appointment, String>("dateTime"));
-        ProcedureType.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedure"));
-        Technician.setCellValueFactory(new PropertyValueFactory<Appointment, String>("employeeId"));
+        ProcedureType.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedureName"));
+        Technician.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
         Status.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
         Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
@@ -69,7 +69,11 @@ public class AppointmentListController implements Initializable {
     //@SuppressWarnings(value = "Duplicates")
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet resultSet = (databaseConnector.getConnection().prepareStatement("select * FROM appointments")).executeQuery()){
+        try(ResultSet resultSet = (databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                        "FROM `appointments` " +
+                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery()){
             while (resultSet.next()){
                 appointments.add(generateAppointment(resultSet));
             }
@@ -85,7 +89,12 @@ public class AppointmentListController implements Initializable {
 
         Connection conn = databaseConnector.getConnection();
 
-        ResultSet rs = (conn.prepareStatement("select * FROM appointments WHERE appointment_id = " + appointmentId)).executeQuery();
+        ResultSet rs = (conn.prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                "FROM `appointments` " +
+                "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
+                "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
         rs.next();
         Main.setAppointmentFocus(generateAppointment(rs));
     }
@@ -103,24 +112,26 @@ public class AppointmentListController implements Initializable {
         SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
 
         return new Appointment(
-                resultSet.getInt("appointment_id"),
-                resultSet.getInt("procedure_id"),
-                resultSet.getInt("patient_id"),
-                patientFullName,
-                resultSet.getInt("machine_id"),
-                resultSet.getInt("employee_id"),
-                resultSet.getDate("appointment_date"),
-                resultSet.getTime("appointment_time"),
-                resultSet.getTime("patient_sign_in_time"),
-                resultSet.getTime("patient_sign_out_time"),
-                resultSet.getString("reason_for_referral"),
-                resultSet.getString("special_comments"),
-                patientInfo.getString("status"),
-                String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time")))
+            resultSet.getInt("appointment_id"),
+            resultSet.getInt("procedure_id"),
+            resultSet.getInt("patient_id"),
+            patientFullName,
+            resultSet.getInt("machine_id"),
+            resultSet.getInt("employee_id"),
+            resultSet.getDate("appointment_date"),
+            resultSet.getTime("appointment_time"),
+            resultSet.getTime("patient_sign_in_time"),
+            resultSet.getTime("patient_sign_out_time"),
+            resultSet.getString("reason_for_referral"),
+            resultSet.getString("special_comments"),
+            patientInfo.getString("status"),
+            String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
+            resultSet.getString("full_name"),
+            resultSet.getString("procedure_name")
         );
     }
 
-    /////////////////////////
+      /////////////////////////
      //Button Function Calls//
     /////////////////////////
     public void setAppointmentView(ActionEvent actionEvent) throws Exception{

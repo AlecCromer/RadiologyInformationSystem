@@ -9,10 +9,10 @@ import java.time.LocalTime;
 
 public class Appointment {
 
-    private int appointmentId, procedure, patientId, machineId, employeeId;
+    private int appointmentId, procedureId, patientId, machineId, employeeId;
     private Date appointmentDate;
     private Time appointmentTime, patientSignIn, patientSignOut;
-    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, room;
+    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, room, technician, machineName, procedureName;
     private Modality modality;
 
     public int getAppointmentId() {
@@ -22,11 +22,11 @@ public class Appointment {
         this.appointmentId = appointmentId;
     }
 
-    public int getProcedure() {
-        return procedure;
+    public int getProcedureId() {
+        return procedureId;
     }
-    public void setProcedure(int procedure) {
-        this.procedure = procedure;
+    public void setProcedure(int procedureId) {
+        this.procedureId = procedureId;
     }
 
     public int getPatientId() {
@@ -105,18 +105,18 @@ public class Appointment {
     public String getDateTime(){ return dateTime; }
     public void setDateTime(String dateTime){ this.dateTime = dateTime; }
 
-    public String getRoom() {
-        return room;
+    public String getTechnician() {
+        return technician;
     }
-    public void setRoom(String room) {
-        this.room = room;
-    }
+    public void setTechnician(String technician){ this.technician = technician; }
 
-    public Modality getModality() {
-        return modality;
+    public String getMachineName() {
+        return machineName;
     }
-    public void setModality(Modality modality) {
-        this.modality = modality;
+    public void  setMachineName(String machineName){ this.machineName = machineName; }
+
+    public String getProcedureName() {
+        return procedureName;
     }
 
     ///////////////
@@ -130,36 +130,46 @@ public class Appointment {
         this.refferalReason = null;
         this.Comments = null;
         this.appointmentId = -1;
-        this.procedure = -1;
+        this.procedureId = -1;
         this.patientId = -1;
         this.machineId = -1;
         this.employeeId = -1;
     }
 
-    public Appointment(int machineId, int employeeId, Date appointmentDate, Time appointmentTime) {
-        this.machineId = machineId;
-        this.employeeId = employeeId;
-        this.appointmentDate = appointmentDate;
-        this.appointmentTime = appointmentTime;
-        this.modality = modality;
+    public Appointment(int machineId, String machineName, int employeeId, String technician, Date appointmentDate, Time appointmentTime) {
+        this.machineId          = machineId;
+        this.machineName        = machineName;
+        this.employeeId         = employeeId;
+        this.technician         = technician;
+        this.appointmentDate    = appointmentDate;
+        this.appointmentTime    = appointmentTime;
+    }
+
+    public Appointment(int machineId, String machineName, int employeeId, String technician) {
+        this.machineId          = machineId;
+        this.machineName        = machineName;
+        this.employeeId         = employeeId;
+        this.technician         = technician;
     }
 
     public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
-                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String refferalReason, String Comments, String patientStatus, String dateTime){
-        this.appointmentDate = appointmentDate;
-        this.appointmentTime = appointmentTime;
-        this.patientSignIn = patientSignIn;
-        this.patientSignOut = patientSignOut;
-        this.refferalReason = refferalReason;
-        this.Comments = Comments;
-        this.appointmentId = appointmentId;
-        this.procedure = procedure;
-        this.patientId = patientId;
-        this.machineId = machineId;
-        this.employeeId = employeeId;
-        this.patientStatus = patientStatus;
-        this.patientFullName = patientFullName;
-        this.dateTime = dateTime;
+                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String refferalReason, String Comments, String patientStatus, String dateTime, String technician, String procedureName){
+        this.appointmentDate    = appointmentDate;
+        this.appointmentTime    = appointmentTime;
+        this.patientSignIn      = patientSignIn;
+        this.patientSignOut     = patientSignOut;
+        this.refferalReason     = refferalReason;
+        this.Comments           = Comments;
+        this.appointmentId      = appointmentId;
+        this.procedureId        = procedure;
+        this.patientId          = patientId;
+        this.machineId          = machineId;
+        this.employeeId         = employeeId;
+        this.patientStatus      = patientStatus;
+        this.patientFullName    = patientFullName;
+        this.dateTime           = dateTime;
+        this.technician         = technician;
+        this.procedureName      = procedureName;
     }
 
 }
