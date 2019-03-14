@@ -1,7 +1,7 @@
 package Controller.PatientControllers;
 
-import Controller.Controller;
 import Controller.Main;
+import Controller.databaseConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -10,27 +10,29 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import Controller.databaseConnector;
-
-import javax.swing.text.DateFormatter;
-
 public class NewPatientController implements Initializable {
 
-    @FXML TextField addressField, cityField, stateField, zipField;
-    @FXML TextField fNameField, lNameField,  pNumberField, sNumberField,
-            emailField, insuranceField, policyField, sexField;
-    @FXML Button patientSubmit;
-    @FXML CheckBox toggler;
-    @FXML DatePicker scheduleDate, dobField;
-    @FXML TableView scheduleTime;
-    @FXML ComboBox appointmentCBox;
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    @FXML TextField     addressField, cityField, stateField, zipField;
+    @FXML TextField     fNameField, lNameField,  pNumberField, sNumberField,
+                        emailField, insuranceField, policyField, sexField;
+    @FXML Button        patientSubmit;
+    @FXML CheckBox      toggler;
+    @FXML DatePicker    scheduleDate, dobField;
+    @FXML TableView     scheduleTime;
+    @FXML ComboBox      appointmentCBox;
 
+
+      ////////////////
+     //Initializers//
+    ////////////////
     public void initialize(URL url, ResourceBundle arg1){
         dobField.setValue(LocalDate.of(1950, 1, 1));
     }
@@ -42,17 +44,47 @@ public class NewPatientController implements Initializable {
     }
 
 
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+    private int insertAddress() throws Exception{
+        PreparedStatement insertAddress = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO address(street_name, city, state, zip)" +
+                        "VALUES(?, ?, ?, ?)");
+        return prepareAddress(insertAddress).executeUpdate();
+    }
+
+    private ResultSet queryAddress() throws Exception{
+        PreparedStatement addressQuery = databaseConnector.getConnection().prepareStatement(
+            "SELECT address_id FROM address " +
+                "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
+        return prepareAddress(addressQuery).executeQuery();
+    }
+
+    private PreparedStatement prepareAddress(PreparedStatement statement) throws Exception{
+        statement.setString(1, addressField.getText());
+        statement.setString(2, cityField.getText());
+        statement.setString(3, stateField.getText());
+        statement.setInt(4, Integer.parseInt(zipField.getText()));
+        return statement;
+    }
+
+
+      ///////////////////
+     //List Generators//
+    ///////////////////
+
+
+      //////////////////
+     //Button Methods//
+    //////////////////
     public void submitNewPatient() throws Exception{
         if (validateForm()){
             Connection conn = databaseConnector.getConnection();
 
             if(insertAddress() == 1) {
 
-                PreparedStatement addressQuery = conn.prepareStatement("SELECT address_id FROM address " +
-                        "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
-                prepareAddressStatement(addressQuery);
-
-                ResultSet addressSet = addressQuery.executeQuery();
+                ResultSet addressSet = queryAddress();
                 addressSet.next();
                 int address_id = addressSet.getInt("address_id");
 
@@ -84,6 +116,7 @@ public class NewPatientController implements Initializable {
 
         }
     }
+
     public void toggleSchedule(){
         if (toggler.isSelected()){
             scheduleDate.setVisible(true);
@@ -103,37 +136,24 @@ public class NewPatientController implements Initializable {
         }
     }
 
-
     private void exitView() throws Exception{
         Main.popup.close();
         Main.getOuter().setDisable(false);
-        PatientListController.setPatientList();
+        PatientListController.setView();
     }
 
+
+      ///////////////////
+     //Form Validation//
+    ///////////////////
+    private String dateFormatter(LocalDate date){
+          DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+          return date.format(format);
+      }
 
     private boolean validateForm(){
         //TODO: Implement actual form validation
 
         return true;
-    }
-    private void prepareAddressStatement(PreparedStatement addressQuery) throws SQLException {
-        addressQuery.setString(1, addressField.getText());
-        addressQuery.setString(2, cityField.getText());
-        addressQuery.setString(3, stateField.getText());
-        addressQuery.setInt(4, Integer.parseInt(zipField.getText()));
-    }
-    private int insertAddress() throws Exception{
-        Connection conn = databaseConnector.getConnection();
-
-        PreparedStatement insertAddress = conn.prepareStatement(
-                "INSERT INTO address(street_name, city, state, zip)" +
-                        "VALUES(?, ?, ?, ?)");
-        prepareAddressStatement(insertAddress);
-
-        return insertAddress.executeUpdate();
-    }
-    private String dateFormatter(LocalDate date){
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        return date.format(format);
     }
 }

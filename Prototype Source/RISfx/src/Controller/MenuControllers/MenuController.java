@@ -12,7 +12,7 @@ public class MenuController extends Controller {
 
 
     public void setPatientList(ActionEvent actionEvent) throws Exception{
-        PatientListController.setPatientList();
+        PatientListController.setView();
     }
 
     public void setAppointmentList(ActionEvent actionEvent) throws Exception{

@@ -1,7 +1,7 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
-import Controller.PatientControllers.PatientListController;
+import Controller.databaseConnector;
 import Model.Appointment;
 import Model.ScheduleConflict;
 import javafx.collections.FXCollections;
@@ -9,6 +9,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -16,27 +20,31 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import Controller.databaseConnector;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
 public class AddAppointmentController implements Initializable {
 
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    @FXML TextField                             patientIDField;
+    @FXML DatePicker                            scheduleDate;
+    @FXML ComboBox<String>                      procedureBox;
+    @FXML TableView<Appointment>                scheduleTime;
+    @FXML TableColumn<Appointment, String>      modCol;
+    @FXML TableColumn<Appointment, String>      techCol;
+    @FXML TableColumn<Appointment, LocalTime>   timeSlotCol;
+
+    private int comboSelection = 0;
+
+
+      ////////////////
+     //Initializers//
+    ////////////////
     public static void setView() throws Exception{
         Main.popup.setHeight(500);
         Main.popup.setWidth(600);
         Main.setPopupWindow("AppointmentViews/addAppointment.fxml");
     }
-
-    @FXML TextField patientIDField;
-    @FXML DatePicker scheduleDate;
-    @FXML ComboBox<String> procedureBox;
-    @FXML TableView<Appointment> scheduleTime;
-    @FXML TableColumn<Appointment, String> modCol;
-    @FXML TableColumn<Appointment, String> techCol;
-    @FXML TableColumn<Appointment, LocalTime> timeSlotCol;
-    private int comboSelection = 0;
     public void initialize(URL url, ResourceBundle arg1) {
         //Patient ID Section
         if((Main.getPatientFocus().getPatientID() != -1)){
@@ -85,6 +93,10 @@ public class AddAppointmentController implements Initializable {
         modCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("machineName"));
     }
 
+
+      ////////////////////
+     //Database Queries//
+    ////////////////////
     private ResultSet queryEmployeeSchedule() throws Exception{
         Connection conn = databaseConnector.getConnection();
 
@@ -123,6 +135,10 @@ public class AddAppointmentController implements Initializable {
         return conflicts.executeQuery();
     }
 
+
+      ///////////////////
+     //List Generators//
+    ///////////////////
     private ObservableList<Appointment> generateTimeSlots(int minuteIncrement) throws Exception{
         ResultSet employeeSchedule = queryEmployeeSchedule();
 
@@ -174,6 +190,10 @@ public class AddAppointmentController implements Initializable {
         return conflicts;
     }
 
+
+      //////////////////
+     //Button Methods//
+    //////////////////
     @FXML
     private void submitNewAppointment() throws Exception{
         if (validateAppointment()) {
@@ -197,6 +217,10 @@ public class AddAppointmentController implements Initializable {
         }
     }
 
+
+      ///////////////////
+     //Form Validation//
+    ///////////////////
     private Boolean validateAppointment(){
         Appointment selectedTimeSlot = scheduleTime.getSelectionModel().getSelectedItem();
 
@@ -226,6 +250,6 @@ public class AddAppointmentController implements Initializable {
     private void exitView() throws Exception{
         Main.popup.close();
         Main.getOuter().setDisable(false);
-        AppointmentListController.setView();
+        Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
     }
 }

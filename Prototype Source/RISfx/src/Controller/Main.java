@@ -3,7 +3,6 @@ package Controller;
 import Controller.PatientControllers.PatientListController;
 import Model.Appointment;
 import Model.Patient;
-import Model.Procedures;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,48 +19,30 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    private static Stage primaryStage = new Stage();
-    //Use a boarderPane to present Unified Menu across all windows
-    //Use methods to edit
-    private static BorderPane Outer = new BorderPane();
-    private static BorderPane RIS_Container = new BorderPane();
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    private static Stage primaryStage           = new Stage();
+    private static BorderPane Outer             = new BorderPane();
+    private static BorderPane RIS_Container     = new BorderPane();
     private static ArrayList<Node> backNodeList = new ArrayList<>();
-    private static Scene MainScene = new Scene(Outer,1600, 900);
-
-    private static Patient patientFocus = new Patient();
+    private static Scene MainScene              = new Scene(Outer,1600, 900);
+    private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
+    public static  Stage popup                  = new Stage();
 
-    public static Stage popup = new Stage();
 
-    @Override
-    public void start(Stage stage) throws Exception{
-        primaryStage.setTitle("RIS Clinic System");
-        primaryStage.setScene(MainScene);
-        //Set the TOP of the borderPane to our menu
-        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
-        RIS_Container.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
-        Outer.setCenter(RIS_Container);
-
-        //Setup a listener for when the popup window is closed
-        popup.setOnCloseRequest(event -> {
-            this.closeWindowEvent();
-        });
-
-        //Set the initial start to our PatientList
-        PatientListController.setPatientList();
-
-        //Finally show initial stage
-        primaryStage.show();
-    }
-
+      ////////////////
+     //View Setters//
+    ////////////////
 
     //Called to set the main view
     //sets the right to null in case of expanded view
     //Pushes a node onto our back button list
     public static void setCenterPane(String fxmlName)throws Exception{
         try {
-            RIS_Container.setRight(null);
             backNodeList.add(RIS_Container.getCenter());
+            RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
         }
         catch(Exception e){
@@ -87,17 +68,21 @@ public class Main extends Application {
         Outer.setDisable(true);
     }
 
-    //Determines what all needs to be done when the popup window closes
+    //Determines what all needs to be done when the popup window closes via 'X' button
     private void closeWindowEvent() {
         Outer.setDisable(false);
     }
 
-    //Getters and Setters
+
+      ///////////////////////////
+     //Variable Getter/Setters//
+    ///////////////////////////
     public static BorderPane getRIS_Container(){
-        return RIS_Container;
-    }
+          return RIS_Container;
+      }
     public static BorderPane getOuter(){return Outer;}
 
+    //Focus variables used to pass data between the views
     public static Patient getPatientFocus() {
         return patientFocus;
     }
@@ -110,6 +95,7 @@ public class Main extends Application {
         Main.appointmentFocus = appointmentFocus;
     }
 
+    //Returns list for procedure combo boxes
     public static ObservableList<String> getProcedureList() throws Exception{
         ObservableList<String> rtn = FXCollections.observableArrayList();
 
@@ -117,14 +103,43 @@ public class Main extends Application {
         ResultSet rs = conn.prepareStatement("SELECT * FROM `procedures`").executeQuery();
         while (rs.next()){
             rtn.add(
-                rs.getInt("procedure_id") + ": " + rs.getString("procedure_name")
+                    rs.getInt("procedure_id") + ": " + rs.getString("procedure_name")
             );
         }
 
         return rtn;
     }
 
+    //TODO: (Depricated) Delete at end
+    public static ArrayList<Node> getBackNodeList(){
+        return backNodeList;
+    }
 
+
+      ////////////////
+     //Start Method//
+    ////////////////
+    @Override
+    public void start(Stage stage) throws Exception{
+        databaseConnector.getStartConnection();
+        primaryStage.setTitle("RIS Clinic System");
+        primaryStage.setScene(MainScene);
+        //Set the TOP of the borderPane to our menu
+        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
+        RIS_Container.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
+        Outer.setCenter(RIS_Container);
+
+        //Setup a listener for when the popup window is closed
+        popup.setOnCloseRequest(event -> {
+            this.closeWindowEvent();
+        });
+
+        //Set the initial start to our PatientList
+        PatientListController.setView();
+
+        //Finally show initial stage
+        primaryStage.show();
+    }
 
     //Useless but necessary
     public static void main(String[] args) {

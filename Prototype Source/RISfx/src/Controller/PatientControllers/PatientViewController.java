@@ -1,10 +1,8 @@
 package Controller.PatientControllers;
 
-import Controller.AppointmentControllers.*;
-import Controller.Controller;
+import Controller.AppointmentControllers.AddAppointmentController;
+import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
-import Model.Patient;
-import com.sun.org.apache.xml.internal.security.Init;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,23 +16,25 @@ import java.util.ResourceBundle;
 
 public class PatientViewController implements Initializable {
 
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
     @FXML
     TextField
-            fNameField,    lNameField,      pNumberField,
-            addressField,  dobField,        sNumberField,
-            emailField,    InsuranceField,  balanceField, policyField;
-    @FXML
-    Button EditPatientInfoButton;
-
+                    fNameField,    lNameField,      pNumberField,
+                    addressField,  dobField,        sNumberField,
+                    emailField,    InsuranceField,  balanceField, policyField;
+    @FXML Button    EditPatientInfoButton;
     private boolean EditPatientLock = false;
 
+
+      ////////////////
+     //Initializers//
+    ////////////////
     public static void setView()throws Exception{
         Main.setCenterPane("PatientViews/PatientView.fxml");
     }
 
-    public void setBackPage()throws Exception{
-        Main.setBackPage();
-    }
     public void initialize(URL url, ResourceBundle arg1) {
         fNameField.setText(Main.getPatientFocus().getFirstname());
         lNameField.setText(Main.getPatientFocus().getLastname());
@@ -46,7 +46,20 @@ public class PatientViewController implements Initializable {
         policyField.setText(String.valueOf(Main.getPatientFocus().getPolicyNumber()));
     }
 
-    //Allows the editing of the patient's information
+
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+
+
+      ///////////////////
+     //List Generators//
+    ///////////////////
+
+
+      //////////////////
+     //Button Methods//
+    //////////////////
     public void editPatientInfo(ActionEvent actionEvent) throws Exception {
         if (!EditPatientLock) {
             EditPatientLock = true;
@@ -85,6 +98,14 @@ public class PatientViewController implements Initializable {
         AddAppointmentController.setView();
     }
 
+    public void setBackPage()throws Exception{
+        Main.setBackPage();
+    }
+
+
+      ///////////////////
+     //Form Validation//
+    ///////////////////
     private String dateFormatter(LocalDate date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return date.format(format);

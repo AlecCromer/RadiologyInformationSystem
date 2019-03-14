@@ -7,7 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -24,17 +25,21 @@ import java.util.ResourceBundle;
 
 public class PatientListController implements Initializable {
 
-      ///////////////////////
-     //Fill Table Methods//
-    ///////////////////////
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
 
-    @FXML private TableView<Patient> PatientList;
-    @FXML private TableColumn<Patient, String> patientID, firstname, lastname, dob, sex, email;
-    @FXML private TableColumn<Patient, Integer> phoneNumber;
+    @FXML private TableView<Patient>            PatientList;
+    @FXML private TableColumn<Patient, String>  patientID, firstname, lastname, dob, sex, email;
+    @FXML private TableColumn<Patient, Integer>     phoneNumber;
 
+
+      ////////////////
+     //Initializers//
+    ////////////////
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
-        patientListFill();
+        updateTable();
         PatientList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -49,7 +54,11 @@ public class PatientListController implements Initializable {
         });
     }
 
-    public void patientListFill() {
+    public static void setView()throws Exception{
+        Main.setCenterPane("PatientViews/PatientList.fxml");
+    }
+
+    public void updateTable() {
         try {
 
             PatientList.setItems(getPatientList());
@@ -67,43 +76,54 @@ public class PatientListController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 
-    public ObservableList<Patient>  getPatientList() throws IOException {
-        ObservableList<Patient> patients = FXCollections.observableArrayList();
 
-        try(
-                Connection conn = databaseConnector.getConnection();
-                PreparedStatement displayprofile = conn.prepareStatement(
-                        "select * FROM patient");
-                ResultSet resultSet = displayprofile.executeQuery();
-
-        ){
-            while (resultSet.next()){
-                patients.add(new Patient(
-                        resultSet.getInt("patient_id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        dateFormatter(resultSet.getString("date_of_birth")),
-                        resultSet.getString("sex"),
-                        resultSet.getInt("home_phone"),
-                        resultSet.getString("email"),
-                        resultSet.getInt("insurance_number"),
-                        resultSet.getInt("policy_number"),
-                        ""
-                ));
-
-
-            }
-        }catch(SQLException ex){
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+    private ResultSet queryAllPatients() {
+        ResultSet resultSet = null;
+        try {
+            Connection conn = databaseConnector.getConnection();
+            PreparedStatement displayprofile = conn.prepareStatement(
+                    "select * FROM patient");
+             resultSet = displayprofile.executeQuery();
+        }
+        catch(SQLException ex) {
             databaseConnector.displayException(ex);
             System.out.println("Someone didn't set up their DATABASE!!");
-            return null;
+        }
+        return resultSet;
+    }
+
+
+      ///////////////////
+     //List Generators//
+    ///////////////////
+    public ObservableList<Patient>  getPatientList() throws Exception {
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+        ResultSet resultSet = queryAllPatients();
+        while (resultSet.next()) {
+            patients.add(new Patient(
+                    resultSet.getInt("patient_id"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    dateFormatter(resultSet.getString("date_of_birth")),
+                    resultSet.getString("sex"),
+                    resultSet.getInt("home_phone"),
+                    resultSet.getString("email"),
+                    resultSet.getInt("insurance_number"),
+                    resultSet.getInt("policy_number"),
+                    ""
+            ));
         }
         return patients;
     }
 
-      ///////////////////////
-     //Change View Methods//
-    ///////////////////////
+
+      //////////////////
+     //Button Methods//
+    //////////////////
     public void setAddPatientView()throws Exception{
         NewPatientController.setView();
     }
@@ -112,10 +132,10 @@ public class PatientListController implements Initializable {
        PatientViewController.setView();
     }
 
-    public static void setPatientList()throws Exception{
-        Main.setCenterPane("PatientViews/PatientList.fxml");
-    }
 
+      ///////////////////
+     //Form Validation//
+    ///////////////////
     private LocalDate dateFormatter(String date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(date, format);
