@@ -62,13 +62,13 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <TableView layoutX="21.0" layoutY="291.0" prefHeight="84.0" prefWidth="558.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="295.0">
+      <TableView fx:id="patientAppointments" layoutX="21.0" layoutY="291.0" prefHeight="84.0" prefWidth="558.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="295.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ProcedureID" />
-          <TableColumn prefWidth="75.0" text="Date" />
-            <TableColumn prefWidth="75.0" text="Sign In Time" />
-            <TableColumn prefWidth="87.0" text="Sign Out Time" />
-            <TableColumn prefWidth="87.0" text="Status" />
+          <TableColumn fx:id="appointmentID" prefWidth="75.0" text="Appointment ID" />
+          <TableColumn fx:id="appointmentDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="patientSignInTime" prefWidth="75.0" text="Sign In Time" />
+            <TableColumn fx:id="patientSignOutTime" prefWidth="87.0" text="Sign Out Time" />
+            <TableColumn fx:id="patientStatus" prefWidth="87.0" text="Status" />
             <TableColumn prefWidth="125.0" text="Procedure Balance" />
         </columns>
          <columnResizePolicy>
@@ -85,7 +85,7 @@
       <TextField fx:id="emailField" disable="true" layoutX="115.0" layoutY="146.0" prefHeight="25.0" prefWidth="258.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="146.0" />
       <TextField fx:id="InsuranceField" disable="true" layoutX="159.0" layoutY="174.0" prefHeight="25.0" prefWidth="151.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="174.0" />
       <TextField fx:id="balanceField" disable="true" layoutX="579.0" layoutY="70.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="579.0" AnchorPane.topAnchor="70.0" />
-      <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
+      <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" visible="false" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
       <Button layoutX="811.0" layoutY="267.0" mnemonicParsing="false" onAction="#setAddAppointment" text="Schedule New" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="267.0" />
       <TableView layoutX="691.0" layoutY="52.0" prefHeight="200.0" prefWidth="620.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
         <columns>

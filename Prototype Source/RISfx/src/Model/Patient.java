@@ -1,5 +1,8 @@
 package Model;
 
+import Controller.databaseConnector;
+
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -113,5 +116,12 @@ public class Patient {
         this.policyNumber       = policyNumber;
         this.address            = address;
         this.AppointmentList    = new ArrayList<>();
+    }
+
+
+    public static ResultSet queryPatientInfo(int patientID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT first_name, last_name, status FROM patient " +
+                        "WHERE patient_id = " + patientID).executeQuery();
     }
 }

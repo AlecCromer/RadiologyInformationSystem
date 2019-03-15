@@ -3,7 +3,9 @@ package Model;
 import javafx.stage.Modality;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -12,7 +14,7 @@ public class Appointment {
     private int appointmentId, procedureId, patientId, machineId, employeeId;
     private Date appointmentDate;
     private Time appointmentTime, patientSignIn, patientSignOut;
-    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, room, technician, machineName, procedureName;
+    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, technician, machineName, procedureName;
     private Modality modality;
 
     public int getAppointmentId() {
@@ -136,6 +138,14 @@ public class Appointment {
         this.employeeId = -1;
     }
 
+    public Appointment(int appointmentId, String dateTime, Time patientSignIn, Time patientSignOut, String patientStatus) {
+        this.appointmentId = appointmentId;
+        this.dateTime = dateTime;
+        this.patientSignIn = patientSignIn;
+        this.patientSignOut = patientSignOut;
+        this.patientStatus = patientStatus;
+    }
+
     public Appointment(int machineId, String machineName, int employeeId, String technician, Date appointmentDate, Time appointmentTime) {
         this.machineId          = machineId;
         this.machineName        = machineName;
@@ -172,4 +182,32 @@ public class Appointment {
         this.procedureName      = procedureName;
     }
 
+
+    public static Appointment generateAppointmentFocus(ResultSet resultSet) throws Exception{
+        ResultSet patientInfo = Patient.queryPatientInfo(resultSet.getInt("patient_id"));
+        patientInfo.next();
+        String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
+
+        return new Appointment(
+                resultSet.getInt("appointment_id"),
+                resultSet.getInt("procedure_id"),
+                resultSet.getInt("patient_id"),
+                patientFullName,
+                resultSet.getInt("machine_id"),
+                resultSet.getInt("employee_id"),
+                resultSet.getDate("appointment_date"),
+                resultSet.getTime("appointment_time"),
+                resultSet.getTime("patient_sign_in_time"),
+                resultSet.getTime("patient_sign_out_time"),
+                resultSet.getString("reason_for_referral"),
+                resultSet.getString("special_comments"),
+                patientInfo.getString("status"),
+                String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
+                resultSet.getString("full_name"),
+                resultSet.getString("procedure_name")
+        );
+    }
 }

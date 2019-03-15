@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
@@ -28,7 +29,6 @@ public class AppointmentViewController implements Initializable {
 
     public void initialize(URL url, ResourceBundle arg1) {
         pNameField.setText(Main.getAppointmentFocus().getPatientFullName());
-        ;
         appointmentIDField.setText(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));
         appointmentDateField.setText((new SimpleDateFormat("MM/dd/yyyy")).format(Main.getAppointmentFocus().getAppointmentDate()));
         appointmentTimeField.setText((new SimpleDateFormat("HH:mm")).format(Main.getAppointmentFocus().getAppointmentTime()));

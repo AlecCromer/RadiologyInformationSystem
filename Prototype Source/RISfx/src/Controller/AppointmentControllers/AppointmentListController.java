@@ -16,10 +16,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class AppointmentListController implements Initializable {
@@ -83,16 +81,8 @@ public class AppointmentListController implements Initializable {
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery();
     }
 
-    private ResultSet queryPatientInfo(int patientID) throws Exception{
-        return databaseConnector.getConnection().prepareStatement(
-                "SELECT first_name, last_name, status FROM patient " +
-                        "WHERE patient_id = " + patientID).executeQuery();
-    }
-
     private ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
-        Connection conn = databaseConnector.getConnection();
-
-        return (conn.prepareStatement(
+        return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
                         "FROM `appointments` " +
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
@@ -108,7 +98,7 @@ public class AppointmentListController implements Initializable {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
         try(ResultSet resultSet = queryAppointments()){
             while (resultSet.next()){
-                appointments.add(generateAppointment(resultSet));
+                appointments.add(Appointment.generateAppointmentFocus(resultSet));
             }
         }catch(SQLException ex){
             databaseConnector.displayException(ex);
@@ -116,34 +106,6 @@ public class AppointmentListController implements Initializable {
             return null;
         }
         return appointments;
-    }
-
-    public Appointment generateAppointment(ResultSet resultSet) throws Exception{
-        ResultSet patientInfo = queryPatientInfo(resultSet.getInt("patient_id"));
-        patientInfo.next();
-        String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
-
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
-
-        return new Appointment(
-            resultSet.getInt("appointment_id"),
-            resultSet.getInt("procedure_id"),
-            resultSet.getInt("patient_id"),
-            patientFullName,
-            resultSet.getInt("machine_id"),
-            resultSet.getInt("employee_id"),
-            resultSet.getDate("appointment_date"),
-            resultSet.getTime("appointment_time"),
-            resultSet.getTime("patient_sign_in_time"),
-            resultSet.getTime("patient_sign_out_time"),
-            resultSet.getString("reason_for_referral"),
-            resultSet.getString("special_comments"),
-            patientInfo.getString("status"),
-            String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
-            resultSet.getString("full_name"),
-            resultSet.getString("procedure_name")
-        );
     }
 
 
@@ -168,6 +130,6 @@ public class AppointmentListController implements Initializable {
         int appointmentId = selectedItem.getAppointmentId();
         ResultSet rs = queryAppointmentFocus(appointmentId);
         rs.next();
-        Main.setAppointmentFocus(generateAppointment(rs));
+        Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
     }
 }
