@@ -1,20 +1,15 @@
 package Controller;
 
-import Controller.PatientControllers.PatientListController;
 import Model.Appointment;
 import Model.Patient;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -25,7 +20,7 @@ public class Main extends Application {
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
     private static BorderPane RIS_Container     = new BorderPane();
-    private static ArrayList<Node> backNodeList = new ArrayList<>();
+    private static ArrayList<URL> backNodeList = new ArrayList<>();
     private static Scene MainScene              = new Scene(Outer,1600, 900);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
@@ -41,7 +36,7 @@ public class Main extends Application {
     //Pushes a node onto our back button list
     public static void setCenterPane(String fxmlName)throws Exception{
         try {
-            backNodeList.add(RIS_Container.getCenter());
+            backNodeList.add(Main.class.getResource("../View/"+fxmlName));
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
         }
@@ -52,10 +47,10 @@ public class Main extends Application {
 
     //Sets the main view to the top of our back button list
     //Pops the top of the back button list
-    public static void setBackPage(){
+    public static void setBackPage() throws Exception{
         RIS_Container.setRight(null);
-        RIS_Container.setCenter(backNodeList.get((backNodeList.size()-1)));
-        backNodeList.remove(backNodeList.get((backNodeList.size()-1)));
+        popBackNodeList();
+        RIS_Container.setCenter(FXMLLoader.load(backNodeList.get((backNodeList.size()-1))));
     }
 
     //Create Popup Window using submitted fxml
@@ -95,23 +90,14 @@ public class Main extends Application {
         Main.appointmentFocus = appointmentFocus;
     }
 
-    //Returns list for procedure combo boxes
-    public static ObservableList<String> getProcedureList() throws Exception{
-        ObservableList<String> rtn = FXCollections.observableArrayList();
-
-        Connection conn = databaseConnector.getConnection();
-        ResultSet rs = conn.prepareStatement("SELECT * FROM `procedures`").executeQuery();
-        while (rs.next()){
-            rtn.add(
-                    rs.getInt("procedure_id") + ": " + rs.getString("procedure_name")
-            );
-        }
-
-        return rtn;
+    public static void popBackNodeList() {
+        try {
+            backNodeList.remove(backNodeList.get((backNodeList.size() - 1)));
+        } catch (Exception e){}
     }
 
-    //TODO: (Depricated) Delete at end
-    public static ArrayList<Node> getBackNodeList(){
+    //TODO: (Deprecated) Delete at end
+    public static ArrayList<URL> getBackNodeList(){
         return backNodeList;
     }
 
@@ -135,7 +121,7 @@ public class Main extends Application {
         });
 
         //Set the initial start to our PatientList
-        PatientListController.setView();
+        setCenterPane("PatientViews/PatientList.fxml");
 
         //Finally show initial stage
         primaryStage.show();

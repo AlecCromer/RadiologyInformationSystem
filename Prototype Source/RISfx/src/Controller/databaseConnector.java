@@ -16,8 +16,10 @@ public class databaseConnector {
     }
 
     public static Connection getStartConnection() throws SQLException {
-        System.out.println("Connected to student database successfully!");
-        return DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+        System.out.println("Connecting to Database...");
+        Connection conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+        System.out.println("Success!");
+        return conn;
     }
 
     public static void displayException(SQLException ex) {

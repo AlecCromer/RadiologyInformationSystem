@@ -3,6 +3,7 @@ package Controller.AppointmentControllers;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
+import Model.Procedures;
 import Model.ScheduleConflict;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.net.URL;
 import java.sql.*;
@@ -64,7 +66,7 @@ public class AddAppointmentController implements Initializable {
 
         //Procedure Section
         try {
-            ObservableList<String> procedureList = Main.getProcedureList();
+            ObservableList<String> procedureList = Procedures.getProcedureList();
             procedureBox.setItems(procedureList);
             procedureBox.valueProperty().addListener((ov, oldValue, newValue) -> {
                 try {
@@ -128,7 +130,8 @@ public class AddAppointmentController implements Initializable {
                         "INNER JOIN modality ON appointments.machine_id=modality.machine_id " +
                         "WHERE " +
                         "appointments.appointment_date = ? &&" +
-                        "   \temployees.employee_id = ?"
+                        "employees.employee_id = ? " +
+                        "ORDER BY `appointments`.`employee_id` DESC, `appointments`.`appointment_time`  ASC"
         );
         conflicts.setDate(1, Date.valueOf(scheduleDate.getValue()));
         conflicts.setInt(2, employeeId);
@@ -150,16 +153,15 @@ public class AddAppointmentController implements Initializable {
             employeeStartTime   = employeeSchedule.getTime("start_time").toLocalTime();
             employeeEndTime     = employeeSchedule.getTime("end_time").toLocalTime();
 
-
             ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
 
             while (employeeStartTime.isBefore(employeeEndTime)) {
                 for (ScheduleConflict scheduleConflict:
                         conflicts) {
                     if ((scheduleConflict.getConflictDateTime().plusMinutes(scheduleConflict.getConflictLength()*60).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) + 30).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) - 30).toLocalTime() == employeeStartTime) ||
-                        (scheduleConflict.getConflictDateTime().toLocalTime() == employeeStartTime)){
+                            (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) + 30).toLocalTime() == employeeStartTime) ||
+                            (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) - 30).toLocalTime() == employeeStartTime) ||
+                            (scheduleConflict.getConflictDateTime().toLocalTime() == employeeStartTime)){
                         employeeStartTime = employeeStartTime.plusMinutes(scheduleConflict.getConflictLength()*60);
                     }
                 }

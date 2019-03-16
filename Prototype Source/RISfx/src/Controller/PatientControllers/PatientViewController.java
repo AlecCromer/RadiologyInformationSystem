@@ -82,7 +82,6 @@ public class PatientViewController implements Initializable {
 
     private void updateAppointmentTable(){
         try {
-
             patientAppointments.setItems(generatePatientAppointmentList());
         } catch (Exception e) {
             // TODO Auto-generated catch block

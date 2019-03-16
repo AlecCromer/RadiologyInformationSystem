@@ -204,7 +204,7 @@ public class Appointment {
                 resultSet.getTime("patient_sign_out_time"),
                 resultSet.getString("reason_for_referral"),
                 resultSet.getString("special_comments"),
-                patientInfo.getString("status"),
+                resultSet.getString("patient_status"),
                 String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
                 resultSet.getString("full_name"),
                 resultSet.getString("procedure_name")
