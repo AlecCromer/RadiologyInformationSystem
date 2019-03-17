@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="447.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientController">
+<AnchorPane prefHeight="447.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.PatientViewController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="33.0" prefWidth="42.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Text layoutX="61.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="10.0">
@@ -42,17 +42,12 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="243.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Phone Number:" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="124.6533203125">
-         <font>
-            <Font name="Calibri" size="14.0" />
-         </font>
-      </Text>
       <Text layoutX="21.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail Address:">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="21.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Information:">
+      <Text layoutX="21.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Number:">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>
@@ -67,13 +62,13 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <TableView layoutX="21.0" layoutY="291.0" prefHeight="84.0" prefWidth="558.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="295.0">
+      <TableView fx:id="patientAppointments" layoutX="21.0" layoutY="291.0" prefHeight="84.0" prefWidth="558.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="295.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ProcedureID" />
-          <TableColumn prefWidth="75.0" text="Date" />
-            <TableColumn prefWidth="75.0" text="Sign In Time" />
-            <TableColumn prefWidth="87.0" text="Sign Out Time" />
-            <TableColumn prefWidth="87.0" text="Status" />
+          <TableColumn fx:id="appointmentID" prefWidth="75.0" text="Appointment ID" />
+          <TableColumn fx:id="appointmentDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="patientSignInTime" prefWidth="75.0" text="Sign In Time" />
+            <TableColumn fx:id="patientSignOutTime" prefWidth="87.0" text="Sign Out Time" />
+            <TableColumn fx:id="patientStatus" prefWidth="87.0" text="Status" />
             <TableColumn prefWidth="125.0" text="Procedure Balance" />
         </columns>
          <columnResizePolicy>
@@ -84,14 +79,13 @@
       <Canvas height="200.0" layoutX="579.0" layoutY="66.0" width="200.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="66.0" />
       <TextField fx:id="fNameField" disable="true" layoutX="130.0" layoutY="55.0" prefHeight="25.0" prefWidth="86.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="55.0" />
       <TextField fx:id="lNameField" disable="true" layoutX="284.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="55.0" />
-      <TextField fx:id="pNumberField" disable="true" layoutX="398.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="119.0" />
+      <TextField fx:id="pNumberField" disable="true" layoutX="398.0" layoutY="55.0" prefHeight="25.0" prefWidth="207.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="119.0" />
       <TextField fx:id="addressField" disable="true" layoutX="73.0" layoutY="87.0" prefHeight="25.0" prefWidth="296.0" AnchorPane.leftAnchor="72.0" AnchorPane.topAnchor="82.0" />
       <TextField fx:id="dobField" disable="true" layoutX="159.0" layoutY="119.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="55.0" />
-      <TextField fx:id="sNumberField" disable="true" layoutX="398.0" layoutY="119.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="398.0" AnchorPane.topAnchor="119.0" />
-      <TextField fx:id="emailField" disable="true" layoutX="115.0" layoutY="146.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="146.0" />
-      <TextField fx:id="InsuranceField" disable="true" layoutX="159.0" layoutY="174.0" prefHeight="25.0" prefWidth="329.0" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="174.0" />
+      <TextField fx:id="emailField" disable="true" layoutX="115.0" layoutY="146.0" prefHeight="25.0" prefWidth="258.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="146.0" />
+      <TextField fx:id="InsuranceField" disable="true" layoutX="159.0" layoutY="174.0" prefHeight="25.0" prefWidth="151.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="174.0" />
       <TextField fx:id="balanceField" disable="true" layoutX="579.0" layoutY="70.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="579.0" AnchorPane.topAnchor="70.0" />
-      <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
+      <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" visible="false" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
       <Button layoutX="811.0" layoutY="267.0" mnemonicParsing="false" onAction="#setAddAppointment" text="Schedule New" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="267.0" />
       <TableView layoutX="691.0" layoutY="52.0" prefHeight="200.0" prefWidth="620.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
         <columns>
@@ -107,5 +101,11 @@
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
+      <Text layoutX="288.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Number:" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="178.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="policyField" disable="true" layoutX="375.0" layoutY="174.0" prefHeight="25.0" prefWidth="151.0" AnchorPane.leftAnchor="378.0" AnchorPane.topAnchor="176.0" />
    </children>
 </AnchorPane>
