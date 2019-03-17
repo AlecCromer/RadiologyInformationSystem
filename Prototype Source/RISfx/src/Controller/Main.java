@@ -21,7 +21,7 @@ public class Main extends Application {
     private static BorderPane Outer             = new BorderPane();
     private static BorderPane RIS_Container     = new BorderPane();
     private static ArrayList<URL> backNodeList = new ArrayList<>();
-    private static Scene MainScene              = new Scene(Outer,1600, 900);
+    private static Scene MainScene              = new Scene(Outer,800, 450);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
     public static  Stage popup                  = new Stage();
