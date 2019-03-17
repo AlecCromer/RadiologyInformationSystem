@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2019 at 02:19 AM
+-- Generation Time: Mar 17, 2019 at 04:53 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -70,6 +70,8 @@ CREATE TABLE `appointments` (
   `appointment_time` time NOT NULL,
   `patient_sign_in_time` time DEFAULT NULL,
   `patient_sign_out_time` time DEFAULT NULL,
+  `patient_status` enum('Signed In','Signed Out','Billed','Paid','Not Signed In') NOT NULL DEFAULT 'Not Signed In',
+  `patient_confirmation` bit(1) NOT NULL DEFAULT b'0',
   `procedure_id` int(11) NOT NULL,
   `machine_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
@@ -81,25 +83,26 @@ CREATE TABLE `appointments` (
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, `appointment_time`, `patient_sign_in_time`, `patient_sign_out_time`, `procedure_id`, `machine_id`, `employee_id`, `reason_for_referral`, `special_comments`) VALUES
-(1, 47284, '2019-05-08', '08:30:00', '00:00:00', '00:00:00', 1, 2, 45626, 'Patient feels funny', 'Patient has a tattoo'),
-(2, 3526, '2019-03-21', '12:00:00', '00:00:00', '00:00:00', 1, 1, 45626, 'Testing', 'This is a test appoi'),
-(5, 3526, '2019-03-13', '08:00:00', NULL, NULL, 1, 1, 52546, '', ''),
-(7, 18603, '2019-03-13', '10:00:00', NULL, NULL, 2, 2, 45626, '', ''),
-(8, 47284, '2019-03-13', '06:00:00', NULL, NULL, 1, 1, 52546, '', ''),
-(9, 47284, '2019-03-13', '06:00:00', NULL, NULL, 1, 1, 45626, '', ''),
-(10, 47284, '2019-03-14', '12:00:00', NULL, NULL, 2, 2, 12442, NULL, NULL),
-(11, 3526, '2019-03-14', '15:00:00', NULL, NULL, 2, 2, 12442, NULL, NULL),
-(12, 3526, '2019-03-14', '11:00:00', NULL, NULL, 1, 1, 12442, NULL, NULL),
-(13, 18603, '2019-03-14', '18:00:00', NULL, NULL, 1, 1, 12442, NULL, NULL),
-(14, 18603, '2019-03-13', '11:00:00', NULL, NULL, 2, 2, 52546, NULL, NULL),
-(15, 18603, '2019-03-13', '06:00:00', NULL, NULL, 1, 1, 54382, NULL, NULL),
-(16, 12345, '2019-03-13', '10:00:00', NULL, NULL, 1, 1, 52546, NULL, NULL),
-(17, 3526, '2019-03-13', '11:00:00', NULL, NULL, 1, 1, 52546, NULL, NULL),
-(18, 47284, '2019-03-13', '12:00:00', NULL, NULL, 1, 1, 52546, NULL, NULL),
-(19, 18603, '2019-03-13', '13:00:00', NULL, NULL, 1, 1, 52546, NULL, NULL),
-(20, 12345, '2019-03-14', '09:00:00', NULL, NULL, 2, 2, 12442, NULL, NULL),
-(21, 18603, '2019-03-13', '15:00:00', NULL, NULL, 1, 1, 52546, NULL, NULL);
+INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, `appointment_time`, `patient_sign_in_time`, `patient_sign_out_time`, `patient_status`, `patient_confirmation`, `procedure_id`, `machine_id`, `employee_id`, `reason_for_referral`, `special_comments`) VALUES
+(1, 47284, '2019-05-08', '08:30:00', '10:14:00', '10:16:20', 'Signed Out', b'0', 1, 2, 45626, 'Patient feels funny', 'Patient has a tattoo'),
+(2, 3526, '2019-03-21', '12:00:00', '10:20:00', '10:20:21', 'Signed Out', b'0', 1, 1, 45626, 'Testing', 'This is a test appoi'),
+(5, 3526, '2019-03-13', '08:00:00', '10:18:00', '10:18:34', 'Signed Out', b'0', 1, 1, 52546, '', ''),
+(7, 18603, '2019-03-13', '10:00:00', '10:08:00', '10:16:51', 'Signed Out', b'0', 2, 2, 45626, '', ''),
+(8, 47284, '2019-03-13', '06:00:00', '10:30:00', '10:31:01', 'Signed Out', b'0', 1, 1, 52546, '', ''),
+(9, 47284, '2019-03-13', '06:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, '', ''),
+(10, 47284, '2019-03-14', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 12442, NULL, NULL),
+(11, 3526, '2019-03-14', '15:00:00', '10:24:14', NULL, 'Signed In', b'0', 2, 2, 12442, NULL, NULL),
+(12, 3526, '2019-03-14', '11:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 12442, NULL, NULL),
+(13, 18603, '2019-03-14', '18:00:00', '10:21:00', '10:21:29', 'Signed Out', b'0', 1, 1, 12442, NULL, NULL),
+(14, 18603, '2019-03-13', '11:00:00', '10:28:00', '10:29:18', 'Signed Out', b'0', 2, 2, 52546, NULL, NULL),
+(15, 18603, '2019-03-13', '06:00:00', '10:45:00', '10:47:34', 'Signed Out', b'0', 1, 1, 54382, NULL, NULL),
+(16, 12345, '2019-03-13', '10:00:00', '10:21:00', '10:30:39', 'Signed Out', b'0', 1, 1, 52546, NULL, NULL),
+(19, 18603, '2019-03-13', '13:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 52546, NULL, NULL),
+(20, 12345, '2019-03-14', '09:00:00', '10:08:48', '10:18:48', 'Signed Out', b'0', 2, 2, 12442, NULL, NULL),
+(21, 18603, '2019-03-13', '15:00:00', '11:15:00', '11:29:42', 'Signed Out', b'0', 1, 1, 52546, NULL, NULL),
+(22, 47284, '2019-03-15', '08:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, NULL, NULL),
+(23, 47284, '2019-03-15', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 45626, NULL, NULL),
+(24, 47284, '2019-03-15', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -217,7 +220,8 @@ CREATE TABLE `modality` (
 
 INSERT INTO `modality` (`machine_id`, `machine_type_id`, `date_purchased`, `time_between_checkups`, `machine_information`, `next_maintainence_date`, `available`, `machine_name`) VALUES
 (1, 12346, '2018-10-16', '99:00:00', 'used for x-rays', '2019-09-12', 'True', 'x-ray'),
-(2, 643543, '2018-06-26', '99:00:00', 'used for ct scans', '2019-10-25', 'False', 'CT Scanner');
+(2, 643543, '2018-06-26', '99:00:00', 'used for ct scans', '2019-10-25', 'False', 'CT Scanner'),
+(3, 4654, '2019-03-15', '33:00:00', 'used for MRI', '2019-03-20', 'True', 'MRI Machine');
 
 -- --------------------------------------------------------
 
@@ -268,7 +272,8 @@ CREATE TABLE `procedures` (
 
 INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`) VALUES
 (1, 'x-ray', 1),
-(2, 'ct scan', 3);
+(2, 'ct scan', 3),
+(3, 'MRI', 2);
 
 -- --------------------------------------------------------
 
@@ -495,7 +500,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `employee_schedule`
@@ -519,13 +524,13 @@ ALTER TABLE `image_report_relationship`
 -- AUTO_INCREMENT for table `modality`
 --
 ALTER TABLE `modality`
-  MODIFY `machine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `machine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
-  MODIFY `procedure_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `procedure_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `procedure_relationship`
