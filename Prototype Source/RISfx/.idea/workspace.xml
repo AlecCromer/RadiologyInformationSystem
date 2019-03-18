@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/Referral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Procedures.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Procedures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Procedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,59 +13,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="5">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="244">
-                    <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
-                      <element signature="method#getPatientPhone#0;class#Referral#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="86" selection-end-column="28" />
+            <state relative-caret-position="306">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="69" selection-end-column="5" />
               <folding>
                 <element signature="method#setView#0;class#AppointmentListController#0" />
+                <element signature="method#initialize#0;class#AppointmentListController#0" />
                 <element signature="method#updateTable#0;class#AppointmentListController#0" />
                 <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
                 <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
                 <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setReferralView#0;class#ReferralListController#0" />
-                <element signature="method#initialize#0;class#ReferralListController#0" />
-                <element signature="method#setReferralForm#0;class#ReferralListController#0" />
-                <element signature="method#sendReferralToView#0;class#ReferralListController#0" />
               </folding>
             </state>
           </provider>
@@ -95,6 +41,44 @@
                 <element signature="method#Patient#0;class#Patient#0" />
                 <element signature="method#Patient#2;class#Patient#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
+                <element signature="method#getPatientPhone#0;class#Referral#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="method#setView#0;class#ReferralFormController#0" />
+                <element signature="method#initialize#0;class#ReferralFormController#0" />
+                <element signature="method#updateTable#0;class#ReferralFormController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="839">
+              <caret line="75" column="25" lean-forward="true" selection-start-line="75" selection-start-column="25" selection-end-line="85" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -125,6 +109,8 @@
         <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" />
         <option value="$PROJECT_DIR$/src/Model/Referral.java" />
+        <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" />
       </list>
     </option>
   </component>
@@ -194,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552912594284" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552914479949" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -241,7 +227,7 @@
       <updated>1552838668690</updated>
       <workItem from="1552838687888" duration="346000" />
       <workItem from="1552852172847" duration="1015000" />
-      <workItem from="1552906651326" duration="5440000" />
+      <workItem from="1552906651326" duration="7927000" />
     </task>
     <task id="LOCAL-00001" summary="Started moving queries to Models">
       <created>1552907450544</created>
@@ -250,17 +236,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552907450545</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Referral List">
+      <created>1552912694481</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552912694481</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6801000" />
+    <option name="totallyTimeSpent" value="9288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -269,8 +262,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3217768" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44637054" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -296,7 +289,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started moving queries to Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started moving queries to Models" />
+    <MESSAGE value="Referral List" />
+    <option name="LAST_COMMIT_MESSAGE" value="Referral List" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
@@ -353,20 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="86" selection-end-column="28" />
-          <folding>
-            <element signature="method#setView#0;class#AppointmentListController#0" />
-            <element signature="method#updateTable#0;class#AppointmentListController#0" />
-            <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
-            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
-            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Procedure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -390,6 +370,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setReferralView#0;class#ReferralListController#0" />
+            <element signature="method#initialize#0;class#ReferralListController#0" />
+            <element signature="method#setReferralForm#0;class#ReferralListController#0" />
+            <element signature="method#sendReferralToView#0;class#ReferralListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="method#setView#0;class#AppointmentListController#0" />
+            <element signature="method#initialize#0;class#AppointmentListController#0" />
+            <element signature="method#updateTable#0;class#AppointmentListController#0" />
+            <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
+            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
+            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
@@ -401,14 +414,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
@@ -417,16 +426,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
+    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="75" column="25" lean-forward="true" selection-start-line="75" selection-start-column="25" selection-end-line="85" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setReferralView#0;class#ReferralListController#0" />
-            <element signature="method#initialize#0;class#ReferralListController#0" />
-            <element signature="method#setReferralForm#0;class#ReferralListController#0" />
-            <element signature="method#sendReferralToView#0;class#ReferralListController#0" />
+            <element signature="method#setView#0;class#ReferralFormController#0" />
+            <element signature="method#initialize#0;class#ReferralFormController#0" />
+            <element signature="method#updateTable#0;class#ReferralFormController#0" />
           </folding>
         </state>
       </provider>
