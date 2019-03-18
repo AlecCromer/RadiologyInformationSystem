@@ -73,8 +73,17 @@ public class Appointment {
                         "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
     }
 
+    public static ResultSet queryWorklist(int employeeID) throws Exception{
+        return (databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                        "FROM `appointments` " +
+                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
+                        "WHERE appointments.employee_id="+employeeID)).executeQuery();
+    }
 
-      ///////////////////
+
+    ///////////////////
      //Getters/Setters//
     ///////////////////
       public int getAppointmentId() {
