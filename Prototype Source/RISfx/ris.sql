@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2019 at 04:53 PM
+-- Generation Time: Mar 18, 2019 at 10:57 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -55,7 +55,11 @@ INSERT INTO `address` (`address_id`, `street_name`, `city`, `zip`, `state`) VALU
 (15, 'MakeBlie rd', 'Dahlonega', 30504, 'Georgia'),
 (16, 'Anotha 1', 'Anotha', 30504, 'One'),
 (17, '12345 Made Up village Avenue', 'Gainesville', 30501, 'Georgia'),
-(18, '12345 Made Up village Avenue', 'Gainesville', 30501, 'Georgia');
+(18, '12345 Made Up village Avenue', 'Gainesville', 30501, 'Georgia'),
+(19, '12345 Testing Lane', 'Gainesville', 30504, 'Florida'),
+(20, 'This Closes Avenue', 'Dahlonega', 123567, 'Georgia'),
+(21, '123567 Jojo Lane', 'Winder', 30680, 'Georgia'),
+(22, '123567 Adventure Lane', 'Winder', 30680, 'Georiga');
 
 -- --------------------------------------------------------
 
@@ -103,6 +107,27 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, 
 (22, 47284, '2019-03-15', '08:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, NULL, NULL),
 (23, 47284, '2019-03-15', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 45626, NULL, NULL),
 (24, 47284, '2019-03-15', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billing`
+--
+
+CREATE TABLE `billing` (
+  `billing_id` int(11) NOT NULL,
+  `appointment_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `billing`
+--
+
+INSERT INTO `billing` (`billing_id`, `appointment_id`, `item_id`) VALUES
+(1, 1, 1),
+(2, 1, 1),
+(3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -200,6 +225,25 @@ INSERT INTO `image_report_relationship` (`report_relationship_id`, `image_id`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `item_id` int(11) NOT NULL,
+  `item_name` varchar(25) NOT NULL,
+  `item_cost` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`item_id`, `item_name`, `item_cost`) VALUES
+(1, 'Extra Goop', 10.5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `modality`
 --
 
@@ -252,6 +296,10 @@ INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`,
 (3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', 1234567890, 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL),
 (12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', 67855583, 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole'),
 (18603, 'Kyle', 'Michael', '1994-11-16', 'Male', 1876543210, 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL),
+(19696, 'Testing', 'McGee', '1950-01-01', 'Male', 1234567890, 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL),
+(31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', 12345678, 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL),
+(36725, 'Make', 'Sure', '1950-01-01', 'Male', 1234567890, 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL),
+(44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', 678126987, 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL),
 (47284, 'Ben', 'Denton', '2019-03-11', 'Male', 578223442, 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin');
 
 -- --------------------------------------------------------
@@ -263,17 +311,18 @@ INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`,
 CREATE TABLE `procedures` (
   `procedure_id` int(6) NOT NULL,
   `procedure_name` varchar(20) NOT NULL,
-  `procedure_length` int(11) NOT NULL
+  `procedure_length` int(11) NOT NULL,
+  `procedure_price` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `procedures`
 --
 
-INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`) VALUES
-(1, 'x-ray', 1),
-(2, 'ct scan', 3),
-(3, 'MRI', 2);
+INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`, `procedure_price`) VALUES
+(1, 'x-ray', 1, NULL),
+(2, 'ct scan', 3, NULL),
+(3, 'MRI', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -303,16 +352,24 @@ INSERT INTO `procedure_relationship` (`procedure_relationship_id`, `procedure_id
 CREATE TABLE `refer` (
   `referring_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL
+  `patient_id` int(11) NOT NULL,
+  `procedure_id` int(11) NOT NULL,
+  `is_processed` bit(1) NOT NULL DEFAULT b'0',
+  `urgency` enum('Low','Medium','High','Emergency') NOT NULL,
+  `reason_for_referral` varchar(1500) DEFAULT NULL,
+  `special_comments` varchar(1500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `refer`
 --
 
-INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`) VALUES
-(1, 43552, 12345),
-(2, 12442, 47284);
+INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`, `is_processed`, `urgency`, `reason_for_referral`, `special_comments`) VALUES
+(1, 43552, 12345, 1, b'0', 'Low', NULL, NULL),
+(2, 12442, 47284, 2, b'0', 'Low', NULL, NULL),
+(3, 52546, 47284, 3, b'0', 'Medium', NULL, NULL),
+(4, 43552, 12345, 3, b'0', 'Medium', NULL, NULL),
+(6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs');
 
 -- --------------------------------------------------------
 
@@ -400,6 +457,14 @@ ALTER TABLE `appointments`
   ADD KEY `employee_id` (`employee_id`);
 
 --
+-- Indexes for table `billing`
+--
+ALTER TABLE `billing`
+  ADD PRIMARY KEY (`billing_id`),
+  ADD KEY `fk_appt` (`appointment_id`),
+  ADD KEY `fk_item` (`item_id`);
+
+--
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
@@ -428,6 +493,12 @@ ALTER TABLE `image_report_relationship`
   ADD PRIMARY KEY (`report_relationship_id`),
   ADD KEY `report_id` (`report_id`),
   ADD KEY `image_id` (`image_id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`item_id`);
 
 --
 -- Indexes for table `modality`
@@ -462,7 +533,8 @@ ALTER TABLE `procedure_relationship`
 ALTER TABLE `refer`
   ADD PRIMARY KEY (`referring_id`),
   ADD KEY `employee_id` (`employee_id`),
-  ADD KEY `patient_id` (`patient_id`);
+  ADD KEY `patient_id` (`patient_id`),
+  ADD KEY `procedure_id` (`procedure_id`);
 
 --
 -- Indexes for table `report`
@@ -494,13 +566,19 @@ ALTER TABLE `role_relationship`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
   MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `billing`
+--
+ALTER TABLE `billing`
+  MODIFY `billing_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee_schedule`
@@ -519,6 +597,12 @@ ALTER TABLE `image`
 --
 ALTER TABLE `image_report_relationship`
   MODIFY `report_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `modality`
@@ -542,7 +626,7 @@ ALTER TABLE `procedure_relationship`
 -- AUTO_INCREMENT for table `refer`
 --
 ALTER TABLE `refer`
-  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -574,6 +658,13 @@ ALTER TABLE `appointments`
   ADD CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`machine_id`) REFERENCES `modality` (`machine_id`),
   ADD CONSTRAINT `appointments_ibfk_3` FOREIGN KEY (`procedure_id`) REFERENCES `procedures` (`procedure_id`),
   ADD CONSTRAINT `appointments_ibfk_4` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`);
+
+--
+-- Constraints for table `billing`
+--
+ALTER TABLE `billing`
+  ADD CONSTRAINT `fk_appointment` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`appointment_id`),
+  ADD CONSTRAINT `fk_item_id` FOREIGN KEY (`item_id`) REFERENCES `items` (`item_id`);
 
 --
 -- Constraints for table `employee_schedule`
@@ -616,7 +707,8 @@ ALTER TABLE `procedure_relationship`
 --
 ALTER TABLE `refer`
   ADD CONSTRAINT `refer_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`),
-  ADD CONSTRAINT `refer_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`);
+  ADD CONSTRAINT `refer_ibfk_2` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
+  ADD CONSTRAINT `refer_ibfk_3` FOREIGN KEY (`procedure_id`) REFERENCES `procedures` (`procedure_id`);
 
 --
 -- Constraints for table `report`
