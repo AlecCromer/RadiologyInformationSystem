@@ -3,6 +3,7 @@ package Controller.AppointmentControllers;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
+import Model.Employee;
 import Model.Procedures;
 import Model.ScheduleConflict;
 import javafx.collections.FXCollections;
@@ -47,6 +48,7 @@ public class AddAppointmentController implements Initializable {
         Main.popup.setWidth(600);
         Main.setPopupWindow("AppointmentViews/addAppointment.fxml");
     }
+
     public void initialize(URL url, ResourceBundle arg1) {
         //Patient ID Section
         if((Main.getPatientFocus().getPatientID() != -1)){
@@ -96,54 +98,11 @@ public class AddAppointmentController implements Initializable {
     }
 
 
-      ////////////////////
-     //Database Queries//
-    ////////////////////
-    private ResultSet queryEmployeeSchedule() throws Exception{
-        Connection conn = databaseConnector.getConnection();
-
-        PreparedStatement employeeSchedule = conn.prepareStatement(
-            "SELECT  CONCAT(employees.first_name, \" \", employees.last_name) AS employee_name, employees.employee_id, " +
-                    "employee_schedule.start_time, employee_schedule.end_time, modality.machine_id, modality.machine_name " +
-                    "FROM modality, employee_schedule " +
-                    "INNER JOIN employees ON employee_schedule.employee_id=employees.employee_id " +
-                    "WHERE " +
-                    "employee_schedule.start_time BETWEEN ? and ? && " +
-                    "modality.machine_id = ?"
-        );
-        employeeSchedule.setString(1, scheduleDate.getValue().toString()+ " 00:00:00");
-        employeeSchedule.setString(2, scheduleDate.getValue().toString()+ " 20:00:00");
-        employeeSchedule.setInt(3, comboSelection);
-        return employeeSchedule.executeQuery();
-    }
-
-    private ResultSet queryConflicts(int employeeId) throws Exception{
-        Connection conn = databaseConnector.getConnection();
-
-        PreparedStatement conflicts = conn.prepareStatement(
-                "SELECT appointments.appointment_id, appointments.appointment_date, appointments.appointment_time, " +
-                        "procedures.procedure_length, procedures.procedure_name, CONCAT(employees.first_name, \" \", employees.last_name) AS employee_name, employees.employee_id, " +
-                        "modality.machine_name, modality.machine_id " +
-                        "FROM   appointments " +
-                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
-                        "INNER JOIN modality ON appointments.machine_id=modality.machine_id " +
-                        "WHERE " +
-                        "appointments.appointment_date = ? &&" +
-                        "employees.employee_id = ? " +
-                        "ORDER BY `appointments`.`employee_id` DESC, `appointments`.`appointment_time`  ASC"
-        );
-        conflicts.setDate(1, Date.valueOf(scheduleDate.getValue()));
-        conflicts.setInt(2, employeeId);
-        return conflicts.executeQuery();
-    }
-
-
       ///////////////////
      //List Generators//
     ///////////////////
     private ObservableList<Appointment> generateTimeSlots(int minuteIncrement) throws Exception{
-        ResultSet employeeSchedule = queryEmployeeSchedule();
+        ResultSet employeeSchedule = Employee.queryEmployeeSchedule(scheduleDate.getValue(), comboSelection);
 
         ObservableList<Appointment> timeSlotList = FXCollections.observableArrayList();
 
@@ -178,7 +137,7 @@ public class AddAppointmentController implements Initializable {
 
     private ArrayList<ScheduleConflict> generateConflictList(int employeeId) throws Exception{
         //Check for all conflicts with current employee that is scheduled
-        ResultSet rs = queryConflicts(employeeId);
+        ResultSet rs = ScheduleConflict.queryConflicts(scheduleDate.getValue(), employeeId);
         ArrayList<ScheduleConflict> conflicts = new ArrayList<>();
         while (rs.next()) {
             LocalDate cDate = rs.getDate("appointment_date").toLocalDate();
@@ -249,6 +208,7 @@ public class AddAppointmentController implements Initializable {
         System.out.println("Something was not set");
         return false;
     }
+
     private void exitView() throws Exception{
         Main.popup.close();
         Main.getOuter().setDisable(false);

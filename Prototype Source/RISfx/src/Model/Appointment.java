@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.databaseConnector;
 import javafx.stage.Modality;
 
 import java.sql.Date;
@@ -11,15 +12,74 @@ import java.time.LocalTime;
 
 public class Appointment {
 
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
     private int appointmentId, procedureId, patientId, machineId, employeeId;
     private Date appointmentDate;
     private Time appointmentTime, patientSignIn, patientSignOut;
     private String refferalReason, Comments, patientFullName, patientStatus, dateTime, technician, machineName, procedureName;
     private Modality modality;
 
-    public int getAppointmentId() {
-        return appointmentId;
+
+      /////////////////////
+     //Object Generators//
+    /////////////////////
+    public static Appointment generateAppointmentFocus(ResultSet resultSet) throws Exception{
+        ResultSet patientInfo = Patient.queryPatientInfo(resultSet.getInt("patient_id"));
+        patientInfo.next();
+        String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
+
+        return new Appointment(
+                resultSet.getInt("appointment_id"),
+                resultSet.getInt("procedure_id"),
+                resultSet.getInt("patient_id"),
+                patientFullName,
+                resultSet.getInt("machine_id"),
+                resultSet.getInt("employee_id"),
+                resultSet.getDate("appointment_date"),
+                resultSet.getTime("appointment_time"),
+                resultSet.getTime("patient_sign_in_time"),
+                resultSet.getTime("patient_sign_out_time"),
+                resultSet.getString("reason_for_referral"),
+                resultSet.getString("special_comments"),
+                resultSet.getString("patient_status"),
+                String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
+                resultSet.getString("full_name"),
+                resultSet.getString("procedure_name")
+        );
     }
+
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+    public static ResultSet queryAppointments()throws Exception{
+        return (databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                        "FROM `appointments` " +
+                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery();
+    }
+
+    public static ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
+        return (databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                        "FROM `appointments` " +
+                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
+                        "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
+    }
+
+
+      ///////////////////
+     //Getters/Setters//
+    ///////////////////
+      public int getAppointmentId() {
+          return appointmentId;
+      }
     public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;
     }
@@ -121,9 +181,9 @@ public class Appointment {
         return procedureName;
     }
 
-    ///////////////
-     //Constructor//
-    ///////////////
+      ////////////////
+     //Constructors//
+    ////////////////
     public Appointment(){
         this.appointmentDate = null;
         this.appointmentTime = null;
@@ -180,34 +240,5 @@ public class Appointment {
         this.dateTime           = dateTime;
         this.technician         = technician;
         this.procedureName      = procedureName;
-    }
-
-
-    public static Appointment generateAppointmentFocus(ResultSet resultSet) throws Exception{
-        ResultSet patientInfo = Patient.queryPatientInfo(resultSet.getInt("patient_id"));
-        patientInfo.next();
-        String patientFullName = patientInfo.getString("first_name") + " " + patientInfo.getString("last_name");
-
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("H:mm");
-
-        return new Appointment(
-                resultSet.getInt("appointment_id"),
-                resultSet.getInt("procedure_id"),
-                resultSet.getInt("patient_id"),
-                patientFullName,
-                resultSet.getInt("machine_id"),
-                resultSet.getInt("employee_id"),
-                resultSet.getDate("appointment_date"),
-                resultSet.getTime("appointment_time"),
-                resultSet.getTime("patient_sign_in_time"),
-                resultSet.getTime("patient_sign_out_time"),
-                resultSet.getString("reason_for_referral"),
-                resultSet.getString("special_comments"),
-                resultSet.getString("patient_status"),
-                String.format("%s - %s", format.format(resultSet.getDate("appointment_date")), timeFormat.format(resultSet.getTime("appointment_time"))),
-                resultSet.getString("full_name"),
-                resultSet.getString("procedure_name")
-        );
     }
 }

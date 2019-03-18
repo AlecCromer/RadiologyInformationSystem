@@ -70,33 +70,12 @@ public class AppointmentListController implements Initializable {
     }
 
 
-      ////////////////////
-     //Database Queries//
-    ////////////////////
-    private ResultSet queryAppointments()throws Exception{
-        return (databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
-                        "FROM `appointments` " +
-                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
-                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery();
-    }
-
-    private ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
-        return (databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
-                        "FROM `appointments` " +
-                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
-                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
-    }
-
-
       ///////////////////
      //List Generators//
     ///////////////////
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet resultSet = queryAppointments()){
+        try(ResultSet resultSet = Appointment.queryAppointments()){
             while (resultSet.next()){
                 appointments.add(Appointment.generateAppointmentFocus(resultSet));
             }
@@ -128,7 +107,7 @@ public class AppointmentListController implements Initializable {
     ///////////////////
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();
-        ResultSet rs = queryAppointmentFocus(appointmentId);
+        ResultSet rs = Appointment.queryAppointmentFocus(appointmentId);
         rs.next();
         Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
     }

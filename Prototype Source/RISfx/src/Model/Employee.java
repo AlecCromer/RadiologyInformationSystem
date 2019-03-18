@@ -1,5 +1,12 @@
 package Model;
 
+import Controller.databaseConnector;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+
 public class Employee {
 
     private int employeeId;
@@ -34,4 +41,25 @@ public class Employee {
         this.email = email;
     }
 
+
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+    public static ResultSet queryEmployeeSchedule(LocalDate scheduleDate, int machineId) throws Exception{
+        Connection conn = databaseConnector.getConnection();
+
+        PreparedStatement employeeSchedule = conn.prepareStatement(
+                "SELECT  CONCAT(employees.first_name, \" \", employees.last_name) AS employee_name, employees.employee_id, " +
+                        "employee_schedule.start_time, employee_schedule.end_time, modality.machine_id, modality.machine_name " +
+                        "FROM modality, employee_schedule " +
+                        "INNER JOIN employees ON employee_schedule.employee_id=employees.employee_id " +
+                        "WHERE " +
+                        "employee_schedule.start_time BETWEEN ? and ? && " +
+                        "modality.machine_id = ?"
+        );
+        employeeSchedule.setString(1, scheduleDate.toString()+ " 00:00:00");
+        employeeSchedule.setString(2, scheduleDate.toString()+ " 20:00:00");
+        employeeSchedule.setInt(3, machineId);
+        return employeeSchedule.executeQuery();
+    }
 }

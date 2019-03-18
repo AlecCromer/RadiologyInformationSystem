@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="" />
+    <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ScheduleConflict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ScheduleConflict.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,33 +21,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="31" selection-end-column="20" />
+            <state relative-caret-position="357">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
               <folding>
-                <element signature="method#setBackPage#0;class#Main#0" />
-                <element signature="method#setPopupWindow#0;class#Main#0" />
-                <element signature="method#start#0;class#Main#0" />
+                <element signature="method#setView#0;class#AppointmentListController#0" />
+                <element signature="method#initialize#0;class#AppointmentListController#0" />
+                <element signature="method#updateTable#0;class#AppointmentListController#0" />
+                <element signature="method#getAppointmentList#0;class#AppointmentListController#0" />
+                <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
+                <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
+                <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="77" column="69" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+            <state relative-caret-position="145">
+              <caret line="104" column="107" selection-start-line="104" selection-start-column="107" selection-end-line="104" selection-end-column="107" />
+              <folding>
+                <element signature="method#setView#0;class#AddAppointmentController#0" />
+                <element signature="method#initialize#0;class#AddAppointmentController#0" />
+                <element signature="method#updateTable#0;class#AddAppointmentController#0" />
+                <element signature="method#generateConflictList#0;class#AddAppointmentController#0" />
+                <element signature="method#submitNewAppointment#0;class#AddAppointmentController#0" />
+                <element signature="method#validateAppointment#0;class#AddAppointmentController#0" />
+                <element signature="method#exitView#0;class#AddAppointmentController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-600">
-              <caret line="160" column="27" selection-start-line="160" selection-start-column="27" selection-end-line="163" selection-end-column="104" />
+            <state relative-caret-position="629">
+              <caret line="53" column="57" lean-forward="true" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,8 +83,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="200">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+              <folding>
+                <element signature="e#5978#7426#0" />
+                <element signature="e#7436#8049#0" />
+                <element signature="e#8055#8696#0" />
+                <element signature="e#6192#6643#0" />
+                <element signature="e#6649#6986#0" />
+                <element signature="e#6992#7418#0" />
+                <element signature="e#7424#7704#0" />
+                <element signature="e#7710#8831#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,6 +103,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/Model/ScheduleConflict.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-135" />
@@ -105,6 +165,11 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552907309332" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -150,16 +215,18 @@
       <updated>1552838668690</updated>
       <workItem from="1552838687888" duration="346000" />
       <workItem from="1552852172847" duration="1015000" />
+      <workItem from="1552906651326" duration="652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1361000" />
+    <option name="totallyTimeSpent" value="2013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09127517" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -168,7 +235,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.14872521" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14842904" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -194,24 +261,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
-          <caret line="160" column="27" selection-start-line="160" selection-start-column="27" selection-end-line="163" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="169">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="method#setBackPage#0;class#Main#0" />
             <element signature="method#setPopupWindow#0;class#Main#0" />
@@ -220,10 +273,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#5978#7426#0" />
+            <element signature="e#7436#8049#0" />
+            <element signature="e#8055#8696#0" />
+            <element signature="e#6192#6643#0" />
+            <element signature="e#6649#6986#0" />
+            <element signature="e#6992#7418#0" />
+            <element signature="e#7424#7704#0" />
+            <element signature="e#7710#8831#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="77" column="69" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+        <state relative-caret-position="357">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="method#setView#0;class#AppointmentListController#0" />
+            <element signature="method#initialize#0;class#AppointmentListController#0" />
+            <element signature="method#updateTable#0;class#AppointmentListController#0" />
+            <element signature="method#getAppointmentList#0;class#AppointmentListController#0" />
+            <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
+            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
+            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="53" column="57" lean-forward="true" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="104" column="107" selection-start-line="104" selection-start-column="107" selection-end-line="104" selection-end-column="107" />
+          <folding>
+            <element signature="method#setView#0;class#AddAppointmentController#0" />
+            <element signature="method#initialize#0;class#AddAppointmentController#0" />
+            <element signature="method#updateTable#0;class#AddAppointmentController#0" />
+            <element signature="method#generateConflictList#0;class#AddAppointmentController#0" />
+            <element signature="method#submitNewAppointment#0;class#AddAppointmentController#0" />
+            <element signature="method#validateAppointment#0;class#AddAppointmentController#0" />
+            <element signature="method#exitView#0;class#AddAppointmentController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
