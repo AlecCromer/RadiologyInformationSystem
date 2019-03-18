@@ -4,7 +4,7 @@ import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
 import Model.Employee;
-import Model.Procedures;
+import Model.Procedure;
 import Model.ScheduleConflict;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -68,7 +68,7 @@ public class AddAppointmentController implements Initializable {
 
         //Procedure Section
         try {
-            ObservableList<String> procedureList = Procedures.getProcedureList();
+            ObservableList<String> procedureList = Procedure.getProcedureList();
             procedureBox.setItems(procedureList);
             procedureBox.valueProperty().addListener((ov, oldValue, newValue) -> {
                 try {

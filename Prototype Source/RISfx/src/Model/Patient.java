@@ -104,6 +104,14 @@ public class Patient {
         this.policyNumber       = -1;
         this.AppointmentList    = new ArrayList<>();
     }
+
+    public Patient(int patientID, String firstname, String lastname, int phoneNumber) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phoneNumber = phoneNumber;
+        this.patientID = patientID;
+    }
+
     public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, int phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
         this.patientID          = PatientID;
         this.firstname          = firstname;

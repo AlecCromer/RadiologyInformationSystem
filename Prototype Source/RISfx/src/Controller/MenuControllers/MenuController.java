@@ -20,7 +20,7 @@ public class MenuController extends Controller {
     }
 
     public void setReferralView(ActionEvent actionEvent) throws Exception{
-        ReferralListController.setReferralView();
+        ReferralListController.setView();
     }
 
     public void setBillingList(ActionEvent actionEvent) throws Exception{
