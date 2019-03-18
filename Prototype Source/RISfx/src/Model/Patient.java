@@ -2,9 +2,13 @@ package Model;
 
 import Controller.databaseConnector;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Patient {
 
@@ -126,10 +130,69 @@ public class Patient {
         this.AppointmentList    = new ArrayList<>();
     }
 
+    public Patient(String firstname, String lastname, String sex, String email, LocalDate dob, int phoneNumber, int insuranceNumber, int policyNumber) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.sex = sex;
+        this.email = email;
+        this.dob = dob;
+        this.phoneNumber = phoneNumber;
+        this.insuranceNumber = insuranceNumber;
+        this.policyNumber = policyNumber;
+    }
 
     public static ResultSet queryPatientInfo(int patientID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT first_name, last_name, status FROM patient " +
                         "WHERE patient_id = " + patientID).executeQuery();
+    }
+
+    public static void insertNewPatient(Patient patientToInsert, String address, String city, String state, String zip) throws Exception {
+        Connection conn = databaseConnector.getConnection();
+        if (insertAddress(address, city, state, zip) == 1) {
+
+            ResultSet addressSet = queryAddress(address, city, state, zip);
+            addressSet.next();
+            int address_id = addressSet.getInt("address_id");
+
+            PreparedStatement insertNewUser = conn.prepareStatement(
+                    "INSERT INTO patient(patient_id, first_name, last_name, date_of_birth, sex, home_phone, email, insurance_number, policy_number, address_id, status, patient_medications_list)" +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null)"
+            );
+            insertNewUser.setInt(1, Math.abs((new Random()).nextInt(50000)));
+            insertNewUser.setString(2, patientToInsert.getFirstname());
+            insertNewUser.setString(3, patientToInsert.getLastname());
+            insertNewUser.setString(4, patientToInsert.getDob().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+            insertNewUser.setString(5, patientToInsert.getSex());
+            insertNewUser.setString(6, String.valueOf(patientToInsert.getPhoneNumber()));
+            insertNewUser.setString(7, patientToInsert.getEmail());
+            insertNewUser.setString(8, String.valueOf(patientToInsert.getInsuranceNumber()));
+            insertNewUser.setString(9, String.valueOf(patientToInsert.getPolicyNumber()));
+            insertNewUser.setInt(10, address_id);
+            insertNewUser.setString(11, "New Patient");
+            insertNewUser.executeUpdate();
+        }
+    }
+
+    private static int insertAddress(String address, String city, String state, String zip) throws Exception{
+        PreparedStatement insertAddress = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO address(street_name, city, state, zip)" +
+                        "VALUES(?, ?, ?, ?)");
+        return prepareAddress(insertAddress, address, city, state, zip).executeUpdate();
+    }
+
+    private static ResultSet queryAddress(String address, String city, String state, String zip) throws Exception{
+        PreparedStatement addressQuery = databaseConnector.getConnection().prepareStatement(
+                "SELECT address_id FROM address " +
+                        "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
+        return prepareAddress(addressQuery, address, city, state, zip).executeQuery();
+    }
+
+    private static PreparedStatement prepareAddress(PreparedStatement statement, String address, String city, String state, String zip) throws Exception{
+        statement.setString(1, address);
+        statement.setString(2, city);
+        statement.setString(3, state);
+        statement.setInt(4, Integer.parseInt(zip));
+        return statement;
     }
 }

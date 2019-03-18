@@ -2,6 +2,7 @@ package Controller.PatientControllers;
 
 import Controller.Main;
 import Controller.databaseConnector;
+import Model.Patient;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -47,27 +48,7 @@ public class NewPatientController implements Initializable {
       ////////////////////
      //Database Queries//
     ////////////////////
-    private int insertAddress() throws Exception{
-        PreparedStatement insertAddress = databaseConnector.getConnection().prepareStatement(
-                "INSERT INTO address(street_name, city, state, zip)" +
-                        "VALUES(?, ?, ?, ?)");
-        return prepareAddress(insertAddress).executeUpdate();
-    }
 
-    private ResultSet queryAddress() throws Exception{
-        PreparedStatement addressQuery = databaseConnector.getConnection().prepareStatement(
-            "SELECT address_id FROM address " +
-                "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
-        return prepareAddress(addressQuery).executeQuery();
-    }
-
-    private PreparedStatement prepareAddress(PreparedStatement statement) throws Exception{
-        statement.setString(1, addressField.getText());
-        statement.setString(2, cityField.getText());
-        statement.setString(3, stateField.getText());
-        statement.setInt(4, Integer.parseInt(zipField.getText()));
-        return statement;
-    }
 
 
       ///////////////////
@@ -80,37 +61,25 @@ public class NewPatientController implements Initializable {
     //////////////////
     public void submitNewPatient() throws Exception{
         if (validateForm()){
-            Connection conn = databaseConnector.getConnection();
+            Patient.insertNewPatient((new Patient(
+                    fNameField.getText(),
+                    lNameField.getText(),
+                    sexField.getText(),
+                    emailField.getText(),
+                    dobField.getValue(),
+                    Integer.parseInt(pNumberField.getText()),
+                    Integer.parseInt(insuranceField.getText()),
+                    Integer.parseInt(policyField.getText())
+            )),
+                    addressField.getText(),
+                    cityField.getText(),
+                    stateField.getText(),
+                    zipField.getText()
+            );
 
-            if(insertAddress() == 1) {
-
-                ResultSet addressSet = queryAddress();
-                addressSet.next();
-                int address_id = addressSet.getInt("address_id");
-
-                PreparedStatement insertNewUser = conn.prepareStatement(
-                        "INSERT INTO patient(patient_id, first_name, last_name, date_of_birth, sex, home_phone, email, insurance_number, policy_number, address_id, status, patient_medications_list)" +
-                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null)"
-                );
-                insertNewUser.setInt(1, Math.abs((new Random()).nextInt(50000)));
-                insertNewUser.setString(2, fNameField.getText());
-                insertNewUser.setString(3, lNameField.getText());
-                insertNewUser.setString(4, dateFormatter(dobField.getValue()));
-                insertNewUser.setString(5, sexField.getText());
-                insertNewUser.setString(6, pNumberField.getText());
-                insertNewUser.setString(7, emailField.getText());
-                insertNewUser.setString(8, insuranceField.getText());
-                insertNewUser.setString(9, policyField.getText());
-                insertNewUser.setInt(10, address_id);
-                insertNewUser.setString(11, "New Patient");
-
-                int result = insertNewUser.executeUpdate();
-
-                exitView();
-            }
-            else{
-                System.out.println("Your form is invalid");
-            }
+            Main.popup.close();
+            Main.getOuter().setDisable(false);
+            Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
         }
         else{
 
