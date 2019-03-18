@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+            <state relative-caret-position="102">
+              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="112" selection-end-column="5" />
               <folding>
                 <element signature="method#setView#0;class#AppointmentListController#0" />
                 <element signature="method#updateTable#0;class#AppointmentListController#0" />
@@ -33,12 +32,36 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setView#0;class#WorkListController#0" />
+                <element signature="method#updateTable#0;class#WorkListController#0" />
+                <element signature="method#sendAppointmentToView#0;class#WorkListController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
+        <entry file="file://$PROJECT_DIR$/src/View/TechViews/WorkList.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+            <state relative-caret-position="476">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -46,45 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/AppointmentViews/AppointmentView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="179" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="841">
-              <caret line="107" column="84" selection-start-line="107" selection-start-column="84" selection-end-line="107" selection-end-column="84" />
-              <folding>
-                <element signature="method#Patient#0;class#Patient#0" />
-                <element signature="method#Patient#2;class#Patient#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
-                <element signature="method#getPatientPhone#0;class#Referral#0" />
-              </folding>
+            <state relative-caret-position="1887">
+              <caret line="127" column="9" lean-forward="true" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -112,16 +98,6 @@
                 <element signature="method#initialize#0;class#ReferralFormController#0" />
                 <element signature="method#updateTable#0;class#ReferralFormController#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="85" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -156,6 +132,8 @@
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" />
         <option value="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" />
         <option value="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java" />
+        <option value="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" />
       </list>
     </option>
   </component>
@@ -246,7 +224,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552928152300" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552928294265" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -294,7 +272,7 @@
       <workItem from="1552838687888" duration="346000" />
       <workItem from="1552852172847" duration="1015000" />
       <workItem from="1552906651326" duration="7927000" />
-      <workItem from="1552927461318" duration="634000" />
+      <workItem from="1552927461318" duration="877000" />
     </task>
     <task id="LOCAL-00001" summary="Started moving queries to Models">
       <created>1552907450544</created>
@@ -310,11 +288,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552912694481</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Referral List">
+      <created>1552928301112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1552928301112</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9922000" />
+    <option name="totallyTimeSpent" value="10165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -327,9 +312,10 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.032502707" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.032502707" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -350,6 +336,38 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15458423" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.032502707" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -455,30 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="85" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="method#setView#0;class#ReferralFormController#0" />
-            <element signature="method#initialize#0;class#ReferralFormController#0" />
-            <element signature="method#updateTable#0;class#ReferralFormController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TechViews/WorkList.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="841">
@@ -521,17 +515,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="112" selection-end-column="5" />
           <folding>
             <element signature="method#setView#0;class#AppointmentListController#0" />
             <element signature="method#updateTable#0;class#AppointmentListController#0" />
@@ -542,11 +544,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
+    <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="85" selection-end-column="46" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="method#setView#0;class#ReferralFormController#0" />
+            <element signature="method#initialize#0;class#ReferralFormController#0" />
+            <element signature="method#updateTable#0;class#ReferralFormController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="127" column="9" lean-forward="true" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setView#0;class#WorkListController#0" />
+            <element signature="method#updateTable#0;class#WorkListController#0" />
+            <element signature="method#sendAppointmentToView#0;class#WorkListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TechViews/WorkList.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+        <state relative-caret-position="476">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
         </state>
       </provider>
     </entry>
