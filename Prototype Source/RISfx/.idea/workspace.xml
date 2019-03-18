@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Model/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Referral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Referral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,71 +27,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+              <folding>
+                <element signature="e#1194#1225#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+            <state relative-caret-position="272">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
               <folding>
-                <element signature="method#setView#0;class#ReferralFormController#0" />
-                <element signature="e#2174#2205#0" expanded="true" />
+                <element signature="e#1050#1081#0" expanded="true" />
+                <element signature="method#comboBoxFill#0;class#TechEntryController#0" />
+                <element signature="method#setBackPage#0;class#TechEntryController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
-                <element signature="method#insertNewReferral#0;class#Referral#0" />
-                <element signature="method#getPatientPhone#0;class#Referral#0" />
-              </folding>
+            <state relative-caret-position="364">
+              <caret line="61" column="94" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="61" selection-end-column="94" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#setView#0;class#AddAppointmentController#0" />
-                <element signature="method#updateTable#0;class#AddAppointmentController#0" />
-                <element signature="method#generateTimeSlots#0;class#AddAppointmentController#0" />
-                <element signature="method#generateConflictList#0;class#AddAppointmentController#0" />
-                <element signature="method#validateAppointment#0;class#AddAppointmentController#0" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+                <element signature="e#643#644#0" expanded="true" />
+                <element signature="e#690#691#0" expanded="true" />
+                <element signature="e#730#731#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-              <folding>
-                <element signature="method#setBackPage#0;class#Main#0" />
-                <element signature="method#setPopupWindow#0;class#Main#0" />
-                <element signature="method#start#0;class#Main#0" />
-              </folding>
+            <state relative-caret-position="461">
+              <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
+        <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+            <state relative-caret-position="662">
+              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -113,15 +129,19 @@
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" />
         <option value="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
-        <option value="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" />
         <option value="$PROJECT_DIR$/src/Model/Patient.java" />
         <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" />
         <option value="$PROJECT_DIR$/src/Model/Referral.java" />
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" />
+        <option value="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/Model/Item.java" />
+        <option value="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" />
       </list>
     </option>
   </component>
@@ -160,14 +180,14 @@
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="PatientControllers" type="462c0819:PsiDirectoryNode" />
+              <item name="BillingControllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="ReferralControllers" type="462c0819:PsiDirectoryNode" />
+              <item name="TechControllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
@@ -186,7 +206,14 @@
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="ReferralViews" type="462c0819:PsiDirectoryNode" />
+              <item name="BillingViews" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="TechViews" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -198,7 +225,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552941099604" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552946205511" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -247,7 +274,7 @@
       <workItem from="1552852172847" duration="1015000" />
       <workItem from="1552906651326" duration="7927000" />
       <workItem from="1552927461318" duration="3591000" />
-      <workItem from="1552933932550" duration="5271000" />
+      <workItem from="1552933932550" duration="9725000" />
     </task>
     <task id="LOCAL-00001" summary="Started moving queries to Models">
       <created>1552907450544</created>
@@ -305,17 +332,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552935687857</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Everything but Billing and the report review">
+      <created>1552941243428</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1552941243428</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18150000" />
+    <option name="totallyTimeSpent" value="22604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -324,7 +358,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.51137596" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19176598" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27410617" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -427,7 +461,8 @@
     <MESSAGE value="Referral List" />
     <MESSAGE value="Everything except Billing and Referring a new patient" />
     <MESSAGE value="Moving Queries to Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving Queries to Models" />
+    <MESSAGE value="Everything but Billing and the report review" />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything but Billing and the report review" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
@@ -505,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-908">
-          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/Libraries/javafx-sdk-11.0.2/lib/javafx.base.jar!/javafx/event/Event.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -526,28 +554,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="method#setBackPage#0;class#TechEntryController#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,46 +568,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="method#setView#0;class#AppointmentListController#0" />
-            <element signature="method#updateTable#0;class#AppointmentListController#0" />
-            <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
-            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
-            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/addReferredPatient.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="86" column="6" selection-start-line="86" selection-start-column="6" selection-end-line="88" selection-end-column="23" />
-          <folding>
-            <element signature="e#708#2235#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
-            <element signature="method#insertNewReferral#0;class#Referral#0" />
-            <element signature="method#getPatientPhone#0;class#Referral#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -608,18 +581,6 @@
             <element signature="e#2695#3107#0" />
             <element signature="e#3113#3550#0" />
             <element signature="e#3556#3907#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="method#setBackPage#0;class#Main#0" />
-            <element signature="method#setPopupWindow#0;class#Main#0" />
-            <element signature="method#start#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -639,6 +600,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+          <folding>
+            <element signature="method#setView#0;class#ReferralFormController#0" />
+            <element signature="e#2174#2205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Referral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#queryUnprocessedReferrals#0;class#Referral#0" />
+            <element signature="method#insertNewReferral#0;class#Referral#0" />
+            <element signature="method#getPatientPhone#0;class#Referral#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
@@ -654,13 +639,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+        <state relative-caret-position="-50">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
           <folding>
-            <element signature="method#setView#0;class#ReferralFormController#0" />
-            <element signature="e#2174#2205#0" expanded="true" />
+            <element signature="method#setCenterPane#0;class#Main#0" />
+            <element signature="method#setBackPage#0;class#Main#0" />
+            <element signature="method#setPopupWindow#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="50" column="11" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
+          <folding>
+            <element signature="method#setView#0;class#AppointmentListController#0" />
+            <element signature="method#updateTable#0;class#AppointmentListController#0" />
+            <element signature="method#setAppointmentView#0;class#AppointmentListController#0" />
+            <element signature="method#setAddAppointment#0;class#AppointmentListController#0" />
+            <element signature="method#sendAppointmentToView#0;class#AppointmentListController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <element signature="e#1194#1225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="61" column="94" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="61" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="71" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding>
+            <element signature="e#1050#1081#0" expanded="true" />
+            <element signature="method#comboBoxFill#0;class#TechEntryController#0" />
+            <element signature="method#setBackPage#0;class#TechEntryController#0" />
           </folding>
         </state>
       </provider>

@@ -20,6 +20,7 @@ public class Appointment {
     private Time appointmentTime, patientSignIn, patientSignOut;
     private String refferalReason, Comments, patientFullName, patientStatus, dateTime, technician, machineName, procedureName;
     private Modality modality;
+    private float balance;
 
 
       /////////////////////
@@ -81,6 +82,20 @@ public class Appointment {
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
                         "WHERE appointments.employee_id="+employeeID)).executeQuery();
+    }
+
+    public static ResultSet queryBillingList() throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT billing.*, " +
+                        "items.item_name, SUM(items.item_cost) AS 'appointment_total', " +
+                        "appointments.appointment_date, appointments.patient_status, " +
+                        "patient.first_name, patient.last_name " +
+                        "FROM billing " +
+                        "INNER JOIN appointments ON billing.appointment_id=appointments.appointment_id " +
+                        "INNER JOIN items ON billing.item_id=items.item_id " +
+                        "INNER JOIN patient ON appointments.patient_id=patient.patient_id " +
+                        "GROUP BY appointment_id ASC"
+        ).executeQuery();
     }
 
 
@@ -191,8 +206,14 @@ public class Appointment {
         return procedureName;
     }
 
+    public float getBalance() {
+        return balance;
+    }
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
 
-      ////////////////
+    ////////////////
      //Constructors//
     ////////////////
     public Appointment(){
@@ -231,6 +252,14 @@ public class Appointment {
         this.machineName        = machineName;
         this.employeeId         = employeeId;
         this.technician         = technician;
+    }
+
+    public Appointment(int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance) {
+        this.appointmentId = appointmentId;
+        this.appointmentDate = appointmentDate;
+        this.patientFullName = patientFullName;
+        this.balance = balance;
+        this.patientStatus = patientStatus;
     }
 
     public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,

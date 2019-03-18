@@ -38,6 +38,7 @@ public class AppointmentViewController implements Initializable {
         Main.setCenterPane("AppointmentViews/AppointmentView.fxml");
     }
 
+    @SuppressWarnings("Duplicates")
     public void initialize(URL url, ResourceBundle arg1) {
         pNameField.setText(Main.getAppointmentFocus().getPatientFullName());
         appointmentIDField.setText(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));

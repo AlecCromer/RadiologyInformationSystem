@@ -57,7 +57,7 @@
         </font>
     </Text>
     <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
-    <TableView layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
+    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
         <columns>
             <TableColumn prefWidth="368.0" text="Item" />
             <TableColumn prefWidth="90.0" text="Cost" />
@@ -69,7 +69,7 @@
         </font>
     </Text>
     <Button layoutX="629.0" layoutY="235.0" mnemonicParsing="false" text="Submit" AnchorPane.leftAnchor="629.0" AnchorPane.topAnchor="235.0" />
-    <ComboBox layoutX="490.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="174.0" />
+    <ComboBox fx:id="ItemBox" layoutX="490.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="174.0" />
    <Text layoutX="811.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capture Image" underline="true" wrappingWidth="111.48242020606995" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="300.0">
       <font>
          <Font name="Calibri" size="18.0" />
