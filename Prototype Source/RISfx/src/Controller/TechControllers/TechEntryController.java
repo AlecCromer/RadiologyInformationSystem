@@ -3,6 +3,7 @@ package Controller.TechControllers;
 import Controller.Main;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -13,14 +14,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class TechEntryController {
+public class TechEntryController implements Initializable {
 
       ////////////////////////
      //Variable Declaration//
     ////////////////////////
-      @FXML
-      TextField pNameField, appointmentIDField, appointmentDateField,
-              appointmentTimeField, signInField, signOutField;
+      @FXML TextField   pNameField,             appointmentIDField, appointmentDateField,
+                        appointmentTimeField,   signInField,        signOutField;
 
       ////////////////
      //Initializers//

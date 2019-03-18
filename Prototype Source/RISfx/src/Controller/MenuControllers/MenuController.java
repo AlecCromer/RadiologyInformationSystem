@@ -5,7 +5,7 @@ import Controller.BillingControllers.BillingListController;
 import Controller.Controller;
 import Controller.PatientControllers.PatientListController;
 import Controller.ReferralControllers.ReferralListController;
-import Controller.TechControllers.TechController;
+import Controller.TechControllers.WorkListController;
 import javafx.event.ActionEvent;
 
 public class MenuController extends Controller {
@@ -28,6 +28,6 @@ public class MenuController extends Controller {
     }
 
     public void setWorkList(ActionEvent actionEvent) throws Exception{
-        TechController.setWorkList();
+        WorkListController.setView();
     }
 }

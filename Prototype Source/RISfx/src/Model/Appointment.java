@@ -53,6 +53,7 @@ public class Appointment {
         );
     }
 
+
       ////////////////////
      //Database Queries//
     ////////////////////
@@ -73,7 +74,7 @@ public class Appointment {
                         "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
     }
 
-    public static ResultSet queryWorklist(int employeeID) throws Exception{
+    public static ResultSet queryWorkList(int employeeID) throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
                         "FROM `appointments` " +
@@ -83,7 +84,7 @@ public class Appointment {
     }
 
 
-    ///////////////////
+      ///////////////////
      //Getters/Setters//
     ///////////////////
       public int getAppointmentId() {
@@ -189,6 +190,7 @@ public class Appointment {
     public String getProcedureName() {
         return procedureName;
     }
+
 
       ////////////////
      //Constructors//
