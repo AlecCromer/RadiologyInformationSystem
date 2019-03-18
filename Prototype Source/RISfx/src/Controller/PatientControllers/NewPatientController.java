@@ -45,12 +45,6 @@ public class NewPatientController implements Initializable {
     }
 
 
-      ////////////////////
-     //Database Queries//
-    ////////////////////
-
-
-
       ///////////////////
      //List Generators//
     ///////////////////

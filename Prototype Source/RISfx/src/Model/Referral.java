@@ -2,6 +2,7 @@ package Model;
 
 import Controller.databaseConnector;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Referral {
@@ -14,6 +15,8 @@ public class Referral {
     private Patient patient;
     private boolean isProcessed;
     private String urgency;
+    private String heartRate;
+    private String referralReason, comments;
 
 
       /////////////////////
@@ -39,6 +42,23 @@ public class Referral {
 
                         "WHERE is_processed = 0"
         ).executeQuery();
+    }
+
+    public static void insertNewReferral(int patientID, int employeeID, int procedureID, String urgency, String referralReason, String specialComments) throws Exception{
+
+        PreparedStatement insertNewReferral = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO refer(employee_id, patient_id, procedure_id, is_processed, urgency, reason_for_referral, special_comments)" +
+                        "VALUES (?, ?, ?, 0, ?, ?, ?)"
+        );
+
+        insertNewReferral.setInt(1,employeeID);
+        insertNewReferral.setInt(2,patientID);
+        insertNewReferral.setInt(3,procedureID);
+        insertNewReferral.setString(4,urgency);
+        insertNewReferral.setString(5,referralReason);
+        insertNewReferral.setString(6,specialComments);
+
+        insertNewReferral.executeUpdate();
     }
 
 
@@ -101,5 +121,16 @@ public class Referral {
         this.patient = patient;
         this.isProcessed = isProcessed;
         this.urgency = urgency;
+    }
+
+    public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, String heartRate, String referralReason, String comments) {
+        this.procedureRequested = procedureRequested;
+        this.referrer = referrer;
+        this.patient = patient;
+        this.isProcessed = isProcessed;
+        this.urgency = urgency;
+        this.heartRate = heartRate;
+        this.referralReason = referralReason;
+        this.comments = comments;
     }
 }
