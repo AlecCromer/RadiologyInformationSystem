@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="ApptViewAnchor" prefHeight="546.0" prefWidth="1128.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechController">
+<AnchorPane fx:id="ApptViewAnchor" prefHeight="546.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.TechEntryController">
     <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="34.0" prefWidth="41.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tech Entry" underline="true" wrappingWidth="152.48242020606995" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+    <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment View" underline="true" wrappingWidth="152.48242020606995" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="19.5">
         <font>
             <Font name="Calibri" size="18.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient First Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
+    <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
@@ -26,12 +26,7 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="223.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" AnchorPane.leftAnchor="223.0" AnchorPane.topAnchor="60.5">
-        <font>
-            <Font name="Calibri" size="14.0" />
-        </font>
-    </Text>
-    <Text layoutX="378.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment ID:" AnchorPane.leftAnchor="378.0" AnchorPane.topAnchor="60.5">
+    <Text layoutX="291.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment ID:" AnchorPane.leftAnchor="291.0" AnchorPane.topAnchor="58.5">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
@@ -51,18 +46,17 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <TextField fx:id="fNameField" editable="false" layoutX="130.0" layoutY="55.0" prefHeight="25.0" prefWidth="86.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="lNameField" editable="false" layoutX="284.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="288.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="pNumberField" editable="false" layoutX="386.0" layoutY="87.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="87.0" />
-    <TextField fx:id="addressField" editable="false" layoutX="73.0" layoutY="87.0" prefHeight="25.0" prefWidth="110.0" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="87.0" />
-    <TextField fx:id="dobField" editable="false" layoutX="473.0" layoutY="55.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="473.0" AnchorPane.topAnchor="55.0" />
-    <TextField fx:id="sNumberField" editable="false" layoutX="656.0" layoutY="54.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="54.0" />
+    <TextField fx:id="pNameField" editable="false" layoutX="106.0" layoutY="55.0" prefHeight="25.0" prefWidth="184.0" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="55.0" />
+    <TextField fx:id="appointmentIDField" editable="false" layoutX="386.0" layoutY="53.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="53.0" />
+    <TextField fx:id="appointmentDateField" editable="false" layoutX="73.0" layoutY="87.0" prefHeight="25.0" prefWidth="110.0" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="87.0" />
+    <TextField fx:id="appointmentTimeField" editable="false" layoutX="386.0" layoutY="87.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="87.0" />
+    <TextField fx:id="signInField" editable="false" layoutX="656.0" layoutY="54.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="54.0" />
     <Text layoutX="568.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out Time:" AnchorPane.leftAnchor="568.0" AnchorPane.topAnchor="89.5">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <TextField fx:id="sNumberField1" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
+    <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
     <TableView layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
         <columns>
             <TableColumn prefWidth="368.0" text="Item" />
@@ -75,11 +69,11 @@
         </font>
     </Text>
     <Button layoutX="629.0" layoutY="235.0" mnemonicParsing="false" text="Submit" AnchorPane.leftAnchor="629.0" AnchorPane.topAnchor="235.0" />
-    <ComboBox layoutX="490.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" />
-   <Text layoutX="811.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capture Image" underline="true" wrappingWidth="111.48242020606995" AnchorPane.leftAnchor="790.0" AnchorPane.topAnchor="20.0">
+    <ComboBox fx:id="ItemBox" layoutX="490.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="174.0" />
+   <Text layoutX="811.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capture Image" underline="true" wrappingWidth="111.48242020606995" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="300.0">
       <font>
          <Font name="Calibri" size="18.0" />
       </font>
    </Text>
-   <Button layoutX="792.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Capture Image" AnchorPane.leftAnchor="790.0" AnchorPane.topAnchor="55.0" />
+   <Button layoutX="792.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Capture Image" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="330.0" />
 </AnchorPane>
