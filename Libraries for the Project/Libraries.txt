@@ -25,7 +25,6 @@ FormsFX:
 </dependency>
 
 Flat Theme:
-
 <dependency>
     <groupId>com.guigarage</groupId>
     <artifactId>flatter</artifactId>
