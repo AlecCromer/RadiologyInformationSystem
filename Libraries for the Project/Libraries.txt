@@ -15,10 +15,19 @@ Font Awesome:
   <type>pom</type>
 </dependency>
 
+
 FormsFX:
 <dependency>
   <groupId>com.dlsc.formsfx</groupId>
   <artifactId>formsfx-core</artifactId>
   <version>11.3.2</version>
   <type>pom</type>
+</dependency>
+
+Flat Theme:
+
+<dependency>
+    <groupId>com.guigarage</groupId>
+    <artifactId>flatter</artifactId>
+    <version>0.7</version>
 </dependency>
