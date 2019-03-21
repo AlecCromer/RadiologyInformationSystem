@@ -190,7 +190,7 @@ INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `en
 
 CREATE TABLE `image` (
   `image_id` int(11) NOT NULL,
-  `imagedata` blob NOT NULL,
+  `imagedata` longblob NOT NULL,
   `machine_id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
   `exam_date` date NOT NULL,
