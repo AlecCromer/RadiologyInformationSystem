@@ -77,7 +77,7 @@ CREATE TABLE `appointments` (
   `appointment_time` time NOT NULL,
   `patient_sign_in_time` time DEFAULT NULL,
   `patient_sign_out_time` time DEFAULT NULL,
-  `patient_status` enum('Signed In','Signed Out','Billed','Paid','Not Signed In') NOT NULL DEFAULT 'Not Signed In',
+  `patient_status` enum('Signed In','Signed Out','Billed','Paid','Not Signed In','Needs Report','Report Complete') NOT NULL DEFAULT 'Not Signed In',
   `patient_confirmation` bit(1) NOT NULL DEFAULT b'0',
   `procedure_id` int(11) NOT NULL,
   `machine_id` int(11) NOT NULL,
