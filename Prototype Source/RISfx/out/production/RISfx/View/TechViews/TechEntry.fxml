@@ -57,7 +57,7 @@
         </font>
     </Text>
     <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
-    <TableView layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
+    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
         <columns>
             <TableColumn prefWidth="368.0" text="Item" />
             <TableColumn prefWidth="90.0" text="Cost" />
