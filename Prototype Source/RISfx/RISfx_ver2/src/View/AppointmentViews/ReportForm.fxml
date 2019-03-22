@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane prefHeight="577.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.ReportFormController">
+    <AnchorPane prefHeight="1040.0" prefWidth="584.0">
+       <children>
+           <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Information" underline="true" wrappingWidth="159.99999716877937" AnchorPane.topAnchor="15.0">
+               <font>
+                   <Font name="Calibri" size="18.0" />
+               </font>
+           </Text>
+           <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
+               <font>
+                   <Font name="Calibri" size="14.0" />
+               </font>
+           </Text>
+           <Text layoutX="367.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoB:" AnchorPane.leftAnchor="367.0" AnchorPane.rightAnchor="189.642578125">
+               <font>
+                   <Font name="Calibri" size="14.0" />
+               </font>
+           </Text>
+
+           <TextField fx:id="NameField" layoutX="107.0" layoutY="54.0" prefHeight="25.0" prefWidth="156.0" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="54.0" />
+           <TextField fx:id="dobField" layoutX="396.0" layoutY="54.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="396.0" AnchorPane.topAnchor="54.0" />
+         <Text layoutX="269.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="idField" layoutX="285.0" layoutY="54.0" prefHeight="25.0" prefWidth="79.0" />
+         <Text layoutX="480.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="sexField" layoutX="503.0" layoutY="54.0" prefHeight="25.0" prefWidth="24.0" />
+         <Text layoutX="20.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment ID: ">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="apptIDField" layoutX="148.0" layoutY="97.0" prefHeight="25.0" prefWidth="99.0" />
+         <Text layoutX="20.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Procedure Requested:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <Text layoutX="20.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scheduled Date:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="dateField" layoutX="148.0" layoutY="163.0" prefHeight="25.0" prefWidth="101.0" />
+         <Text layoutX="20.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Referring Physician:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="physicianField" layoutX="136.0" layoutY="230.0" prefHeight="10.0" prefWidth="156.0" />
+         <Text layoutX="20.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for Exam:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextArea fx:id="reasonField" layoutX="32.0" layoutY="292.0" prefHeight="95.0" prefWidth="513.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" />
+         <Text layoutX="210.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Information" textAlignment="CENTER" underline="true" wrappingWidth="163.99999716877937" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.00000283122063">
+            <font>
+               <Font name="Calibri" size="18.0" />
+            </font>
+         </Text>
+         <Text layoutX="45.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comapared to Exam on:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <CheckBox layoutX="24.0" layoutY="444.0" mnemonicParsing="false" text="Comaprison Made?" />
+         <DatePicker fx:id="prevExamField" layoutX="188.0" layoutY="465.0" />
+         <Text layoutX="27.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clinical History:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextArea fx:id="historyField" layoutX="36.0" layoutY="523.0" prefHeight="72.0" prefWidth="513.0" />
+         <TextField fx:id="timeField" layoutX="287.0" layoutY="163.0" prefHeight="25.0" prefWidth="101.0" />
+         <Text layoutX="255.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <Text layoutX="27.0" layoutY="627.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Technique Used:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextArea fx:id="techniqueField" layoutX="36.0" layoutY="631.0" prefHeight="55.0" prefWidth="513.0" />
+         <Text layoutX="29.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Findings:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextArea fx:id="findingField" layoutX="36.0" layoutY="714.0" prefHeight="180.0" prefWidth="513.0" />
+         <Text layoutX="29.0" layoutY="943.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attending Radiologist:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <TextField fx:id="radiologistField" layoutX="155.0" layoutY="926.0" prefHeight="25.0" prefWidth="170.0" />
+         <Text layoutX="31.0" layoutY="979.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign off Date:">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
+         </Text>
+         <DatePicker fx:id="signDateField" layoutX="112.0" layoutY="962.0" prefHeight="25.0" prefWidth="213.0" />
+         <Button layoutX="515.0" layoutY="1094.0" mnemonicParsing="false" text="Submit Report" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="21.0" />
+         <ComboBox fx:id="procedureBox" layoutX="148.0" layoutY="129.0" prefHeight="25.0" prefWidth="240.0" />
+       </children>
+    </AnchorPane>
+</ScrollPane>

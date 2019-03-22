@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
@@ -27,8 +27,8 @@ public class Main extends Application {
     public static  Stage popup                  = new Stage();
 
 
-      ////////////////
-     //View Setters//
+    ////////////////
+    //View Setters//
     ////////////////
 
     //Called to set the main view
@@ -69,12 +69,12 @@ public class Main extends Application {
     }
 
 
-      ///////////////////////////
-     //Variable Getter/Setters//
+    ///////////////////////////
+    //Variable Getter/Setters//
     ///////////////////////////
     public static BorderPane getRIS_Container(){
-          return RIS_Container;
-      }
+        return RIS_Container;
+    }
     public static BorderPane getOuter(){return Outer;}
 
     //Focus variables used to pass data between the views
@@ -102,8 +102,8 @@ public class Main extends Application {
     }
 
 
-      ////////////////
-     //Start Method//
+    ////////////////
+    //Start Method//
     ////////////////
     @Override
     public void start(Stage stage) throws Exception{
