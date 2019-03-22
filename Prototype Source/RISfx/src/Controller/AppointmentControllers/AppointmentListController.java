@@ -66,7 +66,7 @@ public class AppointmentListController implements Initializable {
         ProcedureType.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedureName"));
         Technician.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
         Status.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
-        Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+        //Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
 
 
