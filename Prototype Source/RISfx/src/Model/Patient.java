@@ -5,6 +5,7 @@ import Controller.databaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -25,10 +26,26 @@ public class Patient {
       ////////////////////
      //Database Queries//
     ////////////////////
+    public static ResultSet queryAllPatients() throws Exception{
+    ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
+    "select * FROM patient"
+    ) .executeQuery();
+
+    return resultSet;
+    }
+
     public static ResultSet queryPatientInfo(int patientID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT first_name, last_name, status FROM patient " +
+                "SELECT * FROM patient " +
                         "WHERE patient_id = " + patientID).executeQuery();
+    }
+
+    public static ResultSet queryPatientAppointments(int patientId) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +
+                        "FROM appointments " +
+                        "WHERE appointments.patient_id = " + patientId
+        ).executeQuery();
     }
 
     public static int insertNewPatient(Patient patientToInsert, String address, String city, String state, String zip) throws Exception {
@@ -75,6 +92,11 @@ public class Patient {
                 "SELECT address_id FROM address " +
                         "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
         return prepareAddress(addressQuery, address, city, state, zip).executeQuery();
+    }
+    public static ResultSet queryAddress(int addressID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                        "SELECT * FROM `address` WHERE `address_id` = " + addressID
+        ).executeQuery();
     }
 
     private static PreparedStatement prepareAddress(PreparedStatement statement, String address, String city, String state, String zip) throws Exception{

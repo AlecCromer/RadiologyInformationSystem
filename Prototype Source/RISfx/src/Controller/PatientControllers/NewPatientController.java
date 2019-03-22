@@ -53,6 +53,7 @@ public class NewPatientController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+    @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception{
         if (validateForm()){
             Patient.insertNewPatient((new Patient(

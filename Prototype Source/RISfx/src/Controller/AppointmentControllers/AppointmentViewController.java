@@ -1,7 +1,7 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
+import Model.Appointment;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,29 +58,6 @@ public class AppointmentViewController implements Initializable {
     }
 
 
-      ////////////////////
-     //Database Queries//
-    ////////////////////
-    private void updateSignInTime() throws Exception{
-        PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
-                "UPDATE appointments " +
-                        "SET appointments.patient_sign_in_time = ?, appointments.patient_status = 1 " +
-                        "WHERE appointments.appointment_id = ?");
-        statement.setTime(1, Main.getAppointmentFocus().getPatientSignIn());
-        statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
-        statement.executeUpdate();
-    }
-    private void updateSignOutTime() throws Exception{
-        PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
-                "UPDATE appointments " +
-                        "SET appointments.patient_sign_out_time = ?, appointments.patient_status = 2 " +
-                        "WHERE appointments.appointment_id = ?");
-        statement.setTime(1, Main.getAppointmentFocus().getPatientSignOut());
-        statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
-        statement.executeUpdate();
-    }
-
-
       ///////////////////
      //List Generators//
     ///////////////////
@@ -100,11 +77,11 @@ public class AppointmentViewController implements Initializable {
     public void checkPatient() throws Exception{
         if(signInField.getText().length() > 0){
             Main.getAppointmentFocus().setPatientSignIn(Time.valueOf(LocalTime.parse(signInField.getText())));
-            updateSignInTime();
+            Appointment.updateSignInTime();
         }
         if(signOutField.getText().length() > 0){
             Main.getAppointmentFocus().setPatientSignOut(Time.valueOf(LocalTime.parse(signOutField.getText())));
-            updateSignOutTime();
+            Appointment.updateSignOutTime();
         }
         AppointmentViewController.setView();
         Main.popBackNodeList();
