@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 10:57 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: Mar 21, 2019 at 02:50 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,7 +59,10 @@ INSERT INTO `address` (`address_id`, `street_name`, `city`, `zip`, `state`) VALU
 (19, '12345 Testing Lane', 'Gainesville', 30504, 'Florida'),
 (20, 'This Closes Avenue', 'Dahlonega', 123567, 'Georgia'),
 (21, '123567 Jojo Lane', 'Winder', 30680, 'Georgia'),
-(22, '123567 Adventure Lane', 'Winder', 30680, 'Georiga');
+(22, '123567 Adventure Lane', 'Winder', 30680, 'Georiga'),
+(23, '3242', 'm', 34343, 'm'),
+(24, 'm', 'm', 54545, 'ga'),
+(25, 'd', 'd', 56765, 'g');
 
 -- --------------------------------------------------------
 
@@ -187,7 +190,7 @@ INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `en
 
 CREATE TABLE `image` (
   `image_id` int(11) NOT NULL,
-  `imagedata` blob NOT NULL,
+  `imagedata` longblob NOT NULL,
   `machine_id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
   `exam_date` date NOT NULL,
@@ -279,7 +282,7 @@ CREATE TABLE `patient` (
   `last_name` varchar(30) NOT NULL,
   `date_of_birth` date NOT NULL,
   `sex` varchar(30) NOT NULL,
-  `home_phone` int(11) NOT NULL,
+  `home_phone` varchar(11) NOT NULL,
   `email` varchar(30) NOT NULL,
   `insurance_number` int(11) NOT NULL,
   `policy_number` int(11) NOT NULL,
@@ -293,14 +296,15 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`, `sex`, `home_phone`, `email`, `insurance_number`, `policy_number`, `address_id`, `status`, `patient_medications_list`) VALUES
-(3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', 1234567890, 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL),
-(12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', 67855583, 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole'),
-(18603, 'Kyle', 'Michael', '1994-11-16', 'Male', 1876543210, 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL),
-(19696, 'Testing', 'McGee', '1950-01-01', 'Male', 1234567890, 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL),
-(31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', 12345678, 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL),
-(36725, 'Make', 'Sure', '1950-01-01', 'Male', 1234567890, 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL),
-(44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', 678126987, 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL),
-(47284, 'Ben', 'Denton', '2019-03-11', 'Male', 578223442, 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin');
+(3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', '1234567890', 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL),
+(12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', '67855583', 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole'),
+(18603, 'Kyle', 'Michael', '1994-11-16', 'Male', '1876543210', 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL),
+(19696, 'Testing', 'McGee', '1950-01-01', 'Male', '1234567890', 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL),
+(23423, 'Evan', 'Myers', '1980-03-10', 'Male', '2147483647', 'fake@fake.com', 4574676, 567456754, 20, NULL, NULL),
+(31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', '12345678', 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL),
+(36725, 'Make', 'Sure', '1950-01-01', 'Male', '1234567890', 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL),
+(44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', '678126987', 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL),
+(47284, 'Ben', 'Denton', '2019-03-11', 'Male', '578223442', 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin');
 
 -- --------------------------------------------------------
 
@@ -320,8 +324,8 @@ CREATE TABLE `procedures` (
 --
 
 INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`, `procedure_price`) VALUES
-(1, 'x-ray', 1, NULL),
-(2, 'ct scan', 3, NULL),
+(1, 'X-Ray', 1, NULL),
+(2, 'CT Scan', 3, NULL),
 (3, 'MRI', 2, NULL);
 
 -- --------------------------------------------------------
@@ -566,86 +570,72 @@ ALTER TABLE `role_relationship`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
+  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
   MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
 -- AUTO_INCREMENT for table `billing`
 --
 ALTER TABLE `billing`
   MODIFY `billing_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `employee_schedule`
 --
 ALTER TABLE `employee_schedule`
   MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
   MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `image_report_relationship`
 --
 ALTER TABLE `image_report_relationship`
   MODIFY `report_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `modality`
 --
 ALTER TABLE `modality`
   MODIFY `machine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
   MODIFY `procedure_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `procedure_relationship`
 --
 ALTER TABLE `procedure_relationship`
   MODIFY `procedure_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `refer`
 --
 ALTER TABLE `refer`
   MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
   MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `role_relationship`
 --
 ALTER TABLE `role_relationship`
   MODIFY `role_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- Constraints for dumped tables
 --
