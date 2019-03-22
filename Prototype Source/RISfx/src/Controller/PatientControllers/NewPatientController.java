@@ -61,7 +61,7 @@ public class NewPatientController implements Initializable {
                     sexField.getText(),
                     emailField.getText(),
                     dobField.getValue(),
-                    Integer.parseInt(pNumberField.getText()),
+                    pNumberField.getText(),
                     Integer.parseInt(insuranceField.getText()),
                     Integer.parseInt(policyField.getText())
             )),
