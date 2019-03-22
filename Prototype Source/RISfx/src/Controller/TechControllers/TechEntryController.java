@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 
 import javax.imageio.ImageIO;
 import java.io.InputStream;
@@ -31,6 +32,8 @@ public class TechEntryController implements Initializable {
     ////////////////////////
     @FXML TextField pNameField,             appointmentIDField, appointmentDateField,
                     appointmentTimeField,   signInField,        signOutField;
+    @FXML Text      needReportText;
+    @FXML Button    readyForReport;
     @FXML
     ComboBox<String> ItemBox;
     @FXML
@@ -71,6 +74,10 @@ public class TechEntryController implements Initializable {
             comboBoxFill();
         }
         catch (Exception e){ e.printStackTrace(); }
+        if (Main.getAppointmentFocus().getPatientStatus().equals("Needs Report")){
+            needReportText.setVisible(true);
+            readyForReport.setDisable(true);
+        }
     }
 
     private void updateTable(){
@@ -176,6 +183,13 @@ public class TechEntryController implements Initializable {
         updateTable();
 
       }
+
+    public void readyForReport() throws Exception{
+        if (!(Appointment.updateReadyStatus(Main.getAppointmentFocus().getAppointmentId()))){
+            needReportText.setVisible(true);
+            readyForReport.setDisable(true);
+        }
+    }
 
       ///////////////////
      //Form Validation//

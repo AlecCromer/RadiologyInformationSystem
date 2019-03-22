@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -20,9 +21,10 @@ import java.util.ResourceBundle;
 
 public class WorkListController implements Initializable {
 
-    ////////////////////////
+      ////////////////////////
      //Variable Declaration//
     ////////////////////////
+    @FXML Text loggedIn;
     @FXML
     TableView<Appointment>              WorkList;
     @FXML
@@ -51,6 +53,7 @@ public class WorkListController implements Initializable {
                 }
             }
         });
+        loggedIn.setText(loggedIn.getText() + " Alexander Cromer");
     }
 
     private void updateTable() {

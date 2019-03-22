@@ -128,6 +128,13 @@ public class Appointment {
         statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
         statement.executeUpdate();
     }
+    public static boolean updateReadyStatus(int appointmentId) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+            "UPDATE appointments " +
+                    "SET appointments.patient_status = 'Needs Report' " +
+                    "WHERE appointments.appointment_id = " + appointmentId
+        ).execute();
+    }
 
 
       ///////////////////

@@ -132,9 +132,11 @@ public class PatientListController implements Initializable {
         int patient_id = selectedItem.getPatientID();
 
         ResultSet rs = Patient.queryPatientInfo(patient_id);
-        ResultSet addr = Patient.queryAddress(rs.getInt("address_id"));
-
         rs.next();
+
+        ResultSet addr = Patient.queryAddress(rs.getInt("address_id"));
+        addr.next();
+
         String address = addr.getString("street_name") + ", " + addr.getString("city") + ", " + addr.getString("state") + ", " + addr.getInt("zip") ;
         Main.setPatientFocus((new Patient(
                 rs.getInt("patient_id"),

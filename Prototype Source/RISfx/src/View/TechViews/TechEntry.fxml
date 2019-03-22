@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="ApptViewAnchor" prefHeight="638.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.TechEntryController">
+<AnchorPane fx:id="ApptViewAnchor" prefHeight="638.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.TechEntryController">
     <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="34.0" prefWidth="41.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment View" underline="true" wrappingWidth="152.48242020606995" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="19.5">
         <font>
@@ -82,4 +82,10 @@
          <TableColumn fx:id="taken_date" maxWidth="100.0" prefWidth="57.0" text="date" />
       </columns>
    </TableView>
+   <Text fx:id="needReportText" fill="RED" layoutX="202.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Needs Report" visible="false" wrappingWidth="125.93066393584013">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Button fx:id="readyForReport" layoutX="562.0" layoutY="127.0" mnemonicParsing="false" onAction="#readyForReport" prefHeight="25.0" prefWidth="210.0" text="Ready For Report" AnchorPane.leftAnchor="562.0" AnchorPane.topAnchor="127.0" />
 </AnchorPane>
