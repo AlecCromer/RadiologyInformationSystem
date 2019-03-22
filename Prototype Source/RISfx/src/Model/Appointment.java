@@ -80,7 +80,9 @@ public class Appointment {
                         "FROM `appointments` " +
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.employee_id="+employeeID)).executeQuery();
+                        "WHERE appointments.employee_id="+employeeID
+                            //" AND appointments.patient_status != 'Signed In'"
+                )).executeQuery();
     }
 
     public static ResultSet queryBillingList() throws Exception{

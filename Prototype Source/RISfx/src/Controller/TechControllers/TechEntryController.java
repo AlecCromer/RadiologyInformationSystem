@@ -74,7 +74,7 @@ public class TechEntryController implements Initializable {
             comboBoxFill();
         }
         catch (Exception e){ e.printStackTrace(); }
-        if (Main.getAppointmentFocus().getPatientStatus().equals("Needs Report")){
+        if (Main.getAppointmentFocus().getPatientStatus().equals( "Needs Report")){
             needReportText.setVisible(true);
             readyForReport.setDisable(true);
         }

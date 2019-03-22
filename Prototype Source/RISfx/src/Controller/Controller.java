@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Controller.databaseConnector;
+import Model.Employee;
 import Model.User;
 import javafx.beans.property.ObjectPropertyBase;
 import javafx.event.ActionEvent;
@@ -19,11 +20,23 @@ public class Controller {
     @FXML private TextField passwordTextField;
     @FXML private Label exceptionLabel;
     @FXML private Button loginButton;
+
     public void onLoginButtonPushed(ActionEvent event) {
-        User user = new User(usernameTextField.getText(),passwordTextField.getText());
+        Employee user = new Employee(passwordTextField.getText(),usernameTextField.getText());
         try{
             if(user.validLogin(usernameTextField.getText(), passwordTextField.getText())) {
                 exceptionLabel.setText("Login Successful");
+                ResultSet rs = Employee.querySessionEmployee(user.getEmail(), user.getFirstName());
+                rs.next();
+
+                Main.setSessionUser(new Employee(
+                    rs.getInt("employee_id"),
+                    rs.getString("first_name"),
+                    rs.getString("last_name"),
+                    rs.getString("email")
+                ));
+
+                Main.successfulLogin();
             }
             else {
                 exceptionLabel.setText("Incorrect user name or password");

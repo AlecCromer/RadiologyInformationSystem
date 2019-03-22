@@ -53,7 +53,7 @@ public class WorkListController implements Initializable {
                 }
             }
         });
-        loggedIn.setText(loggedIn.getText() + " Alexander Cromer");
+        loggedIn.setText(loggedIn.getText() + Main.getSessionUser().getFullName());
     }
 
     private void updateTable() {
@@ -78,7 +78,7 @@ public class WorkListController implements Initializable {
     ///////////////////
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet resultSet = Appointment.queryWorkList(12442)){
+        try(ResultSet resultSet = Appointment.queryWorkList(Main.getSessionUser().getEmployeeId())){
             while (resultSet.next()){
                 appointments.add(Appointment.generateAppointmentFocus(resultSet));
             }

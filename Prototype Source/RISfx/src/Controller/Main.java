@@ -1,7 +1,9 @@
 package Controller;
 
 import Model.Appointment;
+import Model.Employee;
 import Model.Patient;
+import Model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,6 +26,7 @@ public class Main extends Application {
     private static Scene MainScene              = new Scene(Outer,800, 450);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
+    private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
 
 
@@ -90,6 +93,13 @@ public class Main extends Application {
         Main.appointmentFocus = appointmentFocus;
     }
 
+    public static Employee getSessionUser() {
+        return sessionUser;
+    }
+    public static void setSessionUser(Employee sessionUser) {
+        Main.sessionUser = sessionUser;
+    }
+
     public static void popBackNodeList() {
         try {
             backNodeList.remove(backNodeList.get((backNodeList.size() - 1)));
@@ -108,23 +118,30 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         databaseConnector.getStartConnection();
+        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginView.fxml"));
+
         primaryStage.setTitle("RIS Clinic System");
-        primaryStage.setScene(MainScene);
-        //Set the TOP of the borderPane to our menu
-        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
-        RIS_Container.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
-        Outer.setCenter(RIS_Container);
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 300, 325));
 
         //Setup a listener for when the popup window is closed
         popup.setOnCloseRequest(event -> {
             this.closeWindowEvent();
         });
 
-        //Set the initial start to our PatientList
-        setCenterPane("PatientViews/PatientList.fxml");
-
         //Finally show initial stage
         primaryStage.show();
+    }
+
+    public static void successfulLogin() throws Exception{
+        primaryStage.setScene(MainScene);
+        //Set the TOP of the borderPane to our menu
+        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
+        RIS_Container.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
+        Outer.setCenter(RIS_Container);
+
+        //Set the initial start to our PatientList
+        setCenterPane("PatientViews/PatientList.fxml");
     }
 
     //Useless but necessary
