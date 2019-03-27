@@ -1,21 +1,28 @@
 package Controller;
 
 import Model.Appointment;
+import Model.Employee;
 import Model.Patient;
+import Model.User;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeInLeft;
+import animatefx.animation.Pulse;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
 
 import java.net.URL;
 import java.util.ArrayList;
 
 public class Main extends Application {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
@@ -24,11 +31,12 @@ public class Main extends Application {
     private static Scene MainScene              = new Scene(Outer,800, 450);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
+    private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
 
 
-      ////////////////
-     //View Setters//
+    ////////////////
+    //View Setters//
     ////////////////
 
     //Called to set the main view
@@ -39,6 +47,7 @@ public class Main extends Application {
             backNodeList.add(Main.class.getResource("../View/"+fxmlName));
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
+            new FadeInLeft(RIS_Container).play();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -53,14 +62,17 @@ public class Main extends Application {
         RIS_Container.setCenter(FXMLLoader.load(backNodeList.get((backNodeList.size()-1))));
     }
 
-    //Create Popup Window using submitted fxml
+    //Create Popup Window using submitted iiii
     public static void setPopupWindow(String fxmlName) throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("../View/" + fxmlName));
         Scene view = new Scene(root, 520, 300);
         popup.setScene(view);
         popup.setAlwaysOnTop(true);
+        popup.setTitle("RIS Clinic System");
+        popup.getIcons().add(new Image("View/icons/icon.png"));
         popup.show();
         Outer.setDisable(true);
+        new FadeIn(root).play();
     }
 
     //Determines what all needs to be done when the popup window closes via 'X' button
@@ -69,12 +81,12 @@ public class Main extends Application {
     }
 
 
-      ///////////////////////////
-     //Variable Getter/Setters//
+    ///////////////////////////
+    //Variable Getter/Setters//
     ///////////////////////////
     public static BorderPane getRIS_Container(){
-          return RIS_Container;
-      }
+        return RIS_Container;
+    }
     public static BorderPane getOuter(){return Outer;}
 
     //Focus variables used to pass data between the views
@@ -90,6 +102,13 @@ public class Main extends Application {
         Main.appointmentFocus = appointmentFocus;
     }
 
+    public static Employee getSessionUser() {
+        return sessionUser;
+    }
+    public static void setSessionUser(Employee sessionUser) {
+        Main.sessionUser = sessionUser;
+    }
+
     public static void popBackNodeList() {
         try {
             backNodeList.remove(backNodeList.get((backNodeList.size() - 1)));
@@ -102,29 +121,38 @@ public class Main extends Application {
     }
 
 
-      ////////////////
-     //Start Method//
+    ////////////////
+    //Start Method//
     ////////////////
     @Override
     public void start(Stage stage) throws Exception{
         databaseConnector.getStartConnection();
-        primaryStage.setTitle("RIS Clinic System");
-        primaryStage.setScene(MainScene);
-        //Set the TOP of the borderPane to our menu
-        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
-        RIS_Container.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
-        Outer.setCenter(RIS_Container);
+        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginView.fxml"));
 
+        primaryStage.setTitle("RIS Clinic System");
+        primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image("View/icons/icon.png"));
+        primaryStage.setScene(new Scene(root, 300, 325));
+        new FadeIn(root).play();
         //Setup a listener for when the popup window is closed
         popup.setOnCloseRequest(event -> {
             this.closeWindowEvent();
         });
 
-        //Set the initial start to our PatientList
-        setCenterPane("PatientViews/PatientList.fxml");
-
         //Finally show initial stage
         primaryStage.show();
+    }
+
+    public static void successfulLogin() throws Exception{
+        primaryStage.setResizable(true);
+        primaryStage.setScene(MainScene);
+        //Set the TOP of the borderPane to our menu
+        Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
+        Outer.setLeft(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
+        Outer.setCenter(RIS_Container);
+
+        //Set the initial start to our PatientList
+        setCenterPane("PatientViews/PatientList.fxml");
     }
 
     //Useless but necessary

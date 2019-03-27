@@ -5,6 +5,7 @@ import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
+import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -98,29 +99,16 @@ public class PatientViewController implements Initializable {
       ////////////////////
      //Database Queries//
     ////////////////////
-    private ResultSet queryPatientAppointments(int patientId) throws Exception{
-        return databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +
-                        "FROM appointments " +
-                        "WHERE appointments.patient_id = " + patientId
-        ).executeQuery();
-      }
 
-    private ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
-        return (databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
-                        "FROM `appointments` " +
-                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
-                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
-    }
+
+
 
       ///////////////////
      //List Generators//
     ///////////////////
     private ObservableList<Appointment> generatePatientAppointmentList() throws Exception{
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet rs = queryPatientAppointments(Main.getPatientFocus().getPatientID());){
+        try(ResultSet rs = Patient.queryPatientAppointments(Main.getPatientFocus().getPatientID())){
             while (rs.next()){
                 appointments.add(generateAppointment(rs));
             }
@@ -202,7 +190,7 @@ public class PatientViewController implements Initializable {
 
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();
-        ResultSet rs = queryAppointmentFocus(appointmentId);
+        ResultSet rs = Appointment.queryAppointmentFocus(appointmentId);
         rs.next();
         Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
     }

@@ -26,7 +26,7 @@
                 <Font name="Calibri Bold" size="24.0" />
             </font>
         </Text>
-      <Text layoutX="497.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Logged in as: " AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="20.0">
+      <Text fx:id="loggedIn" layoutX="497.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Logged in as: " AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="20.0">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>

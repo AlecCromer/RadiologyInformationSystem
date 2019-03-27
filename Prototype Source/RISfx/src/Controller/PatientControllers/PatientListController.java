@@ -80,20 +80,7 @@ public class PatientListController implements Initializable {
       ////////////////////
      //Database Queries//
     ////////////////////
-    private ResultSet queryAllPatients() {
-        ResultSet resultSet = null;
-        try {
-            Connection conn = databaseConnector.getConnection();
-            PreparedStatement displayprofile = conn.prepareStatement(
-                    "select * FROM patient");
-             resultSet = displayprofile.executeQuery();
-        }
-        catch(SQLException ex) {
-            databaseConnector.displayException(ex);
-            System.out.println("Someone didn't set up their DATABASE!!");
-        }
-        return resultSet;
-    }
+
 
 
       ///////////////////
@@ -102,7 +89,7 @@ public class PatientListController implements Initializable {
     public ObservableList<Patient>  getPatientList() throws Exception {
         ObservableList<Patient> patients = FXCollections.observableArrayList();
 
-        ResultSet resultSet = queryAllPatients();
+        ResultSet resultSet = Patient.queryAllPatients();
         while (resultSet.next()) {
             patients.add(new Patient(
                     resultSet.getInt("patient_id"),
@@ -110,7 +97,7 @@ public class PatientListController implements Initializable {
                     resultSet.getString("last_name"),
                     dateFormatter(resultSet.getString("date_of_birth")),
                     resultSet.getString("sex"),
-                    resultSet.getInt("home_phone"),
+                    resultSet.getString("home_phone"),
                     resultSet.getString("email"),
                     resultSet.getInt("insurance_number"),
                     resultSet.getInt("policy_number"),
@@ -144,20 +131,12 @@ public class PatientListController implements Initializable {
     private void sendPatientToView(Patient selectedItem) throws Exception{
         int patient_id = selectedItem.getPatientID();
 
-        Connection conn = databaseConnector.getConnection();
-        PreparedStatement selectPatient = conn.prepareStatement(
-                "select * FROM patient WHERE `patient_id` = ?");
-        selectPatient.setInt(1, patient_id);
-
-        PreparedStatement addressFill = conn.prepareStatement(
-                "SELECT * FROM `address` WHERE `address_id` = ?");
-
-        ResultSet rs = selectPatient.executeQuery();
+        ResultSet rs = Patient.queryPatientInfo(patient_id);
         rs.next();
 
-        addressFill.setInt(1, rs.getInt("address_id"));
-        ResultSet addr = addressFill.executeQuery();
+        ResultSet addr = Patient.queryAddress(rs.getInt("address_id"));
         addr.next();
+
         String address = addr.getString("street_name") + ", " + addr.getString("city") + ", " + addr.getString("state") + ", " + addr.getInt("zip") ;
         Main.setPatientFocus((new Patient(
                 rs.getInt("patient_id"),
@@ -165,7 +144,7 @@ public class PatientListController implements Initializable {
                 rs.getString("last_name"),
                 LocalDate.parse(rs.getString("date_of_birth")),
                 rs.getString("sex"),
-                rs.getInt("home_phone"),
+                rs.getString("home_phone"),
                 rs.getString("email"),
                 rs.getInt("insurance_number"),
                 rs.getInt("policy_number"),

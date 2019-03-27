@@ -90,7 +90,7 @@ public class ReferralListController implements Initializable {
                         resultSet.getInt("patient_id"),
                         resultSet.getString("patient_first_name"),
                         resultSet.getString("patient_last_name"),
-                        resultSet.getInt("home_phone")
+                        resultSet.getString("home_phone")
                     ),
                     resultSet.getBoolean("is_processed"),
                     resultSet.getString("urgency")

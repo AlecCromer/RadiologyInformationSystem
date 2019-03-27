@@ -5,6 +5,7 @@ import Controller.databaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ public class Patient {
       ////////////////////////
      //Variable Declaration//
     ////////////////////////
-    private String  firstname, lastname, sex, email, address;
+    private String  firstname, lastname, sex, email, address, phoneNumber;
     private LocalDate dob;
-    private int phoneNumber, patientID, insuranceNumber;
+    private int patientID, insuranceNumber;
     private int policyNumber;
     private ArrayList<Appointment> AppointmentList;
 
@@ -25,10 +26,26 @@ public class Patient {
       ////////////////////
      //Database Queries//
     ////////////////////
+    public static ResultSet queryAllPatients() throws Exception{
+    ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
+    "select * FROM patient"
+    ) .executeQuery();
+
+    return resultSet;
+    }
+
     public static ResultSet queryPatientInfo(int patientID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT first_name, last_name, status FROM patient " +
+                "SELECT * FROM patient " +
                         "WHERE patient_id = " + patientID).executeQuery();
+    }
+
+    public static ResultSet queryPatientAppointments(int patientId) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +
+                        "FROM appointments " +
+                        "WHERE appointments.patient_id = " + patientId
+        ).executeQuery();
     }
 
     public static int insertNewPatient(Patient patientToInsert, String address, String city, String state, String zip) throws Exception {
@@ -76,6 +93,11 @@ public class Patient {
                         "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
         return prepareAddress(addressQuery, address, city, state, zip).executeQuery();
     }
+    public static ResultSet queryAddress(int addressID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                        "SELECT * FROM `address` WHERE `address_id` = " + addressID
+        ).executeQuery();
+    }
 
     private static PreparedStatement prepareAddress(PreparedStatement statement, String address, String city, String state, String zip) throws Exception{
         statement.setString(1, address);
@@ -118,10 +140,10 @@ public class Patient {
         this.sex = sex;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -173,7 +195,7 @@ public class Patient {
         this.lastname           = null;
         this.dob                = null;
         this.sex                = null;
-        this.phoneNumber        = -1;
+        this.phoneNumber        = null;
         this.email              = null;
         this.address            = null;
         this.insuranceNumber    = -1;
@@ -181,14 +203,14 @@ public class Patient {
         this.AppointmentList    = new ArrayList<>();
     }
 
-    public Patient(int patientID, String firstname, String lastname, int phoneNumber) {
+    public Patient(int patientID, String firstname, String lastname, String phoneNumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.phoneNumber = phoneNumber;
         this.patientID = patientID;
     }
 
-    public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, int phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
+    public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, String phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
         this.patientID          = PatientID;
         this.firstname          = firstname;
         this.lastname           = lastname;
@@ -202,7 +224,7 @@ public class Patient {
         this.AppointmentList    = new ArrayList<>();
     }
 
-    public Patient(String firstname, String lastname, String sex, String email, LocalDate dob, int phoneNumber, int insuranceNumber, int policyNumber) {
+    public Patient(String firstname, String lastname, String sex, String email, LocalDate dob, String phoneNumber, int insuranceNumber, int policyNumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.sex = sex;
