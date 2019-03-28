@@ -7,8 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/mysql-connector-java-8.0.15.jar!/" />
@@ -17,5 +16,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="io.github.typhon0:AnimateFX:1.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.dlsc.formsfx:formsfx-core:11.3.2" level="project" />
+    <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.8" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx:8.9" level="project" />
   </component>
 </module>

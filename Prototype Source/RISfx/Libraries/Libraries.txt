@@ -1,0 +1,33 @@
+animations :
+<dependency>
+  <groupId>io.github.typhon0</groupId>
+  <artifactId>AnimateFX</artifactId>
+  <version>1.2.1</version>
+  <type>pom</type>
+</dependency>
+
+
+Font Awesome:
+<dependency>
+  <groupId>de.jensd</groupId>
+  <artifactId>fontawesomefx-commons</artifactId>
+  <version>11.0</version>
+  <type>pom</type>
+</dependency>
+
+
+FormsFX:
+<dependency>
+  <groupId>com.dlsc.formsfx</groupId>
+  <artifactId>formsfx-core</artifactId>
+  <version>11.3.2</version>
+  <type>pom</type>
+</dependency>
+
+
+Flat Theme:
+<dependency>
+    <groupId>com.guigarage</groupId>
+    <artifactId>flatter</artifactId>
+    <version>0.7</version>
+</dependency>

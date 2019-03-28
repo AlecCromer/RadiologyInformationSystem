@@ -1,11 +1,10 @@
 package Model;
 
+import Controller.Main;
 import Controller.databaseConnector;
 import javafx.stage.Modality;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.Time;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -81,7 +80,9 @@ public class Appointment {
                         "FROM `appointments` " +
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.employee_id="+employeeID)).executeQuery();
+                        "WHERE appointments.employee_id="+employeeID
+                            //" AND appointments.patient_status != 'Signed In'"
+                )).executeQuery();
     }
 
     public static ResultSet queryBillingList() throws Exception{
@@ -96,6 +97,45 @@ public class Appointment {
                         "INNER JOIN patient ON appointments.patient_id=patient.patient_id " +
                         "GROUP BY appointment_id ASC"
         ).executeQuery();
+    }
+
+    public static void submitNewAppointment(Appointment appointmentToSubmit) throws Exception{
+        PreparedStatement update = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`) " +
+                        "VALUES (?, ?, ?, ?, ?, ?);");
+        update.setInt(1, appointmentToSubmit.getPatientId());
+        update.setDate(2, appointmentToSubmit.getAppointmentDate());
+        update.setTime(3, appointmentToSubmit.getAppointmentTime());
+        update.setInt(4, appointmentToSubmit.getProcedureId());
+        update.setInt(5, appointmentToSubmit.getMachineId());
+        update.setInt(6, appointmentToSubmit.getEmployeeId());
+        update.executeUpdate();
+    }
+
+    public static void updateSignInTime() throws Exception{
+        PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
+                "UPDATE appointments " +
+                        "SET appointments.patient_sign_in_time = ?, appointments.patient_status = 1 " +
+                        "WHERE appointments.appointment_id = ?");
+        statement.setTime(1, Main.getAppointmentFocus().getPatientSignIn());
+        statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
+        statement.executeUpdate();
+    }
+    public static void updateSignOutTime() throws Exception{
+        PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
+                "UPDATE appointments " +
+                        "SET appointments.patient_sign_out_time = ?, appointments.patient_status = 2 " +
+                        "WHERE appointments.appointment_id = ?");
+        statement.setTime(1, Main.getAppointmentFocus().getPatientSignOut());
+        statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
+        statement.executeUpdate();
+    }
+    public static boolean updateReadyStatus(int appointmentId) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+            "UPDATE appointments " +
+                    "SET appointments.patient_status = 'Needs Report' " +
+                    "WHERE appointments.appointment_id = " + appointmentId
+        ).execute();
     }
 
 

@@ -5,10 +5,13 @@ import Controller.databaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Employee {
 
+    private int employeeId;
+    private String firstName, lastName, email;
 
 
       ////////////////////
@@ -32,12 +35,30 @@ public class Employee {
         return employeeSchedule.executeQuery();
     }
 
+    public static ResultSet querySessionEmployee(String email, String password) throws Exception{
+        PreparedStatement ps = databaseConnector.getConnection().prepareStatement(
+            //First_name is a placeholder for a password column in the Employees table
+            "SELECT * fROM employees WHERE email = ? AND first_name = ?"
+        );
+        ps.setString(1, email);
+        ps.setString(2, password);
+        return ps.executeQuery();
+    }
+
+    public boolean validLogin(String email, String password) throws Exception{
+        ResultSet resultSet = Employee.querySessionEmployee(email, password);
+        if(resultSet.next()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
-
-    private int employeeId;
-    private String firstName, lastName, email;
-
+      ///////////////////
+     //Getters/Setters//
+    ///////////////////
     public int getEmployeeId() {
         return employeeId;
     }
@@ -66,6 +87,8 @@ public class Employee {
         this.email = email;
     }
 
+    public String getFullName(){ return firstName + " " + lastName; }
+
 
     public Employee(int employeeId, String firstName, String lastName, String email) {
         this.employeeId = employeeId;
@@ -73,4 +96,9 @@ public class Employee {
         this.lastName = lastName;
         this.email = email;
     }
+    public Employee(String firstName, String email) {
+        this.firstName = firstName;
+        this.email = email;
+    }
+    public Employee(){}
 }

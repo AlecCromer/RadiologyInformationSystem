@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="ApptViewAnchor" prefHeight="546.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.TechEntryController">
+<AnchorPane fx:id="ApptViewAnchor" prefHeight="638.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.TechEntryController">
     <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="34.0" prefWidth="41.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Text layoutX="13.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment View" underline="true" wrappingWidth="152.48242020606995" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="19.5">
         <font>
@@ -36,12 +36,12 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="569.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In Time:" AnchorPane.leftAnchor="569.0" AnchorPane.topAnchor="59.5">
+    <Text layoutX="569.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In Time:" AnchorPane.rightAnchor="212.265625">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="565.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Status" underline="true" AnchorPane.leftAnchor="565.0" AnchorPane.topAnchor="30.5">
+    <Text layoutX="565.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Status" underline="true" AnchorPane.rightAnchor="212.53125" AnchorPane.topAnchor="30.5">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
@@ -50,17 +50,17 @@
     <TextField fx:id="appointmentIDField" editable="false" layoutX="386.0" layoutY="53.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="53.0" />
     <TextField fx:id="appointmentDateField" editable="false" layoutX="73.0" layoutY="87.0" prefHeight="25.0" prefWidth="110.0" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="87.0" />
     <TextField fx:id="appointmentTimeField" editable="false" layoutX="386.0" layoutY="87.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="87.0" />
-    <TextField fx:id="signInField" editable="false" layoutX="656.0" layoutY="54.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="54.0" />
-    <Text layoutX="568.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out Time:" AnchorPane.leftAnchor="568.0" AnchorPane.topAnchor="89.5">
+    <TextField fx:id="signInField" editable="false" layoutX="656.0" layoutY="54.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="54.0" />
+    <Text layoutX="568.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out Time:" AnchorPane.rightAnchor="212.53125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
-    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
+    <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="84.0" />
+    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="442.0" prefWidth="387.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
         <columns>
-            <TableColumn prefWidth="368.0" text="Item" />
-            <TableColumn prefWidth="90.0" text="Cost" />
+            <TableColumn fx:id="item_name" prefWidth="271.0" text="Item" />
+            <TableColumn fx:id="item_cost" prefWidth="98.0" text="Cost" />
         </columns>
     </TableView>
     <Text layoutX="21.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Charges" underline="true" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="151.5">
@@ -68,12 +68,24 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Button layoutX="629.0" layoutY="235.0" mnemonicParsing="false" text="Submit" AnchorPane.leftAnchor="629.0" AnchorPane.topAnchor="235.0" />
-    <ComboBox fx:id="ItemBox" layoutX="490.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="174.0" />
-   <Text layoutX="811.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capture Image" underline="true" wrappingWidth="111.48242020606995" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="300.0">
+    <Button layoutX="643.0" layoutY="174.0" mnemonicParsing="false" onAction="#addItem" text="Submit" AnchorPane.leftAnchor="643.0" AnchorPane.topAnchor="174.0" />
+    <ComboBox fx:id="ItemBox" layoutX="434.0" layoutY="174.0" prefHeight="25.0" prefWidth="191.0" promptText="Add Items" AnchorPane.leftAnchor="434.0" AnchorPane.topAnchor="174.0" />
+   <Text layoutX="434.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capture Image" underline="true" wrappingWidth="111.48242020606995" AnchorPane.leftAnchor="434.0" AnchorPane.topAnchor="219.5">
       <font>
          <Font name="Calibri" size="18.0" />
       </font>
    </Text>
-   <Button layoutX="792.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Capture Image" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="330.0" />
+   <Button layoutX="434.0" layoutY="252.0" mnemonicParsing="false" onAction="#captureImage" prefHeight="25.0" prefWidth="339.0" text="Capture Image" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="252.0" />
+   <TableView fx:id="image_list" layoutX="434.0" layoutY="288.0" prefHeight="336.0" prefWidth="367.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="434.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="281.0">
+      <columns>
+         <TableColumn fx:id="taken_image" prefWidth="281.0" text="Image" />
+         <TableColumn fx:id="taken_date" maxWidth="100.0" prefWidth="57.0" text="date" />
+      </columns>
+   </TableView>
+   <Text fx:id="needReportText" fill="RED" layoutX="202.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Needs Report" visible="false" wrappingWidth="125.93066393584013">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Button fx:id="readyForReport" layoutX="562.0" layoutY="127.0" mnemonicParsing="false" onAction="#readyForReport" prefHeight="25.0" prefWidth="210.0" text="Ready For Report" AnchorPane.leftAnchor="562.0" AnchorPane.topAnchor="127.0" />
 </AnchorPane>

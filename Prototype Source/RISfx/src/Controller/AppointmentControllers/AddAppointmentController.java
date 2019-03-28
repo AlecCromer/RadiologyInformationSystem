@@ -161,19 +161,7 @@ public class AddAppointmentController implements Initializable {
             Appointment appointmentToSubmit = scheduleTime.getSelectionModel().getSelectedItem();
             appointmentToSubmit.setProcedure(comboSelection);
             appointmentToSubmit.setPatientId(Integer.parseInt(patientIDField.getText()));
-
-            Connection conn = databaseConnector.getConnection();
-            PreparedStatement update = conn.prepareStatement(
-                    "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`) " +
-                            "VALUES (?, ?, ?, ?, ?, ?);");
-            update.setInt(1, appointmentToSubmit.getPatientId());
-            update.setDate(2, appointmentToSubmit.getAppointmentDate());
-            update.setTime(3, appointmentToSubmit.getAppointmentTime());
-            update.setInt(4, appointmentToSubmit.getProcedureId());
-            update.setInt(5, appointmentToSubmit.getMachineId());
-            update.setInt(6, appointmentToSubmit.getEmployeeId());
-
-            update.executeUpdate();
+            Appointment.submitNewAppointment(appointmentToSubmit);
             exitView();
         }
     }

@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -21,18 +22,19 @@ import java.util.ResourceBundle;
 public class WorkListController implements Initializable {
 
     ////////////////////////
-     //Variable Declaration//
+    //Variable Declaration//
     ////////////////////////
+    @FXML Text loggedIn;
     @FXML
     TableView<Appointment>              WorkList;
     @FXML
     TableColumn<Appointment, Integer>   appointmentID;
     @FXML
     TableColumn<Appointment, String>    patientFullName,    appointmentDateTime,    procedureName,
-                                        patientStatus,      appointmentBalance;
+            patientStatus,      appointmentBalance;
 
-      ////////////////
-     //Initializers//
+    ////////////////
+    //Initializers//
     ////////////////
     public static void setView()throws Exception{
         Main.setCenterPane("TechViews/WorkList.fxml");
@@ -51,11 +53,12 @@ public class WorkListController implements Initializable {
                 }
             }
         });
+        loggedIn.setText(loggedIn.getText() + Main.getSessionUser().getFullName());
     }
 
     private void updateTable() {
         try {
-           WorkList.setItems(getAppointmentList());
+            WorkList.setItems(getAppointmentList());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println("UNABLE TO FILL TABLE");
@@ -70,12 +73,12 @@ public class WorkListController implements Initializable {
     }
 
 
-      ///////////////////
-     //List Generators//
+    ///////////////////
+    //List Generators//
     ///////////////////
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet resultSet = Appointment.queryWorkList(12442)){
+        try(ResultSet resultSet = Appointment.queryWorkList(Main.getSessionUser().getEmployeeId())){
             while (resultSet.next()){
                 appointments.add(Appointment.generateAppointmentFocus(resultSet));
             }
@@ -88,13 +91,13 @@ public class WorkListController implements Initializable {
     }
 
 
-      //////////////////
-     //Button Methods//
+    //////////////////
+    //Button Methods//
     //////////////////
 
 
-      ///////////////////
-     //Form Validation//
+    ///////////////////
+    //Form Validation//
     ///////////////////
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();

@@ -53,6 +53,7 @@ public class NewPatientController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+    @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception{
         if (validateForm()){
             Patient.insertNewPatient((new Patient(
@@ -61,7 +62,7 @@ public class NewPatientController implements Initializable {
                     sexField.getText(),
                     emailField.getText(),
                     dobField.getValue(),
-                    Integer.parseInt(pNumberField.getText()),
+                    pNumberField.getText(),
                     Integer.parseInt(insuranceField.getText()),
                     Integer.parseInt(policyField.getText())
             )),
