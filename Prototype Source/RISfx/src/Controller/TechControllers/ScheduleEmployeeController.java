@@ -94,8 +94,8 @@ public class ScheduleEmployeeController implements Initializable {
      //Button Methods//
     //////////////////
     public void submitNewSchedule() throws Exception{
-        String startTime = (StartField.getText().length()>5) ? StartField.getText() : "0"+StartField.getText();
-        String endTime = (EndField.getText().length()>5) ? EndField.getText() : "0"+EndField.getText();
+        String startTime = (StartField.getText().length()<5) ? "0"+StartField.getText() : StartField.getText();
+        String endTime = (EndField.getText().length()<5) ? "0"+EndField.getText() : EndField.getText();
 
         Employee.insertNewSchedule(
                 EmployeeBox.getValue().getEmployeeId(),
