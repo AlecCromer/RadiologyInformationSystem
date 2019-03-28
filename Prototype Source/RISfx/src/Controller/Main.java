@@ -30,8 +30,8 @@ public class Main extends Application {
     public static  Stage popup                  = new Stage();
 
 
-    ////////////////
-    //View Setters//
+      ////////////////
+     //View Setters//
     ////////////////
 
     //Called to set the main view
@@ -72,8 +72,8 @@ public class Main extends Application {
     }
 
 
-    ///////////////////////////
-    //Variable Getter/Setters//
+      ///////////////////////////
+     //Variable Getter/Setters//
     ///////////////////////////
     public static BorderPane getRIS_Container(){
         return RIS_Container;
@@ -112,8 +112,8 @@ public class Main extends Application {
     }
 
 
-    ////////////////
-    //Start Method//
+      ////////////////
+     //Start Method//
     ////////////////
     @Override
     public void start(Stage stage) throws Exception{
@@ -134,6 +134,7 @@ public class Main extends Application {
     }
 
     public static void successfulLogin() throws Exception{
+        primaryStage.setResizable(true);
         primaryStage.setScene(MainScene);
         //Set the TOP of the borderPane to our menu
         Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
