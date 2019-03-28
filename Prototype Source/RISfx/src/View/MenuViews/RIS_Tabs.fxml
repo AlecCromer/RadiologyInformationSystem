@@ -15,6 +15,7 @@
             <Button mnemonicParsing="false" onAction="#setReferralView" prefHeight="72.0" prefWidth="269.0" text="Referrals" />
             <Button mnemonicParsing="false" onAction="#setBillingList" prefHeight="72.0" prefWidth="269.0" text="Billing" />
             <Button mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="WorkList" />
+            <Button mnemonicParsing="false" onAction="#setScheduleEmployee" prefHeight="72.0" prefWidth="256.0" text="Schedule Employee" />
          </children>
       </VBox>
    </children>

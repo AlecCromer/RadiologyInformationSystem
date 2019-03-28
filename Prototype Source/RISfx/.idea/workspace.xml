@@ -1,13 +1,335 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ChangeListManager">
+    <list default="true" id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_typhon0_AnimateFX_1_2_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISfx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RISfx.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/FilesViewer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/FilesViewer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/ReportForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/ReportForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/LoginView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/addPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/addPatient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/addReferredPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/addReferredPatient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/WorkList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/WorkList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/addImage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/addImage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/View/TechViews/ScheduleEmployee.fxml">
+                <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+                <provider editor-type-id="text-editor">
+                  <state relative-caret-position="289">
+                    <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+              <folding>
+                <element signature="e#2838#2839#0" expanded="true" />
+                <element signature="e#2877#2878#0" expanded="true" />
+                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="e#3060#3061#0" expanded="true" />
+                <element signature="e#3220#3221#0" expanded="true" />
+                <element signature="e#3255#3256#0" expanded="true" />
+                <element signature="e#3318#3319#0" expanded="true" />
+                <element signature="e#3366#3367#0" expanded="true" />
+                <element signature="e#3521#3522#0" expanded="true" />
+                <element signature="e#3577#3578#0" expanded="true" />
+                <element signature="e#3624#3625#0" expanded="true" />
+                <element signature="e#3658#3659#0" expanded="true" />
+                <element signature="e#3720#3721#0" expanded="true" />
+                <element signature="e#3766#3767#0" expanded="true" />
+                <element signature="e#4032#4033#0" expanded="true" />
+                <element signature="e#4067#4068#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="34" column="35" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="501">
+              <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1088">
+              <caret line="144" column="4" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="4" />
+              <folding>
+                <element signature="e#707#2234#0" />
+                <element signature="e#2243#2862#0" />
+                <element signature="e#2868#3515#0" />
+                <element signature="e#3521#4147#0" />
+                <element signature="e#4153#4974#0" />
+                <element signature="e#4980#5787#0" />
+                <element signature="e#5793#6343#0" />
+                <element signature="e#6348#6901#0" />
+                <element signature="e#6906#7262#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="97" column="63" selection-start-line="97" selection-start-column="63" selection-end-line="97" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1169#1200#0" expanded="true" />
+                <element signature="class#1296:1893" />
+                <element signature="e#1827#1828#0" expanded="true" />
+                <element signature="e#1878#1879#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="80" column="5" selection-start-line="29" selection-start-column="6" selection-end-line="80" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3435#3436#0" expanded="true" />
+                <element signature="e#3468#3469#0" expanded="true" />
+                <element signature="e#3516#3517#0" expanded="true" />
+                <element signature="e#3560#3561#0" expanded="true" />
+                <element signature="e#3596#3597#0" expanded="true" />
+                <element signature="e#3628#3629#0" expanded="true" />
+                <element signature="e#3677#3678#0" expanded="true" />
+                <element signature="e#3719#3720#0" expanded="true" />
+                <element signature="e#3754#3755#0" expanded="true" />
+                <element signature="e#3785#3786#0" expanded="true" />
+                <element signature="e#3832#3833#0" expanded="true" />
+                <element signature="e#3872#3873#0" expanded="true" />
+                <element signature="e#3904#3905#0" expanded="true" />
+                <element signature="e#3932#3933#0" expanded="true" />
+                <element signature="e#3973#3974#0" expanded="true" />
+                <element signature="e#4007#4008#0" expanded="true" />
+                <element signature="e#4648#4649#0" expanded="true" />
+                <element signature="e#4707#4708#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Procedure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/ScheduleConflict.java" />
+        <option value="$PROJECT_DIR$/src/Model/Procedure.java" />
+        <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" />
+        <option value="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" />
+        <option value="$PROJECT_DIR$/src/Model/Referral.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" />
+        <option value="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Item.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Patient.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientViewController.java" />
+        <option value="$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" />
+        <option value="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java" />
+        <option value="$PROJECT_DIR$/../RISLogin/src/Controller/Main.java" />
+        <option value="$PROJECT_DIR$/src/View/LoginView.fxml" />
+        <option value="$PROJECT_DIR$/src/Model/User.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Main.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/View/TechViews/ScheduleEmployee.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="472" />
     <option name="y" value="-16" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="MenuViews" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553785107310" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553785769582" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37115383" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -29,5 +351,392 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e0be274-5b91-475f-b6e7-6039d12649b8" name="Default Changelist" comment="" />
+      <created>1552838668690</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552838668690</updated>
+      <workItem from="1552838687888" duration="346000" />
+      <workItem from="1552852172847" duration="1015000" />
+      <workItem from="1552906651326" duration="7927000" />
+      <workItem from="1552927461318" duration="3591000" />
+      <workItem from="1552933932550" duration="9757000" />
+      <workItem from="1553082027602" duration="22000" />
+      <workItem from="1553255530627" duration="22000" />
+      <workItem from="1553255635050" duration="55000" />
+      <workItem from="1553256125894" duration="82000" />
+      <workItem from="1553256870612" duration="7049000" />
+      <workItem from="1553443227473" duration="18000" />
+      <workItem from="1553779909226" duration="5388000" />
+    </task>
+    <task id="LOCAL-00001" summary="Started moving queries to Models">
+      <created>1552907450544</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552907450545</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Referral List">
+      <created>1552912694481</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552912694481</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Referral List">
+      <created>1552928301112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1552928301112</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Referral List">
+      <created>1552928342574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552928342574</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Referral List">
+      <created>1552929108584</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1552929108584</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Everything except Billing and Referring a new patient">
+      <created>1552930352195</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552930352195</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Everything except Billing and Referring a new patient">
+      <created>1552931036739</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1552931036739</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Moving Queries to Models">
+      <created>1552935687857</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1552935687857</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Everything but Billing and the report review">
+      <created>1552941243428</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1552941243428</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Everything but Item Lists inside tech entry and AppointmentView">
+      <created>1552946233191</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1552946233191</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Everything but Item Lists inside tech entry and AppointmentView">
+      <created>1553257270723</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1553257270723</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Needs Report Button Complete">
+      <created>1553261151784</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1553261151784</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Needs Report Button Complete">
+      <created>1553784572438</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1553784572438</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="666000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16901408" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.15817985" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.42903575" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.2990249" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14072494" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3336945" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47778982" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.42903575" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Model/Procedure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="e#2838#2839#0" expanded="true" />
+            <element signature="e#2877#2878#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
+            <element signature="e#3060#3061#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
+            <element signature="e#3255#3256#0" expanded="true" />
+            <element signature="e#3318#3319#0" expanded="true" />
+            <element signature="e#3366#3367#0" expanded="true" />
+            <element signature="e#3521#3522#0" expanded="true" />
+            <element signature="e#3577#3578#0" expanded="true" />
+            <element signature="e#3624#3625#0" expanded="true" />
+            <element signature="e#3658#3659#0" expanded="true" />
+            <element signature="e#3720#3721#0" expanded="true" />
+            <element signature="e#3766#3767#0" expanded="true" />
+            <element signature="e#4032#4033#0" expanded="true" />
+            <element signature="e#4067#4068#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3435#3436#0" expanded="true" />
+            <element signature="e#3468#3469#0" expanded="true" />
+            <element signature="e#3516#3517#0" expanded="true" />
+            <element signature="e#3560#3561#0" expanded="true" />
+            <element signature="e#3596#3597#0" expanded="true" />
+            <element signature="e#3628#3629#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#3719#3720#0" expanded="true" />
+            <element signature="e#3754#3755#0" expanded="true" />
+            <element signature="e#3785#3786#0" expanded="true" />
+            <element signature="e#3832#3833#0" expanded="true" />
+            <element signature="e#3872#3873#0" expanded="true" />
+            <element signature="e#3904#3905#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3973#3974#0" expanded="true" />
+            <element signature="e#4007#4008#0" expanded="true" />
+            <element signature="e#4648#4649#0" expanded="true" />
+            <element signature="e#4707#4708#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>RISfx</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>RISfx</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.37115383" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>io.github.typhon0:AnimateFX:1.2.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.37115383" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

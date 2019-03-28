@@ -2,14 +2,21 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="20.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuControllers.MenuController">
+<AnchorPane prefHeight="357.0" prefWidth="201.0" stylesheets="@tabLayout.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuControllers.MenuController">
    <children>
-    <Button mnemonicParsing="false" onAction="#setPatientList" text="Patient List" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="74.0" mnemonicParsing="false" onAction="#setAppointmentList" text="Appointment List" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="182.0" mnemonicParsing="false" onAction="#setReferralView" text="Referrals" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="244.0" mnemonicParsing="false" onAction="#setBillingList" text="Billing" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="293.0" mnemonicParsing="false" onAction="#setWorkList" text="WorkList" AnchorPane.leftAnchor="293.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="356.0" mnemonicParsing="false" onAction="#setScheduleEmployee" text="Schedule Employee" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="0.0" />
+      <Pane prefHeight="43.0" prefWidth="253.0" />
+      <VBox layoutY="43.0" prefHeight="359.0" prefWidth="253.0" stylesheets="@tabLayout.css">
+         <children>
+            <Button mnemonicParsing="false" onAction="#setPatientList" prefHeight="72.0" prefWidth="269.0" text="Patient List" />
+            <Button mnemonicParsing="false" onAction="#setAppointmentList" prefHeight="72.0" prefWidth="269.0" text="Appointment List" />
+            <Button mnemonicParsing="false" onAction="#setReferralView" prefHeight="72.0" prefWidth="269.0" text="Referrals" />
+            <Button mnemonicParsing="false" onAction="#setBillingList" prefHeight="72.0" prefWidth="269.0" text="Billing" />
+            <Button mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="WorkList" />
+            <Button mnemonicParsing="false" onAction="#setScheduleEmployee" prefHeight="72.0" prefWidth="256.0" text="Schedule Employee" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

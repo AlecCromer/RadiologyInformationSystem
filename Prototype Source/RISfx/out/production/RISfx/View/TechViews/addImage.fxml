@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="499.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.AddImageController">
+<AnchorPane prefHeight="499.0" prefWidth="620.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.AddImageController">
    <children>
       <Button layoutX="124.0" layoutY="26.0" mnemonicParsing="false" onAction="#captureImage" text="Select Image" AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="26.0" />
       <ComboBox fx:id="machineBox" layoutX="306.0" layoutY="26.0" prefHeight="25.0" prefWidth="191.0" promptText="Machine ID" AnchorPane.rightAnchor="123.0" AnchorPane.topAnchor="26.0" />
