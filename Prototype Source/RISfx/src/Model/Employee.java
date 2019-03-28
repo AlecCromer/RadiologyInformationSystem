@@ -1,11 +1,11 @@
 package Model;
 
 import Controller.databaseConnector;
+import javafx.scene.control.DatePicker;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Employee {
 
@@ -32,12 +32,34 @@ public class Employee {
         return employeeSchedule.executeQuery();
     }
 
+    public static ResultSet queryAllEmployees()throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT * FROM employees"
+        ).executeQuery();
+    }
+
+    public static void insertNewSchedule(int employeeId, LocalDate date, LocalTime start, LocalTime end) throws Exception{
+        PreparedStatement st = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `end_time`) " +
+                        "VALUES (NULL, ?, ?, ?);"
+        );
+        st.setInt(1, employeeId);
+        st.setString(2, date.toString()+ " " + start.toString());
+        st.setString(3, date.toString()+ " " + end.toString());
+        st.execute();
+    }
 
 
-
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
     private int employeeId;
     private String firstName, lastName, email;
 
+
+      ///////////////////
+     //Getters/Setters//
+    ///////////////////
     public int getEmployeeId() {
         return employeeId;
     }
@@ -67,10 +89,23 @@ public class Employee {
     }
 
 
+
+      ////////////////
+     //Constructors//
+    ////////////////
     public Employee(int employeeId, String firstName, String lastName, String email) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+
+      /////////////
+     //Overrides//
+    /////////////
+    @Override
+    public String toString(){
+        return this.firstName + " " + this.lastName;
     }
 }

@@ -5,6 +5,7 @@ import Controller.BillingControllers.BillingListController;
 import Controller.Controller;
 import Controller.PatientControllers.PatientListController;
 import Controller.ReferralControllers.ReferralListController;
+import Controller.TechControllers.ScheduleEmployeeController;
 import Controller.TechControllers.WorkListController;
 import javafx.event.ActionEvent;
 
@@ -29,5 +30,9 @@ public class MenuController extends Controller {
 
     public void setWorkList(ActionEvent actionEvent) throws Exception{
         WorkListController.setView();
+    }
+
+    public void setScheduleEmployee(ActionEvent actionEvent) throws Exception{
+        ScheduleEmployeeController.setView();
     }
 }

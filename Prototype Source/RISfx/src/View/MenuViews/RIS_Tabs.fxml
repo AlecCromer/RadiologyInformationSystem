@@ -10,5 +10,6 @@
       <Button layoutX="182.0" mnemonicParsing="false" onAction="#setReferralView" text="Referrals" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="0.0" />
       <Button layoutX="244.0" mnemonicParsing="false" onAction="#setBillingList" text="Billing" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="0.0" />
       <Button layoutX="293.0" mnemonicParsing="false" onAction="#setWorkList" text="WorkList" AnchorPane.leftAnchor="293.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="356.0" mnemonicParsing="false" onAction="#setScheduleEmployee" text="Schedule Employee" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
