@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class databaseConnector {
 
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
-    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/RIS";
+    private static final String PASSWORD = "cromer678";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/RIS2";
 
     // connection  method that connects us to the MySQL database
     public static Connection getConnection() throws SQLException {

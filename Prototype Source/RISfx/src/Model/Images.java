@@ -11,8 +11,21 @@ import java.sql.*;
 
 public class Images {
 
-    private String image_id, machine_id, patient_id, exam_date, employee_id;
+    private String image_id;
+    private String machine_id;
+    private String patient_id;
+    private String exam_date;
+    private String employee_id;
+    private String status;
     private Image imagedata;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getImage_id() {
         return image_id;
@@ -69,34 +82,33 @@ public class Images {
     //Database Queries//
     ////////////////////
     public static ResultSet queryImageList(String appointmentID)throws Exception{
-        return (databaseConnector.getConnection().prepareStatement("SELECT DISTINCT im.imagedata, im.exam_date FROM image as im, appointments as ap WHERE ap.patient_id = im.patient_id and ap.appointment_id and ap.appointment_id = '"+appointmentID+"';")).executeQuery();
+        return (databaseConnector.getConnection().prepareStatement("SELECT DISTINCT im.imagedata, im.exam_date, im.status, im.image_id FROM image as im, appointments as ap WHERE ap.patient_id = im.patient_id and ap.appointment_date = im.exam_date and ap.appointment_id = '"+appointmentID+"';")).executeQuery();
     }
 
-    public Images(Image imagedata, String exam_date) {
+    public Images(Image imagedata, String exam_date, String status, String image_id) {
         this.exam_date = exam_date;
         this.imagedata = imagedata;
+        this.status = status;
+        this.image_id = image_id;
     }
 
     public static boolean insertNewImage(String filePath, int machine_id, String appointment_id) throws SQLException, FileNotFoundException {
         InputStream inputStream = new FileInputStream(new File(filePath));
         Connection conn = databaseConnector.getConnection();
-            PreparedStatement insertNewImage = conn.prepareStatement(
-                    "INSERT INTO image (image_id, employee_id, exam_date, imagedata, machine_id, patient_id) " +
-                            "SELECT null, ap.employee_id, ap.appointment_date, ?, ?, p.patient_id " +
-                            "FROM   appointments as ap, patient as p " +
-                            "WHERE  ap.patient_id = p.patient_id AND ap.appointment_id = ?;"
+        PreparedStatement insertNewImage = conn.prepareStatement(
+                "INSERT INTO image (image_id, employee_id, exam_date, imagedata, machine_id, patient_id, status) " +
+                        "SELECT null, ap.employee_id, ap.appointment_date, ?, ?, p.patient_id, 'Needs Review' " +
+                        "FROM appointments as ap, patient as p " +
+                        "WHERE ap.patient_id = p.patient_id AND ap.appointment_id = ?;"
 
-            );
+        );
 
         insertNewImage.setBlob(1, inputStream);
         insertNewImage.setInt(2, machine_id);
         insertNewImage.setString(3, appointment_id);
-
         insertNewImage.executeUpdate();
 
-            return true;
+        return true;
     }
-
-
 
 }
