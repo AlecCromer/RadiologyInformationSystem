@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="20.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuControllers.MenuController">
+   <children>
+    <Button mnemonicParsing="false" onAction="#setPatientList" text="Patient List" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="74.0" mnemonicParsing="false" onAction="#setAppointmentList" text="Appointment List" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="182.0" mnemonicParsing="false" onAction="#setReferralView" text="Referrals" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="244.0" mnemonicParsing="false" onAction="#setBillingList" text="Billing" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="293.0" mnemonicParsing="false" onAction="#setWorkList" text="WorkList" AnchorPane.leftAnchor="293.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
