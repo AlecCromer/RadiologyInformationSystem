@@ -142,7 +142,7 @@ public class Appointment {
       ///////////////////
      //Getters/Setters//
     ///////////////////
-      public int getAppointmentId() {
+    public int getAppointmentId() {
           return appointmentId;
       }
     public void setAppointmentId(int appointmentId) {
