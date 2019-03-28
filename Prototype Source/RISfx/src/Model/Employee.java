@@ -3,12 +3,17 @@ package Model;
 import Controller.databaseConnector;
 import javafx.scene.control.DatePicker;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Employee {
 
+    private int employeeId;
+    private String firstName, lastName, email;
 
       ////////////////////
      //Database Queries//
@@ -74,6 +79,18 @@ public class Employee {
     ////////////////////////
     private int employeeId;
     private String firstName, lastName, email;
+
+
+    public boolean validLogin(String email, String password) throws Exception{
+        ResultSet resultSet = Employee.querySessionEmployee(email, password);
+        if(resultSet.next()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 
       ///////////////////
      //Getters/Setters//

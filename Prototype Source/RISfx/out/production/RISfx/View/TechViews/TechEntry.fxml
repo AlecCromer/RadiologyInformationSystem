@@ -56,8 +56,8 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.leftAnchor="656.0" AnchorPane.topAnchor="84.0" />
-    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="351.0" prefWidth="459.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
+    <TextField fx:id="signOutField" editable="false" layoutX="656.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="84.0" />
+    <TableView fx:id="ItemList" layoutX="21.0" layoutY="174.0" prefHeight="442.0" prefWidth="387.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="174.0">
         <columns>
             <TableColumn fx:id="item_name" prefWidth="271.0" text="Item" />
             <TableColumn fx:id="item_cost" prefWidth="98.0" text="Cost" />

@@ -11,39 +11,68 @@ import javafx.beans.property.ObjectPropertyBase;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class Controller {
-    @FXML private TextField usernameTextField;
-    @FXML private TextField passwordTextField;
-    @FXML private Label exceptionLabel;
-    @FXML private Button loginButton;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private PasswordField passwordTextField;
+    @FXML
+    private Label exceptionLabel;
+    @FXML
+    private Button loginButton;
 
     public void onLoginButtonPushed(ActionEvent event) {
-        Employee user = new Employee(passwordTextField.getText(),usernameTextField.getText());
-        try{
-            if(user.validLogin(usernameTextField.getText(), passwordTextField.getText())) {
+        Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
+
+        try {
+            if (user.validLogin(usernameTextField.getText(), passwordTextField.getText())) {
                 exceptionLabel.setText("Login Successful");
                 ResultSet rs = Employee.querySessionEmployee(user.getEmail(), user.getFirstName());
                 rs.next();
 
                 Main.setSessionUser(new Employee(
-                    rs.getInt("employee_id"),
-                    rs.getString("first_name"),
-                    rs.getString("last_name"),
-                    rs.getString("email")
+                        rs.getInt("employee_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email")
                 ));
 
                 Main.successfulLogin();
+            } else {
+                changeScene(0);
+
             }
-            else {
-                exceptionLabel.setText("Incorrect user name or password");
-            }
-        }
-        catch(Exception a) {
+        } catch (Exception a) {
             exceptionLabel.setText("Error");
+        }
+    }
+
+    private void changeScene(int sceneID) {
+
+
+        switch (sceneID) {
+            case 0: {
+                Alert rejection = new Alert(Alert.AlertType.ERROR);
+                rejection.setTitle("Error");
+                rejection.setHeaderText(null);
+                rejection.setContentText("Incorrect username or password. Please try again.");
+                rejection.showAndWait();
+                usernameTextField.clear();
+                passwordTextField.clear();
+                return;
+            }
+           /* case 1: { // CONFIRMATION
+                Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmation.setTitle("");
+                confirmation.setHeaderText(null);
+                confirmation.setContentText("");
+                confirmation.showAndWait();
+                return;
+            }*/
+
+
         }
     }
 

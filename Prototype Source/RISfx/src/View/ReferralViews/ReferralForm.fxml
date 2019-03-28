@@ -12,7 +12,7 @@
 
 <ScrollPane fitToWidth="true" prefHeight="1185.0" prefViewportHeight="560.0" prefViewportWidth="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
    <content>
-      <AnchorPane prefHeight="973.0" prefWidth="598.0">
+      <AnchorPane prefHeight="973.0" prefWidth="598.0" stylesheets="@../allViews.css">
        <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Referral Form" underline="true" wrappingWidth="159.99999206776738" AnchorPane.topAnchor="15.0">
            <font>
                <Font name="Calibri" size="18.0" />
@@ -118,14 +118,14 @@
             </font>
          </Text>
          <ComboBox fx:id="procedureBox" layoutX="396.0" layoutY="469.0" prefHeight="25.0" prefWidth="159.0" promptText="Procedure Requested" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="469.0" />
-         <TextArea fx:id="referralComments" layoutX="47.0" layoutY="660.0" prefHeight="246.0" prefWidth="505.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="660.0" />
+         <TextArea fx:id="referralComments" layoutX="47.0" layoutY="660.0" prefHeight="246.0" prefWidth="505.0" wrapText="true" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="660.0" />
          <Button layoutX="500.0" layoutY="819.0" mnemonicParsing="false" onAction="#submitNewReferral" text="Submit Referral" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="46.0" />
          <Text layoutX="47.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for Referral:">
             <font>
                <Font name="Calibri" size="14.0" />
             </font>
          </Text>
-         <TextArea fx:id="referralReason" layoutX="48.0" layoutY="507.0" prefHeight="123.0" prefWidth="505.0" />
+         <TextArea fx:id="referralReason" layoutX="48.0" layoutY="507.0" prefHeight="123.0" prefWidth="505.0" wrapText="true" />
          <ComboBox fx:id="urgencyBox" layoutX="228.0" layoutY="469.0" prefWidth="150.0" promptText="Urgency Level" />
       </AnchorPane>
    </content>

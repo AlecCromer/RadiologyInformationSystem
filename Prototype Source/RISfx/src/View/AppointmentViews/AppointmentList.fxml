@@ -4,10 +4,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="465.0" prefWidth="600.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.AppointmentListController">
+<AnchorPane prefHeight="465.0" prefWidth="600.0" stylesheets="@../allViews.css" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.AppointmentListController">
    <children>
       <TableView fx:id="AppointmentList" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
         <columns>
@@ -30,5 +31,6 @@
       </Text>
       <Button layoutX="513.0" layoutY="18.0" mnemonicParsing="false" onAction="#setAddAppointment" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
       <Button layoutX="19.0" layoutY="76.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="565.0" text="AppointmentPlaceHolder" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="67.0" />
+      <Pane prefHeight="38.0" prefWidth="320.0" />
    </children>
 </AnchorPane>

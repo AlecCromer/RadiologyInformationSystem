@@ -31,10 +31,10 @@ public class WorkListController implements Initializable {
     TableColumn<Appointment, Integer>   appointmentID;
     @FXML
     TableColumn<Appointment, String>    patientFullName,    appointmentDateTime,    procedureName,
-                                        patientStatus,      appointmentBalance;
+            patientStatus,      appointmentBalance;
 
-      ////////////////
-     //Initializers//
+    ////////////////
+    //Initializers//
     ////////////////
     public static void setView()throws Exception{
         Main.setCenterPane("TechViews/WorkList.fxml");
@@ -58,7 +58,7 @@ public class WorkListController implements Initializable {
 
     private void updateTable() {
         try {
-           WorkList.setItems(getAppointmentList());
+            WorkList.setItems(getAppointmentList());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println("UNABLE TO FILL TABLE");
@@ -73,8 +73,8 @@ public class WorkListController implements Initializable {
     }
 
 
-      ///////////////////
-     //List Generators//
+    ///////////////////
+    //List Generators//
     ///////////////////
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
@@ -91,13 +91,13 @@ public class WorkListController implements Initializable {
     }
 
 
-      //////////////////
-     //Button Methods//
+    //////////////////
+    //Button Methods//
     //////////////////
 
 
-      ///////////////////
-     //Form Validation//
+    ///////////////////
+    //Form Validation//
     ///////////////////
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();

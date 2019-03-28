@@ -10,49 +10,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="550.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralListController">
+<AnchorPane prefHeight="550.0" prefWidth="520.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
 
-    <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
+    <Text fx:id="PatientView" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
         <font>
             <Font name="Calibri" size="18.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient First Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
+    <Text fx:id="PatientFirstName" layoutX="21.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient First Name:" AnchorPane.leftAnchor="19.751953125" AnchorPane.rightAnchor="390.248046875">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="22.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" AnchorPane.leftAnchor="21.3720703125" AnchorPane.rightAnchor="232.6279296875">
+    <Text fx:id="Address" layoutX="22.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" AnchorPane.leftAnchor="21.3720703125" AnchorPane.rightAnchor="232.6279296875">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="223.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="233.5751953125">
+    <Text fx:id="LastName" layoutX="223.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="233.5751953125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="371.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoB:" AnchorPane.leftAnchor="370.2216796875" AnchorPane.rightAnchor="121.7783203125">
+    <Text fx:id="DoB" layoutX="371.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DoB:" AnchorPane.leftAnchor="370.2216796875" AnchorPane.rightAnchor="121.7783203125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Phone Number:" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="361.5556640625">
+    <Text fx:id="PrimaryPhoneNumber" layoutX="21.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Phone Number:" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="361.5556640625">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="243.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Phone Number:" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="124.6533203125">
+    <Text fx:id="SecondaryPhoneNUmber" layoutX="243.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Phone Number:" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="124.6533203125">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail Address:">
+    <Text fx:id="EmailAddress" layoutX="21.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail Address:">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-    <Text layoutX="21.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Information:">
+    <Text fx:id="InsuranceInfo" layoutX="21.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Information:">
         <font>
             <Font name="Calibri" size="14.0" />
         </font>
