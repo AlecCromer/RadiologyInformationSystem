@@ -67,7 +67,7 @@
                     <Font name="Calibri" size="14.0" />
                 </font>
             </Text>
-            <TextField fx:id="physicianField" layoutX="140.0" layoutY="587.0" prefHeight="10.0" prefWidth="156.0" />
+            <TextField fx:id="physicianField" disable="true" layoutX="140.0" layoutY="587.0" prefHeight="10.0" prefWidth="156.0" />
             <Text layoutX="24.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for Exam:">
                 <font>
                     <Font name="Calibri" size="14.0" />
