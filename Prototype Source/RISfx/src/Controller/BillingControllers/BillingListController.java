@@ -4,6 +4,7 @@ import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Model.Appointment;
 import javafx.beans.Observable;
+import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,11 +22,11 @@ import java.util.ResourceBundle;
 
 public class BillingListController implements Initializable {
 
-    @FXML TableView<Appointment>        BillingList;
+    @FXML TableView<Patient>        BillingList;
     @FXML
-    TableColumn<Appointment, Integer>   appointmentID;
+    TableColumn<Patient, Integer>   patientID;
     @FXML
-    TableColumn<Appointment, String>    fName, dateField, patientStatus, Balance;
+    TableColumn<Patient, String>    fName, address, patientStatus, Balance;
 
 
     public static void setView() throws Exception{
@@ -55,25 +56,25 @@ public class BillingListController implements Initializable {
             System.out.println("UNABLE TO FILL TABLE");
             e.printStackTrace();
         }
-        appointmentID.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("appointmentId"));
-        fName.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientFullName"));
-        dateField.setCellValueFactory(new PropertyValueFactory<Appointment, String>("appointmentDate"));
-        patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
-        Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+        patientID.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("patientID"));
+        fName.setCellValueFactory(new PropertyValueFactory<Patient, String>("fullName"));
+        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));
+        patientStatus.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientStatus"));
+        Balance.setCellValueFactory(new PropertyValueFactory<Patient, String>("balance"));
     }
 
-    private ObservableList<Appointment> getBillingList() throws Exception {
-        ResultSet rs = Appointment.queryBillingList();
-        ObservableList<Appointment> billingList = FXCollections.observableArrayList();
+    private ObservableList<Patient> getBillingList() throws Exception {
+        ResultSet rs = Patient.queryInfoForBillingList();
+        ObservableList<Patient> billingList = FXCollections.observableArrayList();
 
         while (rs.next()) {
             //int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance
-            billingList.add(new Appointment(
-                rs.getInt("appointment_id"),
-                rs.getDate("appointment_date"),
+            billingList.add(new Patient(
+                rs.getInt("patient_id"),
                 rs.getString("first_name") + " " + rs.getString("last_name"),
-                rs.getString("patient_status"),
-                rs.getFloat("appointment_total")
+                rs.getString("street_name") + " " + rs.getString("city") + ", " + rs.getString("state") + " " + rs.getString("zip"),
+                rs.getString("status"),
+                rs.getFloat("balance")
             ));
         }
 

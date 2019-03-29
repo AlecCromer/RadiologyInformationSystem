@@ -3,6 +3,7 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
+import Model.Procedure;
 import Model.User;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
@@ -54,6 +55,21 @@ public class Main extends Application {
         }
     }
 
+    public static void setCenterPane(String fxmlName, boolean fade)throws Exception{
+        try {
+            backNodeList.add(Main.class.getResource("../View/"+fxmlName));
+            RIS_Container.setRight(null);
+            RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
+            if(fade){
+                new FadeInLeft(RIS_Container).play();
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
     //Sets the main view to the top of our back button list
     //Pops the top of the back button list
     public static void setBackPage() throws Exception{
@@ -96,6 +112,9 @@ public class Main extends Application {
     public static void setPatientFocus(Patient patientFocus) {
         Main.patientFocus = patientFocus;
     }
+
+    //public static Procedure getProcedureFocus(){return procedureFocus;}
+    //public static void setProcedureFocus(Procedure procedureFocus){Main.procedureFocus = procedureFocus;}
 
     public static Appointment getAppointmentFocus(){ return appointmentFocus; }
     public static void setAppointmentFocus(Appointment appointmentFocus){

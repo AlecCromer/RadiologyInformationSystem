@@ -5,6 +5,7 @@ import Controller.databaseConnector;
 import Model.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -106,4 +107,5 @@ public class ScheduleEmployeeController implements Initializable {
         Main.getOuter().setDisable(false);
         Main.popup.close();
     }
+
 }

@@ -5,12 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Struct;
 import java.util.ArrayList;
 
 public class Procedure {
-
     //Returns list for procedure combo boxes
     public static ObservableList<String> getProcedureList() throws Exception{
         ObservableList<String> rtn = FXCollections.observableArrayList();
@@ -26,6 +26,28 @@ public class Procedure {
         return rtn;
     }
 
+
+
+    ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    private float price;
+    private int procedureId, procedureLength;
+    private String procedureName;
+
+
+      ////////////////////
+     //Database Queries//
+    ////////////////////
+
+    public static ResultSet queryAllProcedures() throws Exception{
+        ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
+                "select * FROM procedures"
+        ) .executeQuery();
+
+        return resultSet;
+    }
+
     public static int queryProcedureLength(int procedureId)throws Exception{
         ResultSet procL = databaseConnector.getStartConnection().prepareStatement(
                 "SELECT procedure_length " +
@@ -35,9 +57,23 @@ public class Procedure {
         return procL.getInt("procedure_length");
     }
 
+    public static void insertNewProcedure(float price, String procedureName, int procedureLength) throws Exception {
+        PreparedStatement st = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO `procedures` (`procedure_length`, `procedure_name`, `procedure_price`) " +
+                        "VALUES (" + procedureLength +", " + '"' + procedureName + '"' + ", " + price + " );"
+        );
+        st.execute();
+    }
 
-    private int procedureId, procedureLength;
-    private String procedureName;
+    public static ResultSet queryProcedureInfo(int procedure_id) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT * FROM procedure " +
+                        "WHERE procedure_id = " + procedure_id).executeQuery();
+    }
+
+    ///////////////////
+     //Getters/Setters//
+    ///////////////////
 
     public int getProcedureId() {
         return procedureId;
@@ -60,9 +96,15 @@ public class Procedure {
         this.procedureLength = procedureLength;
     }
 
-    public Procedure(){
-        this.procedureId    = -1;
-        this.procedureName  = null;
+    public float getPrice() { return price; }
+
+    public void setPrice(float price) { this.price = price; }
+
+    public Procedure(int procedure_id, String procedure_name, int procedure_length, float procedure_price){
+        this.procedureId    = procedure_id;
+        this.procedureName  = procedure_name;
+        this.procedureLength = procedure_length;
+        this.price = procedure_price;
     }
     public Procedure(int procedureId, String procedureName){
         this.procedureId    = procedureId;
@@ -73,6 +115,14 @@ public class Procedure {
         this.procedureLength = procedureLength;
         this.procedureName = procedureName;
     }
+    public Procedure(int procedureId, int procedureLength, String procedureName, Float procedureCost) {
+        this.procedureId = procedureId;
+        this.procedureLength = procedureLength;
+        this.procedureName = procedureName;
+        this.price = procedureCost;
+    }
+
+
 
 
 

@@ -109,7 +109,7 @@ public class ReportFormController implements Initializable {
                 idField.setText(rs.getString("patient_id"));
                 sexField.setText(rs.getString("sex"));
                 apptIDField.setText(rs.getString("appointment_id"));
-
+                dateField.setText(rs.getString("appointment_date"));
 
 
                 InputStream is = rs.getBinaryStream("imagedata");
