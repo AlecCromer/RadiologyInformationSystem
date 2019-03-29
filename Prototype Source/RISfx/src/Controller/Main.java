@@ -3,6 +3,7 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
+import Model.Procedure;
 import Model.User;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
@@ -96,6 +97,9 @@ public class Main extends Application {
     public static void setPatientFocus(Patient patientFocus) {
         Main.patientFocus = patientFocus;
     }
+
+    //public static Procedure getProcedureFocus(){return procedureFocus;}
+    //public static void setProcedureFocus(Procedure procedureFocus){Main.procedureFocus = procedureFocus;}
 
     public static Appointment getAppointmentFocus(){ return appointmentFocus; }
     public static void setAppointmentFocus(Appointment appointmentFocus){

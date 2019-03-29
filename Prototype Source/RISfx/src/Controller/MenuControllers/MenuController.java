@@ -3,6 +3,7 @@ package Controller.MenuControllers;
 import Controller.AppointmentControllers.AppointmentListController;
 import Controller.BillingControllers.BillingListController;
 import Controller.Controller;
+import Controller.ProcedureControllers.ProcedureListController;
 import Controller.PatientControllers.PatientListController;
 import Controller.ReferralControllers.ReferralListController;
 import Controller.TechControllers.ScheduleEmployeeController;
@@ -34,5 +35,9 @@ public class MenuController extends Controller {
 
     public void setScheduleEmployee(ActionEvent actionEvent) throws Exception{
         ScheduleEmployeeController.setView();
+    }
+
+    public void setProcedureList(ActionEvent actionEvent) throws Exception{
+        ProcedureListController.setView();
     }
 }
