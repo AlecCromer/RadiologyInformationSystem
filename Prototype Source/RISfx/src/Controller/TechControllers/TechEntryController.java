@@ -1,10 +1,11 @@
 package Controller.TechControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
+import Controller.AppointmentControllers.ReportFormController;
 import Model.Appointment;
 import Model.Images;
 import Model.Item;
+import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -15,25 +16,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
-import javafx.scene.text.Text;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import javax.imageio.ImageIO;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class TechEntryController implements Initializable {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     @FXML TextField pNameField,             appointmentIDField, appointmentDateField,
-                    appointmentTimeField,   signInField,        signOutField;
-    @FXML Text      needReportText;
-    @FXML Button    readyForReport;
+            appointmentTimeField,   signInField,        signOutField;
     @FXML
     ComboBox<String> ItemBox;
     @FXML
@@ -41,7 +41,7 @@ public class TechEntryController implements Initializable {
     @FXML
     TableView<Images> image_list;
     @FXML
-    TableColumn<Images, String> taken_date;
+    TableColumn<Images, String> taken_date, taken_status;
     @FXML
     TableColumn<Images, Image> taken_image;
     @FXML
@@ -49,16 +49,27 @@ public class TechEntryController implements Initializable {
 
     private Image image;
 
-      ////////////////
-     //Initializers//
+    ////////////////
+    //Initializers//
     ////////////////
     public static void setView() throws Exception{
-          Main.setCenterPane("TechViews/TechEntry.fxml");
+        Main.setCenterPane("TechViews/TechEntry.fxml");
     }
 
     @SuppressWarnings("Duplicates")
     public void initialize(URL url, ResourceBundle arg1) {
         updateTable();
+        image_list.setOnMouseClicked((MouseEvent event) -> {
+            //DOUBLE CLICK ON CELL
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try{
+                    Images photo = image_list.getSelectionModel().getSelectedItem();
+                    ReportFormController.setView(String.valueOf(Main.getAppointmentFocus().getAppointmentId()), photo.getImage_id());
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
         pNameField.setText(Main.getAppointmentFocus().getPatientFullName());
         appointmentIDField.setText(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));
         appointmentDateField.setText((new SimpleDateFormat("MM/dd/yyyy")).format(Main.getAppointmentFocus().getAppointmentDate()));
@@ -74,10 +85,6 @@ public class TechEntryController implements Initializable {
             comboBoxFill();
         }
         catch (Exception e){ e.printStackTrace(); }
-        if (Main.getAppointmentFocus().getPatientStatus().equals( "Needs Report")){
-            needReportText.setVisible(true);
-            readyForReport.setDisable(true);
-        }
     }
 
     private void updateTable(){
@@ -112,6 +119,7 @@ public class TechEntryController implements Initializable {
         });
         taken_image.setCellValueFactory(new PropertyValueFactory<Images, Image>("imagedata"));
         taken_date.setCellValueFactory(new PropertyValueFactory<Images, String>("Exam_date"));
+        taken_status.setCellValueFactory(new PropertyValueFactory<Images, String>("status"));
         item_name.setCellValueFactory(new PropertyValueFactory<Item, String>("itemName"));
         item_cost.setCellValueFactory(new PropertyValueFactory<Item, String>("itemCost"));
     }
@@ -125,19 +133,19 @@ public class TechEntryController implements Initializable {
         AddImageController.setView(appointmentIDField.getText());
     }
 
-      ///////////////////
-     //List Generators//
+    ///////////////////
+    //List Generators//
     ///////////////////
     private void comboBoxFill() throws Exception{
-          ResultSet rs = Item.queryAllItems();
-          ObservableList<String> items = FXCollections.observableArrayList();
+        ResultSet rs = Item.queryAllItems();
+        ObservableList<String> items = FXCollections.observableArrayList();
 
-          while(rs.next()){
-              items.add(rs.getInt("item_id")+ ": "+ rs.getString("item_name"));
-          }
+        while(rs.next()){
+            items.add(rs.getInt("item_id")+ ": "+ rs.getString("item_name"));
+        }
 
-          ItemBox.setItems(items);
-      }
+        ItemBox.setItems(items);
+    }
 
     ///////////////////
     //List Generators//
@@ -146,12 +154,12 @@ public class TechEntryController implements Initializable {
         ResultSet rs = Images.queryImageList(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));
         ObservableList<Images>/*<String>*/ images = FXCollections.observableArrayList();
 
-            while (rs.next()){
-                InputStream is = rs.getBinaryStream("imagedata");
+        while (rs.next()){
+            InputStream is = rs.getBinaryStream("imagedata");
 
-                image = SwingFXUtils.toFXImage(ImageIO.read(is), null);
-                images.add(new Images(image, rs.getString("exam_date")));
-            }
+            image = SwingFXUtils.toFXImage(ImageIO.read(is), null);
+            images.add(new Images(image, rs.getString("exam_date"), rs.getString("status"), rs.getString("image_id")));
+        }
         return images;
     }
     private ObservableList<Item> getItemList() throws Exception {
@@ -165,14 +173,14 @@ public class TechEntryController implements Initializable {
         return item;
     }
 
-      //////////////////
-     //Button Methods//
     //////////////////
-      public void setBackPage() throws Exception {
-          Main.setBackPage();
-      }
+    //Button Methods//
+    //////////////////
+    public void setBackPage() throws Exception {
+        Main.setBackPage();
+    }
 
-      public void addItem() throws Exception{
+    public void addItem() throws Exception{
 
         if(ItemBox.getValue() != null){
             //Removes the machine name, leaving only the machine ID
@@ -182,17 +190,20 @@ public class TechEntryController implements Initializable {
 
         updateTable();
 
-      }
-
-    public void readyForReport() throws Exception{
-        if (!(Appointment.updateReadyStatus(Main.getAppointmentFocus().getAppointmentId()))){
-            needReportText.setVisible(true);
-            readyForReport.setDisable(true);
-        }
     }
 
-      ///////////////////
-     //Form Validation//
+    private void sendImageToReport(Images selectedItem) throws Exception{
+        String exam_date = selectedItem.getExam_date();
+        Image image = selectedItem.getImagedata();
+        String appointment_id = String.valueOf(Main.getAppointmentFocus().getAppointmentId());
+        System.out.println(appointment_id);
+        // ResultSet rs = Report.gatherPatientInfo(image);
+        //rs.next();
+        //Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
+    }
+
+    ///////////////////
+    //Form Validation//
     ///////////////////
 
 

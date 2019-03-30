@@ -5,14 +5,10 @@ import Controller.databaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Employee {
-
-    private int employeeId;
-    private String firstName, lastName, email;
-
 
       ////////////////////
      //Database Queries//
@@ -55,6 +51,30 @@ public class Employee {
         }
     }
 
+    public static ResultSet queryAllEmployees()throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT * FROM employees"
+        ).executeQuery();
+    }
+
+    public static void insertNewSchedule(int employeeId, LocalDate date, LocalTime start, LocalTime end) throws Exception{
+        PreparedStatement st = databaseConnector.getConnection().prepareStatement(
+                "INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `end_time`) " +
+                        "VALUES (NULL, ?, ?, ?);"
+        );
+        st.setInt(1, employeeId);
+        st.setString(2, date.toString()+ " " + start.toString());
+        st.setString(3, date.toString()+ " " + end.toString());
+        st.execute();
+    }
+
+
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    private int employeeId;
+    private String firstName, lastName, email;
+
 
       ///////////////////
      //Getters/Setters//
@@ -90,6 +110,10 @@ public class Employee {
     public String getFullName(){ return firstName + " " + lastName; }
 
 
+
+      ////////////////
+     //Constructors//
+    ////////////////
     public Employee(int employeeId, String firstName, String lastName, String email) {
         this.employeeId = employeeId;
         this.firstName = firstName;
@@ -101,4 +125,13 @@ public class Employee {
         this.email = email;
     }
     public Employee(){}
+
+
+      /////////////
+     //Overrides//
+    /////////////
+    @Override
+    public String toString(){
+        return this.firstName + " " + this.lastName;
+    }
 }

@@ -21,8 +21,8 @@ import java.util.ResourceBundle;
 
 public class WorkListController implements Initializable {
 
-    ////////////////////////
-    //Variable Declaration//
+      ////////////////////////
+     //Variable Declaration//
     ////////////////////////
     @FXML Text loggedIn;
     @FXML
