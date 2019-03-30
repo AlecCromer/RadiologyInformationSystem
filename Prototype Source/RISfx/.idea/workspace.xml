@@ -2,80 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eedf299-5a4e-438a-b62a-192b7b930bd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_typhon0_AnimateFX_1_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RISfx.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/Controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/Controller/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/Controller/databaseConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/Model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISLogin/View/LoginView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentFilesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentFilesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/ReportFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/ReportFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/ReportController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/AddImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/AddImageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/databaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/databaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Images.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Images.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Modality.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Modality.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Procedure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Procedure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Referral.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Referral.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/ScheduleConflict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/ScheduleConflict.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/AppointmentView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/FilesViewer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/FilesViewer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/ReportForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/ReportForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/AppointmentViews/addAppointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/BillingViews/BillingList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/LoginView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/PatientView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/addPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/PatientViews/addPatient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/ReferralList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/addReferredPatient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReferralViews/addReferredPatient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/TechEntry.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/WorkList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/WorkList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/addImage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/TechViews/addImage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentViews/AppointmentList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentViews/FilesViewer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentViews/FilesViewer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MenuViews/tabLayout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MenuViews/tabLayout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PatientViews/PatientList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PatientViews/PatientList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReferralViews/ReferralList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/TechViews/WorkList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/allViews.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/allViews.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
-              <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -110,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+            <state relative-caret-position="1785">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,6 +75,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
@@ -182,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -240,6 +167,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,16 +230,18 @@
       <workItem from="1553712225698" duration="581000" />
       <workItem from="1553812701342" duration="10402000" />
       <workItem from="1553864539517" duration="1245000" />
+      <workItem from="1553919065245" duration="205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12228000" />
+    <option name="totallyTimeSpent" value="12542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16792738" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17019667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -505,6 +435,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/ReferralViews/ReferralForm.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -520,20 +460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
-          <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
         </state>
       </provider>
     </entry>
