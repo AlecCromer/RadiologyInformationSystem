@@ -8,10 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -75,6 +72,7 @@ public class ReferralFormController implements Initializable {
     //Suppress warning about our method call being similar to another bit
     @SuppressWarnings("Duplicates")
     public void submitNewReferral() throws Exception{
+        checkField();
         int patientID = Patient.insertNewPatient((new Patient(
                           patentFirstName.getText(),
                           patientLastName.getText(),
@@ -103,6 +101,36 @@ public class ReferralFormController implements Initializable {
       ///////////////////
      //Form Validation//
     ///////////////////
+
+ private void checkField(){
+     if(patentFirstName.getText().isEmpty() || patientLastName.getText().isEmpty()){
+         //addregex validation bri
+         error(0);
+     }
+     else {
+        error(1);
+     }
+
+ }
+    private void error(int fieldID) {
+
+
+        switch (fieldID) {
+            case 0: {
+                patentFirstName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                patientLastName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+
+                return;
+            }
+            case 1:{
+                patentFirstName.setStyle(null);
+                patientLastName.setStyle(null);
+            }
+
+
+
+        }
+    }
 
 
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="465.0" prefWidth="600.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.WorkListController">
+<AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TechControllers.WorkListController">
     <children>
         <TableView fx:id="WorkList" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
             <columns>
@@ -21,15 +22,15 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WorkList" underline="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+        <Label layoutX="14.0" layoutY="35.0" text="WorkList" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
             <font>
                 <Font name="Calibri Bold" size="24.0" />
             </font>
+        </Label>
+        <Text fx:id="loggedIn" fill="WHITE" layoutX="497.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Logged in as: " AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="20.0">
+            <font>
+                <Font name="Calibri" size="14.0" />
+            </font>
         </Text>
-      <Text fx:id="loggedIn" layoutX="497.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Logged in as: " AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="20.0">
-         <font>
-            <Font name="Calibri" size="14.0" />
-         </font>
-      </Text>
     </children>
 </AnchorPane>

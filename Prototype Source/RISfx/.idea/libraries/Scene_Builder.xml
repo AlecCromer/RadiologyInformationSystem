@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Scene Builder">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Libraries/Scene Builder/controlsfx-8.40.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Libraries/Scene Builder/jfoenix-9.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

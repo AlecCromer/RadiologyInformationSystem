@@ -62,7 +62,7 @@ public class Main extends Application {
         RIS_Container.setCenter(FXMLLoader.load(backNodeList.get((backNodeList.size()-1))));
     }
 
-    //Create Popup Window using submitted iiii
+    //Create Popup Window using submitted
     public static void setPopupWindow(String fxmlName) throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("../View/" + fxmlName));
         Scene view = new Scene(root, 520, 300);
@@ -133,6 +133,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("View/icons/icon.png"));
         primaryStage.setScene(new Scene(root, 300, 325));
+
         new FadeIn(root).play();
         //Setup a listener for when the popup window is closed
         popup.setOnCloseRequest(event -> {
@@ -150,7 +151,8 @@ public class Main extends Application {
         Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
         Outer.setLeft(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
         Outer.setCenter(RIS_Container);
-
+        //primaryStage.setFullScreen(true); // set stage to fullscreen
+        //primaryStage.setMaximized(true);  //set stage to max size of screen
         //Set the initial start to our PatientList
         setCenterPane("PatientViews/PatientList.fxml");
     }

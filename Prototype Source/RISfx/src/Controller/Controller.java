@@ -61,16 +61,11 @@ public class Controller {
                 rejection.showAndWait();
                 usernameTextField.clear();
                 passwordTextField.clear();
+                usernameTextField.setStyle("-fx-border-color: red");
+                passwordTextField.setStyle("-fx-border-color: red");
                 return;
             }
-           /* case 1: { // CONFIRMATION
-                Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
-                confirmation.setTitle("");
-                confirmation.setHeaderText(null);
-                confirmation.setContentText("");
-                confirmation.showAndWait();
-                return;
-            }*/
+
 
 
         }

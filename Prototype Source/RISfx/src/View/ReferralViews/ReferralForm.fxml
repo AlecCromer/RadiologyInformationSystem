@@ -107,7 +107,7 @@
             </font>
          </Text>
          <TextField fx:id="patientVitals" layoutX="112.0" layoutY="352.0" prefHeight="25.0" prefWidth="86.0" AnchorPane.leftAnchor="112.0" AnchorPane.topAnchor="352.0" />
-         <Text layoutX="20.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for Referral" underline="true" wrappingWidth="142.525390625">
+          <Text layoutX="20.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for Referral" underline="true" wrappingWidth="142.525390625">
             <font>
                <Font name="Calibri" size="16.0" />
             </font>

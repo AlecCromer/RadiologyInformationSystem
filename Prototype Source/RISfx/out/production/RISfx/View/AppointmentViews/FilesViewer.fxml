@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="600.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name: " AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="14.0">
          <font>
@@ -30,7 +30,7 @@
          </columnResizePolicy>
       </TableView>
       <ImageView fitHeight="247.0" fitWidth="500.0" layoutX="21.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="324.0" layoutX="50.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f5f8" height="324.0" layoutX="50.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="500.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0" />
       <ComboBox layoutX="50.0" layoutY="436.0" prefWidth="150.0" promptText="Procedure 1" />
       <TextArea layoutX="50.0" layoutY="492.0" prefHeight="203.0" prefWidth="500.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="492.0" />
       <Text layoutX="52.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments" />
