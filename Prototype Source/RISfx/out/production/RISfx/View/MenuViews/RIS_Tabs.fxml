@@ -31,6 +31,14 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
+             <Button mnemonicParsing="false"  onAction="#setScheduleEmployee" prefHeight="72.0" prefWidth="269.0" text="Schedule Employee">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Button>
+             <Button mnemonicParsing="false" onAction="#setProcedureList" prefHeight="72.0" prefWidth="269.0" text="Manage Procedures">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Button>
          </children>
       </VBox>
    </children>

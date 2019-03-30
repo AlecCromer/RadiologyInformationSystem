@@ -13,8 +13,8 @@ import java.util.Random;
 
 public class Patient {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     private String  firstname;
     private String lastname;
@@ -33,15 +33,15 @@ public class Patient {
     private ArrayList<Appointment> AppointmentList;
 
 
-      ////////////////////
-     //Database Queries//
+    ////////////////////
+    //Database Queries//
     ////////////////////
     public static ResultSet queryAllPatients() throws Exception{
-    ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
-    "select * FROM patient"
-    ) .executeQuery();
+        ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
+                "select * FROM patient"
+        ) .executeQuery();
 
-    return resultSet;
+        return resultSet;
     }
 
     public static ResultSet queryPatientInfo(int patientID) throws Exception{
@@ -60,7 +60,7 @@ public class Patient {
 
     public static ResultSet queryInfoForBillingList() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT patient.patient_id, patient.first_name, patient.last_name, patient.status, patient.balance, address.street_name, address.city, address.state, address.zip FROM `patient` LEFT JOIN `address` ON patient.address_id = address.address_id"
+                "SELECT patient.patient_id, patient.first_name, patient.last_name, patient.status, address.street_name, address.city, address.state, address.zip FROM `patient` LEFT JOIN `address` ON patient.address_id = address.address_id"
         ).executeQuery();
     }
 
@@ -111,7 +111,7 @@ public class Patient {
     }
     public static ResultSet queryAddress(int addressID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                        "SELECT * FROM `address` WHERE `address_id` = " + addressID
+                "SELECT * FROM `address` WHERE `address_id` = " + addressID
         ).executeQuery();
     }
 
@@ -125,8 +125,8 @@ public class Patient {
 
 
 
-      ///////////////////
-     //Getters/Setters//
+    ///////////////////
+    //Getters/Setters//
     ///////////////////
     public String getFirstname() {
         return firstname;
@@ -221,7 +221,7 @@ public class Patient {
 
 
     ////////////////
-     //Constructors//
+    //Constructors//
     ////////////////
     public Patient(){
         this.patientID          = -1;

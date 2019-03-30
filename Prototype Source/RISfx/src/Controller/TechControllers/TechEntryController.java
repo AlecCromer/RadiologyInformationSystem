@@ -1,7 +1,7 @@
 package Controller.TechControllers;
 
 import Controller.Main;
-import Controller.AppointmentControllers.ReportFormController;
+import Controller.ReportControllers.ReportFormController;
 import Model.Appointment;
 import Model.Images;
 import Model.Item;

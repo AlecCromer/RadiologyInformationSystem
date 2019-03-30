@@ -1,4 +1,4 @@
-package Controller.AppointmentControllers;
+package Controller.ReportControllers;
 
 import Controller.Main;
 import Model.Item;

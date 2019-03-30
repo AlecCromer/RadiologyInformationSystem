@@ -10,9 +10,9 @@
     <children>
         <TableView fx:id="BillingList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
             <columns>
-                <TableColumn fx:id="appointmentID" prefWidth="98.0" text="Appointment ID" />
+                <TableColumn fx:id="patientID" prefWidth="98.0" text="PatientID" />
                 <TableColumn fx:id="fName" prefWidth="52.0" text="Patient Name" />
-                <TableColumn fx:id="dateField" prefWidth="111.0" text="Date" />
+                <TableColumn fx:id="address" prefWidth="111.0" text="Billing Address" />
                 <TableColumn fx:id="patientStatus" prefWidth="147.0" text="Status" />
                 <TableColumn fx:id="Balance" prefWidth="103.0" text="Balance" />
             </columns>
