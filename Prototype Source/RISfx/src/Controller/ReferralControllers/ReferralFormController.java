@@ -92,32 +92,30 @@ public class ReferralFormController implements Initializable {
         int employeeID = 12442;
 
         Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText());
-        checkField();
         Main.popup.close();
         Main.getOuter().setDisable(false);
         Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
     }
 
-      ///////////////////
+     ///////////////////
      //Form Validation//
-    ///////////////////
+     ///////////////////
 //    admin@admin.com
- private void checkField(){
-     if (patentFirstName.getText().isEmpty()) {
-         error(0);
-      else if(patentFirstName.getText().matches("[a-z A-Z]+")) {
+     private void checkField(){
+         if (!patentFirstName.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) {
              error(0);
          }
-     }
-     if (patientLastName.getText().isEmpty()){
-         error(2);
-         if (patientLastName.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) {
+             else{
+                 error(1);
+             }
+
+         if (!patientLastName.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) {
              error(2);
          }
-     }
-      else {
-         error(4);
-     }
+             else{
+                 error(3);
+             }
+
  }
     private void error(int fieldID) {
 
@@ -139,11 +137,7 @@ public class ReferralFormController implements Initializable {
                 patientLastName.setStyle(null);
                 return;
             }
-            case 4: {
-                patentFirstName.setStyle(null);
-                patientLastName.setStyle(null);
-                return;
-            }
+
         }
 }
 }
