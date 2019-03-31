@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.InputMethodEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,7 +34,7 @@ public class ReferralFormController implements Initializable {
     public static void setView() throws Exception{
         Main.setPopupWindow("ReferralViews/ReferralForm.fxml");
         Main.popup.setResizable(false);
-        Main.popup.setHeight(550);
+        Main.popup.setHeight(500);
         Main.popup.setWidth(600);
     }
 
@@ -101,7 +102,9 @@ public class ReferralFormController implements Initializable {
      //Form Validation//
      ///////////////////
 //    admin@admin.com
+    //check to see if field contains a upper case and lower case trying to add a way to auto cap the first letter
      private void checkField(){
+
          if (!patentFirstName.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) {
              error(0);
          }
@@ -122,6 +125,8 @@ public class ReferralFormController implements Initializable {
 
         switch (fieldID) {
             case 0: {
+                patentFirstName.clear();
+                patentFirstName.setPromptText("Need to capitalize first letter of name");
                 patentFirstName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
                 return;
             }
@@ -140,4 +145,5 @@ public class ReferralFormController implements Initializable {
 
         }
 }
+
 }
