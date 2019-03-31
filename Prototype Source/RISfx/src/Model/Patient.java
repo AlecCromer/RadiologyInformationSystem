@@ -16,8 +16,18 @@ public class Patient {
       ////////////////////////
      //Variable Declaration//
     ////////////////////////
-    private String  firstname, lastname, sex, email, address, phoneNumber;
+    private String  firstname;
+    private String lastname;
+    private String sex;
+    private String email;
+    private String address;
+    private String phoneNumber;
+    private String fullName;
+
+    private String patientStatus;
     private LocalDate dob;
+
+    private float balance;
     private int patientID, insuranceNumber;
     private int policyNumber;
     private ArrayList<Appointment> AppointmentList;
@@ -45,6 +55,12 @@ public class Patient {
                 "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +
                         "FROM appointments " +
                         "WHERE appointments.patient_id = " + patientId
+        ).executeQuery();
+    }
+
+    public static ResultSet queryInfoForBillingList() throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT patient.patient_id, patient.first_name, patient.last_name, patient.status, patient.balance, address.street_name, address.city, address.state, address.zip FROM `patient` LEFT JOIN `address` ON patient.address_id = address.address_id"
         ).executeQuery();
     }
 
@@ -157,9 +173,8 @@ public class Patient {
     public int getPatientID() {
         return patientID;
     }
-    public void setPatientID(int patientID) {
-        this.patientID = patientID;
-    }
+
+    public void setPatientID(int patientID) { this.patientID = patientID; }
 
     public String getAddress() {
         return address;
@@ -185,8 +200,27 @@ public class Patient {
         AppointmentList = appointmentList;
     }
 
+    public String getPatientFullName() {
+        return fullName;
+    }
+    public void setPatientFullName(String patientFullName) {
+        this.fullName = patientFullName;
+    }
 
-      ////////////////
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+
+    public String getPatientStatus() { return patientStatus; }
+    public void setPatientStatus(String patientStatus) { this.patientStatus = patientStatus; }
+
+    public float getBalance() { return balance; }
+    public void setBalance(float balance) { this.balance = balance; }
+
+
+
+
+
+    ////////////////
      //Constructors//
     ////////////////
     public Patient(){
@@ -201,6 +235,14 @@ public class Patient {
         this.insuranceNumber    = -1;
         this.policyNumber       = -1;
         this.AppointmentList    = new ArrayList<>();
+    }
+
+    public Patient(int patientID, String fullName, String billingAddress, String status, float balance){
+        this.patientID = patientID;
+        this.fullName = fullName;
+        this.address = billingAddress;
+        this.patientStatus = status;
+        this.balance = balance;
     }
 
     public Patient(int patientID, String firstname, String lastname, String phoneNumber) {
