@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToWidth="true" prefHeight="1185.0" prefViewportHeight="560.0" prefViewportWidth="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
+<ScrollPane fitToWidth="true" prefHeight="1185.0" prefViewportHeight="560.0" prefViewportWidth="550.0" prefWidth="600.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
     <content>
         <AnchorPane prefHeight="973.0" prefWidth="598.0" stylesheets="@../allViews.css">
             <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Referral Form" underline="true" wrappingWidth="159.99999206776738" AnchorPane.topAnchor="15.0">

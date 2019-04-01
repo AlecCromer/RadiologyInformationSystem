@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -29,7 +30,8 @@ public class ReferralListController implements Initializable {
       @FXML
       TableColumn<Referral, String>     patientFirstName,   patientLastName,    referrerFullName,
                                         procedureName,      patientPhone,       urgency;
-
+    @FXML
+    AnchorPane referralView;
       ////////////////
      //Initializers//
     ////////////////
@@ -109,6 +111,7 @@ public class ReferralListController implements Initializable {
      //Button Methods//
     //////////////////
     public void setReferralForm(ActionEvent actionEvent) throws Exception{
+        //referralView.setStyle("-fx-background-color: black"); //fixes problem of backdrop being blue or could it stay blue?
         ReferralFormController.setView();
     }
 

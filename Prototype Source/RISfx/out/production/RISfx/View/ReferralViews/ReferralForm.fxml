@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToWidth="true" prefHeight="1185.0" prefViewportHeight="560.0" prefViewportWidth="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
+<ScrollPane fitToWidth="true" prefHeight="1185.0" prefViewportHeight="560.0" prefViewportWidth="550.0" prefWidth="600.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralFormController">
     <content>
         <AnchorPane prefHeight="973.0" prefWidth="598.0" stylesheets="@../allViews.css">
             <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Referral Form" underline="true" wrappingWidth="159.99999206776738" AnchorPane.topAnchor="15.0">
@@ -79,7 +79,7 @@
                 </font>
             </Text>
 
-            <TextField fx:id="patentFirstName" layoutX="156.0" layoutY="81.0" prefHeight="25.0" prefWidth="135.0" styleClass="capitalize" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="81.0" />
+            <TextField fx:id="patentFirstName" layoutX="156.0" layoutY="81.0" prefHeight="25.0" prefWidth="135.0" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="81.0" />
             <TextField fx:id="patientLastName" layoutX="358.0" layoutY="81.0" prefHeight="25.0" prefWidth="144.0" AnchorPane.leftAnchor="358.0" AnchorPane.topAnchor="81.0" />
             <DatePicker fx:id="patientDoB" layoutX="73.0" layoutY="113.0" prefHeight="25.0" prefWidth="166.0" />
             <TextField fx:id="patientSex" layoutX="438.0" layoutY="113.0" prefHeight="25.0" prefWidth="63.0" />

@@ -3,11 +3,8 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
-import Model.Procedure;
-import Model.User;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
-import animatefx.animation.Pulse;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +32,6 @@ public class Main extends Application {
     private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
 
-
     ////////////////
     //View Setters//
     ////////////////
@@ -61,7 +57,7 @@ public class Main extends Application {
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
             if(fade){
-                new FadeInLeft(RIS_Container).play();
+                new FadeIn(RIS_Container).play();
             }
         }
         catch(Exception e){
