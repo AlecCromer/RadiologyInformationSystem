@@ -70,11 +70,11 @@ public class BillingListController implements Initializable {
         while (rs.next()) {
             //int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance
             billingList.add(new Patient(
-                rs.getInt("patient_id"),
-                rs.getString("first_name") + " " + rs.getString("last_name"),
-                rs.getString("street_name") + " " + rs.getString("city") + ", " + rs.getString("state") + " " + rs.getString("zip"),
-                rs.getString("status"),
-                rs.getFloat("balance")
+                    rs.getInt("patient_id"),
+                    rs.getString("first_name") + " " + rs.getString("last_name"),
+                    rs.getString("street_name") + " " + rs.getString("city") + ", " + rs.getString("state") + " " + rs.getString("zip"),
+                    rs.getString("status"),
+                    rs.getFloat("balance")
             ));
         }
 

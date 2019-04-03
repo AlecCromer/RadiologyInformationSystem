@@ -72,7 +72,7 @@
                <Font name="Calibri" size="14.0" />
             </font>
          </Text>
-         <TextArea fx:id="reasonField" layoutX="32.0" layoutY="292.0" prefHeight="95.0" prefWidth="513.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" />
+         <TextArea fx:id="reasonField" layoutX="32.0" layoutY="292.0" prefHeight="95.0" prefWidth="513.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" wrapText="true"/>
          <Text layoutX="210.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Information" textAlignment="CENTER" underline="true" wrappingWidth="163.99999716877937" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.00000283122063">
             <font>
                <Font name="Calibri" size="18.0" />

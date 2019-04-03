@@ -3,22 +3,23 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
-import Model.Procedure;
-import Model.User;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
-import animatefx.animation.Pulse;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static java.awt.Color.*;
 
 public class Main extends Application {
 
@@ -34,8 +35,7 @@ public class Main extends Application {
     private static Appointment appointmentFocus = new Appointment();
     private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
-
-
+    public static  BoxBlur bb                   = new BoxBlur();
     ////////////////
     //View Setters//
     ////////////////
@@ -61,7 +61,7 @@ public class Main extends Application {
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
             if(fade){
-                new FadeInLeft(RIS_Container).play();
+                new FadeIn(RIS_Container).play();
             }
         }
         catch(Exception e){
@@ -78,7 +78,7 @@ public class Main extends Application {
         RIS_Container.setCenter(FXMLLoader.load(backNodeList.get((backNodeList.size()-1))));
     }
 
-    //Create Popup Window using submitted iiii
+    //Create Popup Window using submitted
     public static void setPopupWindow(String fxmlName) throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("../View/" + fxmlName));
         Scene view = new Scene(root, 520, 300);
@@ -87,13 +87,14 @@ public class Main extends Application {
         popup.setTitle("RIS Clinic System");
         popup.getIcons().add(new Image("View/icons/icon.png"));
         popup.show();
-        Outer.setDisable(true);
+        Outer.setEffect(bb);
         new FadeIn(root).play();
     }
 
     //Determines what all needs to be done when the popup window closes via 'X' button
-    private void closeWindowEvent() {
-        Outer.setDisable(false);
+    private void closeWindowEvent()
+    {
+        Outer.setEffect(null);
     }
 
 
@@ -152,6 +153,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("View/icons/icon.png"));
         primaryStage.setScene(new Scene(root, 300, 325));
+
         new FadeIn(root).play();
         //Setup a listener for when the popup window is closed
         popup.setOnCloseRequest(event -> {
@@ -169,7 +171,8 @@ public class Main extends Application {
         Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
         Outer.setLeft(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
         Outer.setCenter(RIS_Container);
-
+        //primaryStage.setFullScreen(true); // set stage to fullscreen
+        //primaryStage.setMaximized(true);  //set stage to max size of screen
         //Set the initial start to our PatientList
         setCenterPane("PatientViews/PatientList.fxml");
     }

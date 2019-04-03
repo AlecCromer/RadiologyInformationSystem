@@ -4,19 +4,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="357.0" prefWidth="201.0" stylesheets="@tabLayout.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuControllers.MenuController">
    <children>
-      <Pane prefHeight="43.0" prefWidth="253.0" />
+      <Pane prefHeight="43.0" prefWidth="253.0" style="-fx-background-color: #2D75E8;" />
       <VBox layoutY="43.0" prefHeight="359.0" prefWidth="253.0" stylesheets="@tabLayout.css">
          <children>
-            <Button mnemonicParsing="false" onAction="#setPatientList" prefHeight="72.0" prefWidth="269.0" text="Patient List" />
-            <Button mnemonicParsing="false" onAction="#setAppointmentList" prefHeight="72.0" prefWidth="269.0" text="Appointment List" />
-            <Button mnemonicParsing="false" onAction="#setReferralView" prefHeight="72.0" prefWidth="269.0" text="Referrals" />
-            <Button mnemonicParsing="false" onAction="#setBillingList" prefHeight="72.0" prefWidth="269.0" text="Billing" />
-            <Button mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="WorkList" />
-            <Button mnemonicParsing="false" onAction="#setScheduleEmployee" prefHeight="72.0" prefWidth="256.0" text="Schedule Employee" />
-            <Button mnemonicParsing="false" onAction="#setProcedureList" prefHeight="72.0" prefWidth="269.0" text="Manage Procedures" />
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setPatientList" prefHeight="72.0" prefWidth="269.0" text="Patient List">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setAppointmentList" prefHeight="72.0" prefWidth="269.0" text="Appointment List">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setReferralView" prefHeight="72.0" prefWidth="269.0" text="Referrals">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setBillingList" prefHeight="72.0" prefWidth="269.0" text="Billing">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="Work List">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setScheduleEmployee" prefHeight="72.0" prefWidth="269.0" text="Schedule Employee">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Button>
+             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setProcedureList" prefHeight="72.0" prefWidth="269.0" text="Manage Procedures">
+                 <font>
+                     <Font size="18.0" />
+                 </font></Button>
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setProcedureList" prefHeight="72.0" prefWidth="269.0" text="Report List">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>

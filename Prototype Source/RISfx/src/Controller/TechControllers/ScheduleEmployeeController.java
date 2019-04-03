@@ -102,8 +102,7 @@ public class ScheduleEmployeeController implements Initializable {
                 EmployeeBox.getValue().getEmployeeId(),
                 ScheduleDate.getValue(),
                 LocalTime.parse(startTime),
-                LocalTime.parse(endTime)
-                );
+                LocalTime.parse(endTime));
         Main.getOuter().setDisable(false);
         Main.popup.close();
     }
