@@ -9,13 +9,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static java.awt.Color.*;
 
 public class Main extends Application {
 
@@ -31,7 +35,7 @@ public class Main extends Application {
     private static Appointment appointmentFocus = new Appointment();
     private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
-
+    public static  BoxBlur bb                   = new BoxBlur();
     ////////////////
     //View Setters//
     ////////////////
@@ -83,13 +87,14 @@ public class Main extends Application {
         popup.setTitle("RIS Clinic System");
         popup.getIcons().add(new Image("View/icons/icon.png"));
         popup.show();
-        Outer.setDisable(true);
+        Outer.setEffect(bb);
         new FadeIn(root).play();
     }
 
     //Determines what all needs to be done when the popup window closes via 'X' button
-    private void closeWindowEvent() {
-        Outer.setDisable(false);
+    private void closeWindowEvent()
+    {
+        Outer.setEffect(null);
     }
 
 

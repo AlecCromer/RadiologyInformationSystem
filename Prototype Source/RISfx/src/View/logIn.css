@@ -1,7 +1,6 @@
 {
     -fx-primary : #2A2E37;
-    -fx-secondary : #1f4760
-;
+    -fx-secondary : #1f4760;
     -fx-primarytext : #B2B2B2;
     -fx-blue: #1976D2;
     -fx-red: #FF0000;
@@ -29,6 +28,8 @@
 .button:hover
 {
     -fx-background-color : #A1C1F4 ;
+    -fx-webkit-transition:width 2s, height 4s;
+
 }
 .button:pressed
 {

@@ -27,7 +27,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="WorkList">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="Work List">
                <font>
                   <Font size="18.0" />
                </font></Button>
