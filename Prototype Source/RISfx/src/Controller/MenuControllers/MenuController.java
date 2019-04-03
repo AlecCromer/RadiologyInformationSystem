@@ -42,6 +42,6 @@ public class MenuController extends Controller {
         ProcedureListController.setView();
     }
     public void setReportList(ActionEvent actionEvent) throws Exception{
-        //ReportListController.setView();
+        ReportListController.setView();
     }
 }

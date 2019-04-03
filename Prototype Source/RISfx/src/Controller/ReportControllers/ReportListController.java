@@ -82,17 +82,18 @@ public class ReportListController implements Initializable{
     ///////////////////
     public ObservableList<Report>  getPatientList() throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
-
+/*
         ResultSet resultSet = Report.queryReports();
         while (resultSet.next()) {
             reports.add(new Report(
                     resultSet.getString("p.patient_id"),
                     resultSet.getString("p.first_name"),
                     resultSet.getString("p.last_name"),
-                    dateFormatter(resultSet.getString("p.date_of_birth")),
+                    dateFormatter(resultSet.getString("p.date_of_birth")).toString(),
                     resultSet.getString("p.sex")
             ));
-        }
+
+        }*/
         return reports;
     }
 

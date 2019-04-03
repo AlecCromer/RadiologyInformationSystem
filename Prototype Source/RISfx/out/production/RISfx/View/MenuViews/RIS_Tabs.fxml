@@ -39,7 +39,7 @@
                  <font>
                      <Font size="18.0" />
                  </font></Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setProcedureList" prefHeight="72.0" prefWidth="269.0" text="Report List">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setReportList" prefHeight="72.0" prefWidth="269.0" text="Report List">
                <font>
                   <Font size="18.0" />
                </font>
