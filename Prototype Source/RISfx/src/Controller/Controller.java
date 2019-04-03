@@ -3,7 +3,7 @@ package Controller;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import javafx.scene.control.ProgressIndicator;
 import Controller.databaseConnector;
 import Model.Employee;
 import Model.User;
@@ -23,6 +23,7 @@ public class Controller {
     @FXML
     private Button loginButton;
 
+
     public void onLoginButtonPushed(ActionEvent event) {
         Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
 
@@ -40,6 +41,7 @@ public class Controller {
                 ));
 
                 Main.successfulLogin();
+
             } else {
                 changeScene(0);
 
