@@ -86,7 +86,7 @@ public class ReportFormController implements Initializable {
         System.out.println(appointment_id);
         setPatient_id(patient_id);
         setImage_id(image_id);
-        Main.setPopupWindow("AppointmentViews/ReportForm.fxml");
+        Main.setPopupWindow("ReportControllers/ReportForm.fxml");
 
     }
 
