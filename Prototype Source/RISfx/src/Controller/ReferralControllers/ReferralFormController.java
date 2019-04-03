@@ -82,8 +82,8 @@ public class ReferralFormController implements Initializable {
                           patientEmail.getText(),
                           patientDoB.getValue(),
                           patientPhone.getText(),
-                          Integer.parseInt(patientInsuranceNumber.getText()),
-                          Integer.parseInt(patientPolicyNumber.getText())
+                          patientInsuranceNumber.getText(),
+                          patientPolicyNumber.getText()
                   )),
                   patientStreet.getText(),
                   patientCity.getText(),

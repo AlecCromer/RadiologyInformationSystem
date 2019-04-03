@@ -99,8 +99,8 @@ public class PatientListController implements Initializable {
                     resultSet.getString("sex"),
                     resultSet.getString("home_phone"),
                     resultSet.getString("email"),
-                    resultSet.getInt("insurance_number"),
-                    resultSet.getInt("policy_number"),
+                    resultSet.getString("insurance_number"),
+                    resultSet.getString("policy_number"),
                     ""
             ));
         }
@@ -146,8 +146,8 @@ public class PatientListController implements Initializable {
                 rs.getString("sex"),
                 rs.getString("home_phone"),
                 rs.getString("email"),
-                rs.getInt("insurance_number"),
-                rs.getInt("policy_number"),
+                rs.getString("insurance_number"),
+                rs.getString("policy_number"),
                 address
                 )));
     }
