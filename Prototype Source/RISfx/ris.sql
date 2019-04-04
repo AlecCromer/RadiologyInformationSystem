@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 09:13 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Apr 03, 2019 at 10:22 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ris2`
+-- Database: `ris`
 --
 
 -- --------------------------------------------------------
@@ -62,7 +62,10 @@ INSERT INTO `address` (`address_id`, `street_name`, `city`, `zip`, `state`) VALU
 (22, '123567 Adventure Lane', 'Winder', 30680, 'Georiga'),
 (23, '3242', 'm', 34343, 'm'),
 (24, 'm', 'm', 54545, 'ga'),
-(25, 'd', 'd', 56765, 'g');
+(25, 'd', 'd', 56765, 'g'),
+(26, '2250 Sugar Hill #456', 'Snellvile', 30078, 'Ga'),
+(27, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga'),
+(28, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga');
 
 -- --------------------------------------------------------
 
@@ -95,9 +98,9 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, 
 (2, 3526, '2019-03-21', '12:00:00', '10:20:00', '10:20:21', 'Signed Out', b'0', 1, 1, 45626, 'Testing', 'This is a test appoi'),
 (5, 3526, '2019-03-13', '08:00:00', '10:18:00', '10:18:34', 'Signed Out', b'0', 1, 1, 52546, '', ''),
 (7, 18603, '2019-03-13', '10:00:00', '10:08:00', '10:16:51', 'Signed Out', b'0', 2, 2, 45626, '', ''),
-(8, 47284, '2019-03-13', '06:00:00', '10:30:00', '10:31:01', 'Signed Out', b'0', 1, 1, 52546, '', ''),
+(8, 47284, '2019-03-13', '06:00:00', '10:30:00', '10:31:01', 'Signed Out', b'0', 1, 1, 6730, '', ''),
 (9, 47284, '2019-03-13', '06:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, '', ''),
-(10, 47284, '2019-03-14', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 12442, NULL, NULL),
+(10, 47284, '2019-03-14', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 6730, NULL, NULL),
 (11, 3526, '2019-03-14', '15:00:00', '10:24:14', NULL, 'Signed In', b'0', 2, 2, 12442, NULL, NULL),
 (12, 3526, '2019-03-14', '11:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 12442, NULL, NULL),
 (13, 18603, '2019-03-14', '18:00:00', '10:21:00', '10:21:29', 'Signed Out', b'0', 1, 1, 12442, NULL, NULL),
@@ -151,6 +154,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, `email`) VALUES
+(6730, 'admin', 'site', '1', 'admin'),
 (12442, 'Alexander', 'Cromer', 'True', 'cromeralec@gmail.com'),
 (43552, 'John', 'Cena', 'False', 'johncena@gmail.com'),
 (45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com'),
@@ -180,7 +184,11 @@ INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `en
 (3, 45626, '2019-03-15 08:00:00', '2019-03-15 17:00:00'),
 (4, 45626, '2019-03-12 08:00:00', '2019-03-12 17:00:00'),
 (5, 52546, '2019-03-13 06:00:00', '2019-03-13 17:00:00'),
-(6, 54382, '2019-03-13 05:00:00', '2019-03-13 15:00:00');
+(6, 54382, '2019-03-13 05:00:00', '2019-03-13 15:00:00'),
+(7, 6730, '2019-03-29 08:00:00', '2019-03-30 08:00:00'),
+(8, 6730, '2019-03-06 12:00:00', '2019-03-06 13:00:00'),
+(9, 6730, '2019-03-20 10:00:00', '2019-03-20 12:00:00'),
+(10, 6730, '2019-04-18 14:00:00', '2019-04-18 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -244,7 +252,10 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `item_name`, `item_cost`) VALUES
-(1, 'Extra Goop', 10.5);
+(1, 'UltraSound Gel', 10.5),
+(2, 'X-Ray Bib', 250),
+(3, 'Cotton Swab', 15),
+(4, 'Extra Pillow', 35);
 
 -- --------------------------------------------------------
 
@@ -290,23 +301,26 @@ CREATE TABLE `patient` (
   `policy_number` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
   `status` varchar(30) DEFAULT NULL,
-  `patient_medications_list` varchar(30) DEFAULT NULL
+  `patient_medications_list` varchar(30) DEFAULT NULL,
+  `balance` float NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`, `sex`, `home_phone`, `email`, `insurance_number`, `policy_number`, `address_id`, `status`, `patient_medications_list`) VALUES
-(3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', '1234567890', 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL),
-(12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', '67855583', 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole'),
-(18603, 'Kyle', 'Michael', '1994-11-16', 'Male', '1876543210', 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL),
-(19696, 'Testing', 'McGee', '1950-01-01', 'Male', '1234567890', 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL),
-(23423, 'Evan', 'Myers', '1980-03-10', 'Male', '2147483647', 'fake@fake.com', 4574676, 567456754, 20, NULL, NULL),
-(31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', '12345678', 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL),
-(36725, 'Make', 'Sure', '1950-01-01', 'Male', '1234567890', 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL),
-(44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', '678126987', 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL),
-(47284, 'Ben', 'Denton', '2019-03-11', 'Male', '578223442', 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin');
+INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`, `sex`, `home_phone`, `email`, `insurance_number`, `policy_number`, `address_id`, `status`, `patient_medications_list`, `balance`) VALUES
+(3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', '1234567890', 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL, 0),
+(12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', '67855583', 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole', 0),
+(13768, 'Brisaac', 'Johnson', '2003-03-20', 'Male', '6785169220', 'bribri@joh.com', 1235479215, 1579520347, 26, 'New Patient', NULL, 0),
+(18603, 'Kyle', 'Michael', '1994-11-16', 'Male', '1876543210', 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL, 0),
+(19696, 'Testing', 'McGee', '1950-01-01', 'Male', '1234567890', 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL, 0),
+(21006, 'Brisaac', 'Johnson', '1998-04-15', 'Male', '6786150229', 'brisaacbmw@gmail.com', 2015491651, 1248761549, 27, 'New Patient', NULL, 0),
+(23423, 'Evan', 'Myers', '1980-03-10', 'Male', '2147483647', 'fake@fake.com', 4574676, 567456754, 20, NULL, NULL, 0),
+(31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', '12345678', 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL, 0),
+(36725, 'Make', 'Sure', '1950-01-01', 'Male', '1234567890', 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL, 0),
+(44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', '678126987', 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL, 0),
+(47284, 'Ben', 'Denton', '2019-03-11', 'Male', '578223442', 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin', 0);
 
 -- --------------------------------------------------------
 
@@ -328,7 +342,10 @@ CREATE TABLE `procedures` (
 INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`, `procedure_price`) VALUES
 (1, 'X-Ray', 1, NULL),
 (2, 'CT Scan', 3, NULL),
-(3, 'MRI', 2, NULL);
+(3, 'MRI', 2, NULL),
+(4, 'Heart Test', 50, 500),
+(5, 'Remote', 54, 45),
+(6, 'tes', 5000, 100);
 
 -- --------------------------------------------------------
 
@@ -375,7 +392,9 @@ INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`
 (2, 12442, 47284, 2, b'0', 'Low', NULL, NULL),
 (3, 52546, 47284, 3, b'0', 'Medium', NULL, NULL),
 (4, 43552, 12345, 3, b'0', 'Medium', NULL, NULL),
-(6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs');
+(6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs'),
+(7, 6730, 13768, 2, b'0', 'Medium', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing '),
+(8, 6730, 21006, 2, b'0', 'High', 'lokfos', 'lfksodsmf');
 
 -- --------------------------------------------------------
 
@@ -572,7 +591,7 @@ ALTER TABLE `role_relationship`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `appointments`
@@ -590,7 +609,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `employee_schedule`
 --
 ALTER TABLE `employee_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -608,7 +627,7 @@ ALTER TABLE `image_report_relationship`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `modality`
@@ -620,7 +639,7 @@ ALTER TABLE `modality`
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
-  MODIFY `procedure_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `procedure_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `procedure_relationship`
@@ -632,7 +651,7 @@ ALTER TABLE `procedure_relationship`
 -- AUTO_INCREMENT for table `refer`
 --
 ALTER TABLE `refer`
-  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `report`

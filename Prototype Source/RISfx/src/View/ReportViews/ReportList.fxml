@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.ReportViews.ReportList"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
+    <children>
+        <TableView fx:id="ReportList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" stylesheets="@ReportList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+            <columns>
+                <TableColumn fx:id="patientID" prefWidth="75.0" text="PatientID" />
+                <TableColumn fx:id="firstname" prefWidth="75.0" text="First Name" />
+                <TableColumn fx:id="lastname" prefWidth="75.0" text="Last Name" />
+                <TableColumn fx:id="dob" prefWidth="49.0" text="DoB" />
+                <TableColumn fx:id="sex" prefWidth="25.0" text="Sex" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <Text id="title" layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" underline="true" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+            <font>
+                <Font name="Calibri Bold" size="24.0" />
+            </font>
+        </Text>
+    </children>
+    <stylesheets>
+        <URL value="@ReportList.css" />
+        <URL value="@../allViews.css" />
+    </stylesheets>
 </AnchorPane>

@@ -6,6 +6,7 @@ import Controller.Controller;
 import Controller.ProcedureControllers.ProcedureListController;
 import Controller.PatientControllers.PatientListController;
 import Controller.ReferralControllers.ReferralListController;
+import Controller.ReportControllers.ReportListController;
 import Controller.TechControllers.ScheduleEmployeeController;
 import Controller.TechControllers.WorkListController;
 import javafx.event.ActionEvent;
@@ -39,5 +40,8 @@ public class MenuController extends Controller {
 
     public void setProcedureList(ActionEvent actionEvent) throws Exception{
         ProcedureListController.setView();
+    }
+    public void setReportList(ActionEvent actionEvent) throws Exception{
+        ReportListController.setView();
     }
 }
