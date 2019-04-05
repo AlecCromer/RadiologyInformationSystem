@@ -40,7 +40,11 @@ public class Controller {
                         rs.getString("last_name"),
                         rs.getString("email")
                 ));
-
+                try {
+                    Main.getSessionUser().setPermissions();
+                }catch (Exception e){
+                    System.out.println("No permissions 4 u");
+                }
                 Main.successfulLogin();
 
             } else {
@@ -58,8 +62,6 @@ public class Controller {
 
 
     private void changeScene(int sceneID) {
-
-
         switch (sceneID) {
             case 0: {
                 Alert rejection = new Alert(Alert.AlertType.ERROR);

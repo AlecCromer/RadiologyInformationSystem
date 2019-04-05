@@ -22,6 +22,7 @@
             </columnResizePolicy>
         </TableView>
         <Text id="title" fill="#fffefe" layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+
             <font>
                 <Font name="Calibri Bold" size="24.0" />
             </font>

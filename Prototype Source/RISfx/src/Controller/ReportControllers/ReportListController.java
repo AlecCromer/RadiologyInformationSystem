@@ -1,6 +1,7 @@
 package Controller.ReportControllers;
 
 import Controller.Main;
+import Model.Images;
 import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,8 +39,8 @@ public class ReportListController implements Initializable{
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
                 try {
-                    //sendProcedureToView(ProcedureList.getSelectionModel().getSelectedItem());
-                    //setProcedureView();
+                    Report item = ReportList.getSelectionModel().getSelectedItem();
+                    ReportFormController.setView(item.getAppointment_id(), item.getImage_id());
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -82,25 +83,25 @@ public class ReportListController implements Initializable{
     ///////////////////
     public ObservableList<Report>  getPatientList() throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
-/*
+
         ResultSet resultSet = Report.queryReports();
         while (resultSet.next()) {
             reports.add(new Report(
                     resultSet.getString("p.patient_id"),
                     resultSet.getString("p.first_name"),
                     resultSet.getString("p.last_name"),
-                    dateFormatter(resultSet.getString("p.date_of_birth")).toString(),
-                    resultSet.getString("p.sex")
+                    dateFormatter(resultSet.getString("p.date_of_birth")),
+                    resultSet.getString("p.sex"),
+                    resultSet.getString("image_id"),
+                    resultSet.getInt("appointment_id")
             ));
-
-        }*/
+        }
         return reports;
     }
 
-
-        private LocalDate dateFormatter (String date){
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            return LocalDate.parse(date, format);
-        }
-
+    private LocalDate dateFormatter (String date){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(date, format);
     }
+
+}

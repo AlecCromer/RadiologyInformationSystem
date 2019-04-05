@@ -63,8 +63,8 @@ public class NewPatientController implements Initializable {
                     emailField.getText(),
                     dobField.getValue(),
                     pNumberField.getText(),
-                    Integer.parseInt(insuranceField.getText()),
-                    Integer.parseInt(policyField.getText())
+                    insuranceField.getText(),
+                    policyField.getText()
             )),
                     addressField.getText(),
                     cityField.getText(),

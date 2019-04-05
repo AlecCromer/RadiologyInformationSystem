@@ -23,13 +23,14 @@ public class Patient {
     private String address;
     private String phoneNumber;
     private String fullName;
-
+    private String insuranceNumber;
+    private String policyNumber;
     private String patientStatus;
+
     private LocalDate dob;
 
     private float balance;
-    private int patientID, insuranceNumber;
-    private int policyNumber;
+    private int patientID;
     private ArrayList<Appointment> AppointmentList;
 
 
@@ -183,13 +184,13 @@ public class Patient {
         this.address = address;
     }
 
-    public int getInsuranceNumber(){return insuranceNumber;}
-    public void setInsuranceNumber(int insuranceNumber){this.insuranceNumber = insuranceNumber;}
+    public String getInsuranceNumber(){return insuranceNumber;}
+    public void setInsuranceNumber(String insuranceNumber){this.insuranceNumber = insuranceNumber;}
 
-    public int getPolicyNumber() {
+    public String getPolicyNumber() {
         return this.policyNumber;
     }
-    public void setPolicyNumber(int policyNumber) {
+    public void setPolicyNumber(String policyNumber) {
         this.policyNumber = policyNumber;
     }
 
@@ -232,8 +233,8 @@ public class Patient {
         this.phoneNumber        = null;
         this.email              = null;
         this.address            = null;
-        this.insuranceNumber    = -1;
-        this.policyNumber       = -1;
+        this.insuranceNumber    = null;
+        this.policyNumber       = null;
         this.AppointmentList    = new ArrayList<>();
     }
 
@@ -252,7 +253,7 @@ public class Patient {
         this.patientID = patientID;
     }
 
-    public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, String phoneNumber, String email, int insuranceNumber, int policyNumber, String address ){
+    public Patient(int PatientID, String firstname, String lastname, LocalDate DoB, String Sex, String phoneNumber, String email, String insuranceNumber, String policyNumber, String address ){
         this.patientID          = PatientID;
         this.firstname          = firstname;
         this.lastname           = lastname;
@@ -266,7 +267,7 @@ public class Patient {
         this.AppointmentList    = new ArrayList<>();
     }
 
-    public Patient(String firstname, String lastname, String sex, String email, LocalDate dob, String phoneNumber, int insuranceNumber, int policyNumber) {
+    public Patient(String firstname, String lastname, String sex, String email, LocalDate dob, String phoneNumber, String insuranceNumber, String policyNumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.sex = sex;

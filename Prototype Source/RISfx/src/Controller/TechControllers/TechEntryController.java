@@ -64,7 +64,7 @@ public class TechEntryController implements Initializable {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
                     Images photo = image_list.getSelectionModel().getSelectedItem();
-                    ReportFormController.setView(String.valueOf(Main.getAppointmentFocus().getAppointmentId()), photo.getImage_id());
+                    ReportFormController.setView(Main.getAppointmentFocus().getAppointmentId(), photo.getImage_id());
                 }catch(Exception e){
                     e.printStackTrace();
                 }

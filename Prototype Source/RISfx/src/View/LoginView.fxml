@@ -67,7 +67,7 @@
                   </PasswordField>
                </children>
             </HBox>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginButtonPushed" text="Login" />
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#onLoginButtonPushed" text="Login" />
             <Label fx:id="exceptionLabel" text="" />
          </children>
       </VBox>

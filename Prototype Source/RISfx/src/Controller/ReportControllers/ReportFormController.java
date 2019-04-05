@@ -22,6 +22,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Base64;
 import java.util.ResourceBundle;
 import java.lang.*;
@@ -54,11 +55,10 @@ public class ReportFormController implements Initializable {
     @FXML
     private TextArea findingField;
     @FXML
-    private TextField radiologistField;
+    private TextField radiologistField,clinicalIndication, procedureRequested;
     @FXML
     private DatePicker signDateField;
-    @FXML
-    private ComboBox procedureBox;
+
     @FXML
     private ImageView report_image;
 
@@ -82,43 +82,61 @@ public class ReportFormController implements Initializable {
 
     static String image_id;
 
-    public static void setView(String appointment_id, String image_id) throws Exception{
+    public static int getAppointment_id() {
+        return appointment_id;
+    }
+
+    public static void setAppointment_id(int appointment_id) {
+        ReportFormController.appointment_id = appointment_id;
+    }
+
+    static int appointment_id;
+
+    public static void setView(int appointment_id, String image_id) throws Exception{
+        setAppointment_id(appointment_id);
         System.out.println(appointment_id);
         setPatient_id(patient_id);
         setImage_id(image_id);
-        Main.setPopupWindow("ReportControllers/ReportForm.fxml");
-
+        Main.setPopupWindow("ReportControllers/ReportForm.fxml");        Main.setPopupWindow("ReportViews/ReportForm.fxml");
+        Main.getSessionUser().getFullName();
     }
 
-    public void initialize(URL url, ResourceBundle arg1) {
+    public void initialize(URL url, ResourceBundle arg1){
 
         try{
 
-            ResultSet rs = Report.gatherPatientInfo(String.valueOf(Main.getAppointmentFocus().getAppointmentId()), getImage_id());
+            ResultSet rs = Report.gatherPatientInfo(getAppointment_id(), getImage_id());
 
-            ObservableList<Report>/*<String>*/ report = FXCollections.observableArrayList();
 
             while (rs.next()){
 
 
 
                 NameField.setText(rs.getString("name"));
-
                 dobField.setText(rs.getString("date_of_birth"));
-
                 idField.setText(rs.getString("patient_id"));
                 sexField.setText(rs.getString("sex"));
                 apptIDField.setText(rs.getString("appointment_id"));
                 dateField.setText(rs.getString("appointment_date"));
-
+                timeField.setText(rs.getString("patient_sign_in_time"));
+                reasonField.setText(rs.getString("reason_for_referral"));
+                historyField.setText(rs.getString("special_comments"));
+                procedureRequested.setText(rs.getString("procedure_name"));
 
                 InputStream is = rs.getBinaryStream("imagedata");
                 Image image = SwingFXUtils.toFXImage(ImageIO.read(is), null);
                 report_image.setImage(image);
 
-                physicianField.setText(rs.getString("refname"));
-                reasonField.setText(rs.getString("reason_for_referral"));
 
+            }
+            rs.close();
+            ResultSet rs2 = Report.gatherReferralInfo(getImage_id());
+            if(rs2.next()){
+
+                physicianField.setText(rs2.getString("name"));
+
+            }else{
+                physicianField.setText("No referring physician");
             }
 
         }catch (Exception e){
@@ -128,5 +146,21 @@ public class ReportFormController implements Initializable {
 
 
 
+    }
+    public boolean submitReport() throws SQLException{
+
+        if(!findingField.getText().isEmpty() || clinicalIndication.getText().isEmpty()){
+            Report.sendReport(clinicalIndication.getText(), findingField.getText(), getImage_id(), procedureRequested.getText(), radiologistField.getText());
+        }
+
+        return true;
+    }
+
+    //checks if the radiologist is the one logged in
+    public boolean checkRadiologist(String radiologist){
+        if(radiologist!= Main.getSessionUser().getFullName()){
+            return false;
+        }
+        return true;
     }
 }
