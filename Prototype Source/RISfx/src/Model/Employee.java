@@ -84,7 +84,7 @@ public class Employee {
     ////////////////////////
     private int employeeId;
     private String firstName, lastName, email;
-    private ArrayList<Integer> permissions;
+    private ArrayList<Integer> permissions = new ArrayList<>();
 
 
       ///////////////////
@@ -123,13 +123,11 @@ public class Employee {
     public ArrayList<Integer> getPermissions() {
         return permissions;
     }
-    public ArrayList<Integer> setPermissions() throws Exception{
+    public void setPermissions() throws Exception{
         ResultSet pms = queryEmployeePermissions();
-        ArrayList<Integer> intArr = new ArrayList<Integer>();
         while(pms.next()){
-            intArr.add(pms.getInt("role_id"));
+            this.permissions.add(pms.getInt("role_id"));
         }
-        return intArr;
     }
 
 
