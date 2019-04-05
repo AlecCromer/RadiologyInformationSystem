@@ -40,6 +40,7 @@ public class AppointmentListController implements Initializable {
         updateTable();
         AppointmentList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
+
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
                     sendAppointmentToView(AppointmentList.getSelectionModel().getSelectedItem());
@@ -66,7 +67,7 @@ public class AppointmentListController implements Initializable {
         ProcedureType.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedureName"));
         Technician.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
         Status.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
-        //Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+        Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
 
 

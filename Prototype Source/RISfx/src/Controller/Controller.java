@@ -24,6 +24,7 @@ public class Controller {
     private Button loginButton;
 
 
+
     public void onLoginButtonPushed(ActionEvent event) {
         Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
 
@@ -50,6 +51,11 @@ public class Controller {
             exceptionLabel.setText("Error");
         }
     }
+
+
+
+
+
 
     private void changeScene(int sceneID) {
 

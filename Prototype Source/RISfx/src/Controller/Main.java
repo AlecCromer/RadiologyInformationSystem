@@ -6,9 +6,11 @@ import Model.Patient;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -26,6 +28,8 @@ public class Main extends Application {
     ////////////////////////
     //Variable Declaration//
     ////////////////////////
+    @FXML
+    private MenuItem logout;
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
     private static BorderPane RIS_Container     = new BorderPane();
@@ -172,7 +176,7 @@ public class Main extends Application {
         Outer.setLeft(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
         Outer.setCenter(RIS_Container);
         //primaryStage.setFullScreen(true); // set stage to fullscreen
-        //primaryStage.setMaximized(true);  //set stage to max size of screen
+        primaryStage.setMaximized(true);  //set stage to max size of screen
         //Set the initial start to our PatientList
         setCenterPane("PatientViews/PatientList.fxml");
     }

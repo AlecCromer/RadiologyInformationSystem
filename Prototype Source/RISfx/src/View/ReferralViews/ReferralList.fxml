@@ -16,7 +16,7 @@
                 <TableColumn fx:id="patientLastName" prefWidth="88.0" text="Last Name" />
                 <TableColumn fx:id="referrerFullName" prefWidth="111.0" text="Referrer" />
                 <TableColumn fx:id="procedureName" prefWidth="140.0" text="Procedure Requested" />
-                <TableColumn fx:id="patientPhone" prefWidth="31.0" text="Primary Phone Number" />
+                <TableColumn fx:id="patientPhone" minWidth="15.0" prefWidth="31.0" text="Primary Phone Number" />
                 <TableColumn fx:id="urgency" prefWidth="75.0" text="Urgency" />
             </columns>
             <columnResizePolicy>
