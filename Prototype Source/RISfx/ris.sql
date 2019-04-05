@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2019 at 10:22 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Apr 05, 2019 at 05:59 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -159,7 +159,8 @@ INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, 
 (43552, 'John', 'Cena', 'False', 'johncena@gmail.com'),
 (45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com'),
 (52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.'),
-(54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu');
+(54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu'),
+(123567, 'tech', 'nician', 'ok', 'tech');
 
 -- --------------------------------------------------------
 
@@ -406,6 +407,7 @@ CREATE TABLE `report` (
   `report_id` int(11) NOT NULL,
   `clinical_indication` varchar(20) NOT NULL,
   `exam` varchar(30) NOT NULL,
+  `isotope` varchar(30) NOT NULL,
   `report_details` varchar(20) NOT NULL,
   `employee_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -414,8 +416,8 @@ CREATE TABLE `report` (
 -- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`report_id`, `clinical_indication`, `exam`, `report_details`, `employee_id`) VALUES
-(2, 'cancer', 'x-ray', 'It\'s terminal fam', 54382);
+INSERT INTO `report` (`report_id`, `clinical_indication`, `exam`, `isotope`, `report_details`, `employee_id`) VALUES
+(2, 'cancer', 'x-ray', '', 'It\'s terminal fam', 54382);
 
 -- --------------------------------------------------------
 
@@ -435,7 +437,11 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`role_id`, `role_name`, `permissions`) VALUES
 (1, 'Refering Physician', 'Low'),
-(2, 'Radiologist', 'High');
+(2, 'Radiologist', 'High'),
+(3, 'Admin Assistant', 'foo'),
+(4, 'Technician', 'foo'),
+(5, 'Front Desk', 'foo'),
+(6, 'Administrator', 'foo');
 
 -- --------------------------------------------------------
 
@@ -457,8 +463,11 @@ INSERT INTO `role_relationship` (`role_relationship_id`, `employee_id`, `role_id
 (1, 12442, 1),
 (2, 54382, 2),
 (3, 43552, 1),
-(4, 45626, 2),
-(5, 52546, 1);
+(5, 52546, 1),
+(6, 6730, 6),
+(7, 123567, 4),
+(13, 45626, 4),
+(14, 45626, 2);
 
 --
 -- Indexes for dumped tables
@@ -578,7 +587,6 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `role_relationship`
   ADD PRIMARY KEY (`role_relationship_id`),
-  ADD UNIQUE KEY `employee_id_2` (`employee_id`),
   ADD KEY `employee_id` (`employee_id`),
   ADD KEY `role_id` (`role_id`);
 
@@ -662,13 +670,13 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `role_relationship`
 --
 ALTER TABLE `role_relationship`
-  MODIFY `role_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `role_relationship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
