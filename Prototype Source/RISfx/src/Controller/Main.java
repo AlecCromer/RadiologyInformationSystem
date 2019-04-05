@@ -33,7 +33,7 @@ public class Main extends Application {
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
     private static BorderPane RIS_Container     = new BorderPane();
-    private static ArrayList<URL> backNodeList = new ArrayList<>();
+    private static ArrayList<URL> backNodeList  = new ArrayList<>();
     private static Scene MainScene              = new Scene(Outer,800, 450);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
@@ -133,6 +133,10 @@ public class Main extends Application {
         Main.sessionUser = sessionUser;
     }
 
+    public static Stage getPrimaryStage(){
+        return primaryStage;
+    }
+
     public static void popBackNodeList() {
         try {
             backNodeList.remove(backNodeList.get((backNodeList.size() - 1)));
@@ -170,6 +174,8 @@ public class Main extends Application {
 
     public static void successfulLogin() throws Exception{
         primaryStage.setResizable(true);
+        primaryStage.setMaxHeight(4000);
+        primaryStage.setMaxWidth(4000);
         primaryStage.setScene(MainScene);
         //Set the TOP of the borderPane to our menu
         Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
@@ -180,6 +186,14 @@ public class Main extends Application {
         //Set the initial start to our PatientList
         //setCenterPane("PatientViews/PatientList.fxml");
         primaryStage.setMaximized(true);
+    }
+
+    public void logout() throws Exception{
+        sessionUser = null;
+        patientFocus = null;
+        appointmentFocus = null;
+        backNodeList = new ArrayList<>();
+        Controller.setView();
     }
 
     //Useless but necessary

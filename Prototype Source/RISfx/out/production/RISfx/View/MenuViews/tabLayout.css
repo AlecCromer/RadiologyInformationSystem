@@ -1,0 +1,37 @@
+
+.button
+{
+    -fx-background-color : rgba(48, 84, 89, 0);
+    -fx-width: 5000px;
+    -fx-padding: 10px 24px;
+    -fx-border: none;
+    -fx-background-radius: 0;
+
+
+}
+.button:hover
+{
+    -fx-background-color:  rgb(127, 172, 243);
+    -fx-justify-content: center;
+    -fx-animated: flex;
+
+}
+.button:pressed
+{
+    -fx-background-color:derive(  #2D75E8,80%);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    /*-fx-background-color:   #2D75E8;*/
+}
+.button:focused {
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+    -fx-border-color: #2D75E8;
+    -fx-background-color:   #2D75E8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-text-fill: white;
+}
+
+
+
