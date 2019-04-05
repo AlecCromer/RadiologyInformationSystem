@@ -12,16 +12,12 @@ import Controller.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-import java.awt.*;
 import java.net.URL;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
@@ -95,8 +91,7 @@ public class MenuController implements Initializable {
         ReportListController.setView();
     }
 
-    @FXML
-    VBox tabsVBox;
+    @FXML VBox tabsVBox;
     @FXML Button    patientList, appointmentList, refferals,
                     billing, workList, scheduleEmployee,
                     manageProcedures, reportList;
