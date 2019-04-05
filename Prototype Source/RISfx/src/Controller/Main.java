@@ -175,6 +175,7 @@ public class Main extends Application {
         //primaryStage.setMaximized(true);  //set stage to max size of screen
         //Set the initial start to our PatientList
         setCenterPane("PatientViews/PatientList.fxml");
+        primaryStage.setMaximized(true);
     }
 
     //Useless but necessary

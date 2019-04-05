@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
 
@@ -39,6 +41,14 @@ public class Employee {
         ps.setString(1, email);
         ps.setString(2, password);
         return ps.executeQuery();
+    }
+
+    public ResultSet queryEmployeePermissions() throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT role_id " +
+                        "FROM role_relationship " +
+                        "WHERE employee_id = " + this.employeeId
+        ).executeQuery();
     }
 
     public boolean validLogin(String email, String password) throws Exception{
@@ -74,6 +84,7 @@ public class Employee {
     ////////////////////////
     private int employeeId;
     private String firstName, lastName, email;
+    private ArrayList<Integer> permissions;
 
 
       ///////////////////
@@ -109,6 +120,17 @@ public class Employee {
 
     public String getFullName(){ return firstName + " " + lastName; }
 
+    public ArrayList<Integer> getPermissions() {
+        return permissions;
+    }
+    public ArrayList<Integer> setPermissions() throws Exception{
+        ResultSet pms = queryEmployeePermissions();
+        ArrayList<Integer> intArr = new ArrayList<Integer>();
+        while(pms.next()){
+            intArr.add(pms.getInt("role_id"));
+        }
+        return intArr;
+    }
 
 
       ////////////////
