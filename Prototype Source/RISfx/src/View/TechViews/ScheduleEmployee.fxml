@@ -18,7 +18,7 @@
       <ComboBox fx:id="EmployeeBox" layoutX="205.0" layoutY="83.0" prefHeight="25.0" prefWidth="174.0" promptText="Employee" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="83.0" />
       <TextField fx:id="StartField" editable="false" layoutX="219.0" layoutY="188.0" promptText="Start Time" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="188.0" />
       <TextField fx:id="EndField" editable="false" layoutX="218.0" layoutY="263.0" promptText="End Time" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="263.0" />
-      <Text layoutX="224.0" layoutY="56.0" stroke="#ba00f8" strokeType="OUTSIDE" strokeWidth="0.0" text="Art" underline="true" AnchorPane.leftAnchor="224.0" AnchorPane.topAnchor="36.576171875">
+      <Text layoutX="190.0" layoutY="59.0" stroke="#ba00f8" strokeType="OUTSIDE" strokeWidth="0.0" text="Web Clock" underline="true" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="39.576171875">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

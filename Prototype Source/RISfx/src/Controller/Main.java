@@ -124,7 +124,6 @@ public class Main extends Application {
 
     //public static Procedure getProcedureFocus(){return procedureFocus;}
     //public static void setProcedureFocus(Procedure procedureFocus){Main.procedureFocus = procedureFocus;}
-    public static Stage getPopup(){ return popup; }
     public static Appointment getAppointmentFocus(){ return appointmentFocus; }
     public static void setAppointmentFocus(Appointment appointmentFocus){
         Main.appointmentFocus = appointmentFocus;
