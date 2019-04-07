@@ -6,8 +6,6 @@ import javafx.stage.Modality;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class Appointment {
 
@@ -17,8 +15,8 @@ public class Appointment {
     private int appointmentId, procedureId, patientId, machineId, employeeId;
     private Date appointmentDate;
     private Time appointmentTime, patientSignIn, patientSignOut;
-    private String refferalReason, Comments, patientFullName, patientStatus, dateTime, technician, machineName, procedureName;
-    private Modality modality;
+    private String referralReason, Comments, patientFullName, patientStatus, dateTime, technician, machineName, procedureName;
+    private String[] address;
     private float balance;
 
 
@@ -64,6 +62,14 @@ public class Appointment {
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery();
     }
+    public static ResultSet queryForBillingAppointments()throws Exception{
+        return (databaseConnector.getConnection().prepareStatement(
+                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
+                        "FROM `appointments` " +
+                        "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
+                        "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
+                        "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'")).executeQuery();
+    }
 
     public static ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
@@ -88,7 +94,7 @@ public class Appointment {
     public static ResultSet queryBillingList() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT billing.*, " +
-                        "items.item_name, ADD(items.item_cost) as 'item_cost', COUNT(items.item_cost) AS 'item_amount', " +
+                        "items.item_name, SUM(items.item_cost) as 'item_cost', COUNT(items.item_cost) AS 'item_amount', " +
                         "appointments.appointment_date, appointments.patient_status, " +
                         "patient.first_name, patient.last_name " +
                         "FROM billing " +
@@ -213,11 +219,11 @@ public class Appointment {
         this.patientSignOut = patientSignOut;
     }
 
-    public String getRefferalReason() {
-        return refferalReason;
+    public String getReferralReason() {
+        return referralReason;
     }
-    public void setRefferalReason(String refferalReason) {
-        this.refferalReason = refferalReason;
+    public void setReferralReason(String referralReason) {
+        this.referralReason = referralReason;
     }
 
     public String getComments() {
@@ -257,8 +263,24 @@ public class Appointment {
     public float getBalance() {
         return balance;
     }
-    public void setBalance(float balance) {
-        this.balance = balance;
+    public void setBalance() throws Exception{
+        ResultSet rs = queryBillingList();
+        rs.next();
+        ResultSet results = Procedure.queryProcedureInfo(this.procedureId);
+        results.next();
+        this.balance = rs.getFloat("item_cost") + results.getFloat("procedure_price");
+    }
+
+    public void setAddress()throws Exception{
+        ResultSet rs =  Patient.queryPatientInfo(this.patientId);
+        rs.next();
+        rs = Patient.queryAddress(rs.getInt("address_id"));
+        rs.next();
+        String[] returnArr = {rs.getString("street_name"), rs.getString("city"), rs.getString("zip"), rs.getString("state")};
+        this.address = returnArr;
+    }
+    public String getAddress(){
+        return address[0] + " " + address[1] + " " + address[2] + " " + address[3];
     }
 
     ////////////////
@@ -269,7 +291,7 @@ public class Appointment {
         this.appointmentTime = null;
         this.patientSignIn = null;
         this.patientSignOut = null;
-        this.refferalReason = null;
+        this.referralReason = null;
         this.Comments = null;
         this.appointmentId = -1;
         this.procedureId = -1;
@@ -310,13 +332,21 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
+    public Appointment(int appointmentId, int patientId, int procedureId, String patientFullName, String patientStatus) {
+        this.appointmentId = appointmentId;
+        this.patientId = patientId;
+        this.procedureId = procedureId;
+        this.patientFullName = patientFullName;
+        this.patientStatus = patientStatus;
+    }
+
     public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
-                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String refferalReason, String Comments, String patientStatus, String dateTime, String technician, String procedureName){
+                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String referralReason, String Comments, String patientStatus, String dateTime, String technician, String procedureName){
         this.appointmentDate    = appointmentDate;
         this.appointmentTime    = appointmentTime;
         this.patientSignIn      = patientSignIn;
         this.patientSignOut     = patientSignOut;
-        this.refferalReason     = refferalReason;
+        this.referralReason = referralReason;
         this.Comments           = Comments;
         this.appointmentId      = appointmentId;
         this.procedureId        = procedure;

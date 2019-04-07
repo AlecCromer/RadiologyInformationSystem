@@ -61,7 +61,9 @@ public class Patient {
 
     public static ResultSet queryInfoForBillingList() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT patient.patient_id, patient.first_name, patient.last_name, patient.status, patient.balance, address.street_name, address.city, address.state, address.zip FROM `patient` LEFT JOIN `address` ON patient.address_id = address.address_id"
+                "SELECT patient.patient_id, patient.first_name, patient.last_name, patient.status, patient.balance, address.street_name, address.city, address.state, address.zip " +
+                        "FROM `patient` " +
+                        "LEFT JOIN `address` ON patient.address_id = address.address_id"
         ).executeQuery();
     }
 
