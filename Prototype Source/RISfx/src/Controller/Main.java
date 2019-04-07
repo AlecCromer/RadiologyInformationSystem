@@ -36,6 +36,8 @@ public class Main extends Application {
     private static Employee sessionUser         = new Employee();
     public static  Stage popup                  = new Stage();
     public static  BoxBlur bb                   = new BoxBlur();
+
+
     ////////////////
     //View Setters//
     ////////////////
