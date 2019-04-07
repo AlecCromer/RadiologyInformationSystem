@@ -1,5 +1,6 @@
 package Controller.BillingControllers;
 
+import Controller.AppointmentControllers.AppointmentListController;
 import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Model.Appointment;
@@ -39,6 +40,7 @@ public class BillingListController implements Initializable {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
+                    //Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
                     //sendAppointmentToView(AppointmentList.getSelectionModel().getSelectedItem());
                     //AppointmentViewController.setView();
                 }catch(Exception e){

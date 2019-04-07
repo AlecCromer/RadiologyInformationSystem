@@ -88,7 +88,7 @@ public class Appointment {
     public static ResultSet queryBillingList() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT billing.*, " +
-                        "items.item_name, SUM(items.item_cost) AS 'appointment_total', " +
+                        "items.item_name, ADD(items.item_cost) as 'item_cost', COUNT(items.item_cost) AS 'item_amount', " +
                         "appointments.appointment_date, appointments.patient_status, " +
                         "patient.first_name, patient.last_name " +
                         "FROM billing " +
@@ -97,6 +97,14 @@ public class Appointment {
                         "INNER JOIN patient ON appointments.patient_id=patient.patient_id " +
                         "GROUP BY appointment_id ASC"
         ).executeQuery();
+    }
+
+    public static float queryProcedurePrice(int procedureID) throws Exception{
+        ResultSet rs = databaseConnector.getConnection().prepareStatement(
+                "SELECT procedure_price FROM procedures WHERE procedure_id = " + procedureID
+        ).executeQuery();
+        rs.next();
+        return rs.getFloat("procedure_price");
     }
 
     public static void submitNewAppointment(Appointment appointmentToSubmit) throws Exception{

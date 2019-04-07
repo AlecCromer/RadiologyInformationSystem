@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class Item {
 
-    private int itemID;
+    private int itemID, itemCount;
     private String itemName;
     private float itemCost;
 
@@ -33,7 +33,6 @@ public class Item {
                     "INSERT INTO billing(billing_id, appointment_id, item_id )" +
                             "VALUES (null,?,?)"
             );
-
 
         insertNewItem.setInt(1, appointment_id);
         insertNewItem.setInt(2, itemID);
@@ -74,7 +73,14 @@ public class Item {
         this.itemCost = itemCost;
     }
 
-    public Item(String itemName, int itemCost) {
+    public Item(String itemName, float itemCost) {
+        this.itemName = itemName;
+        this.itemCost = itemCost;
+    }
+
+    public Item(int itemID, int itemCount, String itemName, float itemCost) {
+        this.itemID = itemID;
+        this.itemCount = itemCount;
         this.itemName = itemName;
         this.itemCost = itemCost;
     }
