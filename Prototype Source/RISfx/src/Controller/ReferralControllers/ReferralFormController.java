@@ -103,25 +103,25 @@ public class ReferralFormController implements Initializable {
      ///////////////////
 // Do we want to reject a field if they don't have an upper case
      private void checkField(){
-         if (!patentFirstName.getText().matches("^(?=.*[a-zA-Z]).*$")) { // will accept Upper or lower case
+         if (!patentFirstName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(0);
          }
          else{
              error(1);
          }
-         if (!patientLastName.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) {
+         if (!patientLastName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(2);
          }
          else{
              error(3);
          }
-         if(!patientStreet.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-\\,\\#\\.\\+]+.*$")){
+         if(!patientStreet.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")){
              error(4);
          }
          else{
              error(5);
          }
-         if(!patientSex.getText().matches("^(?=.*[a-z])+(?=.*[A-Z]).*$")){
+         if(!patientSex.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(6);
          }
          else{

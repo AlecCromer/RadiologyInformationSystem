@@ -13,7 +13,7 @@
 {
     -fx-background-color:  rgb(127, 172, 243);
     -fx-justify-content: center;
-    -fx-display: flex;
+    -fx-animated: flex;
 
 }
 .button:pressed
@@ -29,16 +29,9 @@
     -fx-border-insets: 1 1 1 1, 0;
     -fx-border-color: #2D75E8;
     -fx-background-color:   #2D75E8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-text-fill: white;
 }
-/* shrinks text on hover
-.button {
-    -fx-font-family: "Lato", sans-serif;
-    -fx-display: flex;
-    -fx-flex-direction: row;
-    -fx-align-items: center;
-    -fx-align-content: center;
-    -fx-justify-content: center;
-    -fx-background-color: #ECECEC;
-}*/
+
+
 

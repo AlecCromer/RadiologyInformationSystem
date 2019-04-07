@@ -6,9 +6,11 @@ import Model.Patient;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -26,10 +28,12 @@ public class Main extends Application {
     ////////////////////////
     //Variable Declaration//
     ////////////////////////
+    @FXML
+    private MenuItem logout;
     private static Stage primaryStage           = new Stage();
     private static BorderPane Outer             = new BorderPane();
     private static BorderPane RIS_Container     = new BorderPane();
-    private static ArrayList<URL> backNodeList = new ArrayList<>();
+    private static ArrayList<URL> backNodeList  = new ArrayList<>();
     private static Scene MainScene              = new Scene(Outer,800, 450);
     private static Patient patientFocus         = new Patient();
     private static Appointment appointmentFocus = new Appointment();
@@ -131,6 +135,10 @@ public class Main extends Application {
         Main.sessionUser = sessionUser;
     }
 
+    public static Stage getPrimaryStage(){
+        return primaryStage;
+    }
+
     public static void popBackNodeList() {
         try {
             backNodeList.remove(backNodeList.get((backNodeList.size() - 1)));
@@ -168,16 +176,26 @@ public class Main extends Application {
 
     public static void successfulLogin() throws Exception{
         primaryStage.setResizable(true);
+        primaryStage.setMaxHeight(4000);
+        primaryStage.setMaxWidth(4000);
         primaryStage.setScene(MainScene);
         //Set the TOP of the borderPane to our menu
         Outer.setTop(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Menu.fxml")));
         Outer.setLeft(FXMLLoader.load(Main.class.getResource("../View/MenuViews/RIS_Tabs.fxml")));
         Outer.setCenter(RIS_Container);
         //primaryStage.setFullScreen(true); // set stage to fullscreen
-        //primaryStage.setMaximized(true);  //set stage to max size of screen
+        primaryStage.setMaximized(true);  //set stage to max size of screen
         //Set the initial start to our PatientList
         //setCenterPane("PatientViews/PatientList.fxml");
         primaryStage.setMaximized(true);
+    }
+
+    public void logout() throws Exception{
+        sessionUser = null;
+        patientFocus = null;
+        appointmentFocus = null;
+        backNodeList = new ArrayList<>();
+        Controller.setView();
     }
 
     //Useless but necessary

@@ -97,9 +97,8 @@ public class ReportFormController implements Initializable {
         System.out.println(appointment_id);
         setPatient_id(patient_id);
         setImage_id(image_id);
-        Main.setPopupWindow("ReportViews/ReportForm.fxml");
+        Main.setPopupWindow("ReportControllers/ReportForm.fxml");        Main.setPopupWindow("ReportViews/ReportForm.fxml");
         Main.getSessionUser().getFullName();
-
     }
 
     public void initialize(URL url, ResourceBundle arg1){
@@ -164,6 +163,4 @@ public class ReportFormController implements Initializable {
         }
         return true;
     }
-
-
 }

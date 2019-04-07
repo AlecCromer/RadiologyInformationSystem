@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
     <children>
         <TableView fx:id="ReportList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" stylesheets="@ReportList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
             <columns>
@@ -21,7 +21,8 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Text id="title" layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" underline="true" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+        <Text id="title" fill="#fffefe" layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+
             <font>
                 <Font name="Calibri Bold" size="24.0" />
             </font>

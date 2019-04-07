@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ProgressIndicator;
 import Controller.databaseConnector;
 import Model.Employee;
 import Model.User;
@@ -22,6 +24,17 @@ public class Controller {
     private Label exceptionLabel;
     @FXML
     private Button loginButton;
+
+    public static void setView() throws Exception{
+        Main.getOuter().setLeft(null);
+        Main.getOuter().setTop(null);
+        Main.getOuter().setCenter(FXMLLoader.load(Controller.class.getResource("../View/LoginView.fxml")));
+        Main.getPrimaryStage().setMaxHeight(350);
+        Main.getPrimaryStage().setMaxWidth(325);
+        Main.getPrimaryStage().setResizable(false);
+        Main.getPrimaryStage().setMaximized(false);
+
+    }
 
     public void onLoginButtonPushed(ActionEvent event) {
         Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
@@ -44,6 +57,7 @@ public class Controller {
                     System.out.println("No permissions 4 u");
                 }
                 Main.successfulLogin();
+
             } else {
                 changeScene(0);
 
