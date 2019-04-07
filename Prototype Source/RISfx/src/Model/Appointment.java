@@ -94,7 +94,7 @@ public class Appointment {
     public static ResultSet queryBillingList() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT billing.*, " +
-                        "items.item_name, SUM(items.item_cost) as 'item_cost', COUNT(items.item_cost) AS 'item_amount', " +
+                        "items.item_name, items.item_cost, SUM(items.item_cost) as 'item_cost_total', COUNT(items.item_cost) AS 'item_amount', " +
                         "appointments.appointment_date, appointments.patient_status, " +
                         "patient.first_name, patient.last_name " +
                         "FROM billing " +
@@ -268,7 +268,7 @@ public class Appointment {
         rs.next();
         ResultSet results = Procedure.queryProcedureInfo(this.procedureId);
         results.next();
-        this.balance = rs.getFloat("item_cost") + results.getFloat("procedure_price");
+        this.balance = rs.getFloat("item_cost_total") + results.getFloat("procedure_price");
     }
 
     public void setAddress()throws Exception{
@@ -282,6 +282,7 @@ public class Appointment {
     public String getAddress(){
         return address[0] + " " + address[1] + " " + address[2] + " " + address[3];
     }
+    public String[] getAddressAsArray(){return address;}
 
     ////////////////
      //Constructors//
@@ -332,12 +333,15 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
-    public Appointment(int appointmentId, int patientId, int procedureId, String patientFullName, String patientStatus) {
+    public Appointment(int appointmentId, int patientId, int procedureId, String procedureName,
+                       String patientFullName, String patientStatus, Date appointmentDate) {
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.procedureId = procedureId;
+        this.procedureName = procedureName;
         this.patientFullName = patientFullName;
         this.patientStatus = patientStatus;
+        this.appointmentDate = appointmentDate;
     }
 
     public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,

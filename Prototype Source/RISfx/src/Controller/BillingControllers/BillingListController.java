@@ -39,9 +39,8 @@ public class BillingListController implements Initializable {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
-                   // Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
-                    //sendAppointmentToView(AppointmentList.getSelectionModel().getSelectedItem());
-                    //AppointmentViewController.setView();
+                   Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
+                   InvoiceController.setView();
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -74,8 +73,10 @@ public class BillingListController implements Initializable {
                 rs.getInt("appointment_id"),
                 rs.getInt("patient_id"),
                 rs.getInt("procedure_id"),
+                rs.getString("procedure_name"),
                 rs.getString("full_name"),
-                rs.getString("patient_status")
+                rs.getString("patient_status"),
+                rs.getDate("appointment_date")
             );
             addition.setAddress();
             addition.setBalance();
@@ -83,8 +84,5 @@ public class BillingListController implements Initializable {
         }
 
         return billingList;
-    }
-
-    public void setBillView(ActionEvent actionEvent) {
     }
 }
