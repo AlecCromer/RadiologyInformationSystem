@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PatientListController implements Initializable {
@@ -39,7 +40,16 @@ public class PatientListController implements Initializable {
     ////////////////
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
-        updateTable();
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if(pms.contains(1)){
+            try {
+                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else
+            updateTable();
         PatientList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -67,13 +77,11 @@ public class PatientListController implements Initializable {
             System.out.println("UNABLE TO FILL TABLE");
             e.printStackTrace();
         }
-        patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));
-        firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
-        lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
-        dob.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
-        sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
-        phoneNumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("phoneNumber"));
-        email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
+        fillTable();
+    }
+    public void updateTable(ObservableList<Patient> patients) {
+        PatientList.setItems(patients);
+        fillTable();
     }
 
 
@@ -86,10 +94,32 @@ public class PatientListController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
+      @SuppressWarnings("Duplicates")
     public ObservableList<Patient>  getPatientList() throws Exception {
         ObservableList<Patient> patients = FXCollections.observableArrayList();
 
         ResultSet resultSet = Patient.queryAllPatients();
+        while (resultSet.next()) {
+            patients.add(new Patient(
+                    resultSet.getInt("patient_id"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    dateFormatter(resultSet.getString("date_of_birth")),
+                    resultSet.getString("sex"),
+                    resultSet.getString("home_phone"),
+                    resultSet.getString("email"),
+                    resultSet.getString("insurance_number"),
+                    resultSet.getString("policy_number"),
+                    ""
+            ));
+        }
+        return patients;
+    }
+    @SuppressWarnings("Duplicates")
+    public ObservableList<Patient>  getPatientList(int EmployeeID) throws Exception {
+        ObservableList<Patient> patients = FXCollections.observableArrayList();
+
+        ResultSet resultSet = Patient.queryPatients(EmployeeID);
         while (resultSet.next()) {
             patients.add(new Patient(
                     resultSet.getInt("patient_id"),
@@ -150,5 +180,15 @@ public class PatientListController implements Initializable {
                 rs.getString("policy_number"),
                 address
                 )));
+    }
+
+    private void fillTable(){
+        patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));
+        firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<Patient, String>("lastname"));
+        dob.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
+        sex.setCellValueFactory(new PropertyValueFactory<Patient, String>("sex"));
+        phoneNumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("phoneNumber"));
+        email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
     }
 }

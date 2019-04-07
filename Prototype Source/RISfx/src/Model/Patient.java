@@ -124,6 +124,13 @@ public class Patient {
         return statement;
     }
 
+    public static ResultSet queryPatients(int employeeID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+        "SELECT * FROM `refer` " +
+                "INNER JOIN patient on refer.patient_id=patient.patient_id " +
+                "WHERE refer.employee_id = " + employeeID
+        ) .executeQuery();
+    }
 
 
     ///////////////////

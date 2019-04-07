@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="499.0" prefWidth="620.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.NewPatientController">
 
-    <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
+    <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Patient" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
         <font>
             <Font name="Calibri" size="18.0" />
         </font>
