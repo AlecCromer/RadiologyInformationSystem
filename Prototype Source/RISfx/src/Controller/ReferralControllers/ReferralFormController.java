@@ -212,8 +212,6 @@ public class ReferralFormController implements Initializable {
 
         switch (fieldID) {
             case 0: {
-               /* patentFirstName.clear(); not sure if it would be good to clear and provide a hint for them
-                patentFirstName.setPromptText("Need to capitalize first letter of name");*/
                 patentFirstName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
                 return;
             }
@@ -222,8 +220,6 @@ public class ReferralFormController implements Initializable {
                 return;
             }
             case 2: {
-                /* patentFirstName.clear();
-                patentFirstName.setPromptText("Need to capitalize first letter of name");*/
                 patientLastName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
                 return;
             }
