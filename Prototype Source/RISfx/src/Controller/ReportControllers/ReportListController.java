@@ -28,12 +28,23 @@ public class ReportListController implements Initializable{
     @FXML private TableView<Report>            ReportList;
     @FXML private TableColumn<Report, String>  patientID, firstname, lastname, dob, sex;
 
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    private String search;
+
     ////////////////
     //Initializers//
     ////////////////
 
     public void initialize(URL url, ResourceBundle arg1) {
-        //setSQLQuery("select title, description, content FROM item");
+        setSearch("Needs Review");
         updateTable();
         ReportList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
@@ -74,17 +85,21 @@ public class ReportListController implements Initializable{
     ////////////////////
 
 
-    ///////////////////
-    //List Generators//
-    ///////////////////
-
+    public void completeList(){
+        setSearch("Complete");
+        updateTable();
+    }
+    public void incompleteList(){
+        setSearch("Needs Review");
+        updateTable();
+    }
     ///////////////////
     //List Generators//
     ///////////////////
     public ObservableList<Report>  getPatientList() throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
 
-        ResultSet resultSet = Report.queryReports();
+        ResultSet resultSet = Report.queryReports(getSearch());
         while (resultSet.next()) {
             reports.add(new Report(
                     resultSet.getString("p.patient_id"),
@@ -105,3 +120,4 @@ public class ReportListController implements Initializable{
     }
 
 }
+

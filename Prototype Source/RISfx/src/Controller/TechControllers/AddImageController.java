@@ -6,6 +6,7 @@ import Model.Modality;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -53,6 +54,7 @@ public class AddImageController  implements Initializable {
     }
     // User presses the select Image button and it gets displayed on screen
     public void captureImage(ActionEvent event){
+        Main.popup.setAlwaysOnTop(false);
         String file = fileChooser();
         Image image = new Image("file:" + file);
         imageview.setImage(image);
@@ -60,10 +62,12 @@ public class AddImageController  implements Initializable {
     }
 
     // popup for user to select photo
+
     public String fileChooser() {
         Frame JFrame = new Frame();
         FileDialog fd = new FileDialog(JFrame, "Choose a file", FileDialog.LOAD);
         fd.setAlwaysOnTop(true);
+
         try{
         fd.setDirectory("C:\\");
         fd.setFile("*.jpg;*.jpeg;*.png");
@@ -72,7 +76,7 @@ public class AddImageController  implements Initializable {
         director = fd.getDirectory().replace('\\', '/');
         System.out.println(director + fd.getFile());
         }catch (Exception e){
-            //User closed the file explorer
+            e.printStackTrace();
         }
         if (filename == null) {
             System.out.println("User Cancelled the choice");
@@ -82,6 +86,7 @@ public class AddImageController  implements Initializable {
         }
         JFrame.dispatchEvent(new WindowEvent(JFrame, WindowEvent.WINDOW_CLOSING));
         return director + fd.getFile();
+
     }
 
 

@@ -1,5 +1,6 @@
 package Controller.ReferralControllers;
 
+import Controller.AppointmentControllers.AddAppointmentController;
 import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Controller.databaseConnector;
@@ -21,42 +22,46 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ReferralListController implements Initializable {
-      ////////////////////////
-     //Variable Declaration//
     ////////////////////////
-      @FXML TableView<Referral>         ReferralList;
-      @FXML
-      TableColumn<Referral, Integer>    patientID;
-      @FXML
-      TableColumn<Referral, String>     patientFirstName,   patientLastName,    referrerFullName,
-                                        procedureName,      patientPhone,       urgency;
+    //Variable Declaration//
+    ////////////////////////
+    @FXML
+    TableView<Referral> ReferralList;
+    @FXML
+    TableColumn<Referral, Integer> patientID;
+    @FXML
+    TableColumn<Referral, String> patientFirstName, patientLastName, referrerFullName,
+            procedureName, patientPhone, urgency;
     @FXML
     AnchorPane referralView;
-      ////////////////
-     //Initializers//
+
     ////////////////
-    public static void setView() throws Exception{
+    //Initializers//
+    ////////////////
+    public static void setView() throws Exception {
         Main.setCenterPane("ReferralViews/ReferralList.fxml");
     }
 
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             updateTable();
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ReferralList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
-            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                try{
-                    sendReferralToView(ReferralList.getSelectionModel().getSelectedItem());
-                    AppointmentViewController.setView();
-                }catch(Exception e){
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                try {
+                    Main.getPatientFocus().setPatientID(ReferralList.getSelectionModel().getSelectedItem().getPatientID());
+                    AddAppointmentController.setView();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
 
-    private void updateTable() throws Exception{
+    private void updateTable() throws Exception {
         ReferralList.setItems(generateRefferalsList());
         patientID.setCellValueFactory(new PropertyValueFactory<Referral, Integer>("patientID"));
         patientFirstName.setCellValueFactory(new PropertyValueFactory<Referral, String>("patientFirstName"));
@@ -68,37 +73,37 @@ public class ReferralListController implements Initializable {
     }
 
 
-      ///////////////////
-     //List Generators//
     ///////////////////
-    private ObservableList<Referral> generateRefferalsList() throws Exception{
+    //List Generators//
+    ///////////////////
+    private ObservableList<Referral> generateRefferalsList() throws Exception {
         ObservableList<Referral> referrals = FXCollections.observableArrayList();
 
-        try(ResultSet resultSet = Referral.queryUnprocessedReferrals()){
-            while (resultSet.next()){
+        try (ResultSet resultSet = Referral.queryUnprocessedReferrals()) {
+            while (resultSet.next()) {
                 referrals.add(new Referral(
-                    new Procedure(
-                        resultSet.getInt("procedure_id"),
-                        resultSet.getInt("procedure_length"),
-                        resultSet.getString("procedure_name")
-                    ),
-                    new Employee(
-                        resultSet.getInt("employee_id"),
-                        resultSet.getString("referrer_first_name"),
-                        resultSet.getString("referrer_last_name"),
-                        resultSet.getString("referrer_email")
-                    ),
-                    new Patient(
-                        resultSet.getInt("patient_id"),
-                        resultSet.getString("patient_first_name"),
-                        resultSet.getString("patient_last_name"),
-                        resultSet.getString("home_phone")
-                    ),
-                    resultSet.getBoolean("is_processed"),
-                    resultSet.getString("urgency")
+                        new Procedure(
+                                resultSet.getInt("procedure_id"),
+                                resultSet.getInt("procedure_length"),
+                                resultSet.getString("procedure_name")
+                        ),
+                        new Employee(
+                                resultSet.getInt("employee_id"),
+                                resultSet.getString("referrer_first_name"),
+                                resultSet.getString("referrer_last_name"),
+                                resultSet.getString("referrer_email")
+                        ),
+                        new Patient(
+                                resultSet.getInt("patient_id"),
+                                resultSet.getString("patient_first_name"),
+                                resultSet.getString("patient_last_name"),
+                                resultSet.getString("home_phone")
+                        ),
+                        resultSet.getBoolean("is_processed"),
+                        resultSet.getString("urgency")
                 ));
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             databaseConnector.displayException(ex);
             System.out.println("Someone didn't set up their DATABASE!!");
             return null;
@@ -107,22 +112,18 @@ public class ReferralListController implements Initializable {
     }
 
 
-      //////////////////
-     //Button Methods//
     //////////////////
-    public void setReferralForm(ActionEvent actionEvent) throws Exception{
-        //referralView.setStyle("-fx-background-color: black"); //fixes problem of backdrop being blue or could it stay blue?
+    //Button Methods//
+    //////////////////
+    public void setReferralForm(ActionEvent actionEvent) throws Exception {
         ReferralFormController.setView();
     }
 
 
-      ///////////////////
-     //Form Validation//
     ///////////////////
-    public void sendReferralToView(Referral referralToSend) throws Exception{
-          Main.setPopupWindow("ReferralViews/addReferredPatient.fxml");
-          Main.popup.setResizable(false);
-          Main.popup.setHeight(550);
-          Main.popup.setWidth(520);
-    }
+    //Form Validation//
+    ///////////////////
+
+
+
 }
