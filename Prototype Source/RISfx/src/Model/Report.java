@@ -111,9 +111,6 @@ public class Report {
         this.fullName = fullName;
     }
 
-
-
-
     public String getRefering_physician() {
         return refering_physician;
     }

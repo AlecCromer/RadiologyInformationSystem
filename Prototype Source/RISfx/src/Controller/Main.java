@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -111,6 +112,7 @@ public class Main extends Application {
         return RIS_Container;
     }
     public static BorderPane getOuter(){return Outer;}
+    public static Stage getPopup(){return popup;}
 
     //Focus variables used to pass data between the views
     public static Patient getPatientFocus() {
