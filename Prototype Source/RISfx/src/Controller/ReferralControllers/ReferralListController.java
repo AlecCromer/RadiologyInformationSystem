@@ -1,5 +1,6 @@
 package Controller.ReferralControllers;
 
+import Controller.AppointmentControllers.AddAppointmentController;
 import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Controller.databaseConnector;
@@ -32,6 +33,8 @@ public class ReferralListController implements Initializable {
                                         procedureName,      patientPhone,       urgency;
     @FXML
     AnchorPane referralView;
+
+
       ////////////////
      //Initializers//
     ////////////////
@@ -48,7 +51,7 @@ public class ReferralListController implements Initializable {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
                     sendReferralToView(ReferralList.getSelectionModel().getSelectedItem());
-                    AppointmentViewController.setView();
+                    AddAppointmentController.setView();
                 }catch(Exception e){
                     e.printStackTrace();
                 }

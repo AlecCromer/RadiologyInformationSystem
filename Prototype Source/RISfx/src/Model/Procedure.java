@@ -67,7 +67,7 @@ public class Procedure {
 
     public static ResultSet queryProcedureInfo(int procedure_id) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT * FROM procedure " +
+                "SELECT * FROM procedures " +
                         "WHERE procedure_id = " + procedure_id).executeQuery();
     }
 
