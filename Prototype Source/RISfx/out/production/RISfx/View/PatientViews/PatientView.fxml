@@ -87,13 +87,13 @@
       <TextField fx:id="balanceField" disable="true" layoutX="579.0" layoutY="70.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="579.0" AnchorPane.topAnchor="70.0" />
       <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" visible="false" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
       <Button layoutX="811.0" layoutY="267.0" mnemonicParsing="false" onAction="#setAddAppointment" text="Schedule New" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="267.0" />
-      <TableView layoutX="691.0" layoutY="52.0" prefHeight="200.0" prefWidth="620.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
+      <TableView fx:id="BillingList" layoutX="691.0" layoutY="52.0" prefHeight="200.0" prefWidth="620.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
         <columns>
-          <TableColumn prefWidth="35.0" text="ID" />
-          <TableColumn prefWidth="243.0" text="Type" />
-            <TableColumn prefWidth="154.0" text="Date" />
-            <TableColumn prefWidth="122.0" text="Status" />
-            <TableColumn prefWidth="65.0" text="Balance" />
+          <TableColumn fx:id="AppointmentID" prefWidth="35.0" text="ID" />
+          <TableColumn fx:id="ProcedureName" prefWidth="243.0" text="Type" />
+            <TableColumn fx:id="AppointmentDate" prefWidth="154.0" text="Date" />
+            <TableColumn fx:id="PatientStatus" prefWidth="122.0" text="Status" />
+            <TableColumn fx:id="AppointmentBalance" prefWidth="65.0" text="Balance" />
         </columns>
       </TableView>
       <Text layoutX="685.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invoices" AnchorPane.leftAnchor="685.0" AnchorPane.topAnchor="25.0">
