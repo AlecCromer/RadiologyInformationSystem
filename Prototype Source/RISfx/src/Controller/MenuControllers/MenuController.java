@@ -87,6 +87,7 @@ public class MenuController implements Initializable {
     public void setProcedureList(ActionEvent actionEvent) throws Exception{
         ProcedureListController.setView();
     }
+
     public void setReportList(ActionEvent actionEvent) throws Exception{
         ReportListController.setView();
     }

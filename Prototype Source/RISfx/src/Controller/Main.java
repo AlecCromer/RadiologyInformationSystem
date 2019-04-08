@@ -26,8 +26,8 @@ import static java.awt.Color.*;
 
 public class Main extends Application {
 
-    ////////////////////////
-    //Variable Declaration//
+      ////////////////////////
+     //Variable Declaration//
     ////////////////////////
     @FXML
     private MenuItem logout;
@@ -43,8 +43,8 @@ public class Main extends Application {
     public static  BoxBlur bb                   = new BoxBlur();
 
 
-    ////////////////
-    //View Setters//
+      ////////////////
+     //View Setters//
     ////////////////
 
     //Called to set the main view
@@ -105,8 +105,8 @@ public class Main extends Application {
     }
 
 
-    ///////////////////////////
-    //Variable Getter/Setters//
+      ///////////////////////////
+     //Variable Getter/Setters//
     ///////////////////////////
     public static BorderPane getRIS_Container(){
         return RIS_Container;
@@ -152,8 +152,8 @@ public class Main extends Application {
     }
 
 
-    ////////////////
-    //Start Method//
+      ////////////////
+     //Start Method//
     ////////////////
     @Override
     public void start(Stage stage) throws Exception{
