@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f92d1c0-5ecd-4203-93e5-3b1d36f6bad3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Item.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,44 +12,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="635">
-                    <caret line="343" column="47" selection-start-line="343" selection-start-column="47" selection-end-line="343" selection-end-column="47" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="78" column="16" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+            <state relative-caret-position="176">
+              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -61,6 +28,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1037">
               <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,9 +96,9 @@
         <option value="$PROJECT_DIR$/src/View/BillingViews/BillingList.fxml" />
         <option value="$PROJECT_DIR$/src/Model/Procedure.java" />
         <option value="$PROJECT_DIR$/src/Model/Item.java" />
-        <option value="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" />
         <option value="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" />
         <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
+        <option value="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" />
       </list>
     </option>
   </component>
@@ -186,7 +174,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554681213139" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554681632780" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -238,7 +226,7 @@
       <workItem from="1554419979066" duration="316000" />
       <workItem from="1554420312729" duration="9119000" />
       <workItem from="1554662348566" duration="643000" />
-      <workItem from="1554663528702" duration="16289000" />
+      <workItem from="1554663528702" duration="16715000" />
     </task>
     <task id="LOCAL-00001" summary="Don't pull or merge">
       <created>1553930674521</created>
@@ -278,7 +266,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16114000" />
+    <option name="totallyTimeSpent" value="16540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -294,7 +282,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3261105" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.32502708" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.42686892" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3434453" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -617,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Procedure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -659,27 +640,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Procedure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="343" column="47" selection-start-line="343" selection-start-column="47" selection-end-line="343" selection-end-column="47" />
+        <state relative-caret-position="1037">
+          <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="78" column="16" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+        <state relative-caret-position="176">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

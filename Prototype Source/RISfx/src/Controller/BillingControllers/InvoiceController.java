@@ -55,7 +55,8 @@ public class InvoiceController implements Initializable {
     public void updateTable() {
         try {
             invoiceTable.setItems(getItemList());
-            //nameHolder, addressLineHolder, stateZipHolder, invoiceID, dateOfAppt, totalAmount
+
+            //fill text
             nameHolder.setText(Main.getAppointmentFocus().getPatientFullName());
             String[] addr = Main.getAppointmentFocus().getAddressAsArray();
             addressLineHolder.setText(addr[0]);
@@ -78,7 +79,7 @@ public class InvoiceController implements Initializable {
     //List Generators//
     ///////////////////
     private ObservableList<Item> getItemList() throws Exception{
-        ResultSet items = Appointment.queryBillingList();
+        ResultSet items = Appointment.queryBillingList(Main.getAppointmentFocus().getAppointmentId());
         ObservableList<Item> returnList = FXCollections.observableArrayList();
         returnList.add(new Item(
            Main.getAppointmentFocus().getProcedureName(),
@@ -86,12 +87,14 @@ public class InvoiceController implements Initializable {
         1
         ));
         while (items.next()){
-            returnList.add(new Item(
-                items.getInt("item_id"),
-                items.getInt("item_amount"),
-                items.getString("item_name"),
-                items.getFloat("item_cost")
-            ));
+            if (items.getInt("item_id") != 0) {
+                returnList.add(new Item(
+                        items.getInt("item_id"),
+                        items.getInt("item_amount"),
+                        items.getString("item_name"),
+                        items.getFloat("item_cost")
+                ));
+            }
         }
         return returnList;
     }

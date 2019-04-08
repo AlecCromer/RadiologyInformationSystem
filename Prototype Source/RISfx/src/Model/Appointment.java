@@ -91,7 +91,8 @@ public class Appointment {
                 )).executeQuery();
     }
 
-    public static ResultSet queryBillingList() throws Exception{
+
+    public static ResultSet queryBillingList(int appointmentId) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT billing.*, " +
                         "items.item_name, items.item_cost, SUM(items.item_cost) as 'item_cost_total', COUNT(items.item_cost) AS 'item_amount', " +
@@ -101,7 +102,7 @@ public class Appointment {
                         "INNER JOIN appointments ON billing.appointment_id=appointments.appointment_id " +
                         "INNER JOIN items ON billing.item_id=items.item_id " +
                         "INNER JOIN patient ON appointments.patient_id=patient.patient_id " +
-                        "GROUP BY appointment_id ASC"
+                        "WHERE appointments.appointment_id = " + appointmentId
         ).executeQuery();
     }
 
@@ -264,7 +265,7 @@ public class Appointment {
         return balance;
     }
     public void setBalance() throws Exception{
-        ResultSet rs = queryBillingList();
+        ResultSet rs = queryBillingList(this.appointmentId);
         rs.next();
         ResultSet results = Procedure.queryProcedureInfo(this.procedureId);
         results.next();
