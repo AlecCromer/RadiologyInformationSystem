@@ -212,9 +212,8 @@ public class PatientViewController implements Initializable {
             pNumberField.setDisable(false);
             addressField.setDisable(false);
             dobField.setDisable(false);
-            sNumberField.setDisable(false);
             InsuranceField.setDisable(false);
-            balanceField.setDisable(false);
+            policyField.setDisable(false);
             emailField.setDisable(false);
             EditPatientInfoButton.setText("Submit");
         }
@@ -226,11 +225,28 @@ public class PatientViewController implements Initializable {
             pNumberField.setDisable(true);
             addressField.setDisable(true);
             dobField.setDisable(true);
-            sNumberField.setDisable(true);
             emailField.setDisable(true);
             InsuranceField.setDisable(true);
-            balanceField.setDisable(true);
+            policyField.setDisable(true);
             EditPatientInfoButton.setText("Edit Patient Info.");
+
+            String[] addr = addressField.getText().split(", ");
+
+            //Patient patientToInsert, String address, String city, String state, String zip
+            Patient.updatePatientInfo(new Patient(
+                    //String firstname, String lastname, String email, String phoneNumber, String insuranceNumber, String policyNumber, LocalDate dob
+                    fNameField.getText(),
+                    lNameField.getText(),
+                    emailField.getText(),
+                    pNumberField.getText(),
+                    InsuranceField.getText(),
+                    policyField.getText(),
+                    LocalDate.parse(dobField.getText(), DateTimeFormatter.ofPattern("MM/dd/yyyy"))
+            ),
+                addr[0],
+                addr[1],
+                addr[2],
+                addr[3]);
         }
     }
 
