@@ -2,6 +2,7 @@ package Controller.PatientControllers;
 
 import Controller.AppointmentControllers.AddAppointmentController;
 import Controller.AppointmentControllers.AppointmentViewController;
+import Controller.BillingControllers.InvoiceController;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
@@ -41,13 +42,19 @@ public class PatientViewController implements Initializable {
                                         addressField,  dobField,        sNumberField,
                                         emailField,    InsuranceField,  balanceField, policyField;
     @FXML Button                        EditPatientInfoButton;
-    @FXML TableView<Appointment>        patientAppointments;
+    @FXML TableView<Appointment>        patientAppointments, BillingList;
     @FXML
     TableColumn<Appointment, Time>      patientSignInTime, patientSignOutTime;
     @FXML
-    TableColumn<Appointment, Integer>   appointmentID;
+    TableColumn<Appointment, Integer>   appointmentID, AppointmentID;
     @FXML
-    TableColumn<Appointment, String>    patientStatus, appointmentDate;
+    TableColumn<Appointment, String>    patientStatus, appointmentDate, ProcedureName, PatientStatus;
+    @FXML
+    TableColumn<Appointment, Date>      AppointmentDate;
+    @FXML
+    TableColumn<Appointment, Float>     AppointmentBalance;
+
+
     private boolean EditPatientLock = false;
 
 
@@ -79,6 +86,14 @@ public class PatientViewController implements Initializable {
                 }
             }
         });
+        try {
+            updateBillingTable();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("UNABLE TO FILL TABLE");
+            e.printStackTrace();
+        }
+
     }
 
     private void updateAppointmentTable(){
@@ -94,6 +109,35 @@ public class PatientViewController implements Initializable {
         patientSignInTime.setCellValueFactory(new PropertyValueFactory<Appointment, Time>("patientSignIn"));
         patientSignOutTime.setCellValueFactory(new PropertyValueFactory<Appointment, Time>("patientSignOut"));
         patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
+    }
+    @SuppressWarnings("Duplicates")
+    private void updateBillingTable(){
+        try {
+            BillingList.setItems(getBillingList());
+
+            AppointmentID.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("appointmentId"));
+            ProcedureName.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedureName"));
+            AppointmentDate.setCellValueFactory(new PropertyValueFactory<Appointment, Date>("AppointmentDate"));
+            PatientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
+            AppointmentBalance.setCellValueFactory(new PropertyValueFactory<Appointment, Float>("balance"));
+        }
+        catch (Exception e){
+            // TODO Auto-generated catch block
+            System.out.println("UNABLE TO FILL TABLE");
+            e.printStackTrace();
+        }
+
+        BillingList.setOnMouseClicked((MouseEvent event) -> {
+            //DOUBLE CLICK ON CELL
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                try{
+                    Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
+                    InvoiceController.setView();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
       ////////////////////
@@ -118,6 +162,29 @@ public class PatientViewController implements Initializable {
             return null;
         }
         return appointments;
+    }
+    @SuppressWarnings("Duplicates")
+    private ObservableList<Appointment> getBillingList() throws Exception{
+        ResultSet rs = Appointment.queryForBillingAppointments(Main.getPatientFocus().getPatientID());
+        ObservableList<Appointment> billingList = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            //int appointmentId, int patientId, String patientFullName, String patientStatus, String[] address, float balance
+            Appointment addition = new Appointment(
+                    rs.getInt("appointment_id"),
+                    rs.getInt("patient_id"),
+                    rs.getInt("procedure_id"),
+                    rs.getString("procedure_name"),
+                    rs.getString("full_name"),
+                    rs.getString("patient_status"),
+                    rs.getDate("appointment_date")
+            );
+            addition.setAddress();
+            addition.setBalance();
+            billingList.add(addition);
+        }
+
+        return billingList;
     }
 
     private Appointment generateAppointment(ResultSet rs) throws Exception{

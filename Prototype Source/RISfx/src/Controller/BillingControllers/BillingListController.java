@@ -32,7 +32,7 @@ public class BillingListController implements Initializable {
     public static void setView() throws Exception{
         Main.setCenterPane("BillingViews/BillingList.fxml");
     }
-
+    @SuppressWarnings("Duplicates")
     public void initialize(URL url, ResourceBundle arg1) {
         updateTable();
         BillingList.setOnMouseClicked((MouseEvent event) -> {
@@ -62,7 +62,7 @@ public class BillingListController implements Initializable {
         patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
         Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
-
+    @SuppressWarnings("Duplicates")
     private ObservableList<Appointment> getBillingList() throws Exception {
         ResultSet rs = Appointment.queryForBillingAppointments();
         ObservableList<Appointment> billingList = FXCollections.observableArrayList();
