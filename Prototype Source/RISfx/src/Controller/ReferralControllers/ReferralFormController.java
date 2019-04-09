@@ -209,7 +209,6 @@ public class ReferralFormController implements Initializable {
  }
     private void error(int fieldID) {
 
-
         switch (fieldID) {
             case 0: {
                /* patentFirstName.clear(); not sure if it would be good to clear and provide a hint for them

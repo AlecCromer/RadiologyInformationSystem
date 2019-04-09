@@ -34,27 +34,30 @@ import java.util.Timer;
 
 public class PatientViewController implements Initializable {
 
-      ////////////////////////
-     //Variable Declaration//
     ////////////////////////
-    @FXML TextField                     fNameField,    lNameField,      pNumberField,
-                                        addressField,  dobField,        sNumberField,
-                                        emailField,    InsuranceField,  balanceField, policyField;
-    @FXML Button                        EditPatientInfoButton;
-    @FXML TableView<Appointment>        patientAppointments;
+    //Variable Declaration//
+    ////////////////////////
     @FXML
-    TableColumn<Appointment, Time>      patientSignInTime, patientSignOutTime;
+    TextField fNameField, lNameField, pNumberField,
+            addressField, dobField, sNumberField,
+            emailField, InsuranceField, balanceField, policyField;
     @FXML
-    TableColumn<Appointment, Integer>   appointmentID;
+    Button EditPatientInfoButton;
     @FXML
-    TableColumn<Appointment, String>    patientStatus, appointmentDate;
+    TableView<Appointment> patientAppointments;
+    @FXML
+    TableColumn<Appointment, Time> patientSignInTime, patientSignOutTime;
+    @FXML
+    TableColumn<Appointment, Integer> appointmentID;
+    @FXML
+    TableColumn<Appointment, String> patientStatus, appointmentDate;
     private boolean EditPatientLock = false;
 
 
-      ////////////////
-     //Initializers//
     ////////////////
-    public static void setView()throws Exception{
+    //Initializers//
+    ////////////////
+    public static void setView() throws Exception {
         Main.setCenterPane("PatientViews/PatientView.fxml");
     }
 
@@ -70,18 +73,18 @@ public class PatientViewController implements Initializable {
         updateAppointmentTable();
         patientAppointments.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
-            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                try{
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                try {
                     sendAppointmentToView(patientAppointments.getSelectionModel().getSelectedItem());
                     AppointmentViewController.setView();
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
 
-    private void updateAppointmentTable(){
+    private void updateAppointmentTable() {
         try {
             patientAppointments.setItems(generatePatientAppointmentList());
         } catch (Exception e) {
@@ -96,23 +99,21 @@ public class PatientViewController implements Initializable {
         patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
     }
 
-      ////////////////////
-     //Database Queries//
+    ////////////////////
+    //Database Queries//
     ////////////////////
 
 
-
-
-      ///////////////////
-     //List Generators//
     ///////////////////
-    private ObservableList<Appointment> generatePatientAppointmentList() throws Exception{
+    //List Generators//
+    ///////////////////
+    private ObservableList<Appointment> generatePatientAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
-        try(ResultSet rs = Patient.queryPatientAppointments(Main.getPatientFocus().getPatientID())){
-            while (rs.next()){
+        try (ResultSet rs = Patient.queryPatientAppointments(Main.getPatientFocus().getPatientID())) {
+            while (rs.next()) {
                 appointments.add(generateAppointment(rs));
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             databaseConnector.displayException(ex);
             System.out.println("Someone didn't set up their DATABASE!!");
             return null;
@@ -120,7 +121,7 @@ public class PatientViewController implements Initializable {
         return appointments;
     }
 
-    private Appointment generateAppointment(ResultSet rs) throws Exception{
+    private Appointment generateAppointment(ResultSet rs) throws Exception {
 
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
         String date = format.format(rs.getDate("appointment_date"));
@@ -134,8 +135,8 @@ public class PatientViewController implements Initializable {
     }
 
 
-      //////////////////
-     //Button Methods//
+    //////////////////
+    //Button Methods//
     //////////////////
     public void editPatientInfo(ActionEvent actionEvent) throws Exception {
         if (!EditPatientLock) {
@@ -150,8 +151,7 @@ public class PatientViewController implements Initializable {
             balanceField.setDisable(false);
             emailField.setDisable(false);
             EditPatientInfoButton.setText("Submit");
-        }
-        else{
+        } else {
             //TODO: Add code for submitting changed info
             EditPatientLock = false;
             fNameField.setDisable(true);
@@ -175,23 +175,166 @@ public class PatientViewController implements Initializable {
         AddAppointmentController.setView();
     }
 
-    public void setBackPage()throws Exception{
+    public void setBackPage() throws Exception {
         Main.setBackPage();
     }
 
-
-      ///////////////////
-     //Form Validation//
-    ///////////////////
-    private String dateFormatter(LocalDate date){
+    private String dateFormatter(LocalDate date) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return date.format(format);
     }
 
-    private void sendAppointmentToView(Appointment selectedItem) throws Exception{
+    private void sendAppointmentToView(Appointment selectedItem) throws Exception {
         int appointmentId = selectedItem.getAppointmentId();
         ResultSet rs = Appointment.queryAppointmentFocus(appointmentId);
         rs.next();
         Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
     }
-}
+
+    ///////////////////
+    //Form Validation//
+    ///////////////////
+
+        private void checkField() {
+            if (!fNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+                error(0);
+            } else {
+                error(1);
+            }
+            if (!lNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+                error(2);
+            } else {
+                error(3);
+            }
+            if (!pNumberField.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")) {
+                error(4);
+            } else {
+                error(5);
+            }
+            if (!addressField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+                error(6);
+            } else {
+                error(7);
+            }
+            if (!dobField.getText().matches("^(?=.*[a-z])+(?=.*[A-Z]).*$")) {
+                error(8);
+            } else {
+                error(9);
+            }
+            if (!sNumberField.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) { //Come back to this
+                error(10);
+            } else {
+                error(11);
+            }
+            if (!emailField.getText().matches("^1?[\\(\\- ]*\\d{3}[\\)-\\. ]*\\d{3}[-\\. ]*\\d{4}$")) { //Was mapping out logic will clean up later
+                error(12);
+            } else {
+                error(13);
+            }
+            if (!InsuranceField.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")) {
+                error(14);
+            } else {
+                error(15);
+            }
+            if (!balanceField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
+                error(16);
+            } else {
+                error(17);
+            }
+            if (!policyField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
+                error(18);
+            } else {
+                error(19);
+            }
+
+        }
+        private void error ( int fieldID){
+
+            switch (fieldID) {
+                case 0: {
+               /* patentFirstName.clear(); not sure if it would be good to clear and provide a hint for them
+                patentFirstName.setPromptText("Need to capitalize first letter of name");*/
+                    fNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 1: {
+                    fNameField.setStyle(null);
+                    return;
+                }
+                case 2: {
+                /* patentFirstName.clear();
+                patentFirstName.setPromptText("Need to capitalize first letter of name");*/
+                    lNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 3: {
+                    lNameField.setStyle(null);
+                    return;
+                }
+                case 4: {
+                    pNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 5: {
+                    pNumberField.setStyle(null);
+                    return;
+                }
+                case 6: {
+                    addressField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 7: {
+                    addressField.setStyle(null);
+                    return;
+                }
+                case 8: {
+                    dobField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 9: {
+                    dobField.setStyle(null);
+                    return;
+                }
+                case 10: {
+                    sNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 11: {
+                    sNumberField.setStyle(null);
+                    return;
+                }
+                case 12: {
+                    emailField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 13: {
+                    emailField.setStyle(null);
+                    return;
+                }
+                case 14: {
+                    InsuranceField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 15: {
+                    InsuranceField.setStyle(null);
+                    return;
+                }
+                case 16: {
+                    balanceField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 17: {
+                    balanceField.setStyle(null);
+                    return;
+                }
+                case 18: {
+                    policyField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                    return;
+                }
+                case 19: {
+                    policyField.setStyle(null);
+                    return;
+                }
+            }
+        }
+    }
