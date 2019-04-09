@@ -89,7 +89,7 @@ public class ReferralFormController implements Initializable {
                   patientZip.getText()
             );
             //This is a pre set value, shouldn't this change depending on who logs in?
-        int employeeID = 6730;
+        int employeeID = Main.getSessionUser().getEmployeeId();
 
         Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText());
         Main.popup.close();

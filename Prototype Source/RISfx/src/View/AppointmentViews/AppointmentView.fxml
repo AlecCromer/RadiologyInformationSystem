@@ -71,9 +71,4 @@
             <Font name="Calibri" size="14.0" />
         </font>
     </Text>
-   <Button layoutX="568.0" layoutY="174.0" mnemonicParsing="false" onAction="#showAppointmentFiles" prefHeight="25.0" prefWidth="268.0" text="View Files" AnchorPane.leftAnchor="568.0" AnchorPane.topAnchor="174.0">
-      <font>
-         <Font name="Calibri" size="12.0" />
-      </font>
-   </Button>
 </AnchorPane>

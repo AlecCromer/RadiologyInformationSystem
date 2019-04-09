@@ -1,5 +1,6 @@
 package Controller.BillingControllers;
 
+import Controller.AppointmentControllers.AppointmentListController;
 import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Model.Appointment;
@@ -22,25 +23,24 @@ import java.util.ResourceBundle;
 
 public class BillingListController implements Initializable {
 
-    @FXML TableView<Patient>        BillingList;
+    @FXML TableView<Appointment>        BillingList;
     @FXML
-    TableColumn<Patient, Integer>   patientID;
+    TableColumn<Appointment, Integer>   patientID;
     @FXML
-    TableColumn<Patient, String>    fName, address, patientStatus, Balance;
-
+    TableColumn<Appointment, String>    fName, address, patientStatus, Balance;
 
     public static void setView() throws Exception{
         Main.setCenterPane("BillingViews/BillingList.fxml");
     }
-
+    @SuppressWarnings("Duplicates")
     public void initialize(URL url, ResourceBundle arg1) {
         updateTable();
         BillingList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
-                    //sendAppointmentToView(AppointmentList.getSelectionModel().getSelectedItem());
-                    //AppointmentViewController.setView();
+                   Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
+                   InvoiceController.setView();
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -56,33 +56,33 @@ public class BillingListController implements Initializable {
             System.out.println("UNABLE TO FILL TABLE");
             e.printStackTrace();
         }
-        patientID.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("patientID"));
-        fName.setCellValueFactory(new PropertyValueFactory<Patient, String>("fullName"));
-        address.setCellValueFactory(new PropertyValueFactory<Patient, String>("address"));
-        patientStatus.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientStatus"));
-        Balance.setCellValueFactory(new PropertyValueFactory<Patient, String>("balance"));
+        patientID.setCellValueFactory(new PropertyValueFactory<Appointment, Integer>("appointmentId"));
+        fName.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientFullName"));
+        address.setCellValueFactory(new PropertyValueFactory<Appointment, String>("address"));
+        patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
+        Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
     }
-
-    private ObservableList<Patient> getBillingList() throws Exception {
-        ResultSet rs = Patient.queryInfoForBillingList();
-        ObservableList<Patient> billingList = FXCollections.observableArrayList();
+    @SuppressWarnings("Duplicates")
+    private ObservableList<Appointment> getBillingList() throws Exception {
+        ResultSet rs = Appointment.queryForBillingAppointments();
+        ObservableList<Appointment> billingList = FXCollections.observableArrayList();
 
         while (rs.next()) {
-            //int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance
-            billingList.add(new Patient(
-                    rs.getInt("patient_id"),
-                    rs.getString("first_name") + " " + rs.getString("last_name"),
-                    rs.getString("street_name") + " " + rs.getString("city") + ", " + rs.getString("state") + " " + rs.getString("zip"),
-                    rs.getString("status"),
-                    rs.getFloat("balance")
-            ));
+            //int appointmentId, int patientId, String patientFullName, String patientStatus, String[] address, float balance
+            Appointment addition = new Appointment(
+                rs.getInt("appointment_id"),
+                rs.getInt("patient_id"),
+                rs.getInt("procedure_id"),
+                rs.getString("procedure_name"),
+                rs.getString("full_name"),
+                rs.getString("patient_status"),
+                rs.getDate("appointment_date")
+            );
+            addition.setAddress();
+            addition.setBalance();
+            billingList.add(addition);
         }
 
-
-
         return billingList;
-    }
-
-    public void setBillView(ActionEvent actionEvent) {
     }
 }

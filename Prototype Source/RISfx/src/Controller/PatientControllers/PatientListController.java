@@ -30,8 +30,8 @@ public class PatientListController implements Initializable {
      //Variable Declaration//
     ////////////////////////
 
-    @FXML private TableView<Patient>            PatientList;
-    @FXML private TableColumn<Patient, String>  patientID, firstname, lastname, dob, sex, email;
+@FXML private TableView<Patient>                    PatientList;
+    @FXML private TableColumn<Patient, String>      patientID, firstname, lastname, dob, sex, email;
     @FXML private TableColumn<Patient, Integer>     phoneNumber;
 
 
