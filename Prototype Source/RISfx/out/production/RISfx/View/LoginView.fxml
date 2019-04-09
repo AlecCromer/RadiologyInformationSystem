@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="350" prefWidth="300" stylesheets="@logIn.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="41.0" layoutY="129.0" prefHeight="221.0" prefWidth="300.0" stylesheets="@logIn.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="129.0">
+         <children>
+            <HBox prefHeight="84.0" prefWidth="236.0" stylesheets="@logIn.css">
+               <children>
+                  <Label alignment="CENTER" blendMode="DARKEN" contentDisplay="CENTER" prefHeight="25.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets left="15.0" top="50.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <Pane prefHeight="34.0" prefWidth="38.0">
+                           <children>
+                              <ImageView fitHeight="26.0" fitWidth="32.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/un.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Label>
+                   <TextField fx:id="usernameTextField" promptText="Username">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="76.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets left="15.0" top="30.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <Pane prefHeight="34.0" prefWidth="38.0">
+                           <children>
+                              <ImageView fitHeight="26.0" fitWidth="58.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/password.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Label>
+                  <PasswordField fx:id="passwordTextField" promptText="Password" stylesheets="@logIn.css">
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#onLoginButtonPushed" text="Login" />
+            <Label fx:id="exceptionLabel" text="" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="126.0" fitWidth="129.0" layoutX="87.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/login.png" />
+         </image>
+      </ImageView>
+
+   </children>
+</AnchorPane>
