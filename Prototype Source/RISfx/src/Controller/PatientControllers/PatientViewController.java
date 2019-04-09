@@ -46,9 +46,6 @@ public class PatientViewController implements Initializable {
     @FXML
     TableColumn<Appointment, Time> patientSignInTime, patientSignOutTime;
     @FXML
-    TableColumn<Appointment, Integer> appointmentID;
-    @FXML
-    TableColumn<Appointment, String> patientStatus, appointmentDate;
     TableColumn<Appointment, Integer>   appointmentID, AppointmentID;
     @FXML
     TableColumn<Appointment, String>    patientStatus, appointmentDate, ProcedureName, PatientStatus;
