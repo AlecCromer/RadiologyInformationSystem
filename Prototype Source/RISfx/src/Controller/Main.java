@@ -3,6 +3,7 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
+import animatefx.animation.AnimationFX;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
 import javafx.application.Application;

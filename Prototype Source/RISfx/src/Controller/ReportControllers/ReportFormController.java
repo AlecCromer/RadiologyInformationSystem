@@ -21,38 +21,19 @@ import java.lang.*;
 
 public class ReportFormController implements Initializable {
     @FXML
-    private TextField NameField;
+    private TextField   NameField, dobField, idField, sexField,
+                        apptIDField, dateField, physicianField,
+                        timeField, radiologistField, clinicalIndication, procedureRequested;;
     @FXML
-    private TextField dobField;
+    private TextArea reasonField, historyField, techniqueField, findingField;
     @FXML
-    private TextField idField;
-    @FXML
-    private TextField sexField;
-    @FXML
-    private TextField apptIDField;
-    @FXML
-    private TextField dateField;
-    @FXML
-    private TextField physicianField;
-    @FXML
-    private TextArea reasonField;
-    @FXML
-    private DatePicker prevExamField;
-    @FXML
-    private TextArea historyField;
-    @FXML
-    private TextField timeField;
-    @FXML
-    private TextArea techniqueField;
-    @FXML
-    private TextArea findingField;
-    @FXML
-    private TextField radiologistField,clinicalIndication, procedureRequested;
-    @FXML
-    private DatePicker signDateField;
-
+    private DatePicker prevExamField, signDateField;
     @FXML
     private ImageView report_image;
+
+    static String patient_id;
+    static String image_id;
+    static int appointment_id;
 
     public static String getPatient_id() {
         return patient_id;
@@ -62,8 +43,6 @@ public class ReportFormController implements Initializable {
         ReportFormController.patient_id = patient_id;
     }
 
-    static String patient_id;
-
     public String getImage_id() {
         return image_id;
     }
@@ -71,8 +50,6 @@ public class ReportFormController implements Initializable {
     public static void setImage_id(String image_id) {
         ReportFormController.image_id = image_id;
     }
-
-    static String image_id;
 
     public static int getAppointment_id() {
         return appointment_id;
@@ -82,11 +59,8 @@ public class ReportFormController implements Initializable {
         ReportFormController.appointment_id = appointment_id;
     }
 
-    static int appointment_id;
-
     public static void setView(int appointment_id, String image_id) throws Exception{
         setAppointment_id(appointment_id);
-        System.out.println(appointment_id);
         setPatient_id(patient_id);
         setImage_id(image_id);
         Main.setPopupWindow("ReportViews/ReportForm.fxml");
@@ -96,16 +70,10 @@ public class ReportFormController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle arg1){
-
         try{
-
             ResultSet rs = Report.gatherPatientInfo(getAppointment_id(), getImage_id());
 
-
             while (rs.next()){
-
-
-
                 NameField.setText(rs.getString("name"));
                 dobField.setText(rs.getString("date_of_birth"));
                 idField.setText(rs.getString("patient_id"));
@@ -126,9 +94,7 @@ public class ReportFormController implements Initializable {
             rs.close();
             ResultSet rs2 = Report.gatherReferralInfo(getImage_id());
             if(rs2.next()){
-
                 physicianField.setText(rs2.getString("name"));
-
             }else{
                 physicianField.setText("No referring physician");
             }
@@ -151,10 +117,11 @@ public class ReportFormController implements Initializable {
     }
 
     //checks if the radiologist is the one logged in
+    //updated 4/9/2019
     public boolean checkRadiologist(String radiologist){
-        if(radiologist!= Main.getSessionUser().getFullName()){
-            return false;
+        if(Main.getSessionUser().getPermissions().contains(2) || Main.getSessionUser().getPermissions().contains(6)){
+            return true;
         }
-        return true;
+        return false;
     }
 }

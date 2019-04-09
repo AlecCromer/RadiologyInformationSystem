@@ -77,7 +77,6 @@ public class BillingListController implements Initializable {
             addition.setBalance();
             billingList.add(addition);
         }
-
         return billingList;
     }
 }
