@@ -39,12 +39,12 @@ public class PatientViewController implements Initializable {
     //Variable Declaration//
     ////////////////////////
     @FXML TextField                     fNameField,    lNameField,      pNumberField,
-                                        addressField,  dobField,        sNumberField,
-                                        emailField,    InsuranceField,  balanceField, policyField;
+            addressField,  dobField,        sNumberField,
+            emailField,    InsuranceField,  balanceField, policyField;
     @FXML Button                        EditPatientInfoButton;
     @FXML TableView<Appointment>        patientAppointments, BillingList;
     @FXML
-    TableColumn<Appointment, Time> patientSignInTime, patientSignOutTime;
+    TableColumn<Appointment, String>    patientStatus, appointmentDate, ProcedureName, PatientStatus;
     @FXML
     TableColumn<Appointment, Integer>   appointmentID, AppointmentID;
     @FXML
@@ -243,7 +243,11 @@ public class PatientViewController implements Initializable {
         Main.setBackPage();
     }
 
-    private String dateFormatter(LocalDate date) {
+
+    ///////////////////
+    //Form Validation//
+    ///////////////////
+    private String dateFormatter(LocalDate date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return date.format(format);
     }

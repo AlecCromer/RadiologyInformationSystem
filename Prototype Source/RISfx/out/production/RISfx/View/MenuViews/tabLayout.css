@@ -12,7 +12,9 @@
 .button:hover
 {
     -fx-background-color:  rgb(127, 172, 243);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-justify-content: center;
+    -fx-text-fill: white;
     -fx-animated: flex;
 
 }
@@ -29,7 +31,7 @@
     -fx-border-insets: 1 1 1 1, 0;
     -fx-border-color: #2D75E8;
     -fx-background-color:   #2D75E8;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+   /* -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );*/
     -fx-text-fill: white;
 }
 

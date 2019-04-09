@@ -177,9 +177,9 @@ public class Report {
     }
 
     public static ResultSet gatherReferralInfo( String image_id) throws SQLException {
-            System.out.println("SELECT DISTINCT CONCAT(e.first_name,\" \", e.last_name) AS name " +
-                    "FROM employees as e, refer as re, patient as p, image as i " +
-                    "WHERE e.employee_id = re.employee_id AND p.patient_id = re.patient_id AND i.patient_id = p.patient_id AND i.image_id ="+ image_id + " LIMIT 1");
+        System.out.println("SELECT DISTINCT CONCAT(e.first_name,\" \", e.last_name) AS name " +
+                "FROM employees as e, refer as re, patient as p, image as i " +
+                "WHERE e.employee_id = re.employee_id AND p.patient_id = re.patient_id AND i.patient_id = p.patient_id AND i.image_id ="+ image_id + " LIMIT 1");
         return(databaseConnector.getConnection().prepareStatement("SELECT DISTINCT CONCAT(e.first_name,\" \", e.last_name) AS name " +
                 "FROM employees as e, refer as re, patient as p, image as i " +
                 "WHERE e.employee_id = re.employee_id AND p.patient_id = re.patient_id AND i.patient_id = p.patient_id AND i.image_id = "+ image_id + " LIMIT 1").executeQuery());
@@ -187,7 +187,25 @@ public class Report {
 
     public static ResultSet queryReports(String search) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-                "SELECT DISTINCT p.*, i.image_id, a.appointment_id FROM patient as p, image as i, appointments as a WHERE p.patient_id = i.patient_id  AND i.exam_date = a.appointment_date AND a.patient_id = p.patient_id AND i.status  = '"+search+"' GROUP BY i.image_id;").executeQuery();
+                "SELECT DISTINCT p.*, i.image_id, a.appointment_id " +
+                        "FROM patient as p, image as i, appointments as a " +
+                        "WHERE p.patient_id = i.patient_id  AND i.exam_date = a.appointment_date AND a.patient_id = p.patient_id AND i.status  = '"+search+"' GROUP BY i.image_id;").executeQuery();
+    }
+    public static ResultSet queryReports(String search, int employeeID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT DISTINCT p.*, i.image_id, a.appointment_id, refer.employee_id \n" +
+                        "\n" +
+                        "FROM employees, patient as p, image as i, appointments as a, refer \n" +
+                        "\n" +
+                        "WHERE (p.patient_id = i.patient_id AND\n" +
+                        "       i.exam_date = a.appointment_date AND\n" +
+                        "       a.patient_id = p.patient_id AND\n" +
+                        "       i.status = '"+search+"') AND\n" +
+                        "       refer.employee_id = "+employeeID+" AND\n" +
+                        "       p.patient_id = refer.patient_id AND\n" +
+                        "       refer.employee_id = employees.employee_id\n" +
+                        "       \n" +
+                        "       GROUP BY i.image_id").executeQuery();
     }
 
     public Report(String patient_id, String name, LocalDate dob, String Sex, String refering_physician, String reason, int appointment_id){
@@ -259,3 +277,4 @@ public class Report {
 
     }
 }
+
