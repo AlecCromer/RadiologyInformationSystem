@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -98,9 +99,9 @@ public class ReportFormController implements Initializable {
         setPatient_id(patient_id);
         setImage_id(image_id);
         Main.setPopupWindow("ReportViews/ReportForm.fxml");
+        Main.getSessionUser().getFullName();
         Main.getPopup().setWidth(625);
         Main.getPopup().setHeight(700);
-        Main.getSessionUser().getFullName();
     }
 
     public void initialize(URL url, ResourceBundle arg1){

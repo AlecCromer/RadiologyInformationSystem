@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 
 public class Appointment {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     private int appointmentId, procedureId, patientId, machineId, employeeId;
     private Date appointmentDate;
@@ -20,8 +20,8 @@ public class Appointment {
     private float balance;
 
 
-      /////////////////////
-     //Object Generators//
+    /////////////////////
+    //Object Generators//
     /////////////////////
     public static Appointment generateAppointmentFocus(ResultSet resultSet) throws Exception{
         ResultSet patientInfo = Patient.queryPatientInfo(resultSet.getInt("patient_id"));
@@ -52,8 +52,8 @@ public class Appointment {
     }
 
 
-      ////////////////////
-     //Database Queries//
+    ////////////////////
+    //Database Queries//
     ////////////////////
     public static ResultSet queryAppointments()throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
@@ -95,8 +95,8 @@ public class Appointment {
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
                         "WHERE appointments.employee_id="+employeeID
-                            //" AND appointments.patient_status != 'Signed In'"
-                )).executeQuery();
+                //" AND appointments.patient_status != 'Signed In'"
+        )).executeQuery();
     }
 
 
@@ -155,20 +155,20 @@ public class Appointment {
     }
     public static boolean updateReadyStatus(int appointmentId) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-            "UPDATE appointments " +
-                    "SET appointments.patient_status = 'Needs Report' " +
-                    "WHERE appointments.appointment_id = " + appointmentId
+                "UPDATE appointments " +
+                        "SET appointments.patient_status = 'Needs Report' " +
+                        "WHERE appointments.appointment_id = " + appointmentId
         ).execute();
     }
 
 
 
-    ///////////////////
+      ///////////////////
      //Getters/Setters//
     ///////////////////
     public int getAppointmentId() {
-          return appointmentId;
-      }
+        return appointmentId;
+    }
     public void setAppointmentId(int appointmentId) {
         this.appointmentId = appointmentId;
     }
@@ -295,7 +295,7 @@ public class Appointment {
     public String[] getAddressAsArray(){return address;}
 
     ////////////////
-     //Constructors//
+    //Constructors//
     ////////////////
     public Appointment(){
         this.appointmentDate = null;
@@ -374,3 +374,4 @@ public class Appointment {
         this.procedureName      = procedureName;
     }
 }
+

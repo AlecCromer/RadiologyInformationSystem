@@ -1,5 +1,6 @@
 package Controller;
 
+import Controller.PatientControllers.PatientListController;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
@@ -26,8 +27,8 @@ import static java.awt.Color.*;
 
 public class Main extends Application {
 
-      ////////////////////////
-     //Variable Declaration//
+    ////////////////////////
+    //Variable Declaration//
     ////////////////////////
     @FXML
     private MenuItem logout;
@@ -43,8 +44,8 @@ public class Main extends Application {
     public static  BoxBlur bb                   = new BoxBlur();
 
 
-      ////////////////
-     //View Setters//
+    ////////////////
+    //View Setters//
     ////////////////
 
     //Called to set the main view
@@ -105,8 +106,8 @@ public class Main extends Application {
     }
 
 
-      ///////////////////////////
-     //Variable Getter/Setters//
+    ///////////////////////////
+    //Variable Getter/Setters//
     ///////////////////////////
     public static BorderPane getRIS_Container(){
         return RIS_Container;
@@ -153,8 +154,8 @@ public class Main extends Application {
     }
 
 
-      ////////////////
-     //Start Method//
+    ////////////////
+    //Start Method//
     ////////////////
     @Override
     public void start(Stage stage) throws Exception{
@@ -192,11 +193,14 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
     }
 
+
     public void logout() throws Exception{
         sessionUser = null;
         patientFocus = null;
         appointmentFocus = null;
         backNodeList = new ArrayList<>();
+
+        RIS_Container.setCenter(null);
         Controller.setView();
     }
 

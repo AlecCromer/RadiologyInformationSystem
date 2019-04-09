@@ -39,8 +39,8 @@ public class BillingListController implements Initializable {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
                 try{
-                   Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
-                   InvoiceController.setView();
+                    Main.setAppointmentFocus(BillingList.getSelectionModel().getSelectedItem());
+                    InvoiceController.setView();
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -70,13 +70,13 @@ public class BillingListController implements Initializable {
         while (rs.next()) {
             //int appointmentId, int patientId, String patientFullName, String patientStatus, String[] address, float balance
             Appointment addition = new Appointment(
-                rs.getInt("appointment_id"),
-                rs.getInt("patient_id"),
-                rs.getInt("procedure_id"),
-                rs.getString("procedure_name"),
-                rs.getString("full_name"),
-                rs.getString("patient_status"),
-                rs.getDate("appointment_date")
+                    rs.getInt("appointment_id"),
+                    rs.getInt("patient_id"),
+                    rs.getInt("procedure_id"),
+                    rs.getString("procedure_name"),
+                    rs.getString("full_name"),
+                    rs.getString("patient_status"),
+                    rs.getDate("appointment_date")
             );
             addition.setAddress();
             addition.setBalance();

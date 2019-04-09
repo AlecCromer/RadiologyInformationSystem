@@ -2,6 +2,7 @@ package Controller.ReportControllers;
 
 import Controller.Main;
 import Model.Images;
+import Model.Patient;
 import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ReportListController implements Initializable{
@@ -28,35 +30,59 @@ public class ReportListController implements Initializable{
     @FXML private TableView<Report>            ReportList;
     @FXML private TableColumn<Report, String>  patientID, firstname, lastname, dob, sex;
 
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    private String search;
+
     ////////////////
     //Initializers//
     ////////////////
 
     public void initialize(URL url, ResourceBundle arg1) {
-        //setSQLQuery("select title, description, content FROM item");
-        updateTable();
-        ReportList.setOnMouseClicked((MouseEvent event) -> {
-            //DOUBLE CLICK ON CELL
-            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                try {
-                    Report item = ReportList.getSelectionModel().getSelectedItem();
-                    ReportFormController.setView(item.getAppointment_id(), item.getImage_id());
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        setSearch("Needs Review");
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if(pms.contains(1)){
+            try {
+                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        });
+        }
+        else {
+            try {
+                updateTable(getPatientList());
+            }catch (Exception e){}
+            ReportList.setOnMouseClicked((MouseEvent event) -> {
+                //DOUBLE CLICK ON CELL
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+                    try {
+                        Report item = ReportList.getSelectionModel().getSelectedItem();
+                        ReportFormController.setView(item.getAppointment_id(), item.getImage_id());
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
     public static void setView() throws Exception {
         Main.setCenterPane("ReportViews/ReportList.fxml");
     }
 
-    public void updateTable() {
+    @SuppressWarnings("Duplicates")
+    public void updateTable(ObservableList<Report> patientObservableList) {
         try {
 
-            ReportList.setItems(getPatientList());
+            ReportList.setItems(patientObservableList);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println("UNABLE TO FILL TABLE");
@@ -74,17 +100,40 @@ public class ReportListController implements Initializable{
     ////////////////////
 
 
+    public void completeList() throws Exception{
+        setSearch("Complete");
+        updateTable(getPatientList());
+    }
+    public void incompleteList() throws Exception{
+        setSearch("Needs Review");
+        updateTable(getPatientList());
+    }
     ///////////////////
     //List Generators//
     ///////////////////
-
-    ///////////////////
-    //List Generators//
-    ///////////////////
+    @SuppressWarnings("Duplicates")
     public ObservableList<Report>  getPatientList() throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
 
-        ResultSet resultSet = Report.queryReports();
+        ResultSet resultSet = Report.queryReports(getSearch());
+        while (resultSet.next()) {
+            reports.add(new Report(
+                    resultSet.getString("p.patient_id"),
+                    resultSet.getString("p.first_name"),
+                    resultSet.getString("p.last_name"),
+                    dateFormatter(resultSet.getString("p.date_of_birth")),
+                    resultSet.getString("p.sex"),
+                    resultSet.getString("image_id"),
+                    resultSet.getInt("appointment_id")
+            ));
+        }
+        return reports;
+    }
+    @SuppressWarnings("Duplicates")
+    public ObservableList<Report>  getPatientList(int employeeID) throws Exception {
+        ObservableList<Report> reports = FXCollections.observableArrayList();
+
+        ResultSet resultSet = Report.queryReports(getSearch(), employeeID);
         while (resultSet.next()) {
             reports.add(new Report(
                     resultSet.getString("p.patient_id"),
@@ -105,3 +154,4 @@ public class ReportListController implements Initializable{
     }
 
 }
+
