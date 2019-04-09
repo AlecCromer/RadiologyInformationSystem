@@ -1,17 +1,10 @@
 package Controller;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ProgressIndicator;
-import Controller.databaseConnector;
 import Model.Employee;
-import Model.User;
-import javafx.beans.property.ObjectPropertyBase;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

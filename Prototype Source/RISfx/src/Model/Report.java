@@ -1,10 +1,7 @@
 package Model;
 
 import Controller.databaseConnector;
-import javafx.scene.image.Image;
 
-import java.awt.*;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

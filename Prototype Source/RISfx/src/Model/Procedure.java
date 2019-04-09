@@ -7,8 +7,6 @@ import javafx.collections.ObservableList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Struct;
-import java.util.ArrayList;
 
 public class Procedure {
     //Returns list for procedure combo boxes

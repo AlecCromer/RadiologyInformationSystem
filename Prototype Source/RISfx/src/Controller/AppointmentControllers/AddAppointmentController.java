@@ -1,7 +1,6 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
 import Model.Appointment;
 import Model.Employee;
 import Model.Procedure;

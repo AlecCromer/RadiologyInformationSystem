@@ -1,19 +1,14 @@
 package Controller.PatientControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
 import Model.Patient;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class NewPatientController implements Initializable {
@@ -55,27 +50,26 @@ public class NewPatientController implements Initializable {
     //////////////////
     @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception{
-        checkField();
+        if(checkField()) {
             Patient.insertNewPatient((new Patient(
-                    fNameField.getText(),
-                    lNameField.getText(),
-                    sexField.getText(),
-                    emailField.getText(),
-                    dobField.getValue(),
-                    pNumberField.getText(),
-                    insuranceField.getText(),
-                    policyField.getText()
-            )),
+                            fNameField.getText(),
+                            lNameField.getText(),
+                            sexField.getText(),
+                            emailField.getText(),
+                            dobField.getValue(),
+                            pNumberField.getText(),
+                            insuranceField.getText(),
+                            policyField.getText()
+                    )),
                     addressField.getText(),
                     cityField.getText(),
                     stateField.getText(),
                     zipField.getText()
             );
-            checkField();
             Main.popup.close();
             Main.getOuter().setDisable(false);
             Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
-
+        }
     }
 
     public void toggleSchedule(){
@@ -116,9 +110,11 @@ public class NewPatientController implements Initializable {
       ///////////////////
      //Form Validation//
     ///////////////////
-      private void checkField() {
+      private boolean checkField() {
+        boolean e = true;
           if (!fNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
               error(0);
+              e=false;
           } else {
               error(1);
           }
@@ -129,46 +125,55 @@ public class NewPatientController implements Initializable {
           }
           if (!pNumberField.getText().matches("^1?[\\(\\- ]*\\d{3}[\\)-\\. ]*\\d{3}[-\\. ]*\\d{4}$")) {
               error(4);
+
           } else {
               error(5);
           }
           if (!addressField.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")) {
               error(6);
+              e=false;
           } else {
               error(7);
           }
           if (dobField.getValue() == null) {
               error(8);
+              e=false;
           } else {
               error(9);
           }
           if (!sNumberField.getText().matches("^(?=.*[a-zA-Z]).*$")) { //Come back to this
               error(10);
+              e=false;
           } else {
               error(11);
           }
           if (!emailField.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")) { //Was mapping out logic will clean up later
               error(12);
+              e=false;
           } else {
               error(13);
           }
           if (!cityField.getText().matches("^(?=.*[a-zA-z]).*$")) {
               error(14);
+              e=false;
           } else {
               error(15);
           }
           if (!stateField.getText().matches("^(?=.*[a-zA-z]).*$")) {
               error(16);
+              e=false;
           } else {
               error(17);
           }
           if (!zipField.getText().matches("^(?=^.{5,5}$)(?=.*[0-9]).*$")) {
               error(18);
+              e=false;
           } else {
               error(19);
           }
           if (!policyField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
               error(20);
+              e=false;
           } else {
               error(21);
           }
@@ -179,9 +184,11 @@ public class NewPatientController implements Initializable {
           }
           if (!insuranceField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
               error(24);
+              e=false;
           } else {
               error(25);
           }
+          return e;
       }
     private void error ( int fieldID){
 
@@ -190,109 +197,109 @@ public class NewPatientController implements Initializable {
                /* patentFirstName.clear(); not sure if it would be good to clear and provide a hint for them
                 patentFirstName.setPromptText("Need to capitalize first letter of name");*/
                 fNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 1: {
                 fNameField.setStyle(null);
-                return;
+                break;
             }
             case 2: {
                 /* patentFirstName.clear();
                 patentFirstName.setPromptText("Need to capitalize first letter of name");*/
                 lNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 3: {
                 lNameField.setStyle(null);
-                return;
+                break;
             }
             case 4: {
                 pNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 5: {
                 pNumberField.setStyle(null);
-                return;
+                break;
             }
             case 6: {
                 addressField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 7: {
                 addressField.setStyle(null);
-                return;
+                break;
             }
             case 8: {
                 dobField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 9: {
                 dobField.setStyle(null);
-                return;
+                break;
             }
             case 10: {
                 sNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 11: {
                 sNumberField.setStyle(null);
-                return;
+                break;
             }
             case 12: {
                 emailField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 13: {
                 emailField.setStyle(null);
-                return;
+                break;
             }
             case 14: {
                 cityField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 15: {
                 cityField.setStyle(null);
-                return;
+                break;
             }
             case 16: {
                 stateField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 17: {
                 stateField.setStyle(null);
-                return;
+                break;
             }
             case 18: {
                 zipField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 19: {
                 zipField.setStyle(null);
-                return;
+                break;
             }
             case 20: {
                 policyField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 21: {
                 policyField.setStyle(null);
-                return;
+                break;
             }
             case 22: {
                 sexField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 23: {
                 sexField.setStyle(null);
-                return;
+                break;
             }
             case 24: {
                 insuranceField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-                return;
+                break;
             }
             case 25: {
                 insuranceField.setStyle(null);
-                return;
+                break;
             }
         }
     }

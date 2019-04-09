@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.PatientControllers.PatientListController;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
@@ -14,16 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
-
-import static java.awt.Color.*;
 
 public class Main extends Application {
 

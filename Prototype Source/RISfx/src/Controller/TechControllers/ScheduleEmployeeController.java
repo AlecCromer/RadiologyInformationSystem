@@ -5,7 +5,6 @@ import Controller.databaseConnector;
 import Model.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -15,10 +14,8 @@ import javafx.util.StringConverter;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class ScheduleEmployeeController implements Initializable {
 

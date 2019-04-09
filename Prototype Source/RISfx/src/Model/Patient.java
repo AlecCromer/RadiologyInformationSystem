@@ -6,7 +6,6 @@ import Controller.databaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -121,7 +120,7 @@ public class Patient {
 
     public static ResultSet queryPatients(int employeeID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
-        "SELECT * FROM `refer` " +
+        "SELECT DISTINCT * FROM `refer` " +
                 "INNER JOIN patient on refer.patient_id=patient.patient_id " +
                 "WHERE refer.employee_id = " + employeeID
         ) .executeQuery();

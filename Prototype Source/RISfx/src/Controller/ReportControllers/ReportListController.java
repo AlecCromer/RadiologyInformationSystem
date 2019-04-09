@@ -1,8 +1,6 @@
 package Controller.ReportControllers;
 
 import Controller.Main;
-import Model.Images;
-import Model.Patient;
 import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -98,15 +96,24 @@ public class ReportListController implements Initializable{
     ////////////////////
     //Database Queries//
     ////////////////////
-
-
-    public void completeList() throws Exception{
+    public void completeList() throws Exception {
         setSearch("Complete");
-        updateTable(getPatientList());
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if (pms.contains(1)) {
+            updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+        } else {
+            updateTable(getPatientList());
+        }
     }
+
     public void incompleteList() throws Exception{
         setSearch("Needs Review");
-        updateTable(getPatientList());
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if (pms.contains(1)) {
+            updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+        } else {
+            updateTable(getPatientList());
+        }
     }
     ///////////////////
     //List Generators//

@@ -2,7 +2,6 @@ package Controller.BillingControllers;
 
 import Controller.Main;
 import Model.Appointment;
-import Model.Invoice;
 import Model.Item;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,15 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class InvoiceController implements Initializable {
 
