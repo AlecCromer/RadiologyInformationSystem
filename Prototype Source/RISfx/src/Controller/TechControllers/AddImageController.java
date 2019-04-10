@@ -103,7 +103,6 @@ public class AddImageController  implements Initializable {
         while(rs.next()){
             machine.add(rs.getInt("machine_id")+ ": "+ rs.getString("machine_name"));
         }
-        System.out.println("hello?");
         machine.toString();
         machineBox.setItems(machine);
     }
