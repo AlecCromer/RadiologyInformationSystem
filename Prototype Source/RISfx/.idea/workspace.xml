@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="479e1c48-f6fc-47f6-95be-24aa8d32d188" name="Default Changelist" comment="4-3-19 at 5:17PM">
+    <list default="true" id="479e1c48-f6fc-47f6-95be-24aa8d32d188" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/AddImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/AddImageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/ReportViews/ReportList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/ReportViews/ReportList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TechControllers/AddImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TechControllers/AddImageController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/AddImageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="17">
+              <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1394">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="68">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +111,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -130,6 +120,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,17 +283,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554866115744" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554867059344" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
@@ -358,13 +348,15 @@
       <workItem from="1554743945428" duration="3410000" />
       <workItem from="1554767094335" duration="2849000" />
       <workItem from="1554856641643" duration="8837000" />
+      <workItem from="1554866619879" duration="477000" />
+      <workItem from="1554867154906" duration="237000" />
     </task>
-    <task id="LOCAL-00001" summary="Don't pull or merge">
-      <created>1553930674521</created>
+    <task id="LOCAL-00001" summary="4-3-19 at 5:17PM">
+      <created>1554866682735</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1553930674522</updated>
+      <updated>1554866682735</updated>
     </task>
     <task id="LOCAL-00002" summary="Validation for the Referral Form has been added at the moment it is only for the first name and last name had to work on regex which took longer than expected.">
       <created>1553965048460</created>
@@ -401,16 +393,17 @@
       <option name="project" value="LOCAL" />
       <updated>1554326250701</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57965000" />
+    <option name="totallyTimeSpent" value="58679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21104388" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21709532" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -418,10 +411,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Duplicate detector" weight="0.3289689" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.2618658" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.2618658" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.20294599" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -429,9 +421,10 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.14566284" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23895253" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.46972176" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3289689" />
+      <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
@@ -945,16 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1394">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/TechViews/addImage.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -963,10 +946,20 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/AddImageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="17">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

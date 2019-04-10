@@ -64,10 +64,10 @@ public class AddImageController  implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
-        File choosenfile = fileChooser.showOpenDialog(Main.getPopup());
+        File chosenfile = fileChooser.showOpenDialog(Main.getPopup());
         Main.popup.setAlwaysOnTop(false);
-        file = choosenfile.getPath();
-        Image image = new Image("file:" + choosenfile);
+        file = chosenfile.getPath();
+        Image image = new Image("file:" + chosenfile);
         imageview.setImage(image);
         uploadImage.setVisible(true);
     }
@@ -103,6 +103,7 @@ public class AddImageController  implements Initializable {
         while(rs.next()){
             machine.add(rs.getInt("machine_id")+ ": "+ rs.getString("machine_name"));
         }
+        System.out.println("hello?");
         machine.toString();
         machineBox.setItems(machine);
     }
