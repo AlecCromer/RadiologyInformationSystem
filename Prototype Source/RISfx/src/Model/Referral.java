@@ -44,11 +44,11 @@ public class Referral {
         ).executeQuery();
     }
 
-    public static void insertNewReferral(int patientID, int employeeID, int procedureID, String urgency, String referralReason, String specialComments) throws Exception{
+    public static void insertNewReferral(int patientID, int employeeID, int procedureID, String urgency, String referralReason, String specialComments, int height, int weight, int heartRate, int systolicPressure, int diastolicPressure) throws Exception{
 
         PreparedStatement insertNewReferral = databaseConnector.getConnection().prepareStatement(
-                "INSERT INTO refer(employee_id, patient_id, procedure_id, is_processed, urgency, reason_for_referral, special_comments)" +
-                        "VALUES (?, ?, ?, 0, ?, ?, ?)"
+                "INSERT INTO refer(employee_id, patient_id, procedure_id, is_processed, urgency, reason_for_referral, special_comments, height, weight, heart_rate, systolic_pressure, diastolic_pressure)" +
+                        "VALUES (?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
         insertNewReferral.setInt(1,employeeID);
@@ -57,6 +57,11 @@ public class Referral {
         insertNewReferral.setString(4,urgency);
         insertNewReferral.setString(5,referralReason);
         insertNewReferral.setString(6,specialComments);
+        insertNewReferral.setInt(7, height);
+        insertNewReferral.setInt(8, weight);
+        insertNewReferral.setInt(9, heartRate);
+        insertNewReferral.setInt(10, systolicPressure);
+        insertNewReferral.setInt(11, diastolicPressure);
 
         insertNewReferral.executeUpdate();
     }
