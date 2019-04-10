@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="RISfx">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/RISfx.jar!/" />
       <root url="jar://$PROJECT_DIR$/mysql-connector-java-8.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RISfx.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
