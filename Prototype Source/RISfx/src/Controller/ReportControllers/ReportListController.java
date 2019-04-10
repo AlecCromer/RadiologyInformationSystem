@@ -101,12 +101,34 @@ public class ReportListController implements Initializable{
 
 
     public void completeList() throws Exception{
+        ArrayList pms = Main.getSessionUser().getPermissions();
         setSearch("Complete");
         updateTable(getPatientList());
+        if(pms.contains(1)){
+            try {
+                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            updateTable(getPatientList());
+        }
     }
     public void incompleteList() throws Exception{
+        ArrayList pms = Main.getSessionUser().getPermissions();
         setSearch("Needs Review");
         updateTable(getPatientList());
+        if(pms.contains(1)){
+            try {
+                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            updateTable(getPatientList());
+        }
     }
     ///////////////////
     //List Generators//
