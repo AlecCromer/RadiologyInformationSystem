@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,8 +27,6 @@
                 <Font name="Calibri Bold" size="24.0" />
             </font>
         </Text>
-        <Button layoutX="515.0" layoutY="10.0" mnemonicParsing="false" onAction="#incompleteList" text="Incomplete" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
-        <Button layoutX="444.0" layoutY="10.0" mnemonicParsing="false" onAction="#completeList" text="Complete" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="10.0" />
     </children>
     <stylesheets>
         <URL value="@ReportList.css" />

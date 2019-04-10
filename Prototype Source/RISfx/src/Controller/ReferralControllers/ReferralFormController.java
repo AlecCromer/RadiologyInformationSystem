@@ -209,7 +209,6 @@ public class ReferralFormController implements Initializable {
  }
     private void error(int fieldID) {
 
-
         switch (fieldID) {
             case 0: {
                 patentFirstName.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
