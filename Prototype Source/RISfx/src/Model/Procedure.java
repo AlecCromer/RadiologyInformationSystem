@@ -47,11 +47,7 @@ public class Procedure {
     }
 
     public static int queryProcedureLength(int procedureId)throws Exception{
-
-        System.out.println("SELECT procedure_length \" +\n" +
-                "                        \"FROM procedures \" +\n" +
-                "                        \"WHERE procedure_id = " + procedureId);
-        ResultSet procL = databaseConnector.getStartConnection().prepareStatement(
+        ResultSet procL = databaseConnector.getConnection().prepareStatement(
                 "SELECT procedure_length " +
                         "FROM procedures " +
                         "WHERE procedure_id = " + procedureId).executeQuery();

@@ -21,6 +21,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class AddAppointmentController implements Initializable {
@@ -89,7 +90,7 @@ public class AddAppointmentController implements Initializable {
     }
 
     private void updateTable() throws Exception{
-        scheduleTime.setItems(FXCollections.observableArrayList());
+        //scheduleTime.setItems(FXCollections.observableArrayList());
         scheduleTime.setItems(generateTimeSlots(60));
         timeSlotCol.setCellValueFactory(new PropertyValueFactory<Appointment, LocalTime>("appointmentTime"));
         techCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
@@ -125,11 +126,16 @@ public class AddAppointmentController implements Initializable {
 
            ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
 
-            for (ScheduleConflict confl: conflicts) {
-                for (Appointment timeSlot: timeSlotList) {
-                    if(confl.getConflictDateTime().equals(LocalDateTime.of(timeSlot.getAppointmentDate().toLocalDate(), timeSlot.getAppointmentTime().toLocalTime()))){
-                        int i = timeSlotList.indexOf(timeSlot) -2;
-                        timeSlotList.remove(i-Procedure.queryProcedureLength(comboSelection), i+confl.getConflictLength());
+
+            for (int i = 0; i < timeSlotList.toArray().length; i++) {
+                for (ScheduleConflict confl: conflicts) {
+                    if(confl.getConflictDateTime().equals(LocalDateTime.of(timeSlotList.get(i).getAppointmentDate().toLocalDate(), timeSlotList.get(i).getAppointmentTime().toLocalTime()))){
+                        try {
+                            timeSlotList.remove(i - Procedure.queryProcedureLength(comboSelection)+1, i + confl.getConflictLength());
+                        }
+                        catch (Exception e){
+                            System.out.println("oof");
+                        }
                     }
                 }
             }
