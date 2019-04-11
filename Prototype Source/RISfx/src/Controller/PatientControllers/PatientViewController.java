@@ -49,9 +49,9 @@ public class PatientViewController implements Initializable {
     TableColumn<Appointment, Integer> appointmentID;
     @FXML
     TableColumn<Appointment, String> patientStatus, appointmentDate;
-    TableColumn<Appointment, Integer>   appointmentID, AppointmentID;
+    TableColumn<Appointment, Integer>   AppointmentID;
     @FXML
-    TableColumn<Appointment, String>    patientStatus, appointmentDate, ProcedureName, PatientStatus;
+    TableColumn<Appointment, String>    ProcedureName, PatientStatus;
     @FXML
     TableColumn<Appointment, Date>      AppointmentDate;
     @FXML
