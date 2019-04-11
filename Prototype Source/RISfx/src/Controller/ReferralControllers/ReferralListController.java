@@ -1,7 +1,6 @@
 package Controller.ReferralControllers;
 
 import Controller.AppointmentControllers.AddAppointmentController;
-import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.*;

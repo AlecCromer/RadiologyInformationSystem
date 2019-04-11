@@ -1,8 +1,6 @@
 package Controller.ProcedureControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
-import Model.Patient;
 import Model.Procedure;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,14 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import Controller.ProcedureControllers.AddProcedureController;
-import java.io.IOException;
+
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class ProcedureListController implements Initializable {

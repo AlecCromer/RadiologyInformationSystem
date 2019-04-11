@@ -1,8 +1,6 @@
 package Controller.ReportControllers;
 
 import Controller.Main;
-import Model.Images;
-import Model.Patient;
 import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -98,35 +96,23 @@ public class ReportListController implements Initializable{
     ////////////////////
     //Database Queries//
     ////////////////////
-
-
-    public void completeList() throws Exception{
-        ArrayList pms = Main.getSessionUser().getPermissions();
+    public void completeList() throws Exception {
         setSearch("Complete");
-        updateTable(getPatientList());
-        if(pms.contains(1)){
-            try {
-                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        else {
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if (pms.contains(1)) {
+            updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+        } else {
             updateTable(getPatientList());
         }
     }
+
     public void incompleteList() throws Exception{
         ArrayList pms = Main.getSessionUser().getPermissions();
         setSearch("Needs Review");
-        updateTable(getPatientList());
-        if(pms.contains(1)){
-            try {
-                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        else {
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if (pms.contains(1)) {
+            updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+        } else {
             updateTable(getPatientList());
         }
     }

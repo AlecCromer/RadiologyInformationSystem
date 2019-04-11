@@ -1,11 +1,11 @@
 package Model;
 
+import Controller.Main;
 import Controller.databaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -118,20 +118,58 @@ public class Patient {
         ).executeQuery();
     }
 
+    public static ResultSet queryPatients(int employeeID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+        "SELECT DISTINCT * FROM `refer` " +
+                "INNER JOIN patient on refer.patient_id=patient.patient_id " +
+                "WHERE refer.employee_id = " + employeeID
+        ) .executeQuery();
+    }
+
+    public static void updatePatientInfo(Patient patientToInsert, String address, String city, String state, String zip) throws Exception{
+        Connection conn = databaseConnector.getConnection();
+        if (updateAddress(address, city, state, zip) == 1) {
+
+            ResultSet addressSet = queryAddress(address, city, state, zip);
+            addressSet.next();
+            int address_id = addressSet.getInt("address_id");
+
+            PreparedStatement updateUser = conn.prepareStatement(
+                    "UPDATE patient " +
+                            "SET patient_id=?, first_name=?, last_name=?, date_of_birth=?, " +
+                            "home_phone=?, email=?, insurance_number=?, policy_number=?, address_id=? " +
+                            "WHERE patient_id = " + Main.getPatientFocus().getPatientID()
+            );
+
+            updateUser.setInt(1, Main.getPatientFocus().getPatientID());
+            updateUser.setString(2, patientToInsert.getFirstname());
+            updateUser.setString(3, patientToInsert.getLastname());
+            updateUser.setString(4, patientToInsert.getDob().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+            updateUser.setString(5, String.valueOf(patientToInsert.getPhoneNumber()));
+            updateUser.setString(6, patientToInsert.getEmail());
+            updateUser.setString(7, String.valueOf(patientToInsert.getInsuranceNumber()));
+            updateUser.setString(8, String.valueOf(patientToInsert.getPolicyNumber()));
+            updateUser.setInt(9, address_id);
+            updateUser.executeUpdate();
+        }
+    }
+    public static int updateAddress(String address, String city, String state, String zip) throws Exception{
+        String[] addr = Main.getPatientFocus().getAddress().split(", ");
+        ResultSet rs = queryAddress(addr[0], addr[1], addr[2], addr[3]);
+        rs.next();
+        PreparedStatement insertAddress = databaseConnector.getConnection().prepareStatement(
+                "UPDATE address " +
+                        "SET street_name=?, city=?, state=?, zip= ? " +
+                        "WHERE address.address_id = " + rs.getInt("address_id"));
+        return prepareAddress(insertAddress, address, city, state, zip).executeUpdate();
+    }
+
     private static PreparedStatement prepareAddress(PreparedStatement statement, String address, String city, String state, String zip) throws Exception{
         statement.setString(1, address);
         statement.setString(2, city);
         statement.setString(3, state);
         statement.setInt(4, Integer.parseInt(zip));
         return statement;
-    }
-
-    public static ResultSet queryPatients(int employeeID) throws Exception{
-        return databaseConnector.getConnection().prepareStatement(
-        "SELECT * FROM `refer` " +
-                "INNER JOIN patient on refer.patient_id=patient.patient_id " +
-                "WHERE refer.employee_id = " + employeeID
-        ) .executeQuery();
     }
 
 
@@ -285,5 +323,15 @@ public class Patient {
         this.phoneNumber = phoneNumber;
         this.insuranceNumber = insuranceNumber;
         this.policyNumber = policyNumber;
+    }
+
+    public Patient(String firstname, String lastname, String email, String phoneNumber, String insuranceNumber, String policyNumber, LocalDate dob) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.insuranceNumber = insuranceNumber;
+        this.policyNumber = policyNumber;
+        this.dob = dob;
     }
 }

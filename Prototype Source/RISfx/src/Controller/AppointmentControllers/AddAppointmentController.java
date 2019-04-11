@@ -1,7 +1,6 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
-import Controller.databaseConnector;
 import Model.Appointment;
 import Model.Employee;
 import Model.Procedure;
@@ -22,6 +21,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class AddAppointmentController implements Initializable {
@@ -90,7 +90,7 @@ public class AddAppointmentController implements Initializable {
     }
 
     private void updateTable() throws Exception{
-        scheduleTime.setItems(FXCollections.observableArrayList());
+        //scheduleTime.setItems(FXCollections.observableArrayList());
         scheduleTime.setItems(generateTimeSlots(60));
         timeSlotCol.setCellValueFactory(new PropertyValueFactory<Appointment, LocalTime>("appointmentTime"));
         techCol.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
@@ -112,25 +112,34 @@ public class AddAppointmentController implements Initializable {
             employeeStartTime   = employeeSchedule.getTime("start_time").toLocalTime();
             employeeEndTime     = employeeSchedule.getTime("end_time").toLocalTime();
 
-            ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
-
-            while (employeeStartTime.isBefore(employeeEndTime)) {
-                for (ScheduleConflict scheduleConflict:
-                        conflicts) {
-                    if ((scheduleConflict.getConflictDateTime().plusMinutes(scheduleConflict.getConflictLength()*60).toLocalTime() == employeeStartTime) ||
-                            (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) + 30).toLocalTime() == employeeStartTime) ||
-                            (scheduleConflict.getConflictDateTime().plusMinutes((scheduleConflict.getConflictLength()*60) - 30).toLocalTime() == employeeStartTime) ||
-                            (scheduleConflict.getConflictDateTime().toLocalTime() == employeeStartTime)){
-                        employeeStartTime = employeeStartTime.plusMinutes(scheduleConflict.getConflictLength()*60);
-                    }
-                }
+           while (employeeStartTime.isBefore(employeeEndTime) || employeeStartTime.equals(employeeEndTime)) {
+                //Generate a time slot and add it to the list
                 Appointment timeSlot = new Appointment(employeeSchedule.getInt("machine_id"), employeeSchedule.getString("machine_name"),
                         employeeSchedule.getInt("employee_id"), employeeSchedule.getString("employee_name"));
                 timeSlot.setAppointmentTime(Time.valueOf(employeeStartTime));
                 timeSlot.setAppointmentDate(Date.valueOf(employeeSchedule.getDate("start_time").toLocalDate()));
                 timeSlotList.add(timeSlot);
+
+                //increment
                 employeeStartTime = employeeStartTime.plusMinutes(minuteIncrement);
             }
+
+           ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
+
+
+            for (int i = 0; i < timeSlotList.toArray().length; i++) {
+                for (ScheduleConflict confl: conflicts) {
+                    if(confl.getConflictDateTime().equals(LocalDateTime.of(timeSlotList.get(i).getAppointmentDate().toLocalDate(), timeSlotList.get(i).getAppointmentTime().toLocalTime()))){
+                        try {
+                            timeSlotList.remove(i - Procedure.queryProcedureLength(comboSelection)+1, i + confl.getConflictLength());
+                        }
+                        catch (Exception e){
+                            System.out.println("oof");
+                        }
+                    }
+                }
+            }
+
         }
         return timeSlotList;
     }

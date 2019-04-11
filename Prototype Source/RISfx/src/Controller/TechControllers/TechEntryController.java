@@ -2,17 +2,14 @@ package Controller.TechControllers;
 
 import Controller.Main;
 import Controller.ReportControllers.ReportFormController;
-import Model.Appointment;
 import Model.Images;
 import Model.Item;
-import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
