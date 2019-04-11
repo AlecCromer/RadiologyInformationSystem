@@ -14,12 +14,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.lang.annotation.Repeatable;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -39,8 +41,6 @@ public class AddImageController  implements Initializable {
 
     private static String director = "", filename = "", filePath = "", file="";
     static String Appointment_id ="";
-    private static Frame JFrame = new Frame();
-    private static FileDialog fd = new FileDialog(JFrame, "Choose a file", FileDialog.LOAD);
 
 
     public void initialize(URL url, ResourceBundle arg1){
@@ -61,58 +61,29 @@ public class AddImageController  implements Initializable {
     }
     // User presses the select Image button and it gets displayed on screen
     public void captureImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+        File chosenfile = fileChooser.showOpenDialog(Main.getPopup());
         Main.popup.setAlwaysOnTop(false);
-        fd.setAlwaysOnTop(true);
-
-        file = fileChooser();
-        Image image = new Image("file:" + file);
+        file = chosenfile.getPath();
+        Image image = new Image("file:" + chosenfile);
         imageview.setImage(image);
         uploadImage.setVisible(true);
     }
-    // popup for user to select photo
 
-    public String fileChooser() {
-        fd.setDirectory("C:\\");
-        fd.setFile("*.jpg;*.jpeg;*.png");
-        fd.setVisible(true);
-        filename = fd.getFile();
-        director = fd.getDirectory().replace('\\', '/');
-        System.out.println(director + fd.getFile());
-            if (filename == null) {
-                System.out.println("User Cancelled the choice");
-
-            /*select.setOnAction(event -> {
-                try {
-                    fileChooser();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });*/ }
-            /*else if(select.isPressed()){
-                    Main.popup.setAlwaysOnTop(false);
-                    fd.setAlwaysOnTop(true);
-                    fileChooser();
-                }*/
-        else {
-            System.out.println("User chose " + filename);
-            filePath = director + fd.getFile();
-        }
-
-      JFrame.dispatchEvent(new WindowEvent(JFrame, WindowEvent.WINDOW_CLOSING));
-        return director + fd.getFile();
-    }
     //////////////////
     //Button Methods//
     //////////////////
     public void submitNewPhoto() throws Exception{
 
-        if (!filePath.isEmpty() && machineBox.getValue() != null){
+        if (!file.isEmpty() && machineBox.getValue() != null){
 
             //Removes the machine name, leaving only the machine ID
             String[] machine_id = machineBox.getValue().split(": ");
-            Images.insertNewImage( filePath, Integer.parseInt(machine_id[0]), Appointment_id);
+            Images.insertNewImage( file, Integer.parseInt(machine_id[0]), Appointment_id);
             Main.popup.close();
-            Main.getOuter().setDisable(false);
+            Main.getOuter().setEffect(null);
             Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
             TechEntryController.setView();
         }

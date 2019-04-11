@@ -55,25 +55,25 @@ public class NewPatientController implements Initializable {
     //////////////////
     @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception{
-        checkField();
+        if(!checkField()) {
             Patient.insertNewPatient((new Patient(
-                    fNameField.getText(),
-                    lNameField.getText(),
-                    sexField.getText(),
-                    emailField.getText(),
-                    dobField.getValue(),
-                    pNumberField.getText(),
-                    insuranceField.getText(),
-                    policyField.getText()
-            )),
+                            fNameField.getText(),
+                            lNameField.getText(),
+                            sexField.getText(),
+                            emailField.getText(),
+                            dobField.getValue(),
+                            pNumberField.getText(),
+                            insuranceField.getText(),
+                            policyField.getText()
+                    )),
                     addressField.getText(),
                     cityField.getText(),
                     stateField.getText(),
                     zipField.getText()
             );
-            checkField();
+        }
             Main.popup.close();
-            Main.getOuter().setDisable(false);
+            Main.getOuter().setEffect(null);
             Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
 
     }
@@ -116,7 +116,7 @@ public class NewPatientController implements Initializable {
       ///////////////////
      //Form Validation//
     ///////////////////
-      private void checkField() {
+      private boolean checkField() {
           if (!fNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
               error(0);
           } else {
@@ -182,6 +182,7 @@ public class NewPatientController implements Initializable {
           } else {
               error(25);
           }
+          return false;
       }
     private void error ( int fieldID){
 
