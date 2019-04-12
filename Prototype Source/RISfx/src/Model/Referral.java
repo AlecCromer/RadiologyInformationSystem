@@ -17,9 +17,49 @@ public class Referral {
     private String urgency;
     private String heartRate;
     private String referralReason, comments;
+    private int height, weight, heart_rate, systolic_pressure, diastolic_pressure;
 
+    public int getHeight() {
+        return height;
+    }
 
-      /////////////////////
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getHeart_rate() {
+        return heart_rate;
+    }
+
+    public void setHeart_rate(int heart_rate) {
+        this.heart_rate = heart_rate;
+    }
+
+    public int getSystolic_pressure() {
+        return systolic_pressure;
+    }
+
+    public void setSystolic_pressure(int systolic_pressure) {
+        this.systolic_pressure = systolic_pressure;
+    }
+
+    public int getDiastolic_pressure() {
+        return diastolic_pressure;
+    }
+
+    public void setDiastolic_pressure(int diastolic_pressure) {
+        this.diastolic_pressure = diastolic_pressure;
+    }
+
+/////////////////////
      //Object Generators//
     /////////////////////
 
@@ -32,7 +72,7 @@ public class Referral {
                 "SELECT patient.patient_id, patient.first_name AS patient_first_name, patient.last_name AS patient_last_name, patient.home_phone, " +
                         "employees.first_name AS referrer_first_name, employees.last_name AS referrer_last_name, employees.email AS referrer_email, " +
                         "procedures.procedure_name, procedures.procedure_length, " +
-                        "refer.referring_id, refer.employee_id, refer.procedure_id, refer.is_processed, refer.urgency " +
+                        "refer.referring_id, refer.employee_id, refer.procedure_id, refer.is_processed, refer.urgency, refer.height, refer.weight, refer.heart_rate, refer.systolic_pressure, refer.diastolic_pressure " +
 
                         "FROM `refer` " +
 
@@ -120,12 +160,17 @@ public class Referral {
       ////////////////
      //Constructors//
     ////////////////
-    public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency) {
+    public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, int height, int weight, int heart_rate, int systolic_pressure, int diastolic_pressure) {
         this.procedureRequested = procedureRequested;
         this.referrer = referrer;
         this.patient = patient;
         this.isProcessed = isProcessed;
         this.urgency = urgency;
+        this.height = height;
+        this.weight = weight;
+        this.heart_rate = heart_rate;
+        this.systolic_pressure = systolic_pressure;
+        this.diastolic_pressure = diastolic_pressure;
     }
 
     public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, String heartRate, String referralReason, String comments) {
@@ -137,5 +182,6 @@ public class Referral {
         this.heartRate = heartRate;
         this.referralReason = referralReason;
         this.comments = comments;
+
     }
 }
