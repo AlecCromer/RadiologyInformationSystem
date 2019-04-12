@@ -30,7 +30,7 @@ public class ReferralListController implements Initializable {
     TableColumn<Referral, Integer> patientID;
     @FXML
     TableColumn<Referral, String> patientFirstName, patientLastName, referrerFullName,
-            procedureName, patientPhone, urgency;
+            procedureName, patientPhone, urgency, height, weight, heart_rate, systolic, diastolic;
     @FXML
     AnchorPane referralView;
 
@@ -69,6 +69,11 @@ public class ReferralListController implements Initializable {
         procedureName.setCellValueFactory(new PropertyValueFactory<Referral, String>("procedureName"));
         patientPhone.setCellValueFactory(new PropertyValueFactory<Referral, String>("patientPhone"));
         urgency.setCellValueFactory(new PropertyValueFactory<Referral, String>("urgency"));
+        height.setCellValueFactory(new PropertyValueFactory<Referral, String>("height"));
+        weight.setCellValueFactory(new PropertyValueFactory<Referral, String>("weight"));
+        heart_rate.setCellValueFactory(new PropertyValueFactory<Referral, String>("heart_rate"));
+        systolic.setCellValueFactory(new PropertyValueFactory<Referral, String>("systolic_pressure"));
+        diastolic.setCellValueFactory(new PropertyValueFactory<Referral, String>("diastolic_pressure"));
     }
 
 
@@ -99,7 +104,12 @@ public class ReferralListController implements Initializable {
                                 resultSet.getString("home_phone")
                         ),
                         resultSet.getBoolean("is_processed"),
-                        resultSet.getString("urgency")
+                        resultSet.getString("urgency"),
+                        resultSet.getInt("height"),
+                        resultSet.getInt("weight"),
+                        resultSet.getInt("heart_rate"),
+                        resultSet.getInt("systolic_pressure"),
+                        resultSet.getInt("diastolic_pressure")
                 ));
             }
         } catch (SQLException ex) {
