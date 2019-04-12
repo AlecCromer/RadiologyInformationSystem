@@ -2,7 +2,6 @@ package Model;
 
 import Controller.Main;
 import Controller.databaseConnector;
-import javafx.stage.Modality;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;

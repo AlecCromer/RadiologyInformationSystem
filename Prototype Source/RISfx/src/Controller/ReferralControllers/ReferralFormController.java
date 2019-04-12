@@ -20,7 +20,8 @@ public class ReferralFormController implements Initializable {
     ////////////////////////
     @FXML TextField patentFirstName,    patientLastName,        patientStreet,          patientSex,
                     patientCity,        patientState,           patientZip,             patientPhone,
-                    patientEmail,       patientInsuranceNumber, patientPolicyNumber,    patientVitals;
+                    patientEmail,       patientInsuranceNumber, patientPolicyNumber,
+                    heartRate, diastolicPressure, systolicPressure, weight, height;
 
     @FXML ComboBox<String>  procedureBox, urgencyBox;
     @FXML TextArea          referralReason, referralComments;
@@ -90,7 +91,7 @@ public class ReferralFormController implements Initializable {
             );
         int employeeID = Main.getSessionUser().getEmployeeId();
 
-        Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText());
+        Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText(), Integer.parseInt(height.getText()),  Integer.parseInt(weight.getText()),  Integer.parseInt(heartRate.getText()),  Integer.parseInt(systolicPressure.getText()),  Integer.parseInt(diastolicPressure.getText()));
         Main.popup.close();
         Main.getOuter().setDisable(false);
         Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
@@ -167,7 +168,7 @@ public class ReferralFormController implements Initializable {
         else{
             error(21);
         }
-        if(!patientVitals.getText().matches("^(?=.*[0-9]).*$")){
+        if(!heartRate.getText().matches("^[0-9]{1,4}+$")){
             error(22);
         }
         else{
@@ -204,6 +205,31 @@ public class ReferralFormController implements Initializable {
         else{
             error(33);
         }
+         if(!systolicPressure.getText().matches("^[0-9]{1,4}+$")){
+             error(34);
+         }
+         else{
+             error(35);
+         }
+
+         if(!height.getText().matches("^[0-9]{1,4}+$")){
+             error(36);
+         }
+         else{
+             error(37);
+         }
+         if(!weight.getText().matches("^[0-9]{1,4}+$")){
+             error(38);
+         }
+         else{
+             error(39);
+         }
+         if(!diastolicPressure.getText().matches("^[0-9]{1,4}+$")){
+             error(40);
+         }
+         else{
+             error(41);
+         }
  }
     private void error(int fieldID) {
 
@@ -297,11 +323,11 @@ public class ReferralFormController implements Initializable {
                 return;
             }
             case 22: {
-                patientVitals.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                heartRate.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
                 return;
             }
             case 23: {
-                patientVitals.setStyle(null);
+                heartRate.setStyle(null);
                 return;
             }
             case 24: {
@@ -342,6 +368,38 @@ public class ReferralFormController implements Initializable {
             }
             case 33: {
                 patientDoB.setStyle(null);
+                return;
+            }
+            case 34: {
+                systolicPressure.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 35: {
+                systolicPressure.setStyle(null);
+                return;
+            }
+            case 36: {
+                height.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 37: {
+                height.setStyle(null);
+                return;
+            }
+            case 38: {
+                weight.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 39: {
+                weight.setStyle(null);
+                return;
+            }
+            case 40: {
+                diastolicPressure.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 41: {
+                diastolicPressure.setStyle(null);
                 return;
             }
         }

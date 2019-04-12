@@ -52,11 +52,6 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="579.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Balance">
-         <font>
-            <Font name="Calibri" size="14.0" />
-         </font>
-      </Text>
       <Text layoutX="21.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Procedures" underline="true" wrappingWidth="159.525390625">
          <font>
             <Font name="Calibri" size="18.0" />
@@ -84,7 +79,6 @@
       <TextField fx:id="dobField" disable="true" layoutX="159.0" layoutY="119.0" prefHeight="25.0" prefWidth="79.0" AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="55.0" />
       <TextField fx:id="emailField" disable="true" layoutX="115.0" layoutY="146.0" prefHeight="25.0" prefWidth="258.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="146.0" />
       <TextField fx:id="InsuranceField" disable="true" layoutX="159.0" layoutY="174.0" prefHeight="25.0" prefWidth="151.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="174.0" />
-      <TextField fx:id="balanceField" disable="true" layoutX="579.0" layoutY="70.0" prefHeight="25.0" prefWidth="95.0" AnchorPane.leftAnchor="579.0" AnchorPane.topAnchor="70.0" />
       <Button layoutX="-12.0" layoutY="323.0" mnemonicParsing="false" onAction="#setAppointmentView" prefHeight="25.0" prefWidth="847.0" text="PlaceHolderforRow" visible="false" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="319.0" />
       <Button layoutX="811.0" layoutY="267.0" mnemonicParsing="false" onAction="#setAddAppointment" text="Schedule New" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="267.0" />
       <TableView layoutX="691.0" layoutY="52.0" prefHeight="200.0" prefWidth="620.0" AnchorPane.leftAnchor="685.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">

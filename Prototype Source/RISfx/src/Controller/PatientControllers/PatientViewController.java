@@ -19,18 +19,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-import javax.swing.text.DateFormatter;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.text.FieldPosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class PatientViewController implements Initializable {
 
@@ -145,25 +142,39 @@ public class PatientViewController implements Initializable {
             pNumberField.setDisable(false);
             addressField.setDisable(false);
             dobField.setDisable(false);
-            sNumberField.setDisable(false);
             InsuranceField.setDisable(false);
-            balanceField.setDisable(false);
+            policyField.setDisable(false);
             emailField.setDisable(false);
             EditPatientInfoButton.setText("Submit");
-        }
-        else{
-            //TODO: Add code for submitting changed info
+        } else {
             EditPatientLock = false;
             fNameField.setDisable(true);
             lNameField.setDisable(true);
             pNumberField.setDisable(true);
             addressField.setDisable(true);
             dobField.setDisable(true);
-            sNumberField.setDisable(true);
             emailField.setDisable(true);
             InsuranceField.setDisable(true);
-            balanceField.setDisable(true);
+            policyField.setDisable(true);
             EditPatientInfoButton.setText("Edit Patient Info.");
+
+            String[] addr = addressField.getText().split(", ");
+
+            //Patient patientToInsert, String address, String city, String state, String zip
+            Patient.updatePatientInfo(new Patient(
+                    //String firstname, String lastname, String email, String phoneNumber, String insuranceNumber, String policyNumber, LocalDate dob
+                    fNameField.getText(),
+                    lNameField.getText(),
+                    emailField.getText(),
+                    pNumberField.getText(),
+                    InsuranceField.getText(),
+                    policyField.getText(),
+                    LocalDate.parse(dobField.getText(), DateTimeFormatter.ofPattern("MM/dd/yyyy"))
+            ),
+                addr[0],
+                addr[1],
+                addr[2],
+                addr[3]);
         }
     }
 
@@ -194,4 +205,151 @@ public class PatientViewController implements Initializable {
         rs.next();
         Main.setAppointmentFocus(Appointment.generateAppointmentFocus(rs));
     }
-}
+
+    ///////////////////
+    //Form Validation//
+    ///////////////////
+
+    private void checkField() {
+        if (!fNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+            error(0);
+        } else {
+            error(1);
+        }
+        if (!lNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+            error(2);
+        } else {
+            error(3);
+        }
+        if (!pNumberField.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")) {
+            error(4);
+        } else {
+            error(5);
+        }
+        if (!addressField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
+            error(6);
+        } else {
+            error(7);
+        }
+        if (!dobField.getText().matches("^(?=.*[a-z])+(?=.*[A-Z]).*$")) {
+            error(8);
+        } else {
+            error(9);
+        }
+        if (!sNumberField.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")) { //Come back to this
+            error(10);
+        } else {
+            error(11);
+        }
+        if (!emailField.getText().matches("^1?[\\(\\- ]*\\d{3}[\\)-\\. ]*\\d{3}[-\\. ]*\\d{4}$")) { //Was mapping out logic will clean up later
+            error(12);
+        } else {
+            error(13);
+        }
+        if (!InsuranceField.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")) {
+            error(14);
+        } else {
+            error(15);
+        }
+        if (!balanceField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
+            error(16);
+        } else {
+            error(17);
+        }
+        if (!policyField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) {
+            error(18);
+        } else {
+            error(19);
+        }
+
+    }
+    private void error ( int fieldID){
+
+        switch (fieldID) {
+            case 0: {
+           /* patentFirstName.clear(); not sure if it would be good to clear and provide a hint for them
+            patentFirstName.setPromptText("Need to capitalize first letter of name");*/
+                fNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 1: {
+                fNameField.setStyle(null);
+                return;
+            }
+            case 2: {
+            /* patentFirstName.clear();
+            patentFirstName.setPromptText("Need to capitalize first letter of name");*/
+                lNameField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 3: {
+                lNameField.setStyle(null);
+                return;
+            }
+            case 4: {
+                pNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 5: {
+                pNumberField.setStyle(null);
+                return;
+            }
+            case 6: {
+                addressField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 7: {
+                addressField.setStyle(null);
+                return;
+            }
+            case 8: {
+                dobField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 9: {
+                dobField.setStyle(null);
+                return;
+            }
+            case 10: {
+                sNumberField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 11: {
+                sNumberField.setStyle(null);
+                return;
+            }
+            case 12: {
+                emailField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 13: {
+                emailField.setStyle(null);
+                return;
+            }
+            case 14: {
+                InsuranceField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 15: {
+                InsuranceField.setStyle(null);
+                return;
+            }
+            case 16: {
+                balanceField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 17: {
+                balanceField.setStyle(null);
+                return;
+            }
+            case 18: {
+                policyField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+                return;
+            }
+            case 19: {
+                policyField.setStyle(null);
+                return;
+            }
+        }
+    }
+    }

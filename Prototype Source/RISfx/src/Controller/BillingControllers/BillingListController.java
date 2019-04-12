@@ -1,14 +1,9 @@
 package Controller.BillingControllers;
 
-import Controller.AppointmentControllers.AppointmentListController;
-import Controller.AppointmentControllers.AppointmentViewController;
 import Controller.Main;
 import Model.Appointment;
-import javafx.beans.Observable;
-import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -82,7 +77,6 @@ public class BillingListController implements Initializable {
             addition.setBalance();
             billingList.add(addition);
         }
-
         return billingList;
     }
 }

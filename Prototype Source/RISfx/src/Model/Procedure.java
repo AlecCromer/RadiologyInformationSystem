@@ -7,8 +7,6 @@ import javafx.collections.ObservableList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Struct;
-import java.util.ArrayList;
 
 public class Procedure {
     //Returns list for procedure combo boxes
@@ -49,7 +47,7 @@ public class Procedure {
     }
 
     public static int queryProcedureLength(int procedureId)throws Exception{
-        ResultSet procL = databaseConnector.getStartConnection().prepareStatement(
+        ResultSet procL = databaseConnector.getConnection().prepareStatement(
                 "SELECT procedure_length " +
                         "FROM procedures " +
                         "WHERE procedure_id = " + procedureId).executeQuery();
