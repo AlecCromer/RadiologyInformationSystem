@@ -107,7 +107,6 @@ public class ReportListController implements Initializable{
     }
 
     public void incompleteList() throws Exception{
-        ArrayList pms = Main.getSessionUser().getPermissions();
         setSearch("Needs Review");
         ArrayList pms = Main.getSessionUser().getPermissions();
         if (pms.contains(1)) {
