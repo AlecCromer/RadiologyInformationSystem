@@ -56,8 +56,10 @@ public class NewPatientController implements Initializable {
     //////////////////
     @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception {
-        checkField();
-        for (Node node : pane.getChildren()) {
+        if (checkField()== true){
+            submitToDB();
+        }
+       /* for (Node node : pane.getChildren()) {
             //System.out.println("Id: " + node.getId());
             if (node instanceof TextField) {
                 // clear
@@ -70,10 +72,10 @@ public class NewPatientController implements Initializable {
                     submitToDB();
                 }
             }
-        }
+        }*/
 
-
-        System.out.println("rethink your logic");
+else{
+        System.out.println("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET");}
 
     }
        public void submitToDB() throws Exception{
@@ -114,8 +116,8 @@ public class NewPatientController implements Initializable {
      //Form Validation//
     ///////////////////
     @SuppressWarnings("Duplicates")
-      private  void  checkField() {
-
+      private  boolean  checkField() {
+            if(checkAgain() == true){
                 if (!fNameField.getText().matches("^(?=.*[a-zA-Z]).*$")) {
                     error(0);
                 } else {
@@ -183,11 +185,10 @@ public class NewPatientController implements Initializable {
                     error(25);
                 }
                 System.out.println("Run again");
-           /* }
-            else{
                 return false;
-            }*/
-        //return true;
+            }
+
+            return true;
 
       }
 
@@ -304,19 +305,24 @@ public class NewPatientController implements Initializable {
         }
 
     }
-    private void checkAgain() {
+    private boolean checkAgain() {
 
         if (fNameField.getText().matches("^(?=.*[a-zA-Z]).*$") && lNameField.getText().matches("^(?=.*[a-zA-Z]).*$")
                 && pNumberField.getText().matches("^1?[\\(\\- ]*\\d{3}[\\)-\\. ]*\\d{3}[-\\. ]*\\d{4}$")
                 && addressField.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")
-                && sNumberField.getText().matches("^(?=.*[a-zA-Z]).*$") &&
-                emailField.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$") &&
+                && emailField.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$") &&
                 cityField.getText().matches("^(?=.*[a-zA-z]).*$") &&
                 stateField.getText().matches("^(?=.*[a-zA-z]).*$") &&
                 zipField.getText().matches("^(?=^.{5,5}$)(?=.*[0-9]).*$") &&
                 policyField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$") &&
                 sexField.getText().matches("^(?=.*[a-zA-Z]).*$") &&
-                insuranceField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")) ;
+                insuranceField.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")){
 
+            return false;
+
+        }
+        else {
+            return true;
+        }
     }
 }
