@@ -91,7 +91,7 @@ public class Main extends Application {
         Scene view = new Scene(root, 520, 300);
         popup.setScene(view);
         popup.setAlwaysOnTop(true);
-        popup.setTitle("RIS Clinic System");
+        popup.setTitle("RIS Clinic");
         popup.getIcons().add(new Image("View/icons/icon.png"));
         popup.show();
         Outer.setEffect(bb);
@@ -161,7 +161,7 @@ public class Main extends Application {
         databaseConnector.getStartConnection();
         Parent root = FXMLLoader.load(getClass().getResource("../View/LoginView.fxml"));
 
-        primaryStage.setTitle("RIS Clinic System");
+        primaryStage.setTitle("RIS Clinic");
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("View/icons/icon.png"));
         primaryStage.setScene(new Scene(root, 300, 325));

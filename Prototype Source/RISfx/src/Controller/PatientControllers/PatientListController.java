@@ -70,7 +70,6 @@ public class PatientListController implements Initializable {
 
     public void updateTable() {
         try {
-
             PatientList.setItems(getPatientList());
         } catch (Exception e) {
             // TODO Auto-generated catch block

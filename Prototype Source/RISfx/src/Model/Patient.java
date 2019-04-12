@@ -1,7 +1,6 @@
 package Model;
 
 import Controller.databaseConnector;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +15,7 @@ public class Patient {
     ////////////////////////
     //Variable Declaration//
     ////////////////////////
-    private String  firstname;
+    private String firstname;
     private String lastname;
     private String sex;
     private String email;
@@ -70,8 +69,9 @@ public class Patient {
     public static int insertNewPatient(Patient patientToInsert, String address, String city, String state, String zip) throws Exception {
         Connection conn = databaseConnector.getConnection();
         int patientID = -1;
-        if (insertAddress(address, city, state, zip) == 1) {
 
+        //this may be the problem brisaac
+        if (insertAddress(address, city, state, zip) == 1) {
             ResultSet addressSet = queryAddress(address, city, state, zip);
             addressSet.next();
             int address_id = addressSet.getInt("address_id");

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="499.0" prefWidth="620.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.NewPatientController">
+<AnchorPane fx:id="pane" prefHeight="499.0" prefWidth="620.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.NewPatientController">
 
     <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Patient" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="14.5">
         <font>
@@ -100,7 +100,6 @@
    <TextField fx:id="zipField" layoutX="233.0" layoutY="111.0" prefHeight="25.0" prefWidth="62.0" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="111.0" />
     <TextField fx:id="emailField" layoutX="386.0" layoutY="111.0" prefHeight="25.0" prefWidth="193.0" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="111.0" />
     <TextField fx:id="pNumberField" layoutX="162.0" layoutY="143.0" prefHeight="25.0" prefWidth="125.0" AnchorPane.leftAnchor="162.0" AnchorPane.topAnchor="143.0" />
-    <TextField fx:id="sNumberField" layoutX="465.0" layoutY="143.0" prefHeight="25.0" prefWidth="118.0" visible="false" AnchorPane.leftAnchor="465.0" AnchorPane.topAnchor="143.0" />
     <TextField fx:id="insuranceField" layoutX="133.0" layoutY="175.0" prefHeight="25.0" prefWidth="152.0" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="175.0" />
    <TextField fx:id="policyField" layoutX="406.0" layoutY="180.0" prefHeight="25.0" prefWidth="174.0" AnchorPane.leftAnchor="406.0" AnchorPane.topAnchor="180.0" />
    <CheckBox fx:id="toggler" layoutX="208.0" layoutY="221.0" mnemonicParsing="false" onAction="#toggleSchedule" />
