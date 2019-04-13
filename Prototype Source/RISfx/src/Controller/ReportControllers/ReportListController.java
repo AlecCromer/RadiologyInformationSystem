@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,6 +28,7 @@ public class ReportListController implements Initializable{
 
     @FXML private TableView<Report>            ReportList;
     @FXML private TableColumn<Report, String>  patientID, firstname, lastname, dob, sex;
+    @FXML private Button incomplete;
 
 
     public String getSearch() {
@@ -48,6 +50,14 @@ public class ReportListController implements Initializable{
         ArrayList pms = Main.getSessionUser().getPermissions();
         if(pms.contains(2)){
             try {
+                incomplete.setVisible(false);
+                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else if(pms.contains(1)){
+            try {
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -55,6 +65,7 @@ public class ReportListController implements Initializable{
         }
         else {
             try {
+                incomplete.setVisible(true);
                 updateTable(getPatientList());
             }catch (Exception e){}
             ReportList.setOnMouseClicked((MouseEvent event) -> {
