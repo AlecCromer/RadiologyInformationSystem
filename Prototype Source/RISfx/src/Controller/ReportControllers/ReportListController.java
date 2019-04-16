@@ -46,7 +46,7 @@ public class ReportListController implements Initializable{
     public void initialize(URL url, ResourceBundle arg1) {
         setSearch("Needs Review");
         ArrayList pms = Main.getSessionUser().getPermissions();
-        if(pms.contains(1)){
+        if(pms.contains(2)){
             try {
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
             } catch (Exception e) {
@@ -99,7 +99,7 @@ public class ReportListController implements Initializable{
     public void completeList() throws Exception {
         setSearch("Complete");
         ArrayList pms = Main.getSessionUser().getPermissions();
-        if (pms.contains(1)) {
+        if (pms.contains(2)) {
             updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
         } else {
             updateTable(getPatientList());
@@ -107,10 +107,9 @@ public class ReportListController implements Initializable{
     }
 
     public void incompleteList() throws Exception{
-        ArrayList pms = Main.getSessionUser().getPermissions();
         setSearch("Needs Review");
         ArrayList pms = Main.getSessionUser().getPermissions();
-        if (pms.contains(1)) {
+        if (pms.contains(2)) {
             updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
         } else {
             updateTable(getPatientList());
