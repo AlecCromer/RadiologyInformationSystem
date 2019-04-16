@@ -91,17 +91,33 @@ public class ScheduleEmployeeController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
-    public void submitNewSchedule() throws Exception{
+    public void submitNewSchedule(){
         String startTime = (StartField.getText().length()<5) ? "0"+StartField.getText() : StartField.getText();
         String endTime = (EndField.getText().length()<5) ? "0"+EndField.getText() : EndField.getText();
 
-        Employee.insertNewSchedule(
-                EmployeeBox.getValue().getEmployeeId(),
-                ScheduleDate.getValue(),
-                LocalTime.parse(startTime),
-                LocalTime.parse(endTime));
-        Main.getOuter().setDisable(false);
-        Main.popup.close();
+        try {
+            Employee.insertNewSchedule(
+                    EmployeeBox.getValue().getEmployeeId(),
+                    ScheduleDate.getValue(),
+                    LocalTime.parse(startTime),
+                    LocalTime.parse(endTime));
+            Main.getOuter().setEffect(null);
+            Main.popup.close();
+        }
+        catch (Exception e){
+            if(EmployeeBox.getValue() == null){
+                EmployeeBox.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            }
+            if(ScheduleDate.getValue() == null){
+                ScheduleDate.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            }
+            if(StartSlide.getValue() == 0.0){
+                StartField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            }
+            if(EndSlide.getValue() == 0.0){
+                EndField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            }
+        }
     }
 
 }

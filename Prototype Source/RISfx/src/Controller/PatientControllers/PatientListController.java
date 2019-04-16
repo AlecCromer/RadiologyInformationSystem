@@ -1,6 +1,7 @@
 package Controller.PatientControllers;
 
 import Controller.Main;
+import Controller.ReferralControllers.ReferralFormController;
 import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,13 +31,15 @@ public class PatientListController implements Initializable {
     @FXML private TableColumn<Patient, String>      patientID, firstname, lastname, dob, sex, email;
     @FXML private TableColumn<Patient, Integer>     phoneNumber;
 
+    private  ArrayList pms;
+
 
       ////////////////
      //Initializers//
     ////////////////
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
-        ArrayList pms = Main.getSessionUser().getPermissions();
+        pms = Main.getSessionUser().getPermissions();
         if(pms.contains(1)){
             try {
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
@@ -139,7 +142,11 @@ public class PatientListController implements Initializable {
      //Button Methods//
     //////////////////
     public void setAddPatientView()throws Exception{
-        NewPatientController.setView();
+        if(pms.contains(1)){
+            ReferralFormController.setView();
+        }
+        else
+            NewPatientController.setView();
     }
 
     public static void setPatientView()throws Exception{

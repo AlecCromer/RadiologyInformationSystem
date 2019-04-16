@@ -170,8 +170,13 @@ public class AddAppointmentController implements Initializable {
             Appointment appointmentToSubmit = scheduleTime.getSelectionModel().getSelectedItem();
             appointmentToSubmit.setProcedure(comboSelection);
             appointmentToSubmit.setPatientId(Integer.parseInt(patientIDField.getText()));
-            Appointment.submitNewAppointment(appointmentToSubmit);
-            exitView();
+            try {
+                Appointment.submitNewAppointment(appointmentToSubmit);
+                exitView();
+            }catch (Exception e){
+                patientIDField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            }
+
         }
     }
 
@@ -208,7 +213,7 @@ public class AddAppointmentController implements Initializable {
 
     private void exitView() throws Exception{
         Main.popup.close();
-        Main.getOuter().setDisable(false);
+        Main.getOuter().setEffect(null);
         Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
     }
 }
