@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,8 +25,8 @@ public class PatientListController implements Initializable {
       ////////////////////////
      //Variable Declaration//
     ////////////////////////
-
-@FXML private TableView<Patient>                    PatientList;
+    @FXML private Button                            uniButton;
+    @FXML private TableView<Patient>                PatientList;
     @FXML private TableColumn<Patient, String>      patientID, firstname, lastname, dob, sex, email;
     @FXML private TableColumn<Patient, Integer>     phoneNumber;
 
@@ -39,6 +40,7 @@ public class PatientListController implements Initializable {
         if(pms.contains(1)){
             try {
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+                uniButton.setText("New Referral");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -89,7 +91,7 @@ public class PatientListController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
-      @SuppressWarnings("Duplicates")
+    @SuppressWarnings("Duplicates")
     public ObservableList<Patient>  getPatientList() throws Exception {
         ObservableList<Patient> patients = FXCollections.observableArrayList();
 

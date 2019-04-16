@@ -23,7 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="testButton" mnemonicParsing="false" onAction="#setAddPatientView" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
+      <Button fx:id="uniButton" mnemonicParsing="false" onAction="#setAddPatientView" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
       <Label id="title" layoutX="19.0" layoutY="27.0" text="Patient List" textFill="#fffdfd" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font name="Calibri Bold" size="24.0" />

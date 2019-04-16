@@ -7,17 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="referralView" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralListController">
+<AnchorPane fx:id="referralView" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralListController">
     <children>
         <TableView fx:id="ReferralList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
             <columns>
                 <TableColumn fx:id="patientID" prefWidth="61.0" text="PatientID" />
                 <TableColumn fx:id="patientFirstName" prefWidth="89.0" text="First Name" />
                 <TableColumn fx:id="patientLastName" prefWidth="88.0" text="Last Name" />
-                <TableColumn fx:id="referrerFullName" prefWidth="111.0" text="Referrer" />
-                <TableColumn fx:id="procedureName" prefWidth="140.0" text="Procedure Requested" />
-                <TableColumn fx:id="patientPhone" minWidth="15.0" prefWidth="31.0" text="Primary Phone Number" />
-                <TableColumn fx:id="urgency" prefWidth="75.0" text="Urgency" />
+                <TableColumn fx:id="referrerFullName" prefWidth="43.0" text="Referrer" />
+                <TableColumn fx:id="procedureName" prefWidth="54.0" text="Procedure Requested" />
+                <TableColumn fx:id="patientPhone" minWidth="15.0" prefWidth="30.0" text="Primary Phone Number" />
+                <TableColumn fx:id="urgency" prefWidth="144.0" text="Urgency" />
+            <TableColumn fx:id="height" prefWidth="75.0" text="Height" />
+            <TableColumn fx:id="weight" prefWidth="75.0" text="Weight" />
+            <TableColumn fx:id="heart_rate" prefWidth="75.0" text="Heart Rate" />
+            <TableColumn fx:id="systolic" prefWidth="75.0" text="Systolic Pressure" />
+            <TableColumn fx:id="diastolic" prefWidth="75.0" text="Diastolic Pressure" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
