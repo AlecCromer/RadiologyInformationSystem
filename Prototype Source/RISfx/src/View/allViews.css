@@ -76,12 +76,12 @@
 }
 
 /* newly added 4-17-2019*/
-.text-field {
+ #searchField{
     -fx-background-color: -fx-text-box-border, -fx-background ;
     -fx-border-radius: 12px;
     -fx-background-radius: 12px;
     -fx-font-size: 8pt;
 }
-.text-field:focused {
+#searchField:focused {
     -fx-background-color: -fx-focus-color, -fx-background ;
 }
