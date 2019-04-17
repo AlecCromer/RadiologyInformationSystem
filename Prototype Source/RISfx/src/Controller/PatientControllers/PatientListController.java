@@ -39,6 +39,7 @@ public class PatientListController implements Initializable {
     private TableColumn<Patient, Integer> phoneNumber;
     @FXML
     private TextField searchField;
+    @FXML private Button uniButton;
 
     private  ArrayList pms;
 
@@ -65,6 +66,10 @@ public class PatientListController implements Initializable {
                 e.printStackTrace();
             }
         }
+        else
+            try {
+                updateTable();
+            }catch (Exception e){}
         PatientList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {

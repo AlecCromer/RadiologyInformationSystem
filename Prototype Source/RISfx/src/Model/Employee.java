@@ -35,7 +35,7 @@ public class Employee {
     public static ResultSet querySessionEmployee(String email, String password) throws Exception{
         PreparedStatement ps = databaseConnector.getConnection().prepareStatement(
             //First_name is a placeholder for a password column in the Employees table
-            "SELECT * fROM employees WHERE email = ? AND first_name = ?"
+            "SELECT * fROM employees WHERE email = ? AND password = ?"
         );
         ps.setString(1, email);
         ps.setString(2, password);
