@@ -43,12 +43,25 @@ public class AddAppointmentController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+
+    /**
+     * Executes setPopupWindow() in main class to load addAppointment.fxml as a popup.
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.popup.setHeight(500);
         Main.popup.setWidth(600);
         Main.setPopupWindow("AppointmentViews/addAppointment.fxml");
     }
 
+    /**
+     * This logic operates the popup window calendar selection by populating the FXML fields.
+     * To generate the procedure list for the procedure box it calls Procedure.getProcedureList()
+     * Splits the procedure ID out of the name as combo selection for use in timing,
+     *      e.g. 1:xray passes 1 in combo selection
+     * @param url
+     * @param arg1
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         //Patient ID Section
         if((Main.getPatientFocus().getPatientID() != -1)){
@@ -89,6 +102,10 @@ public class AddAppointmentController implements Initializable {
             } });
     }
 
+    /**
+     * This is called by the intialize method to populate the tableview of the fxml.
+     * @throws Exception
+     */
     private void updateTable() throws Exception{
         //scheduleTime.setItems(FXCollections.observableArrayList());
         scheduleTime.setItems(generateTimeSlots(60));
@@ -101,6 +118,17 @@ public class AddAppointmentController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
+
+    /**
+     * Generates timeslots over minute increment.
+     * Uses Employee.queryEmployeeSchedule with the date set above to get employee schedules
+     * Generates a list of appointment objects for all times each employee is available according to their schedule and adds to list
+     * Uses AddAppointmentController.generateConflictList() to find existing scheduled appointments, comboselection to
+     *      get the time that the previously scheduled appointments take, then removes all times that are already taken from list
+     * @param minuteIncrement
+     * @return
+     * @throws Exception
+     */
     private ObservableList<Appointment> generateTimeSlots(int minuteIncrement) throws Exception{
         ResultSet employeeSchedule = Employee.queryEmployeeSchedule(scheduleDate.getValue(), comboSelection);
 
@@ -144,6 +172,13 @@ public class AddAppointmentController implements Initializable {
         return timeSlotList;
     }
 
+    /**
+     * Uses ScheduleConflict.queryConflicts() with the date and assigned employeeID to return list of conflicting
+     * appointments with above list
+     * @param employeeId
+     * @return
+     * @throws Exception
+     */
     private ArrayList<ScheduleConflict> generateConflictList(int employeeId) throws Exception{
         //Check for all conflicts with current employee that is scheduled
         ResultSet rs = ScheduleConflict.queryConflicts(scheduleDate.getValue(), employeeId);
@@ -165,6 +200,11 @@ public class AddAppointmentController implements Initializable {
      //Button Methods//
     //////////////////
     @FXML
+    /**
+     * Creates appointmentToSubmit as appointment object. Then sets each value.
+     * Then tries to execute Appointment.submitNewAppointment() on the appointment object.
+     * If this fails, it outlines the patientIDField on the addAppointment.FXML in red.
+     */
     private void submitNewAppointment() throws Exception{
         if (validateAppointment()) {
             Appointment appointmentToSubmit = scheduleTime.getSelectionModel().getSelectedItem();
@@ -184,6 +224,11 @@ public class AddAppointmentController implements Initializable {
       ///////////////////
      //Form Validation//
     ///////////////////
+
+    /**
+     *
+     * @return
+     */
     private Boolean validateAppointment(){
         Appointment selectedTimeSlot = scheduleTime.getSelectionModel().getSelectedItem();
 
@@ -211,6 +256,10 @@ public class AddAppointmentController implements Initializable {
         return false;
     }
 
+    /**
+     * Closes the addAppointment popup and removes the background blur effect
+     * @throws Exception
+     */
     private void exitView() throws Exception{
         Main.popup.close();
         Main.getOuter().setEffect(null);

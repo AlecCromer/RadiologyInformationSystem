@@ -29,10 +29,20 @@ public class BillingListController implements Initializable {
     TableColumn<Appointment, String>    fName, address, patientStatus, Balance;
     @FXML
     private TextField searchField;
+
+    /**
+     * Sets center pane to BillingList.fxml
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.setCenterPane("BillingViews/BillingList.fxml");
     }
     @SuppressWarnings("Duplicates")
+
+    /**
+     * populates table via updateTable()
+     * has onclick method that passes object you click on to invoice controller so you can send a bill.
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             updateTable();
@@ -52,7 +62,11 @@ public class BillingListController implements Initializable {
         });
     }
 
-    private void updateTable() throws Exception{
+    /**
+     * runs getBillingList() to get list of appointment objects
+     * uses attributes of those billing objects to set FXML values row by row
+     */
+    private void updateTable() {
         try {
             BillingList.setItems(getBillingList());
         } catch (Exception e) {
@@ -101,6 +115,11 @@ public class BillingListController implements Initializable {
         BillingList.setItems(sortedBilling);
     }
     @SuppressWarnings("Duplicates")
+    /**
+     * Uses Appointment.queryForBillingAppointments() method to return results set from SQL.
+     * iterates through results set, builds appointment objects using a constructor in Appointment and adds to billingList
+     * eventually returns billingList.
+     */
     private ObservableList<Appointment> getBillingList() throws Exception {
         ResultSet rs = Appointment.queryForBillingAppointments();
         ObservableList<Appointment> billingList = FXCollections.observableArrayList();

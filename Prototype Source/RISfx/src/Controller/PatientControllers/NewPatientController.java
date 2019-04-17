@@ -34,11 +34,21 @@ public class NewPatientController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+
+    /**
+     * sets DOB field to make people born before 1950 get anxious about their remaining expected lifespan
+     * @param url
+     * @param arg1
+     */
     public void initialize(URL url, ResourceBundle arg1){
         dobField.setValue(LocalDate.of(1950, 1, 1));
 
     }
 
+    /**
+     * Opens addPatient.fxml as popup window, sets height and width
+     * @throws Exception
+     */
     public static void setView()throws Exception{
         Main.popup.setWidth(620);
         Main.popup.setHeight(300);
@@ -54,6 +64,12 @@ public class NewPatientController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+
+    /**
+     * If the information entered in the edittexts in the fxml page passes form validation, submit a new patient object
+     * with that information and exit the addPatient view
+     * @throws Exception
+     */
     @SuppressWarnings("Duplicates")
     public void submitNewPatient() throws Exception {
         if (checkField()== true){
@@ -87,6 +103,9 @@ else{
         Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
     }
 
+    /**
+     * Expands the add patient popup by setting new elements to be visible and modifying the popup window dimensions.
+     */
     public void toggleSchedule(){
         if (toggler.isSelected()){
             scheduleDate.setVisible(true);
@@ -106,15 +125,40 @@ else{
         }
     }
 
+    /**
+     * Closes the popup window and refreshes the patient list view.
+     * @throws Exception
+     */
+    private void exitView() throws Exception{
+        Main.popup.close();
+        Main.getOuter().setDisable(false);
+        PatientListController.setView();
+    }
+
+    /**
+     * formats the local date
+     * @param date
+     * @return
+     */
     private String dateFormatter(LocalDate date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         return date.format(format);
     }
 
-
+    /**
+     * Not implemented
+     * @return
+     */
+    private boolean validateForm(){
+        //TODO: Implement actual form validation
+    }
       ///////////////////
      //Form Validation//
     ///////////////////
+    /**
+     * This is all the regex for the form validations in the add patient popup.
+     * @return
+     */
     @SuppressWarnings("Duplicates")
       private  boolean  checkField() {
             if(checkAgain() == true){
@@ -194,6 +238,10 @@ else{
 
 
 
+    /**
+     * Outlines any field in the fxml that throws a form validation error in a red border.
+     * @param fieldID
+     */
     private void error ( int fieldID){
 
         switch (fieldID) {
