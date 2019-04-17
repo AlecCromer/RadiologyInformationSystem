@@ -33,11 +33,19 @@ public class AppointmentViewController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+
+    /**
+     * Sets AppointmentView.fxml to center pane
+     * @throws Exception
+     */
     public static void setView() throws Exception {
         Main.setCenterPane("AppointmentViews/AppointmentView.fxml");
     }
 
     @SuppressWarnings("Duplicates")
+    /**
+     * Automatically fills FXML fields with info from selected appointment object
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         pNameField.setText(Main.getAppointmentFocus().getPatientFullName());
         appointmentIDField.setText(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));
@@ -65,14 +73,28 @@ public class AppointmentViewController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+
+    /**
+     * ?
+     * @param actionEvent
+     * @throws Exception
+     */
     public void showAppointmentFiles(ActionEvent actionEvent) throws Exception {
         AppointmentFilesController.setView();
     }
 
+    /**
+     * Onclick method that reverts to previous page by calling Main.setBackPage()
+     * @throws Exception
+     */
     public void setBackPage() throws Exception {
         Main.setBackPage();
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void checkPatient() throws Exception{
         if(signInField.getText().length() > 0){
             Main.getAppointmentFocus().setPatientSignIn(Time.valueOf(LocalTime.parse(signInField.getText())));

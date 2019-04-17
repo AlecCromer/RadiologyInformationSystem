@@ -19,8 +19,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * This class checks permissions, then loads the RIS tabs for the user
+ */
 public class MenuController implements Initializable {
 
+    /**
+     * This is the permissions checker for the session user that decides what tabs to remove.
+     * @param url
+     * @param arg1
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         //Remove all buttons they don't have permission for
         ArrayList<Integer> pms = Main.getSessionUser().getPermissions();
@@ -59,34 +67,82 @@ public class MenuController implements Initializable {
         }
     }
 
+    /**
+     * This sets the patient list xml to the center pane by executing PatientListController.setView()
+     * when you click on the RIS tab that says patient
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setPatientList(ActionEvent actionEvent) throws Exception{
         PatientListController.setView();
     }
 
+    /**
+     * Sets AppointmentList.fxml to center pane when you click on Appointment List by running
+     *         AppointmentListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setAppointmentList(ActionEvent actionEvent) throws Exception{
         AppointmentListController.setView();
     }
 
+    /**
+     * sets ReferralList.fxml to center pane when you click on referrals by executing
+     *         ReferralListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setReferralView(ActionEvent actionEvent) throws Exception{
         ReferralListController.setView();
     }
 
+    /**
+     * sets BillingList.fxml to center pane when you click on referrals by executing
+     *         BillingListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setBillingList(ActionEvent actionEvent) throws Exception{
         BillingListController.setView();
     }
 
+    /**
+     * sets worklist.fxml to center pane when you click on worklist by executing
+     *         WorkListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setWorkList(ActionEvent actionEvent) throws Exception{
         WorkListController.setView();
     }
 
+    /**
+     * opens ScheduleEmployee.fxml popup by running
+     *         ScheduleEmployeeController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setScheduleEmployee(ActionEvent actionEvent) throws Exception{
         ScheduleEmployeeController.setView();
     }
 
+    /**
+     * opens ProcedureList.fxml by running setview method of procedurelistcontroller
+     *         ProcedureListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setProcedureList(ActionEvent actionEvent) throws Exception{
         ProcedureListController.setView();
     }
 
+    /**
+     * opens reportlist.fxml by running setview method of reportlistcontroller
+     *         ReportListController.setView();
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setReportList(ActionEvent actionEvent) throws Exception{
         ReportListController.setView();
     }

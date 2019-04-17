@@ -32,6 +32,12 @@ public class InvoiceController implements Initializable {
     ////////////////
     //Initializers//
     ////////////////
+
+    /**
+     * Runs updateTable() to
+     * @param url
+     * @param arg1
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             updateTable();
@@ -41,12 +47,22 @@ public class InvoiceController implements Initializable {
         }
     }
 
+    /**
+     * Sets Invoice.FXML as a popup window using Main.getPopup().
+     * sets height and width of popup
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.getPopup().setHeight(700);
         Main.getPopup().setWidth(630);
        Main.setPopupWindow("BillingViews/Invoice.fxml");
     }
 
+    /**
+     * sets the FXML text stuff at the top from appointment object, gets it from Main.getAppointmentFocus() methods
+     * runs getItemList() to get list of Item objects
+     * populates table cells row by row in invoice.fxml using this list
+     */
     public void updateTable() {
         try {
             invoiceTable.setItems(getItemList());
@@ -73,6 +89,15 @@ public class InvoiceController implements Initializable {
     ///////////////////
     //List Generators//
     ///////////////////
+
+    /**
+     * gets result set, which is a list of charge items associated with the appointmentID via Appointment.queryBillingList(appointmentID of billing list cell clicked on)
+     * Manually adds the cost of the procedure to the returnList
+     * then iterates through items result set, building an item object for each one
+     * returns returnList containing procedure price and any additional charge items
+     * @return
+     * @throws Exception
+     */
     private ObservableList<Item> getItemList() throws Exception{
         ResultSet items = Appointment.queryBillingList(Main.getAppointmentFocus().getAppointmentId());
         ObservableList<Item> returnList = FXCollections.observableArrayList();
