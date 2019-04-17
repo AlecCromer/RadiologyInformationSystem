@@ -47,7 +47,7 @@ public class Controller {
                 try {
                     Main.getSessionUser().setPermissions();
                 }catch (Exception e){
-                    System.out.println("No permissions 4 u");
+                    System.out.println("");
                 }
                 Main.successfulLogin();
 
