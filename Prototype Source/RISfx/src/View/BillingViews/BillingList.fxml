@@ -3,12 +3,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BillingControllers.BillingListController">
     <children>
-        <TableView fx:id="BillingList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+        <TableView fx:id="BillingList" layoutY="56.0" prefHeight="344.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
             <columns>
                 <TableColumn fx:id="patientID" prefWidth="98.0" text="AppointmentID" />
                 <TableColumn fx:id="fName" prefWidth="52.0" text="Patient Name" />
@@ -20,7 +21,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <Label layoutX="19.0" layoutY="27.0" text="Billing" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="9.0">
+        <TextField fx:id="searchField" layoutY="28.0" pickOnBounds="false" prefHeight="25.0" prefWidth="200.0" promptText="Search Billing" />
+        <Label text="Billing" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <font>
                 <Font name="Calibri Bold" size="24.0" />
             </font>

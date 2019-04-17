@@ -101,7 +101,6 @@ public class ReferralFormController implements Initializable {
      ///////////////////
      //Form Validation//
      ///////////////////
-// Do we want to reject a field if they don't have an upper case
      private void checkField(){
          if (!patentFirstName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(0);

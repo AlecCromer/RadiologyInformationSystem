@@ -9,6 +9,8 @@ import Controller.ReportControllers.ReportListController;
 import Controller.TechControllers.ScheduleEmployeeController;
 import Controller.TechControllers.WorkListController;
 import Controller.Main;
+import animatefx.animation.Bounce;
+import animatefx.animation.Flash;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,34 +62,42 @@ public class MenuController implements Initializable {
     }
 
     public void setPatientList(ActionEvent actionEvent) throws Exception{
+       new Flash(patientList).play();
         PatientListController.setView();
     }
 
     public void setAppointmentList(ActionEvent actionEvent) throws Exception{
+        new Flash(appointmentList).play();
         AppointmentListController.setView();
     }
 
     public void setReferralView(ActionEvent actionEvent) throws Exception{
+        new Flash(refferals).play();
         ReferralListController.setView();
     }
 
     public void setBillingList(ActionEvent actionEvent) throws Exception{
+        new Flash(billing).play();
         BillingListController.setView();
     }
 
     public void setWorkList(ActionEvent actionEvent) throws Exception{
+        new Flash(workList).play();
         WorkListController.setView();
     }
 
     public void setScheduleEmployee(ActionEvent actionEvent) throws Exception{
+        new Flash(scheduleEmployee).play();
         ScheduleEmployeeController.setView();
     }
 
     public void setProcedureList(ActionEvent actionEvent) throws Exception{
+        new Flash(manageProcedures).play();
         ProcedureListController.setView();
     }
 
     public void setReportList(ActionEvent actionEvent) throws Exception{
+        new Flash(reportList).play();
         ReportListController.setView();
     }
 

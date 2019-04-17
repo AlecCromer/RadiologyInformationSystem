@@ -6,6 +6,8 @@ import Controller.databaseConnector;
 import Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -16,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -33,6 +36,7 @@ public class ReferralListController implements Initializable {
             procedureName, patientPhone, urgency, height, weight, heart_rate, systolic, diastolic;
     @FXML
     AnchorPane referralView;
+   @FXML private TextField searchField;
 
     ////////////////
     //Initializers//
@@ -59,7 +63,7 @@ public class ReferralListController implements Initializable {
             }
         });
     }
-
+@SuppressWarnings("Dupilcates")
     private void updateTable() throws Exception {
         ReferralList.setItems(generateRefferalsList());
         patientID.setCellValueFactory(new PropertyValueFactory<Referral, Integer>("patientID"));
@@ -74,6 +78,62 @@ public class ReferralListController implements Initializable {
         heart_rate.setCellValueFactory(new PropertyValueFactory<Referral, String>("heart_rate"));
         systolic.setCellValueFactory(new PropertyValueFactory<Referral, String>("systolic_pressure"));
         diastolic.setCellValueFactory(new PropertyValueFactory<Referral, String>("diastolic_pressure"));
+
+        FilteredList<Referral> sortedRefferals = new FilteredList<>(generateRefferalsList(), p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedRefferals.setPredicate(referrals -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (referrals.getPatientFirstName().toLowerCase().contains(searched)) {
+                    return true;
+                } else if (referrals.getPatientLastName().toLowerCase().contains(searched)) {
+                    return true;
+                }
+                else if (referrals.getPatientPhone().contains(searched)){
+                    return true;
+                }
+                else if (referrals.getProcedureName().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (referrals.getReferrerFullName().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (referrals.getUrgency().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getDiastolic_pressure()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getHeart_rate()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getHeight()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getSystolic_pressure()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getWeight()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(referrals.getPatientID()).contains(searched)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Referral> sortedData = new SortedList<>(sortedRefferals);
+
+        sortedData.comparatorProperty().bind(ReferralList.comparatorProperty());
+
+        ReferralList.setItems(sortedRefferals);
+
     }
 
 

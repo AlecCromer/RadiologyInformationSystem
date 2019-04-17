@@ -4,12 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;;" styleClass="ris_pane" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.PatientListController">
    <children>
-      <TableView fx:id="PatientList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" stylesheets="@PatientList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+      <Label id="title" layoutY="-4.0" text="Patient List" textFill="#fffdfd">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="testButton" mnemonicParsing="false" onAction="#setAddPatientView" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
+      <TableView fx:id="PatientList" layoutY="49.0" prefHeight="351.0" prefWidth="600.0" stylesheets="@PatientList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
         <columns>
           <TableColumn fx:id="patientID" prefWidth="75.0" text="PatientID" />
           <TableColumn fx:id="firstname" prefWidth="75.0" text="First Name" />
@@ -29,5 +36,6 @@
             <Font name="Calibri Bold" size="24.0" />
          </font>
       </Label>
+         <TextField fx:id="searchField" layoutY="22.0" pickOnBounds="false" prefHeight="25.0" prefWidth="200.0" promptText="Search Patient" />
    </children>
 </AnchorPane>

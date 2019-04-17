@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="referralView" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReferralControllers.ReferralListController">
     <children>
-        <TableView fx:id="ReferralList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+        <TableView fx:id="ReferralList" layoutY="59.0" prefHeight="341.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="59.0">
             <columns>
                 <TableColumn fx:id="patientID" prefWidth="61.0" text="PatientID" />
                 <TableColumn fx:id="patientFirstName" prefWidth="89.0" text="First Name" />
@@ -28,7 +29,8 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Label layoutX="19.0" layoutY="27.0" text="Referrals" textFill="WHITE" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="9.0">
+        <TextField fx:id="searchField" layoutY="28.0" pickOnBounds="false" prefHeight="25.0" prefWidth="200.0" promptText="Search Referrals " />
+        <Label text="Referrals" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <font>
                 <Font name="Calibri Bold" size="24.0" />
             </font>

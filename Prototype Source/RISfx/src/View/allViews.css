@@ -74,3 +74,14 @@
     -fx-border-color: transparent;
     -fx-background-radius: 5em;
 }
+
+/* newly added 4-17-2019*/
+ #searchField{
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 8pt;
+}
+#searchField:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}

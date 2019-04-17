@@ -6,11 +6,14 @@ import Model.Appointment;
 import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -28,7 +31,7 @@ public class AppointmentListController implements Initializable {
     @FXML TableView<Appointment>            AppointmentList;
     @FXML TableColumn<Appointment, Integer> appointmentID;
     @FXML TableColumn<Appointment, String>  patientFullName, DateTime, ProcedureType, Technician, Status, Balance;
-
+    @FXML private TextField searchField;
       ////////////////
      //Initializers//
     ////////////////
@@ -37,7 +40,11 @@ public class AppointmentListController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle arg1) {
-        updateTable();
+        try {
+            updateTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         AppointmentList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
 
@@ -51,8 +58,8 @@ public class AppointmentListController implements Initializable {
             }
         });
     }
-
-    private void updateTable() {
+    @SuppressWarnings("Duplicates")
+    private void updateTable() throws Exception {
         try {
 
             AppointmentList.setItems(getAppointmentList());
@@ -68,6 +75,47 @@ public class AppointmentListController implements Initializable {
         Technician.setCellValueFactory(new PropertyValueFactory<Appointment, String>("technician"));
         Status.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
         Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+
+        FilteredList<Appointment> sortedAppointments = new FilteredList<>(getAppointmentList(), p -> true);
+
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedAppointments.setPredicate(appointments -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (appointments.getPatientFullName().toLowerCase().contains(searched)) {
+                    return true;
+                } else if (appointments.getProcedureName().toLowerCase().contains(searched)) {
+                    return true;
+                }
+                else if (appointments.getTechnician().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (appointments.getPatientStatus().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (Float.toString(appointments.getBalance()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(appointments.getAppointmentId()).contains(searched)){
+                    return true;
+                }
+               else if (appointments.getAppointmentDate().toString().contains(searched)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Appointment> sortedData = new SortedList<>(sortedAppointments);
+
+        sortedData.comparatorProperty().bind(AppointmentList.comparatorProperty());
+
+        AppointmentList.setItems(sortedData);
     }
 
 
