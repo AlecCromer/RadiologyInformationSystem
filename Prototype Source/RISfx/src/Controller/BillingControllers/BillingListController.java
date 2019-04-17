@@ -66,7 +66,7 @@ public class BillingListController implements Initializable {
      * runs getBillingList() to get list of appointment objects
      * uses attributes of those billing objects to set FXML values row by row
      */
-    private void updateTable() {
+    private void updateTable() throws Exception {
         try {
             BillingList.setItems(getBillingList());
         } catch (Exception e) {
