@@ -65,7 +65,7 @@ public class NewPatientController implements Initializable {
                 // clear
                 //((TextField)node).setText("");
                 if(node.getStyle() == null){
-                    System.out.println("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET " + node.getId());
+                    System.out.println(" " + node.getId());
                 }
                 else{
                     System.out.println("hooray");
@@ -75,7 +75,7 @@ public class NewPatientController implements Initializable {
         }*/
 
 else{
-        System.out.println("YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET");}
+        System.out.println("Invalid fields");}
 
     }
        public void submitToDB() throws Exception{

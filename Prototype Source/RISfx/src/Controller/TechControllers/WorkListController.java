@@ -3,12 +3,16 @@ package Controller.TechControllers;
 import Controller.Main;
 import Controller.databaseConnector;
 import Model.Appointment;
+import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +36,8 @@ public class WorkListController implements Initializable {
     @FXML
     TableColumn<Appointment, String>    patientFullName,    appointmentDateTime,    procedureName,
             patientStatus,      appointmentBalance;
-
+    @FXML
+    private TextField searchField;
     ////////////////
     //Initializers//
     ////////////////
@@ -41,7 +46,11 @@ public class WorkListController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle arg1) {
-        updateTable();
+        try {
+            updateTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         WorkList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -56,7 +65,7 @@ public class WorkListController implements Initializable {
         loggedIn.setText(loggedIn.getText() + Main.getSessionUser().getFullName());
     }
 
-    private void updateTable() {
+    private void updateTable() throws Exception {
         try {
             WorkList.setItems(getAppointmentList());
         } catch (Exception e) {
@@ -69,7 +78,45 @@ public class WorkListController implements Initializable {
         appointmentDateTime.setCellValueFactory(new PropertyValueFactory<Appointment, String>("dateTime"));
         procedureName.setCellValueFactory(new PropertyValueFactory<Appointment, String>("procedureName"));
         patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
-        //appointmentBalance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+        appointmentBalance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+
+        FilteredList<Appointment> sortedWorklist = new FilteredList<>(getAppointmentList(), p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedWorklist.setPredicate(appointment -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (appointment.getPatientFullName().toLowerCase().contains(searched)) {
+                    return true;
+                } else if (Float.toString(appointment.getBalance()).contains(searched)) {
+                    return true;
+                }
+                else if (appointment.getPatientStatus().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (appointment.getProcedureName().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(appointment.getAppointmentId()).contains(searched)){
+                    return true;
+                }
+               else if (appointment.getAppointmentDate().toString().contains(searched)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+
+        SortedList<Appointment> sortedData = new SortedList<>(sortedWorklist);
+
+        sortedData.comparatorProperty().bind(WorkList.comparatorProperty());
+
+        WorkList.setItems(sortedWorklist);
     }
 
 

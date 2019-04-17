@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
     <children>
-        <TableView fx:id="ReportList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" stylesheets="@ReportList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+        <TableView fx:id="ReportList" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" stylesheets="@ReportList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
             <columns>
                 <TableColumn fx:id="patientID" prefWidth="75.0" text="PatientID" />
                 <TableColumn fx:id="firstname" prefWidth="75.0" text="First Name" />
@@ -22,7 +23,8 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Text id="title" fill="#fffefe" layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+        <TextField fx:id="searchField" layoutY="28.0" pickOnBounds="false" prefHeight="25.0" prefWidth="200.0" promptText="Search Reports" />
+        <Text id="title" fill="#fffefe" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report List" wrappingWidth="130.931640625" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
 
             <font>
                 <Font name="Calibri Bold" size="24.0" />

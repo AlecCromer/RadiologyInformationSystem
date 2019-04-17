@@ -1,14 +1,18 @@
 package Controller.ReportControllers;
 
 import Controller.Main;
+import Model.Patient;
 import Model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +33,8 @@ public class ReportListController implements Initializable{
     @FXML private TableView<Report>            ReportList;
     @FXML private TableColumn<Report, String>  patientID, firstname, lastname, dob, sex;
     @FXML private Button incomplete;
-
+    @FXML
+    private TextField searchField;
 
     public String getSearch() {
         return search;
@@ -88,7 +93,7 @@ public class ReportListController implements Initializable{
     }
 
     @SuppressWarnings("Duplicates")
-    public void updateTable(ObservableList<Report> patientObservableList) {
+    public void updateTable(ObservableList<Report> patientObservableList) throws Exception {
         try {
 
             ReportList.setItems(patientObservableList);
@@ -102,6 +107,43 @@ public class ReportListController implements Initializable{
         lastname.setCellValueFactory(new PropertyValueFactory<Report, String>("lastname"));
         dob.setCellValueFactory(new PropertyValueFactory<Report, String>("dob"));
         sex.setCellValueFactory(new PropertyValueFactory<Report, String>("sex"));
+
+        FilteredList<Report> sortedReport= new FilteredList<>(getPatientList(), p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedReport.setPredicate(report -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (report.getFirstname().toLowerCase().contains(searched)) {
+                    return true;
+                } else if (report.getLastname().toLowerCase().contains(searched)) {
+                    return true;
+                }
+                else if (report.getSex().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (report.getDob().toString().contains(searched)){
+                    return true;
+                }
+
+                else if (report.getPatient_id().contains(searched)){
+                    return true;
+                }
+
+                return false;
+            });
+        });
+
+        SortedList<Report> sortedData = new SortedList<>(sortedReport);
+
+        sortedData.comparatorProperty().bind(ReportList.comparatorProperty());
+
+        ReportList.setItems(sortedReport);
+
     }
 
     ////////////////////

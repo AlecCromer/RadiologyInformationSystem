@@ -2,12 +2,16 @@ package Controller.BillingControllers;
 
 import Controller.Main;
 import Model.Appointment;
+import Model.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -23,13 +27,18 @@ public class BillingListController implements Initializable {
     TableColumn<Appointment, Integer>   patientID;
     @FXML
     TableColumn<Appointment, String>    fName, address, patientStatus, Balance;
-
+    @FXML
+    private TextField searchField;
     public static void setView() throws Exception{
         Main.setCenterPane("BillingViews/BillingList.fxml");
     }
     @SuppressWarnings("Duplicates")
     public void initialize(URL url, ResourceBundle arg1) {
-        updateTable();
+        try {
+            updateTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         BillingList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -43,7 +52,7 @@ public class BillingListController implements Initializable {
         });
     }
 
-    private void updateTable() {
+    private void updateTable() throws Exception{
         try {
             BillingList.setItems(getBillingList());
         } catch (Exception e) {
@@ -56,6 +65,40 @@ public class BillingListController implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<Appointment, String>("address"));
         patientStatus.setCellValueFactory(new PropertyValueFactory<Appointment, String>("patientStatus"));
         Balance.setCellValueFactory(new PropertyValueFactory<Appointment, String>("balance"));
+
+        FilteredList<Appointment> sortedBilling = new FilteredList<>(getBillingList(), p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedBilling.setPredicate(appointment -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (appointment.getPatientFullName().toLowerCase().contains(searched)) {
+                    return true;
+                } else if (Float.toString(appointment.getBalance()).contains(searched)) {
+                    return true;
+                }
+                else if (appointment.getPatientStatus().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (appointment.getAddress().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(appointment.getAppointmentId()).contains(searched)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Appointment> sortedData = new SortedList<>(sortedBilling);
+
+        sortedData.comparatorProperty().bind(BillingList.comparatorProperty());
+
+        BillingList.setItems(sortedBilling);
     }
     @SuppressWarnings("Duplicates")
     private ObservableList<Appointment> getBillingList() throws Exception {

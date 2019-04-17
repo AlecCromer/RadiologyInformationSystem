@@ -1,13 +1,17 @@
 package Controller.ProcedureControllers;
 
 import Controller.Main;
+import Model.Patient;
 import Model.Procedure;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -27,14 +31,19 @@ public class ProcedureListController implements Initializable {
     @FXML private TableColumn<Procedure, String>  procedureID, procedureName;
     @FXML private TableColumn<Procedure, Integer>   procedureLength;
     @FXML private TableColumn<Procedure, Float>     procedureCost;
-
+    @FXML
+    private TextField searchField;
       ////////////////
      //Initializers//
     ////////////////
 
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
-        updateTable();
+        try {
+            updateTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ProcedureList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
@@ -53,7 +62,7 @@ public class ProcedureListController implements Initializable {
         Main.setCenterPane("ProcedureViews/ProcedureList.fxml");
     }
 
-    public void updateTable() {
+    public void updateTable() throws Exception {
         try {
 
             ProcedureList.setItems(getProcedureList());
@@ -66,6 +75,38 @@ public class ProcedureListController implements Initializable {
         procedureName.setCellValueFactory(new PropertyValueFactory<Procedure, String>("procedureName"));
         procedureLength.setCellValueFactory(new PropertyValueFactory<Procedure, Integer>("procedureLength"));
         procedureCost.setCellValueFactory(new PropertyValueFactory<Procedure, Float>("price"));
+
+        FilteredList<Procedure> sortedProcedure = new FilteredList<>(getProcedureList(), p -> true);
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            sortedProcedure.setPredicate(procedure -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searched = newValue.toLowerCase();
+
+                if (procedure.getProcedureName().toLowerCase().contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(procedure.getProcedureId()).contains(searched)){
+                    return true;
+                }
+                else if (Float.toString(procedure.getPrice()).contains(searched)){
+                    return true;
+                }
+                else if (Integer.toString(procedure.getProcedureLength()).contains(searched)){
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Procedure> sortedData = new SortedList<>(sortedProcedure);
+
+        sortedData.comparatorProperty().bind(ProcedureList.comparatorProperty());
+
+        ProcedureList.setItems(sortedProcedure);
     }
 
       ////////////////////
