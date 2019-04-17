@@ -4,7 +4,6 @@ import Controller.Main;
 import Model.Patient;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
@@ -149,7 +148,7 @@ else{
      * Not implemented
      * @return
      */
-    private boolean validateForm(){
+    private void validateForm(){
         //TODO: Implement actual form validation
     }
       ///////////////////
