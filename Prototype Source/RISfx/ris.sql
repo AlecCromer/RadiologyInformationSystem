@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2019 at 01:53 AM
+-- Generation Time: Apr 17, 2019 at 05:18 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -113,7 +113,8 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, 
 (21, 18603, '2019-03-13', '15:00:00', '11:15:00', '11:29:42', 'Signed Out', b'0', 1, 1, 52546, NULL, NULL),
 (22, 47284, '2019-03-15', '08:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, NULL, NULL),
 (23, 47284, '2019-03-15', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 45626, NULL, NULL),
-(24, 47284, '2019-03-15', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL);
+(24, 47284, '2019-03-15', '12:00:00', '16:42:02', NULL, 'Signed In', b'0', 3, 3, 45626, NULL, NULL),
+(28, 1181, '2019-04-19', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,22 +148,23 @@ CREATE TABLE `employees` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `available` varchar(10) NOT NULL,
-  `email` varchar(20) NOT NULL
+  `email` varchar(20) NOT NULL,
+  `password` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, `email`) VALUES
-(6730, 'admin', 'site', '1', 'admin'),
-(12442, 'Alexander', 'Cromer', 'True', 'cromeralec@gmail.com'),
-(43552, 'John', 'Cena', 'False', 'johncena@gmail.com'),
-(45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com'),
-(52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.'),
-(54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu'),
-(76342, 'Bob', 'Evans', 'true', 'bobevans@gmail.com'),
-(123567, 'tech', 'nician', 'ok', 'tech');
+INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, `email`, `password`) VALUES
+(6730, 'admin', 'site', '1', 'admin', '1234'),
+(12442, 'Alexander', 'Cromer', 'True', 'cromeralec@gmail.com', '1234'),
+(43552, 'John', 'Cena', 'False', 'johncena@gmail.com', '1234'),
+(45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com', '1234'),
+(52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.', '1234'),
+(54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu', '1234'),
+(76342, 'Bob', 'Evans', 'true', 'bobevans@gmail.com', '1234'),
+(123567, 'tech', 'nician', 'ok', 'tech', '1234');
 
 -- --------------------------------------------------------
 
@@ -191,7 +193,9 @@ INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `en
 (7, 6730, '2019-03-29 08:00:00', '2019-03-30 08:00:00'),
 (8, 6730, '2019-03-06 12:00:00', '2019-03-06 13:00:00'),
 (9, 6730, '2019-03-20 10:00:00', '2019-03-20 12:00:00'),
-(10, 6730, '2019-04-18 14:00:00', '2019-04-18 12:00:00');
+(10, 6730, '2019-04-18 14:00:00', '2019-04-18 12:00:00'),
+(11, 45626, '2019-04-19 08:00:00', '2019-04-19 17:00:00'),
+(12, 43552, '2019-04-17 09:00:00', '2019-04-17 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -614,7 +618,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `billing`
@@ -626,7 +630,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `employee_schedule`
 --
 ALTER TABLE `employee_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `image`
