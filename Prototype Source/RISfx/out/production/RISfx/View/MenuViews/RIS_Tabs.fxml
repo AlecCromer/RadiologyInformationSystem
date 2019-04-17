@@ -27,7 +27,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="workList" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" text="Work List">
+            <Button fx:id="workList" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#setWorkList" prefHeight="72.0" prefWidth="269.0" stylesheets="@tabLayout.css" text="Work List">
                <font>
                   <Font size="18.0" />
                </font></Button>

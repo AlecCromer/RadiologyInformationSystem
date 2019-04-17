@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2019 at 05:59 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Generation Time: Apr 11, 2019 at 01:53 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,7 +65,8 @@ INSERT INTO `address` (`address_id`, `street_name`, `city`, `zip`, `state`) VALU
 (25, 'd', 'd', 56765, 'g'),
 (26, '2250 Sugar Hill #456', 'Snellvile', 30078, 'Ga'),
 (27, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga'),
-(28, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga');
+(28, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga'),
+(29, 'f2 champ lane', 'Dahlonega', 30040, 'Georgia');
 
 -- --------------------------------------------------------
 
@@ -160,6 +161,7 @@ INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, 
 (45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com'),
 (52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.'),
 (54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu'),
+(76342, 'Bob', 'Evans', 'true', 'bobevans@gmail.com'),
 (123567, 'tech', 'nician', 'ok', 'tech');
 
 -- --------------------------------------------------------
@@ -311,6 +313,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`, `sex`, `home_phone`, `email`, `insurance_number`, `policy_number`, `address_id`, `status`, `patient_medications_list`, `balance`) VALUES
+(1181, 'Max', 'Verstappen', '2006-03-16', 'Male', '2234902886', 'maxverstappen@gmail.com', 2345234, 54363423, 29, 'New Patient', NULL, 0),
 (3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', '1234567890', 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL, 0),
 (12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', '67855583', 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole', 0),
 (13768, 'Brisaac', 'Johnson', '2003-03-20', 'Male', '6785169220', 'bribri@joh.com', 1235479215, 1579520347, 26, 'New Patient', NULL, 0),
@@ -381,21 +384,27 @@ CREATE TABLE `refer` (
   `is_processed` bit(1) NOT NULL DEFAULT b'0',
   `urgency` enum('Low','Medium','High','Emergency') NOT NULL,
   `reason_for_referral` varchar(1500) DEFAULT NULL,
-  `special_comments` varchar(1500) DEFAULT NULL
+  `special_comments` varchar(1500) DEFAULT NULL,
+  `height` int(5) DEFAULT NULL,
+  `weight` int(5) DEFAULT NULL,
+  `heart_rate` int(5) DEFAULT NULL,
+  `systolic_pressure` int(5) DEFAULT NULL,
+  `diastolic_pressure` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `refer`
 --
 
-INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`, `is_processed`, `urgency`, `reason_for_referral`, `special_comments`) VALUES
-(1, 43552, 12345, 1, b'0', 'Low', NULL, NULL),
-(2, 12442, 47284, 2, b'0', 'Low', NULL, NULL),
-(3, 52546, 47284, 3, b'0', 'Medium', NULL, NULL),
-(4, 43552, 12345, 3, b'0', 'Medium', NULL, NULL),
-(6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs'),
-(7, 6730, 13768, 2, b'0', 'Medium', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing '),
-(8, 6730, 21006, 2, b'0', 'High', 'lokfos', 'lfksodsmf');
+INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`, `is_processed`, `urgency`, `reason_for_referral`, `special_comments`, `height`, `weight`, `heart_rate`, `systolic_pressure`, `diastolic_pressure`) VALUES
+(1, 43552, 12345, 1, b'0', 'Low', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 12442, 47284, 2, b'0', 'Low', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 52546, 47284, 3, b'0', 'Medium', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 43552, 12345, 3, b'0', 'Medium', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs', NULL, NULL, NULL, NULL, NULL),
+(7, 6730, 13768, 2, b'0', 'Medium', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', NULL, NULL, NULL, NULL, NULL),
+(8, 6730, 21006, 2, b'0', 'High', 'lokfos', 'lfksodsmf', NULL, NULL, NULL, NULL, NULL),
+(9, 76342, 1181, 3, b'0', 'Medium', 'He crashed his car', 'Brain pain', 56, 136, 43, 65, 75);
 
 -- --------------------------------------------------------
 
@@ -466,6 +475,7 @@ INSERT INTO `role_relationship` (`role_relationship_id`, `employee_id`, `role_id
 (5, 52546, 1),
 (6, 6730, 6),
 (7, 123567, 4),
+(10, 76342, 5),
 (13, 45626, 4),
 (14, 45626, 2);
 
@@ -598,7 +608,7 @@ ALTER TABLE `role_relationship`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `appointments`
@@ -658,7 +668,7 @@ ALTER TABLE `procedure_relationship`
 -- AUTO_INCREMENT for table `refer`
 --
 ALTER TABLE `refer`
-  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `report`

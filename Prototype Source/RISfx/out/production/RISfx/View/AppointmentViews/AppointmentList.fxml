@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" stylesheets="@../allViews.css" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.AppointmentListController">
    <children>
-      <TableView fx:id="AppointmentList" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+      <TableView fx:id="AppointmentList" layoutX="-3.0" layoutY="52.0" prefHeight="353.0" prefWidth="582.0" stylesheets="@../allViews.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
         <columns>
           <TableColumn fx:id="appointmentID" prefWidth="40.0" text="ID" />
           <TableColumn fx:id="patientFullName" prefWidth="118.0" text="Patient Name" />

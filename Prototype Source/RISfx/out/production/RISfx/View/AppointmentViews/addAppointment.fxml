@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="554.0" prefWidth="600.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentControllers.AddAppointmentController">
 
     <DatePicker fx:id="scheduleDate" layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="202.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="70.0" />
-    <TableView fx:id="scheduleTime" layoutX="14.0" layoutY="75.0" prefHeight="221.0" prefWidth="261.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="105.0">
+    <TableView fx:id="scheduleTime" layoutX="14.0" layoutY="75.0" prefHeight="221.0" prefWidth="261.0" stylesheets="@../allViews.css" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="105.0">
         <columns>
             <TableColumn fx:id="timeSlotCol" prefWidth="161.0" text="Time Slot" />
             <TableColumn fx:id="techCol" minWidth="0.0" prefWidth="200.0" text="Technician" />
