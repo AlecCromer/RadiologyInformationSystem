@@ -75,20 +75,6 @@ public class NewPatientController implements Initializable {
         if (checkField()== true){
             submitToDB();
         }
-       /* for (Node node : pane.getChildren()) {
-            //System.out.println("Id: " + node.getId());
-            if (node instanceof TextField) {
-                // clear
-                //((TextField)node).setText("");
-                if(node.getStyle() == null){
-                    System.out.println(" " + node.getId());
-                }
-                else{
-                    System.out.println("hooray");
-                    submitToDB();
-                }
-            }
-        }*/
 
 else{
         System.out.println("Invalid fields");}
@@ -145,13 +131,6 @@ else{
         return date.format(format);
     }
 
-    /**
-     * Not implemented
-     * @return
-     */
-    private boolean validateForm(){
-        //TODO: Implement actual form validation
-    }
       ///////////////////
      //Form Validation//
     ///////////////////
