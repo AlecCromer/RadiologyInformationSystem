@@ -23,6 +23,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * ReportListController is used to create a table of images that have or need a report made.
+ */
 public class ReportListController implements Initializable{
 
     ////////////////////////

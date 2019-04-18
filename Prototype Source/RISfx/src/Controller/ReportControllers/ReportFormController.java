@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.lang.*;
 
+/**
+ * ReportFormController is used to create a report for a scanned image
+ */
 public class ReportFormController implements Initializable {
     @FXML
     private TextField   NameField, dobField, idField, sexField,
