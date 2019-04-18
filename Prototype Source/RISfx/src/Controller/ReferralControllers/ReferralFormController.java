@@ -31,13 +31,20 @@ public class ReferralFormController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+    /**
+     *Places the referral form view on top of the existing view
+     *and set the size 600x550
+     */
     public static void setView() throws Exception{
         Main.setPopupWindow("ReferralViews/ReferralForm.fxml");
         Main.popup.setResizable(false);
         Main.popup.setHeight(550);
         Main.popup.setWidth(600);
     }
-
+    /**
+     *Sets the procedure boxes with values so they can be sent to the
+     *database once they are selected and submitted
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             ObservableList<String> procedureList = Procedure.getProcedureList();
@@ -71,6 +78,11 @@ public class ReferralFormController implements Initializable {
      //Button Methods//
     //////////////////
     //Suppress warning about our method call being similar to another bit
+    /**
+     *The method checkField is ran to make sure that all the fields are completed
+     *and met the requirements. If so, the information is then submitted to the
+     * database and the view closes
+     */
     @SuppressWarnings("Duplicates")
     public void submitNewReferral() throws Exception{
         checkField();
@@ -101,6 +113,10 @@ public class ReferralFormController implements Initializable {
      ///////////////////
      //Form Validation//
      ///////////////////
+    /**
+     *Each field is checked and regex is used to validate the user input to ensure
+     * each field has the correct information in it
+     */
      private void checkField(){
          if (!patentFirstName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(0);
@@ -231,6 +247,11 @@ public class ReferralFormController implements Initializable {
              error(41);
          }
  }
+
+    /**
+     *Switch Case statement used to let the user know that the field is incorrect
+     *Once the field meet the requirements it then sets the style of the field to null
+     */
     private void error(int fieldID) {
 
         switch (fieldID) {
