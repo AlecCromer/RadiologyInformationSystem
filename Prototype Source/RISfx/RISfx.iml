@@ -20,6 +20,6 @@
     <orderEntry type="library" exported="" name="com.dlsc.formsfx:formsfx-core:11.3.2" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.8" level="project" />
     <orderEntry type="library" name="de.jensd:fontawesomefx:8.9" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
   </component>
 </module>

@@ -56,7 +56,7 @@ public class MenuController implements Initializable {
             tabsVBox.getChildren().remove(workList);
         }
         //Check for Schedule Employee
-        if(!(pms.contains(5) || pms.contains(6))){
+        if(!(pms.contains(5) || pms.contains(4) || pms.contains(6))){
             tabsVBox.getChildren().remove(scheduleEmployee);
         }
         //Check for Manage Procedures

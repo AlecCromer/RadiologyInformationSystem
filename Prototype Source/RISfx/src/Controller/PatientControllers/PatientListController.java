@@ -44,16 +44,23 @@ public class PatientListController implements Initializable {
     private  ArrayList pms;
 
 
+
     ////////////////
     //Initializers//
     ////////////////
     /**
-     * This method is used to add two integers. This is
-     * a the simplest form of a class method, just to
-     * show the usage of various javadoc Tags.
-     * @param url This is the first paramter to addNum method
-     * @param arg1 This is the second parameter to addNum method
-     * @return void This returns sum of url and arg1.
+     * Sets the Center Pane to the Patient List
+     * @throws Exception
+     */
+    public static void setView() throws Exception {
+        Main.setCenterPane("PatientViews/PatientList.fxml");
+    }
+
+    /**
+     * Checks the permissions of the session user to determine behavior
+     * Populates table via updateTable()
+     * @param url
+     * @param arg1
      */
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
@@ -86,11 +93,10 @@ public class PatientListController implements Initializable {
 
     }
 
-
-    public static void setView() throws Exception {
-        Main.setCenterPane("PatientViews/PatientList.fxml");
-    }
-
+    /**
+     * Creates a list of all patients and sends it to fillTable()
+     * @throws Exception
+     */
     public void updateTable() throws Exception {
         try {
             PatientList.setItems(getPatientList());
@@ -102,6 +108,12 @@ public class PatientListController implements Initializable {
         fillTable();
     }
 
+    /**
+     * Is called when user has lower permissions
+     * Takes in a specific list of patients and sends this list to fillTable()
+     * @param patients
+     * @throws Exception
+     */
     public void updateTable(ObservableList<Patient> patients) throws Exception {
         PatientList.setItems(patients);
         fillTable();
@@ -113,9 +125,15 @@ public class PatientListController implements Initializable {
     ////////////////////
 
 
+
     ///////////////////
     //List Generators//
     ///////////////////
+    /**
+     * Calls on the User Object to query the database for all users
+     * @return List of all patients in database
+     * @throws Exception
+     */
     @SuppressWarnings("Duplicates")
     public static ObservableList<Patient> getPatientList() throws Exception {
         ObservableList<Patient> patients = FXCollections.observableArrayList();
@@ -137,6 +155,14 @@ public class PatientListController implements Initializable {
         return patients;
     }
 
+
+    /**
+     * Overload of the getPatientList()
+     * Used to limit the patients to only those attached to a specified employee
+     * @param EmployeeID Used to limit the patients that are returned from the database
+     * @return List of patients associated with the employee
+     * @throws Exception
+     */
     @SuppressWarnings("Duplicates")
     public ObservableList<Patient> getPatientList(int EmployeeID) throws Exception {
         ObservableList<Patient> patients = FXCollections.observableArrayList();
@@ -162,6 +188,12 @@ public class PatientListController implements Initializable {
     //////////////////
     //Button Methods//
     //////////////////
+    /**
+     * This method is called when you click on the button at the top left
+     * It checks the session user's permissions to change behavior
+     * Depending on permission level it can either send you to a referral form or a New Patient Form
+     * @throws Exception
+     */
     public void setAddPatientView()throws Exception{
         if(pms.contains(1)){
             ReferralFormController.setView();
@@ -170,19 +202,35 @@ public class PatientListController implements Initializable {
             NewPatientController.setView();
     }
 
+    /**
+     * Sets the center pane to a detailed view of the patient
+     * @throws Exception
+     */
     public static void setPatientView() throws Exception {
         PatientViewController.setView();
     }
 
 
+
     ///////////////////
     //Form Validation//
     ///////////////////
+    /**
+     * Used to format the date when sending to the database
+     * @param date Takes in a string of characters resembling a date
+     * @return Returns a LocalDate in the format specified
+     */
     private static LocalDate dateFormatter(String date) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(date, format);
     }
 
+    /**
+     * Sends a patient object to our Main class to pass data between views
+     * Re-queries the database to ensure all necessary patient variables are filled
+     * @param selectedItem The item clicked on in the table
+     * @throws Exception
+     */
     private void sendPatientToView(Patient selectedItem) throws Exception {
         int patient_id = selectedItem.getPatientID();
 
@@ -208,6 +256,11 @@ public class PatientListController implements Initializable {
     }
 
 
+    /**
+     * Sets the value factories of the table columns
+     * Adds listener to the search field to enable searching of columns
+     * @throws Exception
+     */
     private void fillTable() throws Exception {
 
         patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));

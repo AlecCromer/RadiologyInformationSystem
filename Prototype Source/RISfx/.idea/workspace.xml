@@ -7,23 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="623dc5f7-635f-4e93-b9a5-1b740b900738" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/VM_Options.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentFilesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentFilesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RISfx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RISfx.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/InvoiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/InvoiceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/ReportController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,65 +49,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/allViews.css">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2310">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="43" selection-end-column="103" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1216#1247#0" expanded="true" />
+                <element signature="e#4402#4433#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="155" column="37" selection-start-line="155" selection-start-column="37" selection-end-line="155" selection-end-column="37" />
+            <state relative-caret-position="394">
+              <caret line="376" column="18" lean-forward="true" selection-start-line="376" selection-start-column="18" selection-end-line="376" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#620#2147#0" />
+                <element signature="e#2156#2775#0" />
+                <element signature="e#2780#3453#0" />
+                <element signature="e#3459#4106#0" />
+                <element signature="e#4112#4835#0" />
+                <element signature="e#4842#5761#0" />
+                <element signature="e#5767#6107#0" />
+                <element signature="e#6113#6920#0" />
+                <element signature="e#6926#7476#0" />
+                <element signature="e#7481#8034#0" />
+                <element signature="e#12180#12634#0" />
+                <element signature="e#12640#12977#0" />
+                <element signature="e#12983#13409#0" />
+                <element signature="e#13415#13695#0" />
+                <element signature="e#13701#14045#0" />
+                <element signature="e#14051#14545#0" />
+                <element signature="e#14551#15668#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/MenuViews/tabLayout.css">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -136,15 +112,17 @@
         <option value="$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java" />
         <option value="$PROJECT_DIR$/src/View/ReportViews/ReportList.fxml" />
         <option value="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ReportControllers/ReportListController.java" />
         <option value="$PROJECT_DIR$/src/Controller/TechControllers/WorkListController.java" />
         <option value="$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/View/allViews.css" />
         <option value="$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java" />
         <option value="$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java" />
+        <option value="$PROJECT_DIR$/VM_Options.txt" />
+        <option value="$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
       </list>
     </option>
   </component>
@@ -165,9 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,159 +159,15 @@
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="AppointmentControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="BillingControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="MenuControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcedureControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="ReferralControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="ReportControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="TechControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="AppointmentViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="BillingViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="MenuViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="PatientViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcedureViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="ReferralViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="ReportViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="TechViews" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="io.github.typhon0:AnimateFX:1.2.1" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="io.github.typhon0:AnimateFX:1.2.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="AnimateFX-1.2.1.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="io.github.typhon0:AnimateFX:1.2.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="AnimateFX-1.2.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="animatefx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="io.github.typhon0:AnimateFX:1.2.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="AnimateFX-1.2.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="animatefx" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Course" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,10 +177,10 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555516896128" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555621978974" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/test jar" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../test jar" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -367,9 +198,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controller.Main" />
       <module name="RISfx" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;Libraries\Javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -422,6 +254,7 @@
       <workItem from="1555454031463" duration="328000" />
       <workItem from="1555472359709" duration="5636000" />
       <workItem from="1555515913862" duration="909000" />
+      <workItem from="1555619567318" duration="2406000" />
     </task>
     <task id="LOCAL-00001" summary="Search fields have been added Still need to test and make sure all effects are set to null and not set to disable">
       <created>1555477554745</created>
@@ -469,12 +302,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133683000" />
+    <option name="totallyTimeSpent" value="136089000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25945538" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26226014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -484,7 +318,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.1898527" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.18959913" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.099836335" />
@@ -527,14 +361,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/TechViews/TechEntry.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="78" column="59" lean-forward="true" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/TechEntryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1734">
@@ -542,98 +368,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.desktop/java/awt/event/WindowEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="300" column="11" selection-start-line="300" selection-start-column="11" selection-end-line="300" selection-end-column="11" />
-          <folding>
-            <element signature="e#11736#11737#0" expanded="true" />
-            <element signature="e#11780#11781#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/com/sun/glass/ui/win/WinApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="361" column="33" lean-forward="true" selection-start-line="361" selection-start-column="33" selection-end-line="361" selection-end-column="33" />
-          <folding>
-            <element signature="e#9234#9235#0" expanded="true" />
-            <element signature="e#9270#9271#0" expanded="true" />
-            <element signature="e#9324#9325#0" expanded="true" />
-            <element signature="e#9374#9375#0" expanded="true" />
-            <element signature="e#9409#9410#0" expanded="true" />
-            <element signature="e#9443#9444#0" expanded="true" />
-            <element signature="e#9491#9492#0" expanded="true" />
-            <element signature="e#9537#9538#0" expanded="true" />
-            <element signature="e#9570#9571#0" expanded="true" />
-            <element signature="e#9602#9603#0" expanded="true" />
-            <element signature="e#9648#9649#0" expanded="true" />
-            <element signature="e#9690#9691#0" expanded="true" />
-            <element signature="e#9723#9724#0" expanded="true" />
-            <element signature="e#9755#9756#0" expanded="true" />
-            <element signature="e#9801#9802#0" expanded="true" />
-            <element signature="e#9843#9844#0" expanded="true" />
-            <element signature="e#9877#9878#0" expanded="true" />
-            <element signature="e#9910#9911#0" expanded="true" />
-            <element signature="e#9958#9959#0" expanded="true" />
-            <element signature="e#10002#10003#0" expanded="true" />
-            <element signature="e#10042#10043#0" expanded="true" />
-            <element signature="e#10080#10081#0" expanded="true" />
-            <element signature="e#10139#10140#0" expanded="true" />
-            <element signature="e#10193#10194#0" expanded="true" />
-            <element signature="e#10233#10234#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10330#10331#0" expanded="true" />
-            <element signature="e#10384#10385#0" expanded="true" />
-            <element signature="e#10422#10423#0" expanded="true" />
-            <element signature="e#10458#10459#0" expanded="true" />
-            <element signature="e#10513#10514#0" expanded="true" />
-            <element signature="e#10563#10564#0" expanded="true" />
-            <element signature="e#10602#10603#0" expanded="true" />
-            <element signature="e#10639#10640#0" expanded="true" />
-            <element signature="e#10696#10697#0" expanded="true" />
-            <element signature="e#10748#10749#0" expanded="true" />
-            <element signature="e#10789#10790#0" expanded="true" />
-            <element signature="e#10826#10827#0" expanded="true" />
-            <element signature="e#10885#10886#0" expanded="true" />
-            <element signature="e#10937#10938#0" expanded="true" />
-            <element signature="e#10972#10973#0" expanded="true" />
-            <element signature="e#11003#11004#0" expanded="true" />
-            <element signature="e#11050#11051#0" expanded="true" />
-            <element signature="e#11085#11086#0" expanded="true" />
-            <element signature="e#11127#11128#0" expanded="true" />
-            <element signature="e#11165#11166#0" expanded="true" />
-            <element signature="e#11226#11227#0" expanded="true" />
-            <element signature="e#11280#11281#0" expanded="true" />
-            <element signature="e#11601#11602#0" expanded="true" />
-            <element signature="e#11634#11635#0" expanded="true" />
-            <element signature="e#11754#11755#0" expanded="true" />
-            <element signature="e#11788#11789#0" expanded="true" />
-            <element signature="e#11915#11916#0" expanded="true" />
-            <element signature="e#11951#11952#0" expanded="true" />
-            <element signature="e#11984#11985#0" expanded="true" />
-            <element signature="e#12014#12015#0" expanded="true" />
-            <element signature="e#12749#12750#0" expanded="true" />
-            <element signature="e#12839#12840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.desktop/java/awt/event/WindowEvent.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/com/sun/glass/ui/win/WinApplication.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/event/EventHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1084">
@@ -694,55 +431,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.controls/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="356" column="35" selection-start-line="356" selection-start-column="35" selection-end-line="356" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8865" selection-start-line="8865" selection-end-line="8865" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="1670" selection-start-line="1670" selection-end-line="1670" />
-          <folding>
-            <element signature="e#67760#67761#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="2613" selection-start-line="2613" selection-end-line="2613" />
-          <folding>
-            <element signature="e#70522#70523#0" expanded="true" />
-            <element signature="e#70568#70569#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.controls/javafx/scene/control/TextInputControl.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Node.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/event/Event.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java" />
     <entry file="file://$PROJECT_DIR$/src/Controller/ReportControllers/ReportFormController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
@@ -766,13 +460,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/util/function/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/util/function/Predicate.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="909">
@@ -914,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="238" column="32" lean-forward="true" selection-start-line="238" selection-start-column="32" selection-end-line="238" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -978,29 +659,33 @@
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/View/allViews.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="155" column="37" selection-start-line="155" selection-start-column="37" selection-end-line="155" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1411">
+          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2057">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/MenuViews/tabLayout.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/allViews.css">
+    <entry file="file://$PROJECT_DIR$/VM_Options.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        <state>
+          <caret column="53" selection-start-column="53" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2310">
+        <state relative-caret-position="-221">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1008,17 +693,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/NewPatientController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="428">
+          <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PatientControllers/PatientListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-453">
+          <caret line="260" column="71" selection-start-line="260" selection-start-column="71" selection-end-line="260" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+        <state relative-caret-position="408">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="43" selection-end-column="103" />
+          <folding>
+            <element signature="e#1216#1247#0" expanded="true" />
+            <element signature="e#4402#4433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="376" column="18" lean-forward="true" selection-start-line="376" selection-start-column="18" selection-end-line="376" selection-end-column="18" />
+          <folding>
+            <element signature="e#620#2147#0" />
+            <element signature="e#2156#2775#0" />
+            <element signature="e#2780#3453#0" />
+            <element signature="e#3459#4106#0" />
+            <element signature="e#4112#4835#0" />
+            <element signature="e#4842#5761#0" />
+            <element signature="e#5767#6107#0" />
+            <element signature="e#6113#6920#0" />
+            <element signature="e#6926#7476#0" />
+            <element signature="e#7481#8034#0" />
+            <element signature="e#12180#12634#0" />
+            <element signature="e#12640#12977#0" />
+            <element signature="e#12983#13409#0" />
+            <element signature="e#13415#13695#0" />
+            <element signature="e#13701#14045#0" />
+            <element signature="e#14051#14545#0" />
+            <element signature="e#14551#15668#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +765,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1071,7 +795,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>10</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1095,7 +819,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>io.github.typhon0:AnimateFX:1.2.1</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
