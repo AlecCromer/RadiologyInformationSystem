@@ -23,6 +23,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * WorkListController is used to create a list of tasks that a technician needs to work on
+ */
 public class WorkListController implements Initializable {
 
       ////////////////////////
@@ -41,10 +44,20 @@ public class WorkListController implements Initializable {
     ////////////////
     //Initializers//
     ////////////////
+
+    /**
+     * Used to set the view to the work list
+     * @throws Exception if changing the view returns an error
+     */
     public static void setView()throws Exception{
         Main.setCenterPane("TechViews/WorkList.fxml");
     }
 
+    /**
+     * Initializes the work list using scheduled appointments
+     * @param url the location for relative paths
+     * @param arg1 the resources used to localize the root object
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             updateTable();
@@ -65,6 +78,10 @@ public class WorkListController implements Initializable {
         loggedIn.setText(loggedIn.getText() + Main.getSessionUser().getFullName());
     }
 
+    /**
+     * Sets the table with data about the appointment
+     * @throws Exception if the SQL returns an error
+     */
     private void updateTable() throws Exception {
         try {
             WorkList.setItems(getAppointmentList());
@@ -120,9 +137,11 @@ public class WorkListController implements Initializable {
     }
 
 
-    ///////////////////
-    //List Generators//
-    ///////////////////
+    /**
+     * Used to return a ObservableList of the work list information for the employee logged in
+     * @return ObservableList with work list information
+     * @throws Exception if the SQL returns an error
+     */
     private ObservableList<Appointment> getAppointmentList() throws Exception {
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
         try(ResultSet resultSet = Appointment.queryWorkList(Main.getSessionUser().getEmployeeId())){
@@ -138,14 +157,11 @@ public class WorkListController implements Initializable {
     }
 
 
-    //////////////////
-    //Button Methods//
-    //////////////////
-
-
-    ///////////////////
-    //Form Validation//
-    ///////////////////
+    /**
+     * Sends the appointment data for the tech entry controller
+     * @param selectedItem The selected appointment
+     * @throws Exception if the SQL returns an error
+     */
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();
         ResultSet rs = Appointment.queryAppointmentFocus(appointmentId);
