@@ -1,22 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 05:18 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Apr 18, 2019 at 06:46 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `ris`
@@ -66,7 +60,28 @@ INSERT INTO `address` (`address_id`, `street_name`, `city`, `zip`, `state`) VALU
 (26, '2250 Sugar Hill #456', 'Snellvile', 30078, 'Ga'),
 (27, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga'),
 (28, '2242 at 2243 main street #1528', 'Snellville', 30519, 'Ga'),
-(29, 'f2 champ lane', 'Dahlonega', 30040, 'Georgia');
+(29, 'f2 champ lane', 'Dahlonega', 30040, 'Georgia'),
+(30, '1625 Pleasant Hill Road', 'Duluth', 30096, 'GA'),
+(31, '6185 Retail Road', 'Dallas', 75231, 'Texas'),
+(32, '831 Brown Boulevard', 'Dawsonville', 30058, 'GA'),
+(33, '1720 Piedmont Lane', 'Demorest', 30039, 'Georgia'),
+(34, '868 Yellow Lane', 'Cumming', 30578, 'Georgia'),
+(35, '6510 Timber lane', 'Suwanee', 30043, 'Georgia'),
+(36, '6510 Timber lane', 'Suwanee', 30043, 'Georgia'),
+(37, '2510 Rhino Drive', 'Dahlonega', 30597, 'Georgia'),
+(38, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(39, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(40, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(41, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(42, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(43, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(44, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(45, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(46, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(47, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(48, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(49, '82 College Circle', 'Dahlonega', 30597, 'Georgia'),
+(50, '1720 Piedmont Lane', 'Demorest', 30039, 'Georgia');
 
 -- --------------------------------------------------------
 
@@ -114,7 +129,19 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `appointment_date`, 
 (22, 47284, '2019-03-15', '08:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 45626, NULL, NULL),
 (23, 47284, '2019-03-15', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 45626, NULL, NULL),
 (24, 47284, '2019-03-15', '12:00:00', '16:42:02', NULL, 'Signed In', b'0', 3, 3, 45626, NULL, NULL),
-(28, 1181, '2019-04-19', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL);
+(28, 1181, '2019-04-19', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 45626, NULL, NULL),
+(29, 14321, '2019-05-01', '08:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(30, 45236, '2019-05-01', '09:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(31, 39603, '2019-05-01', '11:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 123567, NULL, NULL),
+(32, 38203, '2019-05-01', '15:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(33, 10798, '2019-05-01', '14:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(34, 12781, '2019-05-01', '10:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(35, 47086, '2019-05-01', '15:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 123567, NULL, NULL),
+(36, 44530, '2019-05-01', '11:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 123567, NULL, NULL),
+(37, 31666, '2019-04-30', '10:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(38, 31545, '2019-04-30', '16:00:00', NULL, NULL, 'Not Signed In', b'0', 1, 1, 123567, NULL, NULL),
+(39, 41881, '2019-04-30', '11:00:00', NULL, NULL, 'Not Signed In', b'0', 2, 2, 123567, NULL, NULL),
+(40, 23709, '2019-04-30', '12:00:00', NULL, NULL, 'Not Signed In', b'0', 3, 3, 123567, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -195,7 +222,9 @@ INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `en
 (9, 6730, '2019-03-20 10:00:00', '2019-03-20 12:00:00'),
 (10, 6730, '2019-04-18 14:00:00', '2019-04-18 12:00:00'),
 (11, 45626, '2019-04-19 08:00:00', '2019-04-19 17:00:00'),
-(12, 43552, '2019-04-17 09:00:00', '2019-04-17 17:00:00');
+(12, 43552, '2019-04-17 09:00:00', '2019-04-17 17:00:00'),
+(13, 123567, '2019-05-01 08:00:00', '2019-05-01 17:00:00'),
+(14, 123567, '2019-04-30 08:00:00', '2019-04-30 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -317,18 +346,39 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`, `sex`, `home_phone`, `email`, `insurance_number`, `policy_number`, `address_id`, `status`, `patient_medications_list`, `balance`) VALUES
+(20, 'Damaris', 'Fiallo', '2000-01-01', 'Female', '6786007946', 'damarisf@gmail.com', 30856298, 5, 35, 'New Patient', NULL, 0),
+(969, 'Tori', 'Drake', '1950-05-18', 'Female', '7076954869', 'torid@gmail.com', 79461358, 18, 33, 'New Patient', NULL, 0),
 (1181, 'Max', 'Verstappen', '2006-03-16', 'Male', '2234902886', 'maxverstappen@gmail.com', 2345234, 54363423, 29, 'New Patient', NULL, 0),
 (3526, 'Kevin', 'Mitchell', '1950-01-01', 'Male', '1234567890', 'Yahoo@yahoo.com', 87654321, 12345678, 16, 'New Patient', NULL, 0),
+(5328, 'Lauren', 'Gibbs', '1950-05-13', 'Female', '1558504552', 'lgibbs@gmail.com', 38534932, 70527, 38, 'New Patient', NULL, 0),
+(10233, 'Cally', 'White', '1950-02-17', 'Female', '6784449789', 'cw94@gmail.com', 78946132, 98, 32, 'New Patient', NULL, 0),
+(10798, 'Hingle', 'McCringleberry', '1950-01-01', 'Male', '7078459513', 'hingleberry@gmail.com', 98751265, 18415, 37, 'New Patient', NULL, 0),
 (12345, 'Darius', 'Fiallo', '2019-03-11', 'Male', '67855583', 'darius@ung.edu', 65436356, 98744567, 1, 'In progress', 'Antihistamine, Mebendazole', 0),
+(12781, 'Brick', 'Johanson', '1950-04-13', 'Male', '1563246548', 'brickj@gmail.com', 56485931, 78943, 38, 'New Patient', NULL, 0),
 (13768, 'Brisaac', 'Johnson', '2003-03-20', 'Male', '6785169220', 'bribri@joh.com', 1235479215, 1579520347, 26, 'New Patient', NULL, 0),
+(14321, 'Aubrey', 'Jony', '1998-01-21', 'Male', '9726562196', 'aubsjony@gmail.com', 12457963, 78, 31, 'New Patient', NULL, 0),
 (18603, 'Kyle', 'Michael', '1994-11-16', 'Male', '1876543210', 'yahoorelevance@yahoo.com', 12345678, 87654321, 17, 'New Patient', NULL, 0),
 (19696, 'Testing', 'McGee', '1950-01-01', 'Male', '1234567890', 'Test@test.net', 12345678, 9876543, 19, 'New Patient', NULL, 0),
 (21006, 'Brisaac', 'Johnson', '1998-04-15', 'Male', '6786150229', 'brisaacbmw@gmail.com', 2015491651, 1248761549, 27, 'New Patient', NULL, 0),
 (23423, 'Evan', 'Myers', '1980-03-10', 'Male', '2147483647', 'fake@fake.com', 4574676, 567456754, 20, NULL, NULL, 0),
+(23709, 'Madison', 'McKune', '1993-02-14', 'Female', '7079538158', 'madisonm@gmail.com', 96234185, 26, 34, 'New Patient', NULL, 0),
+(29708, 'Emily', 'Long', '1950-03-14', 'Female', '7896545216', 'emlong@gmail.com', 65481354, 45187, 38, 'New Patient', NULL, 0),
+(31545, 'Juan', 'Lopez', '1950-08-20', 'Male', '9874566215', 'jlopez@gmail.com', 78159545, 65481, 38, 'New Patient', NULL, 0),
+(31666, 'Dionysis', 'Fiallo', '1958-02-09', 'Male', '6786007897', 'dionfiallo@gmail.com', 30856290, 13, 35, 'New Patient', NULL, 0),
 (31710, 'Jojo', 'Bizarre', '1996-03-06', 'Male', '12345678', 'Testing@testTest.net', 12345678, 874654321, 22, 'New Patient', NULL, 0),
+(33403, 'Jacob', 'Trivers', '1950-04-20', 'Male', '7894561231', 'jtriver@hotmail.com', 78952316, 15678, 38, 'New Patient', NULL, 0),
 (36725, 'Make', 'Sure', '1950-01-01', 'Male', '1234567890', 'ClosingTime@Test.net', 9876543, 123456789, 20, 'New Patient', NULL, 0),
+(38203, 'Josephine', 'Raurell', '1950-05-04', 'Female', '8477589495', 'josie@gmail.com', 94956184, 15648, 38, 'New Patient', NULL, 0),
+(39603, 'Elizabeth', 'Longo', '1950-08-31', 'Female', '9727524884', 'elongo@gmail.com', 52008143, 57857, 38, 'New Patient', NULL, 0),
+(41881, 'Katie', 'Kasha', '1950-05-13', 'Female', '6065565548', 'katiek@gmail.com', 78954565, 32517, 38, 'New Patient', NULL, 0),
+(44530, 'Ben', 'Wakim', '1950-01-01', 'Male', '8542361548', 'benw@gmail.com', 23648451, 15487, 38, 'New Patient', NULL, 0),
+(44539, 'Keleigh', 'McGill', '1950-03-05', 'Female', '6548451265', 'keleighm@yahoo.com', 59648451, 15624, 38, 'New Patient', NULL, 0),
 (44697, 'Kevin', 'Mitchell', '1996-03-21', 'Male', '678126987', 'testing@test.net', 1234567, 87654321, 21, 'New Patient', NULL, 0),
-(47284, 'Ben', 'Denton', '2019-03-11', 'Male', '578223442', 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin', 0);
+(45236, 'Jonathan', 'Kell', '1980-01-13', 'Male', '6787006378', 'jonkell@gmail.com', 15978564, 54, 30, 'New Patient', NULL, 0),
+(47086, 'William', 'Loudermilk', '1951-10-31', 'Male', '7078456498', 'loudermilk@gmail.com', 15326549, 78459, 38, 'New Patient', NULL, 0),
+(47284, 'Ben', 'Denton', '2019-03-11', 'Male', '578223442', 'DentonBen@ung.edu', 76435344, 13478987, 2, 'Checked in', 'Guaifenesin, Benylin', 0),
+(48188, 'Tori', 'Drake', '2019-04-18', 'Female', '7076954869', 'torid@gmail.com', 79461358, 18, 33, 'New Patient', NULL, 0),
+(48614, 'Bennett', 'Ortega', '1950-07-05', 'Male', '7849546122', 'benortega@gmail.com', 59641355, 65487, 38, 'New Patient', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -408,7 +458,8 @@ INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`
 (6, 12442, 31710, 1, b'0', 'Emergency', 'This guy\'s leg is falling off. ', 'I lied. He doesn\'t have legs', NULL, NULL, NULL, NULL, NULL),
 (7, 6730, 13768, 2, b'0', 'Medium', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', 'Testing the fields also trying to see if word wrap has been set to true so I am going to keep typing ', NULL, NULL, NULL, NULL, NULL),
 (8, 6730, 21006, 2, b'0', 'High', 'lokfos', 'lfksodsmf', NULL, NULL, NULL, NULL, NULL),
-(9, 76342, 1181, 3, b'0', 'Medium', 'He crashed his car', 'Brain pain', 56, 136, 43, 65, 75);
+(9, 76342, 1181, 3, b'0', 'Medium', 'He crashed his car', 'Brain pain', 56, 136, 43, 65, 75),
+(10, 6730, 48188, 1, b'0', 'Medium', 'Patient is experiencing pain in ankle. Ankle is swollen and injury was sustained in athletic event.', 'Most likely a sprain but better safe than sorry.', 65, 150, 55, 120, 70);
 
 -- --------------------------------------------------------
 
@@ -612,13 +663,13 @@ ALTER TABLE `role_relationship`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `address_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `billing`
@@ -630,7 +681,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `employee_schedule`
 --
 ALTER TABLE `employee_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -672,7 +723,7 @@ ALTER TABLE `procedure_relationship`
 -- AUTO_INCREMENT for table `refer`
 --
 ALTER TABLE `refer`
-  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `referring_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -769,7 +820,3 @@ ALTER TABLE `role_relationship`
   ADD CONSTRAINT `role_relationship_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
   ADD CONSTRAINT `role_relationship_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

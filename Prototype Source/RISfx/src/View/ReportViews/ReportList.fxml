@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D75E8;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportListController">
     <children>
         <TableView fx:id="ReportList" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" stylesheets="@ReportList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
             <columns>
@@ -30,8 +30,8 @@
                 <Font name="Calibri Bold" size="24.0" />
             </font>
         </Text>
-        <Button fx:id="incomplete" layoutX="515.0" layoutY="10.0" mnemonicParsing="false" onAction="#incompleteList" text="Incomplete" visible="false" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
-        <Button layoutX="444.0" layoutY="10.0" mnemonicParsing="false" onAction="#completeList" text="Complete" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="10.0" />
+        <Button fx:id="incomplete" layoutX="515.0" layoutY="10.0" mnemonicParsing="false" onAction="#incompleteList" text="Needs Report" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
+        <Button layoutX="435.0" layoutY="10.0" mnemonicParsing="false" onAction="#completeList" text="Complete" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="10.0" />
     </children>
     <stylesheets>
         <URL value="@ReportList.css" />

@@ -23,6 +23,9 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+/**
+ * AddImageController is used by a technician to upload an image to the database
+ */
 public class AddImageController  implements Initializable {
 
 
@@ -38,7 +41,11 @@ public class AddImageController  implements Initializable {
     private static String director = "", filename = "", filePath = "", file="";
     static String Appointment_id ="";
 
-
+    /**
+     * Initializes the add image controller and fills the dropdown box
+     * @param url the location for relative paths
+     * @param arg1 the resources used to localize the root object
+     */
     public void initialize(URL url, ResourceBundle arg1){
         uploadImage.setVisible(false);
         try {
@@ -49,13 +56,22 @@ public class AddImageController  implements Initializable {
         }
     }
 
+    /**
+     * Used to set the view of the popup window to the add image view
+     * @param appointment_id for the appointment id of the image
+     * @throws Exception if changing the popup window fails
+     */
     public static void setView(String appointment_id)throws Exception{
         Appointment_id = appointment_id;
         Main.popup.setWidth(620);
         Main.popup.setHeight(600);
         Main.setPopupWindow("TechViews/addImage.fxml");
     }
-    // User presses the select Image button and it gets displayed on screen
+
+    /**
+     *  User presses the select Image button and allows them to select an image
+     * @param event event parameter
+     */
     public void captureImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
@@ -68,9 +84,10 @@ public class AddImageController  implements Initializable {
         uploadImage.setVisible(true);
     }
 
-    //////////////////
-    //Button Methods//
-    //////////////////
+    /**
+     * Submits the photo into the database
+     * @throws Exception if inserting the image into the database or setting view fails
+     */
     public void submitNewPhoto() throws Exception{
 
         if (!file.isEmpty() && machineBox.getValue() != null){
@@ -89,9 +106,10 @@ public class AddImageController  implements Initializable {
         }
     }
 
-    ///////////////////
-    //List Generators//
-    ///////////////////
+    /**
+     * Used to create a dropdown of the different modalities
+     * @throws Exception When the SQL returns an error
+     */
     private void comboBoxFill() throws Exception{
         ResultSet rs = Modality.queryAllModality();
         ObservableList<String> machine = FXCollections.observableArrayList();
@@ -99,7 +117,6 @@ public class AddImageController  implements Initializable {
         while(rs.next()){
             machine.add(rs.getInt("machine_id")+ ": "+ rs.getString("machine_name"));
         }
-        System.out.println("hello?");
         machine.toString();
         machineBox.setItems(machine);
     }

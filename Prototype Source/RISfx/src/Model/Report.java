@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+/**
+ * Report is used to generate/create a report
+ */
 public class Report {
 
     private String firstname;
@@ -160,8 +163,13 @@ public class Report {
     }
 
 
-
-    //TODO: GENERATE EVERY DETAIL NEEDED FOR A PATIENT'S REVIEW
+    /**
+     * Returns the patient information from an appointment
+     * @param appointment_id the specific appointment selected
+     * @param image_id the image id that was selected
+     * @return ResultSet of the SQL query
+     * @throws SQLException
+     */
     public static ResultSet gatherPatientInfo(int appointment_id, String image_id) throws SQLException {
         return(databaseConnector.getConnection().prepareStatement(
                 "SELECT DISTINCT p.patient_id, CONCAT(p.first_name,\" \", p.last_name) AS name, p.date_of_birth, ap.appointment_date, p.sex, ap.reason_for_referral, ap.special_comments, ap.appointment_id, pr.procedure_name, i.imagedata, ap.patient_sign_in_time \n" +
@@ -170,18 +178,38 @@ public class Report {
 
     }
 
+    /**
+     * Returns the referral information of the patient who got the image taken
+     * @param image_id the image id of the patient
+     * @return ResultSet of the SQL query
+     * @throws SQLException if the database connector fails
+     */
     public static ResultSet gatherReferralInfo( String image_id) throws SQLException {
         return(databaseConnector.getConnection().prepareStatement("SELECT DISTINCT CONCAT(e.first_name,\" \", e.last_name) AS name " +
                 "FROM employees as e, refer as re, patient as p, image as i " +
                 "WHERE e.employee_id = re.employee_id AND p.patient_id = re.patient_id AND i.patient_id = p.patient_id AND i.image_id = "+ image_id + " LIMIT 1").executeQuery());
     }
 
+    /**
+     * Returns all image reports with an image status 'Complete' or 'Needs Review'
+     * @param search the image status 'Complete' or 'Needs Review'
+     * @return ResultSet of the SQL query
+     * @throws Exception if the database connector fails
+     */
     public static ResultSet queryReports(String search) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT DISTINCT p.*, i.image_id, a.appointment_id " +
                         "FROM patient as p, image as i, appointments as a " +
                         "WHERE p.patient_id = i.patient_id  AND i.exam_date = a.appointment_date AND a.patient_id = p.patient_id AND i.status  = '"+search+"' GROUP BY i.image_id;").executeQuery();
     }
+
+    /**
+     * Used to return the images that match the referring physician's or radiologist's ID
+     * @param search the image status 'Complete' or 'Needs Review'
+     * @param employeeID the employee ID of the one logged in
+     * @return ResultSet of the SQL query
+     * @throws Exception if the database connector fails
+     */
     public static ResultSet queryReports(String search, int employeeID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT DISTINCT p.*, i.image_id, a.appointment_id, refer.employee_id \n" +
@@ -198,7 +226,16 @@ public class Report {
                         "       \n" +
                         "       GROUP BY i.image_id").executeQuery();
     }
-
+    /**
+     * Used to fill the report
+     * @param patient_id The patient's ID
+     * @param name The patient's name
+     * @param dob The patient's date of birth
+     * @param Sex The patient's sex
+     * @param refering_physician The patient's referring physician
+     * @param reason the reason they were referred
+     * @param appointment_id the appointment of the patient that the image was taken
+     */
     public Report(String patient_id, String name, LocalDate dob, String Sex, String refering_physician, String reason, int appointment_id){
         this.patient_id = patient_id;
         this.fullName = name;
@@ -210,6 +247,16 @@ public class Report {
 
     }
 
+    /**
+     * Used to establish a report
+     * @param patient_id The patient's ID
+     * @param firstname The patient's first name
+     * @param lastname The patient's last name
+     * @param date_of_birth The patient's date of birth
+     * @param sex The patient's sex
+     * @param image_id The patient's image id
+     * @param appointment_id the appointment of the patient that the image was taken
+     */
     public Report(String patient_id, String firstname, String lastname, LocalDate date_of_birth, String sex, String image_id, int appointment_id) {
         this.patient_id = patient_id;
         this.firstname = firstname;
@@ -221,6 +268,15 @@ public class Report {
 
     }
 
+    /**
+     * Used to send the report to the database
+     * @param clinicalIndication The diagnosis of the image
+     * @param findings Additional findings
+     * @param image_id the image id of the report
+     * @param exam the exam taken
+     * @param employee_name The radiologist's name
+     * @throws SQLException if the SQL returns an error
+     */
     public static void sendReport(String clinicalIndication, String findings, String image_id, String exam, String employee_name) throws SQLException{
         String[] split = employee_name.trim().split("\\s+");
         System.out.println("SELECT employee_id FROM employees WHERE employees.first_name = '" + split[0]+ "' AND employees.last_name = '"+ split[1]+"'");

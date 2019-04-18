@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <ScrollPane prefHeight="1240.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportControllers.ReportFormController">
-    <AnchorPane prefHeight="1040.0" prefWidth="600.0">
+    <AnchorPane prefHeight="1040.0" prefWidth="600.0" stylesheets="@../allViews.css">
         <children>
             <Text layoutX="18.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Information" underline="true" wrappingWidth="159.99999716877937" AnchorPane.topAnchor="372.5">
                 <font>
@@ -107,7 +107,7 @@
                 </font>
             </Text>
             <DatePicker fx:id="signDateField" layoutX="117.0" layoutY="1157.0" prefHeight="25.0" prefWidth="213.0" />
-            <Button layoutX="475.0" layoutY="1189.0" mnemonicParsing="false" onAction="#submitReport" text="Submit Report" AnchorPane.rightAnchor="16.0" />
+            <Button fx:id="submit_report" layoutX="475.0" layoutY="1189.0" mnemonicParsing="false" onAction="#submitReport" text="Submit Report" AnchorPane.rightAnchor="16.0" />
             <ImageView fx:id="report_image" fitHeight="326.0" fitWidth="435.0" layoutX="75.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="14.0" />
          <TextField fx:id="clinicalIndication" layoutX="139.0" layoutY="901.0" prefHeight="25.0" prefWidth="170.0" />
          <Text layoutX="22.0" layoutY="917.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clinical Indication:">

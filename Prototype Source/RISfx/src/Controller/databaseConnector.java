@@ -21,7 +21,7 @@ public class databaseConnector {
 
     /**
      * initializes the connection to the database
-     * @return Connection This returns sum of numA and numB.
+     * @return Connection this returns the connection to the database from the DriverManager
      */
     public static Connection getStartConnection() throws SQLException {
         System.out.println("Connecting to Database...");
@@ -33,7 +33,6 @@ public class databaseConnector {
     /**
      * This method is used to add two integers. This is
      * @param ex Takes the SQL exception
-     * @return void Prints out the errors returned by the SQL
      */
     public static void displayException(SQLException ex) {
         System.err.println("Error Message: " + ex.getMessage());

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="365.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ProcedureControllers.AddProcedureController">
+<AnchorPane prefHeight="365.0" prefWidth="227.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ProcedureControllers.AddProcedureController">
    <children>
       <TextField fx:id="procedurePriceEditText" alignment="CENTER" layoutX="39.0" layoutY="127.0" promptText="50.00" />
       <TextField fx:id="procedureNameEditText" alignment="CENTER" layoutX="39.0" layoutY="183.0" />
