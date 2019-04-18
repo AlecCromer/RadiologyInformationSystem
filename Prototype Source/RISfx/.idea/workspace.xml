@@ -8,12 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="623dc5f7-635f-4e93-b9a5-1b740b900738" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MenuViews/RIS_Tabs.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,20 +36,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="204" column="7" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
+            <state relative-caret-position="32">
+              <caret line="158" selection-start-line="158" selection-end-line="158" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/databaseConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+            <state relative-caret-position="206">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -284,7 +279,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555596972886" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555597445249" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SPRING 2019/CSCI 4400/JavaFX-Tutorial-Codes/JavaFX Scene Transition" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -362,7 +357,7 @@
       <workItem from="1555515913862" duration="909000" />
       <workItem from="1555517151146" duration="3242000" />
       <workItem from="1555534530918" duration="1350000" />
-      <workItem from="1555594979768" duration="1981000" />
+      <workItem from="1555594979768" duration="2515000" />
     </task>
     <task id="LOCAL-00001" summary="Search fields have been added Still need to test and make sure all effects are set to null and not set to disable">
       <created>1555477554745</created>
@@ -410,13 +405,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140325000" />
+    <option name="totallyTimeSpent" value="140859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27458397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27458397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -426,7 +420,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.1898527" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.695581" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.099836335" />
@@ -470,13 +464,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/com/sun/glass/ui/win/WinApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -892,13 +879,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/loading.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -934,6 +914,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3077">
+          <caret line="202" column="72" selection-start-line="202" selection-start-column="72" selection-end-line="202" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -941,10 +928,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ReferralControllers/ReferralListController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="204" column="7" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
+        <state relative-caret-position="32">
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/databaseConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>

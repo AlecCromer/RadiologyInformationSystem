@@ -200,7 +200,7 @@ public class ReferralListController implements Initializable {
     //Button Methods//
     //////////////////
     /**
-     *Button that sets the view to the Referral form when it is pressed 
+     *Button that sets the view to the Referral form when it is pressed
      */
     public void setReferralForm(ActionEvent actionEvent) throws Exception {
         ReferralFormController.setView();
