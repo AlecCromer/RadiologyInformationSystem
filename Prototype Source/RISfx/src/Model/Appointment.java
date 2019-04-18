@@ -374,6 +374,14 @@ public class Appointment {
         this.employeeId = -1;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The appointment's ID
+     * @param dateTime The date and time of the appointment (as a string)
+     * @param patientSignIn The sign in time of the patient
+     * @param patientSignOut The sign out time of the patient
+     * @param patientStatus The current status of the patient
+     */
     public Appointment(int appointmentId, String dateTime, Time patientSignIn, Time patientSignOut, String patientStatus) {
         this.appointmentId = appointmentId;
         this.dateTime = dateTime;
@@ -382,6 +390,15 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param machineId The ID of the modality used in the appointment
+     * @param machineName The name of the modality used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param technician The name of the technician in charge of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param appointmentTime The time of the appointment (as a Time)
+     */
     public Appointment(int machineId, String machineName, int employeeId, String technician, Date appointmentDate, Time appointmentTime) {
         this.machineId          = machineId;
         this.machineName        = machineName;
@@ -391,6 +408,13 @@ public class Appointment {
         this.appointmentTime    = appointmentTime;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param machineId The ID of the modality used in the appointment
+     * @param machineName The name of the modality used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param technician The name of the technician in charge of the appointment
+     */
     public Appointment(int machineId, String machineName, int employeeId, String technician) {
         this.machineId          = machineId;
         this.machineName        = machineName;
@@ -398,6 +422,14 @@ public class Appointment {
         this.technician         = technician;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param patientFullName The full name of the patient associated with the appointment
+     * @param patientStatus The current status of the patient
+     * @param balance The current balance of the appointment
+     */
     public Appointment(int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance) {
         this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
@@ -406,6 +438,16 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param patientId The ID of the patient
+     * @param procedureId The ID of the type of procedure being performed
+     * @param procedureName The Name of the procedure being performed
+     * @param patientFullName The full name of the patient associated with the appointment
+     * @param patientStatus The current status of the patient
+     * @param appointmentDate The date of the appointment (as a Date)
+     */
     public Appointment(int appointmentId, int patientId, int procedureId, String procedureName,
                        String patientFullName, String patientStatus, Date appointmentDate) {
         this.appointmentId = appointmentId;
@@ -417,7 +459,26 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param procedureId The ID of the type of procedure being performed
+     * @param patientId The ID of the patient
+     * @param patientFullName The full name of the patient
+     * @param machineId The ID of the modality being used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param appointmentTime The time of the appointment (as a Time)
+     * @param patientSignIn The sign in time of the patient
+     * @param patientSignOut The sign out time of the patient
+     * @param referralReason The reason behind a patient's appointment
+     * @param Comments Any comments made during the referral
+     * @param patientStatus The current status of a patient
+     * @param dateTime The Date and Time of the appointment (as a string)
+     * @param technician The name of the technician in charge of the appointment
+     * @param procedureName The name of the procedure being performed
+     */
+    public Appointment(int appointmentId, int procedureId, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
                        Time appointmentTime, Time patientSignIn, Time patientSignOut, String referralReason, String Comments, String patientStatus,
                        String dateTime, String technician, String procedureName){
         this.appointmentDate    = appointmentDate;
@@ -427,7 +488,7 @@ public class Appointment {
         this.referralReason = referralReason;
         this.Comments           = Comments;
         this.appointmentId      = appointmentId;
-        this.procedureId        = procedure;
+        this.procedureId        = procedureId;
         this.patientId          = patientId;
         this.machineId          = machineId;
         this.employeeId         = employeeId;

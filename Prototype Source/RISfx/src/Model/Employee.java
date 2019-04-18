@@ -11,9 +11,24 @@ import java.util.ArrayList;
 
 public class Employee {
 
+      ////////////////////////
+     //Variable Declaration//
+    ////////////////////////
+    private int employeeId;
+    private String firstName, lastName, email;
+    private ArrayList<Integer> permissions = new ArrayList<>();
+
+
       ////////////////////
      //Database Queries//
     ////////////////////
+    /**
+     * Database query for all employees available on a date for a specified modality
+     * @param scheduleDate The date being queried for
+     * @param machineId The ID of the modality in question
+     * @return ResultSet of database query containing all technicians available for specified date
+     * @throws Exception
+     */
     public static ResultSet queryEmployeeSchedule(LocalDate scheduleDate, int machineId) throws Exception{
         Connection conn = databaseConnector.getConnection();
 
@@ -32,6 +47,13 @@ public class Employee {
         return employeeSchedule.executeQuery();
     }
 
+    /**
+     * Database query used to check an email and password against the database
+     * @param email Employee's email address
+     * @param password Employee's password
+     * @return ResultSet of all Employees matching the email/password combination
+     * @throws Exception
+     */
     public static ResultSet querySessionEmployee(String email, String password) throws Exception{
         PreparedStatement ps = databaseConnector.getConnection().prepareStatement(
             //First_name is a placeholder for a password column in the Employees table
@@ -42,6 +64,11 @@ public class Employee {
         return ps.executeQuery();
     }
 
+    /**
+     * Database query to check the permissions of this Employee's permissions
+     * @return ResultSet containing all user rols associated with this employee
+     * @throws Exception
+     */
     public ResultSet queryEmployeePermissions() throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT role_id " +
@@ -50,6 +77,13 @@ public class Employee {
         ).executeQuery();
     }
 
+    /**
+     * Checks to see if there is at least one employee with the email and password combination specified
+     * @param email Employee's email address
+     * @param password Employee's password
+     * @return True if there is an employee with the correct combination
+     * @throws Exception
+     */
     public boolean validLogin(String email, String password) throws Exception{
         ResultSet resultSet = Employee.querySessionEmployee(email, password);
         if(resultSet.next()) {
@@ -60,12 +94,25 @@ public class Employee {
         }
     }
 
+    /**
+     * Database query for all employees
+     * @return ResultSet containing every employee in the database
+     * @throws Exception
+     */
     public static ResultSet queryAllEmployees()throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT * FROM employees"
         ).executeQuery();
     }
 
+    /**
+     * Database query to insert a new entry in the schedule table
+     * @param employeeId ID of the employee being scheduled
+     * @param date Date employee is being scheduled on
+     * @param start The starting time of the shift
+     * @param end The ending time of the shift
+     * @throws Exception
+     */
     public static void insertNewSchedule(int employeeId, LocalDate date, LocalTime start, LocalTime end) throws Exception{
         PreparedStatement st = databaseConnector.getConnection().prepareStatement(
                 "INSERT INTO `employee_schedule` (`schedule_id`, `employee_id`, `start_time`, `end_time`) " +
@@ -76,14 +123,6 @@ public class Employee {
         st.setString(3, date.toString()+ " " + end.toString());
         st.execute();
     }
-
-
-      ////////////////////////
-     //Variable Declaration//
-    ////////////////////////
-    private int employeeId;
-    private String firstName, lastName, email;
-    private ArrayList<Integer> permissions = new ArrayList<>();
 
 
       ///////////////////
@@ -122,6 +161,11 @@ public class Employee {
     public ArrayList<Integer> getPermissions() {
         return permissions;
     }
+
+    /**
+     * Queries the database and sets an employee's permissions accordingly
+     * @throws Exception
+     */
     public void setPermissions() throws Exception{
         ResultSet pms = queryEmployeePermissions();
         while(pms.next()){
@@ -130,25 +174,43 @@ public class Employee {
     }
 
 
+
       ////////////////
      //Constructors//
     ////////////////
+    /**
+     * Used to establish and Employee(object)
+     * @param employeeId The ID of the employee
+     * @param firstName The employee's first name
+     * @param lastName The employee's last name
+     * @param email The employee's email address
+     */
     public Employee(int employeeId, String firstName, String lastName, String email) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
+    /**
+     * Used to establish and Employee(object)
+     * @param firstName The employee's first name
+     * @param email The employee's email address
+     */
     public Employee(String firstName, String email) {
         this.firstName = firstName;
         this.email = email;
     }
-    public Employee(){}
+
 
 
       /////////////
      //Overrides//
     /////////////
+    /**
+     * Overrides the toString method for this class to return the employee's First and Last names
+     * @return This Employee's first name and last name
+     */
     @Override
     public String toString(){
         return this.firstName + " " + this.lastName;
