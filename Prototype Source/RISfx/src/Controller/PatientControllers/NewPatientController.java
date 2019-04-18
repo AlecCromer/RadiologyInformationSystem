@@ -4,7 +4,6 @@ import Controller.Main;
 import Model.Patient;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
@@ -131,6 +130,13 @@ else{
         return date.format(format);
     }
 
+    /**
+     * Not implemented
+     * @return
+     */
+    private void validateForm(){
+        //TODO: Implement actual form validation
+    }
       ///////////////////
      //Form Validation//
     ///////////////////
