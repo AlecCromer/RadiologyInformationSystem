@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="623dc5f7-635f-4e93-b9a5-1b740b900738" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISfx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RISfx.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/databaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/databaseConnector.java" afterDir="false" />
-    </list>
+    <list default="true" id="623dc5f7-635f-4e93-b9a5-1b740b900738" name="Default Changelist" comment="braz" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -360,7 +356,7 @@
       <workItem from="1555517151146" duration="3242000" />
       <workItem from="1555534530918" duration="1350000" />
       <workItem from="1555594979768" duration="2515000" />
-      <workItem from="1555597572233" duration="945000" />
+      <workItem from="1555597572233" duration="1154000" />
     </task>
     <task id="LOCAL-00001" summary="Search fields have been added Still need to test and make sure all effects are set to null and not set to disable">
       <created>1555477554745</created>
@@ -408,7 +404,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141804000" />
+    <option name="totallyTimeSpent" value="142013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="676" y="0" width="697" height="735" extended-state="0" />
@@ -423,7 +419,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.28737542" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.28737542" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.099836335" />
