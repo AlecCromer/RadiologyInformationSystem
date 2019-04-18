@@ -76,11 +76,12 @@ public class Images {
     }
 
 
-
-
-    ////////////////////
-    //Database Queries//
-    ////////////////////
+    /**
+     * Returns a list of the images from a specified appointment
+     * @param appointmentID the appointment id of the selected image
+     * @return ResultSet of the SQL query
+     * @throws Exception if the SQL returns an error
+     */
     public static ResultSet queryImageList(String appointmentID)throws Exception{
         return (databaseConnector.getConnection().prepareStatement("SELECT DISTINCT im.imagedata, im.exam_date, im.status, im.image_id FROM image as im, appointments as ap WHERE ap.patient_id = im.patient_id and ap.appointment_date = im.exam_date and ap.appointment_id = '"+appointmentID+"';")).executeQuery();
     }
@@ -92,6 +93,15 @@ public class Images {
         this.image_id = image_id;
     }
 
+    /**
+     * Inserts an image into the database
+     * @param filePath the file path of the image
+     * @param machine_id the machine id of the machine used to take the image
+     * @param appointment_id the appointment id of the appointment that the image was taken during
+     * @return true if the insert was successful
+     * @throws SQLException if the SQL returns an error
+     * @throws FileNotFoundException if there is no image with the selected filepath
+     */
     public static boolean insertNewImage(String filePath, int machine_id, String appointment_id) throws SQLException, FileNotFoundException {
         InputStream inputStream = new FileInputStream(new File(filePath));
         Connection conn = databaseConnector.getConnection();
