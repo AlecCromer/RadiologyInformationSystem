@@ -5,6 +5,7 @@ import Model.Report;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,6 +17,7 @@ import java.io.*;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.lang.*;
 
@@ -23,13 +25,15 @@ public class ReportFormController implements Initializable {
     @FXML
     private TextField   NameField, dobField, idField, sexField,
                         apptIDField, dateField, physicianField,
-                        timeField, radiologistField, clinicalIndication, procedureRequested;;
+                        timeField, radiologistField, clinicalIndication, procedureRequested;
     @FXML
     private TextArea reasonField, historyField, techniqueField, findingField;
     @FXML
     private DatePicker prevExamField, signDateField;
     @FXML
     private ImageView report_image;
+    @FXML
+    private Button submit_report;
 
     static String patient_id;
     static String image_id;
@@ -59,6 +63,12 @@ public class ReportFormController implements Initializable {
         ReportFormController.appointment_id = appointment_id;
     }
 
+    /**
+     * Method sets the view
+     * @param appointment_id The appointment id of the patient's report
+     * @param image_id The image id that the radiologist selected
+     * @throws Exception throws exception if setting view returns an error
+     */
     public static void setView(int appointment_id, String image_id) throws Exception{
         setAppointment_id(appointment_id);
         setPatient_id(patient_id);
@@ -67,9 +77,20 @@ public class ReportFormController implements Initializable {
         Main.getSessionUser().getFullName();
         Main.getPopup().setWidth(625);
         Main.getPopup().setHeight(700);
+        System.out.println(Main.getSessionUser().getFirstName());
     }
 
+    /**
+     * Initializes the report form by populating the fields
+     * @param url the location for relative paths
+     * @param arg1 the resources used to localize the root object
+     */
     public void initialize(URL url, ResourceBundle arg1){
+        ArrayList pms = Main.getSessionUser().getPermissions();
+        if(pms.contains(1)){
+            submit_report.setVisible(false);
+
+        }
         try{
             ResultSet rs = Report.gatherPatientInfo(getAppointment_id(), getImage_id());
 
@@ -107,20 +128,30 @@ public class ReportFormController implements Initializable {
 
 
     }
-    public boolean submitReport() throws SQLException{
 
-        if(!findingField.getText().isEmpty() || clinicalIndication.getText().isEmpty()){
+    /**
+     * Button submission when the report is complete
+     * Sends the submitted data to create the report in the database
+     * If fails, no report is made
+     * @throws SQLException if the SQL has an error
+     */
+    public void submitReport() throws SQLException{
+        if(!findingField.getText().isEmpty() || !clinicalIndication.getText().isEmpty() || !checkRadiologist(NameField.getText())){
             Report.sendReport(clinicalIndication.getText(), findingField.getText(), getImage_id(), procedureRequested.getText(), radiologistField.getText());
         }
-
-        return true;
     }
 
-    //checks if the radiologist is the one logged in
-    //updated 4/9/2019
+    /**
+     * Checks if the signature for the radiologist matches the person logged in
+     * @param radiologist The submitted text for the radiologist field
+     * @return boolean true if logged in user matches the signature
+     */
     public boolean checkRadiologist(String radiologist){
         if(Main.getSessionUser().getPermissions().contains(2) || Main.getSessionUser().getPermissions().contains(6)){
-            return true;
+            if(radiologist == Main.getSessionUser().getFullName()){
+                return true;
+            }
+            return false;
         }
         return false;
     }

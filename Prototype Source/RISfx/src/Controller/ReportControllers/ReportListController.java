@@ -50,19 +50,27 @@ public class ReportListController implements Initializable{
     //Initializers//
     ////////////////
 
+    /**
+     * Initializes the report list by checking permissions of the currently logged in employee
+     * Sets up a double click listener for the table
+     * @param url the location for relative paths
+     * @param arg1 the resources used to localize the root object
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         setSearch("Needs Review");
         ArrayList pms = Main.getSessionUser().getPermissions();
         if(pms.contains(2)){
             try {
-                incomplete.setVisible(false);
+                incomplete.setVisible(true);
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         else if(pms.contains(1)){
+            setSearch("Complete");
             try {
+                incomplete.setVisible(false);
                 updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -72,7 +80,7 @@ public class ReportListController implements Initializable{
             try {
                 incomplete.setVisible(true);
                 updateTable(getPatientList());
-            }catch (Exception e){}
+            }catch (Exception e){}}
             ReportList.setOnMouseClicked((MouseEvent event) -> {
                 //DOUBLE CLICK ON CELL
                 if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
@@ -85,13 +93,22 @@ public class ReportListController implements Initializable{
                     }
                 }
             });
-        }
+
     }
 
+    /**
+     * Sets the view to the report list
+     * @throws Exception Throws exception when the report list is not found or has a mistake
+     */
     public static void setView() throws Exception {
         Main.setCenterPane("ReportViews/ReportList.fxml");
     }
 
+    /**
+     * Updates the table for the report list with data from the Observable List
+     * @param patientObservableList The list is for the data to be stored for the table
+     * @throws Exception throws exception when the getPatientList returns an error
+     */
     @SuppressWarnings("Duplicates")
     public void updateTable(ObservableList<Report> patientObservableList) throws Exception {
         try {
@@ -149,6 +166,10 @@ public class ReportListController implements Initializable{
     ////////////////////
     //Database Queries//
     ////////////////////
+    /**
+     * Searches for reports where the data 'Complete'
+     * @throws Exception if getPatientlist returns an error
+     */
     public void completeList() throws Exception {
         setSearch("Complete");
         ArrayList pms = Main.getSessionUser().getPermissions();
@@ -159,6 +180,10 @@ public class ReportListController implements Initializable{
         }
     }
 
+    /**
+     * Searches for reports where the data 'Needs Review'
+     * @throws Exception if getPatientList returns an error
+     */
     public void incompleteList() throws Exception{
         setSearch("Needs Review");
         ArrayList pms = Main.getSessionUser().getPermissions();
@@ -168,9 +193,12 @@ public class ReportListController implements Initializable{
             updateTable(getPatientList());
         }
     }
-    ///////////////////
-    //List Generators//
-    ///////////////////
+
+    /**
+     * Returns an observable list for patients who have or is need of a report
+     * @return ObservableList<Report>
+     * @throws Exception if queryReports throws an error
+     */
     @SuppressWarnings("Duplicates")
     public ObservableList<Report>  getPatientList() throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
@@ -189,6 +217,13 @@ public class ReportListController implements Initializable{
         }
         return reports;
     }
+
+    /**
+     * Returns an observable list with patient information from a given employee
+     * @param employeeID The employee ID is used to find data from that referred employee
+     * @return ObservableList<Report>
+     * @throws Exception if query reports throws an error
+     */
     @SuppressWarnings("Duplicates")
     public ObservableList<Report>  getPatientList(int employeeID) throws Exception {
         ObservableList<Report> reports = FXCollections.observableArrayList();
@@ -208,6 +243,11 @@ public class ReportListController implements Initializable{
         return reports;
     }
 
+    /**
+     * Returns the date formatted
+     * @param date the date but not formatted into a LocalDate
+     * @return LocalDate
+     */
     private LocalDate dateFormatter (String date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(date, format);
