@@ -16,7 +16,7 @@
          </font>
       </Label>
       <Button fx:id="testButton" mnemonicParsing="false" onAction="#setAddPatientView" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
-      <TableView fx:id="PatientList" layoutY="49.0" prefHeight="351.0" prefWidth="600.0" stylesheets="@../allViews.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
+      <TableView fx:id="PatientList" layoutY="49.0" prefHeight="351.0" prefWidth="600.0" stylesheets="@PatientList.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
         <columns>
           <TableColumn fx:id="patientID" prefWidth="75.0" text="PatientID" />
           <TableColumn fx:id="firstname" prefWidth="75.0" text="First Name" />

@@ -36,7 +36,10 @@ public class ProcedureListController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
-
+    /**
+     * Runs the method updateTable(); to fill the table with data from the database
+     * Upon loading the view
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         //setSQLQuery("select title, description, content FROM item");
         try {
@@ -57,11 +60,17 @@ public class ProcedureListController implements Initializable {
             }
         });
     }
-
+    /**
+     *Sets centerPane with the Procedure list view
+     */
     public static void setView()throws Exception{
         Main.setCenterPane("ProcedureViews/ProcedureList.fxml");
     }
-
+    /**
+     *Fills table with data from the database
+     *Search method takes the filled data and filters it and then loads it back into the
+     * table to allow the user to sort through the table
+     */
     public void updateTable() throws Exception {
         try {
 
@@ -118,6 +127,10 @@ public class ProcedureListController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
+    /**
+     *Gets data from the database so it can be loaded into the table
+     *
+     */
 
     public ObservableList<Procedure>  getProcedureList() throws Exception {
         ObservableList<Procedure> procedures = FXCollections.observableArrayList();
@@ -137,6 +150,10 @@ public class ProcedureListController implements Initializable {
     //////////////////
     //Button Methods//
     //////////////////
+    /**
+     *Button for adding in a new procedure once it is press
+     *it will load the view to fill out the information
+     */
     public void setAddProcedureView()throws Exception{
         AddProcedureController.setView();
     }

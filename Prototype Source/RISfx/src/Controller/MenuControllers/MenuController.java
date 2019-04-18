@@ -9,8 +9,7 @@ import Controller.ReportControllers.ReportListController;
 import Controller.TechControllers.ScheduleEmployeeController;
 import Controller.TechControllers.WorkListController;
 import Controller.Main;
-import animatefx.animation.Bounce;
-import animatefx.animation.Flash;
+import animatefx.animation.Pulse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -76,7 +75,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setPatientList(ActionEvent actionEvent) throws Exception{
-       new Flash(patientList).play();
+       new Pulse(patientList).play();
         PatientListController.setView();
     }
 
@@ -87,7 +86,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setAppointmentList(ActionEvent actionEvent) throws Exception{
-        new Flash(appointmentList).play();
+        new Pulse(appointmentList).play();
         AppointmentListController.setView();
     }
 
@@ -98,7 +97,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setReferralView(ActionEvent actionEvent) throws Exception{
-        new Flash(refferals).play();
+        new Pulse(refferals).play();
         ReferralListController.setView();
     }
 
@@ -109,7 +108,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setBillingList(ActionEvent actionEvent) throws Exception{
-        new Flash(billing).play();
+        new Pulse(billing).play();
         BillingListController.setView();
     }
 
@@ -120,7 +119,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setWorkList(ActionEvent actionEvent) throws Exception{
-        new Flash(workList).play();
+        new Pulse(workList).play();
         WorkListController.setView();
     }
 
@@ -131,7 +130,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setScheduleEmployee(ActionEvent actionEvent) throws Exception{
-        new Flash(scheduleEmployee).play();
+        new Pulse(scheduleEmployee).play();
         ScheduleEmployeeController.setView();
     }
 
@@ -142,7 +141,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setProcedureList(ActionEvent actionEvent) throws Exception{
-        new Flash(manageProcedures).play();
+        new Pulse(manageProcedures).play();
         ProcedureListController.setView();
     }
 
@@ -153,7 +152,7 @@ public class MenuController implements Initializable {
      * @throws Exception
      */
     public void setReportList(ActionEvent actionEvent) throws Exception{
-        new Flash(reportList).play();
+        new Pulse(reportList).play();
         ReportListController.setView();
     }
 
