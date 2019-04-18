@@ -21,5 +21,6 @@
     <orderEntry type="library" exported="" name="com.jfoenix:jfoenix:9.0.8" level="project" />
     <orderEntry type="library" exported="" name="de.jensd:fontawesomefx:8.9" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="RISfx" level="project" />
   </component>
 </module>
