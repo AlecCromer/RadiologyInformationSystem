@@ -331,7 +331,7 @@ public class Report {
      * @throws Exception if the SQL throws an error
      */
     public static ResultSet getReportDetails(String image_id) throws Exception{
-        return databaseConnector.getConnection().prepareStatement("SELECT * FROM report as r, image_report_relationship as irr WHERE r.report_id = irr.report_id AND irr.image_id = '"+image_id+"'").executeQuery();
+        return databaseConnector.getConnection().prepareStatement("SELECT *,CONCAT(e.first_name,\" \", e.last_name) AS name FROM report as r, image_report_relationship as irr, employees as e WHERE e.employee_id = r.employee_id AND r.report_id = irr.report_id AND irr.image_id = '"+image_id+"'").executeQuery();
     }
 }
 
