@@ -10,25 +10,32 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ScheduleConflict {
-    private int conflictLength;
+
+    private int conflictLength, machineID, technicianID;
     private LocalDateTime conflictDateTime;
     private String technician, machine;
 
     public String getTechnician() {
         return technician;
     }
-
     public LocalDateTime getConflictDateTime() {
         return conflictDateTime;
     }
-
     public int getConflictLength() {
         return conflictLength;
     }
+    public int getMachineID() {
+        return machineID;
+    }
+    public int getTechnicianID() {
+        return technicianID;
+    }
 
-    public ScheduleConflict(int conflictLength, LocalDateTime conflictDateTime) {
+    public ScheduleConflict(int conflictLength, LocalDateTime conflictDateTime, int technicianID, int machineID) {
         this.conflictLength = conflictLength;
         this.conflictDateTime = conflictDateTime;
+        this.technicianID = technicianID;
+        this.machineID = machineID;
     }
 
 
@@ -47,12 +54,13 @@ public class ScheduleConflict {
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN modality ON appointments.machine_id=modality.machine_id " +
                         "WHERE " +
-                        "appointments.appointment_date = ? &&" +
+                        "appointments.appointment_date = ? && " +
                         "employees.employee_id = ? " +
                         "ORDER BY `appointments`.`employee_id` DESC, `appointments`.`appointment_time`  ASC"
         );
         conflicts.setDate(1, Date.valueOf(scheduleDate));
         conflicts.setInt(2, employeeId);
+
         return conflicts.executeQuery();
     }
 }

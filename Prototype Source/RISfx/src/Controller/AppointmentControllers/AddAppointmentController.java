@@ -1,10 +1,7 @@
 package Controller.AppointmentControllers;
 
 import Controller.Main;
-import Model.Appointment;
-import Model.Employee;
-import Model.Procedure;
-import Model.ScheduleConflict;
+import Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -136,6 +133,8 @@ public class AddAppointmentController implements Initializable {
 
         LocalTime employeeStartTime, employeeEndTime;
 
+        ArrayList<ScheduleConflict> conflicts = new ArrayList<>();
+
         while(employeeSchedule.next()){
             employeeStartTime   = employeeSchedule.getTime("start_time").toLocalTime();
             employeeEndTime     = employeeSchedule.getTime("end_time").toLocalTime();
@@ -152,14 +151,20 @@ public class AddAppointmentController implements Initializable {
                 employeeStartTime = employeeStartTime.plusMinutes(minuteIncrement);
             }
 
-           ArrayList<ScheduleConflict> conflicts = generateConflictList(employeeSchedule.getInt("employee_id"));
+           conflicts.addAll(generateConflictList(employeeSchedule.getInt("employee_id")));
 
 
             for (int i = 0; i < timeSlotList.toArray().length; i++) {
                 for (ScheduleConflict confl: conflicts) {
-                    if(confl.getConflictDateTime().equals(LocalDateTime.of(timeSlotList.get(i).getAppointmentDate().toLocalDate(), timeSlotList.get(i).getAppointmentTime().toLocalTime()))){
+                    if(confl.getConflictDateTime().equals(LocalDateTime.of(
+                            timeSlotList.get(i).getAppointmentDate().toLocalDate(),
+                            timeSlotList.get(i).getAppointmentTime().toLocalTime())) && (
+                                    confl.getTechnicianID() == employeeSchedule.getInt("employee_id") ||
+                                            confl.getMachineID() == Modality.queryMachineIdByProcedureType(comboSelection))
+                    ){
                         try {
-                            timeSlotList.remove(i - Procedure.queryProcedureLength(comboSelection)+1, i + confl.getConflictLength());
+                            int j = (i - Procedure.queryProcedureLength(comboSelection)+1) < 0 ? 0 : (i - Procedure.queryProcedureLength(comboSelection)+1);
+                            timeSlotList.remove(j, i + confl.getConflictLength());
                         }
                         catch (Exception e){
                             System.out.println("oof");
@@ -167,7 +172,6 @@ public class AddAppointmentController implements Initializable {
                     }
                 }
             }
-
         }
         return timeSlotList;
     }
@@ -189,7 +193,9 @@ public class AddAppointmentController implements Initializable {
 
             conflicts.add(new ScheduleConflict(
                     rs.getInt("procedure_length"),
-                    LocalDateTime.of(cDate, cTime)
+                    LocalDateTime.of(cDate, cTime),
+                    rs.getInt("employee_id"),
+                    rs.getInt("machine_id")
             ));
         }
         return conflicts;

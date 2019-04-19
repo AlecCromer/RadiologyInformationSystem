@@ -1,1 +1,1 @@
---module-path "Libraries\avafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml
+--module-path "Libraries\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml
