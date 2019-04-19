@@ -1,0 +1,43 @@
+Worklist
+-Technicians can access all information regarding the patients' appointment, conditions, and designated modality and assigned technician
+
+Tech Entry
+-Technicians will see a list of their specified patients for a specified procedure, and a list of ALL resources used (for billing purposes) with each rosource having a button to add that resource to the patient's bill
+
+Report Review
+-Radiologist can read/write a list of completed procedures. When they click on the procedure, they will be shown the photo/s of each procedure with the referring phys' name and a field to include their review of the procedure, with a button to send the review to referring physician
+Needs to have an area for radiologist to type their name, just like a signature, should send to RP and attending physician
+
+Files
+-Radiologists and admin assistants can view a list of completed and finished reports, can be downloaded
+
+Patient Info
+-Referring physician should be able to see only the specific patients they have referred
+-Admin assistant should be able to view all patient info and have the ability to update or add a new patient
+-Radiologist should be able to view all patient info and have the ability to update or add a new patient
+
+PACs Pop-up
+-Referring Physician should be able to see information regarding their selected patient and procedures
+-admin assistant should be able to see information regarding their selected patient and procedures, and billing (needs a button to export the final bill)
+-radiologist should be able to see information regarding their selected patient and procedures
+
+
+Appointment
+-Admin assistant should be able to create appointments, and view a list of all appointments
+
+
+THINGS TO ADD:
+patient list - add a submit button to the register patient without schedule appointment
+patient list - add a submit button to the register patient with schedule appointment
+
+move additional charges section to tech entry
+
+add a billing table to patient view
+
+add the files view
+
+add report review view
+
+add work list view
+
+add tech entry
