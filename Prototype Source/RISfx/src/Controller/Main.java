@@ -3,9 +3,10 @@ package Controller;
 import Model.Appointment;
 import Model.Employee;
 import Model.Patient;
-import animatefx.animation.AnimationFX;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInLeft;
+import animatefx.animation.FadeInRight;
+import animatefx.animation.FadeInRightBig;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,6 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class Main extends Application {
             backNodeList.add(Main.class.getResource("../View/"+fxmlName));
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
-            new FadeInLeft(RIS_Container).play();
+            new FadeInRight(RIS_Container).play();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -61,6 +61,7 @@ public class Main extends Application {
 
     public static void setCenterPane(String fxmlName, boolean fade)throws Exception{
         try {
+
             backNodeList.add(Main.class.getResource("../View/"+fxmlName));
             RIS_Container.setRight(null);
             RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));

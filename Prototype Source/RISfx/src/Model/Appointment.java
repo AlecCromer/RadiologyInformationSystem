@@ -19,9 +19,16 @@ public class Appointment {
     private float balance;
 
 
+
       /////////////////////
      //Object Generators//
     /////////////////////
+    /**
+     * Generates an Appointment object from a database query
+     * @param resultSet ResultSet of a database query
+     * @return An appointment object of the current row of the ResultSet
+     * @throws Exception
+     */
     public static Appointment generateAppointmentFocus(ResultSet resultSet) throws Exception{
         ResultSet patientInfo = Patient.queryPatientInfo(resultSet.getInt("patient_id"));
         patientInfo.next();
@@ -51,9 +58,15 @@ public class Appointment {
     }
 
 
+
       ////////////////////
      //Database Queries//
     ////////////////////
+    /**
+     * Database query for all appointments
+     * @return ResultSet of database query containing all appointments
+     * @throws Exception
+     */
     public static ResultSet queryAppointments()throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
@@ -61,6 +74,12 @@ public class Appointment {
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id")).executeQuery();
     }
+
+    /**
+     * Database query for all appointments that are ready to start the billing process
+     * @return ResultSet of database query containing all appointments with the statuses specified
+     * @throws Exception
+     */
     public static ResultSet queryForBillingAppointments()throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
@@ -70,6 +89,12 @@ public class Appointment {
                         "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'")).executeQuery();
     }
 
+    /**
+     * Database query for all information pertaining to a specific appointment
+     * @param appointmentId Specifies which appointment to return
+     * @return ResultSet of database query containing information on appointment
+     * @throws Exception
+     */
     public static ResultSet queryAppointmentFocus(int appointmentId) throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
@@ -79,6 +104,12 @@ public class Appointment {
                         "WHERE appointments.appointment_id = " + appointmentId)).executeQuery();
     }
 
+    /**
+     * Database query for all appointments that are associated with a specified employee
+     * @param employeeID Specifies the employee
+     * @return ResultSet of database query containing all appointments associated with the employee
+     * @throws Exception
+     */
     public static ResultSet queryWorkList(int employeeID) throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
@@ -91,6 +122,12 @@ public class Appointment {
     }
 
 
+    /**
+     * Database query for all billing information (such as item costs) associated with a specified appointment
+     * @param appointmentId Used to specify appointment
+     * @return ResultSet of database query containing all billing information needed to create invoice
+     * @throws Exception
+     */
     public static ResultSet queryBillingList(int appointmentId) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT billing.*, " +
@@ -105,6 +142,12 @@ public class Appointment {
         ).executeQuery();
     }
 
+    /**
+     * Database query to determine the price of a procedure
+     * @param procedureID Specifies the procedure
+     * @return Returns the price of a procedure as a float
+     * @throws Exception
+     */
     public static float queryProcedurePrice(int procedureID) throws Exception{
         ResultSet rs = databaseConnector.getConnection().prepareStatement(
                 "SELECT procedure_price FROM procedures WHERE procedure_id = " + procedureID
@@ -113,6 +156,11 @@ public class Appointment {
         return rs.getFloat("procedure_price");
     }
 
+    /**
+     * Database query to insert an appointment object into the database
+     * @param appointmentToSubmit appointment that will be submitted
+     * @throws Exception
+     */
     public static void submitNewAppointment(Appointment appointmentToSubmit) throws Exception{
         PreparedStatement update = databaseConnector.getConnection().prepareStatement(
                 "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`) " +
@@ -126,6 +174,10 @@ public class Appointment {
         update.executeUpdate();
     }
 
+    /**
+     * Database query to update the sign in time column to the current time
+     * @throws Exception
+     */
     public static void updateSignInTime() throws Exception{
         PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
                 "UPDATE appointments " +
@@ -135,6 +187,11 @@ public class Appointment {
         statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
         statement.executeUpdate();
     }
+
+    /**
+     * Database query to update the sign out time column to the current time
+     * @throws Exception
+     */
     public static void updateSignOutTime() throws Exception{
         PreparedStatement statement = databaseConnector.getConnection().prepareStatement(
                 "UPDATE appointments " +
@@ -144,8 +201,13 @@ public class Appointment {
         statement.setInt(2, Main.getAppointmentFocus().getAppointmentId());
         statement.executeUpdate();
     }
-    public static boolean updateReadyStatus(int appointmentId) throws Exception{
-        return databaseConnector.getConnection().prepareStatement(
+
+    /**
+     * Database query to update the status column to the Needs Report status
+     * @throws Exception
+     */
+    public static void updateReadyStatus(int appointmentId) throws Exception{
+        databaseConnector.getConnection().prepareStatement(
             "UPDATE appointments " +
                     "SET appointments.patient_status = 'Needs Report' " +
                     "WHERE appointments.appointment_id = " + appointmentId
@@ -263,14 +325,21 @@ public class Appointment {
     public float getBalance() {
         return balance;
     }
+
+    /**
+     * Sets the balance of an appointment to the total item cost and the procedure price automatically
+     * @throws Exception
+     */
     public void setBalance() throws Exception{
         ResultSet rs = queryBillingList(this.appointmentId);
         rs.next();
-        ResultSet results = Procedure.queryProcedureInfo(this.procedureId);
-        results.next();
-        this.balance = rs.getFloat("item_cost_total") + results.getFloat("procedure_price");
+        this.balance = rs.getFloat("item_cost_total") + queryProcedurePrice(this.getProcedureId());
     }
 
+    /**
+     * Sets the address of the patient inside of the appointment object automatically
+     * @throws Exception
+     */
     public void setAddress()throws Exception{
         ResultSet rs =  Patient.queryPatientInfo(this.patientId);
         rs.next();
@@ -284,9 +353,13 @@ public class Appointment {
     }
     public String[] getAddressAsArray(){return address;}
 
+
     ////////////////
      //Constructors//
     ////////////////
+    /**
+     * Default constructor. Sets all variables to null or -1
+     */
     public Appointment(){
         this.appointmentDate = null;
         this.appointmentTime = null;
@@ -301,6 +374,14 @@ public class Appointment {
         this.employeeId = -1;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The appointment's ID
+     * @param dateTime The date and time of the appointment (as a string)
+     * @param patientSignIn The sign in time of the patient
+     * @param patientSignOut The sign out time of the patient
+     * @param patientStatus The current status of the patient
+     */
     public Appointment(int appointmentId, String dateTime, Time patientSignIn, Time patientSignOut, String patientStatus) {
         this.appointmentId = appointmentId;
         this.dateTime = dateTime;
@@ -309,6 +390,15 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param machineId The ID of the modality used in the appointment
+     * @param machineName The name of the modality used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param technician The name of the technician in charge of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param appointmentTime The time of the appointment (as a Time)
+     */
     public Appointment(int machineId, String machineName, int employeeId, String technician, Date appointmentDate, Time appointmentTime) {
         this.machineId          = machineId;
         this.machineName        = machineName;
@@ -318,6 +408,13 @@ public class Appointment {
         this.appointmentTime    = appointmentTime;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param machineId The ID of the modality used in the appointment
+     * @param machineName The name of the modality used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param technician The name of the technician in charge of the appointment
+     */
     public Appointment(int machineId, String machineName, int employeeId, String technician) {
         this.machineId          = machineId;
         this.machineName        = machineName;
@@ -325,6 +422,14 @@ public class Appointment {
         this.technician         = technician;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param patientFullName The full name of the patient associated with the appointment
+     * @param patientStatus The current status of the patient
+     * @param balance The current balance of the appointment
+     */
     public Appointment(int appointmentId, Date appointmentDate, String patientFullName, String patientStatus, float balance) {
         this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
@@ -333,6 +438,16 @@ public class Appointment {
         this.patientStatus = patientStatus;
     }
 
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param patientId The ID of the patient
+     * @param procedureId The ID of the type of procedure being performed
+     * @param procedureName The Name of the procedure being performed
+     * @param patientFullName The full name of the patient associated with the appointment
+     * @param patientStatus The current status of the patient
+     * @param appointmentDate The date of the appointment (as a Date)
+     */
     public Appointment(int appointmentId, int patientId, int procedureId, String procedureName,
                        String patientFullName, String patientStatus, Date appointmentDate) {
         this.appointmentId = appointmentId;
@@ -344,8 +459,28 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public Appointment(int appointmentId, int procedure, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
-                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String referralReason, String Comments, String patientStatus, String dateTime, String technician, String procedureName){
+    /**
+     * Used to establish and appointment
+     * @param appointmentId The ID of the appointment
+     * @param procedureId The ID of the type of procedure being performed
+     * @param patientId The ID of the patient
+     * @param patientFullName The full name of the patient
+     * @param machineId The ID of the modality being used in the appointment
+     * @param employeeId The ID of the technician in charge of the appointment
+     * @param appointmentDate The date of the appointment (as a Date)
+     * @param appointmentTime The time of the appointment (as a Time)
+     * @param patientSignIn The sign in time of the patient
+     * @param patientSignOut The sign out time of the patient
+     * @param referralReason The reason behind a patient's appointment
+     * @param Comments Any comments made during the referral
+     * @param patientStatus The current status of a patient
+     * @param dateTime The Date and Time of the appointment (as a string)
+     * @param technician The name of the technician in charge of the appointment
+     * @param procedureName The name of the procedure being performed
+     */
+    public Appointment(int appointmentId, int procedureId, int patientId, String patientFullName, int machineId, int employeeId, Date appointmentDate,
+                       Time appointmentTime, Time patientSignIn, Time patientSignOut, String referralReason, String Comments, String patientStatus,
+                       String dateTime, String technician, String procedureName){
         this.appointmentDate    = appointmentDate;
         this.appointmentTime    = appointmentTime;
         this.patientSignIn      = patientSignIn;
@@ -353,7 +488,7 @@ public class Appointment {
         this.referralReason = referralReason;
         this.Comments           = Comments;
         this.appointmentId      = appointmentId;
-        this.procedureId        = procedure;
+        this.procedureId        = procedureId;
         this.patientId          = patientId;
         this.machineId          = machineId;
         this.employeeId         = employeeId;

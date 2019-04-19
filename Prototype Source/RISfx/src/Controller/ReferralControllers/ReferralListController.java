@@ -41,10 +41,16 @@ public class ReferralListController implements Initializable {
     ////////////////
     //Initializers//
     ////////////////
+    /**
+     * Sets the view with the Referral list
+     */
     public static void setView() throws Exception {
         Main.setCenterPane("ReferralViews/ReferralList.fxml");
     }
-
+    /**
+     *Populates the table and by double clicking on a cell
+     *it pulls up the add appointment view
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             updateTable();
@@ -63,6 +69,11 @@ public class ReferralListController implements Initializable {
             }
         });
     }
+    /**
+     *Populates the table with data from the database and
+     *Search method takes the filled data and filters it and then loads it back into the
+     *table to allow the user to sort through the table
+     */
 @SuppressWarnings("Dupilcates")
     private void updateTable() throws Exception {
         ReferralList.setItems(generateRefferalsList());
@@ -140,6 +151,10 @@ public class ReferralListController implements Initializable {
     ///////////////////
     //List Generators//
     ///////////////////
+    /**
+     *Gets data from the database so it can be loaded into the table
+     *
+     */
     private ObservableList<Referral> generateRefferalsList() throws Exception {
         ObservableList<Referral> referrals = FXCollections.observableArrayList();
 
@@ -174,7 +189,7 @@ public class ReferralListController implements Initializable {
             }
         } catch (SQLException ex) {
             databaseConnector.displayException(ex);
-            System.out.println("Someone didn't set up their DATABASE!!");
+            System.out.println("Unable to process the request.");
             return null;
         }
         return referrals;
@@ -184,6 +199,9 @@ public class ReferralListController implements Initializable {
     //////////////////
     //Button Methods//
     //////////////////
+    /**
+     *Button that sets the view to the Referral form when it is pressed
+     */
     public void setReferralForm(ActionEvent actionEvent) throws Exception {
         ReferralFormController.setView();
     }
