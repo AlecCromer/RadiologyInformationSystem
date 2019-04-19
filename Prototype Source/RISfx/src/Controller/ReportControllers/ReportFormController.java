@@ -41,6 +41,16 @@ public class ReportFormController implements Initializable {
     static String image_id;
     static int appointment_id;
 
+    public static boolean isComplete() {
+        return complete;
+    }
+
+    public static void setComplete(boolean complete) {
+        ReportFormController.complete = complete;
+    }
+
+    static boolean complete;
+
     public static String getPatient_id() {
         return patient_id;
     }
@@ -69,17 +79,17 @@ public class ReportFormController implements Initializable {
      * Method sets the view
      * @param appointment_id The appointment id of the patient's report
      * @param image_id The image id that the radiologist selected
+     * @param complete if the report being viewed is complete
      * @throws Exception throws exception if setting view returns an error
      */
-    public static void setView(int appointment_id, String image_id) throws Exception{
+    public static void setView(int appointment_id, String image_id, boolean complete) throws Exception{
+        setComplete(complete);
         setAppointment_id(appointment_id);
         setPatient_id(patient_id);
         setImage_id(image_id);
         Main.setPopupWindow("ReportViews/ReportForm.fxml");
-        Main.getSessionUser().getFullName();
         Main.getPopup().setWidth(625);
         Main.getPopup().setHeight(700);
-        System.out.println(Main.getSessionUser().getFirstName());
     }
 
     /**
@@ -88,6 +98,26 @@ public class ReportFormController implements Initializable {
      * @param arg1 the resources used to localize the root object
      */
     public void initialize(URL url, ResourceBundle arg1){
+        System.out.println(complete);
+        if(isComplete()){
+            try{
+                ResultSet reportDetails = Report.getReportDetails(image_id);
+                reportDetails.next();
+                clinicalIndication.setText(reportDetails.getString("clinical_indication"));
+                findingField.setText(reportDetails.getString("report_details"));
+                radiologistField.setText(reportDetails.getString("name"));
+                submit_report.setVisible(false);
+                clinicalIndication.setDisable(true);
+                findingField.setDisable(true);
+                reasonField.setDisable(true);
+                historyField.setDisable(true);
+                radiologistField.setDisable(true);
+                signDateField.setVisible(false);
+            }catch(Exception e){
+
+            }
+
+        }
         ArrayList pms = Main.getSessionUser().getPermissions();
         if(pms.contains(1)){
             submit_report.setVisible(false);
@@ -140,6 +170,8 @@ public class ReportFormController implements Initializable {
     public void submitReport() throws SQLException{
         if(!findingField.getText().isEmpty() || !clinicalIndication.getText().isEmpty() || !checkRadiologist(NameField.getText())){
             Report.sendReport(clinicalIndication.getText(), findingField.getText(), getImage_id(), procedureRequested.getText(), radiologistField.getText());
+            Main.getOuter().setDisable(false);
+            Main.popup.close();
         }
     }
 
