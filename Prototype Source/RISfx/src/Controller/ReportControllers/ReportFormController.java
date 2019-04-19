@@ -90,7 +90,6 @@ public class ReportFormController implements Initializable {
         Main.setPopupWindow("ReportViews/ReportForm.fxml");
         Main.getPopup().setWidth(625);
         Main.getPopup().setHeight(700);
-
     }
 
     /**
@@ -106,7 +105,14 @@ public class ReportFormController implements Initializable {
                 reportDetails.next();
                 clinicalIndication.setText(reportDetails.getString("clinical_indication"));
                 findingField.setText(reportDetails.getString("report_details"));
+                radiologistField.setText(reportDetails.getString("name"));
                 submit_report.setVisible(false);
+                clinicalIndication.setDisable(true);
+                findingField.setDisable(true);
+                reasonField.setDisable(true);
+                historyField.setDisable(true);
+                radiologistField.setDisable(true);
+                signDateField.setVisible(false);
             }catch(Exception e){
 
             }
