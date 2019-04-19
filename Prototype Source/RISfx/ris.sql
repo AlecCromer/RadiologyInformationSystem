@@ -399,6 +399,7 @@ INSERT INTO `patient` (`patient_id`, `first_name`, `last_name`, `date_of_birth`,
 
 CREATE TABLE `procedures` (
   `procedure_id` int(6) NOT NULL,
+  `machine_id` int(11) DEFAULT NULL,
   `procedure_name` varchar(20) NOT NULL,
   `procedure_length` int(11) NOT NULL,
   `procedure_price` float DEFAULT NULL
@@ -802,6 +803,12 @@ ALTER TABLE `image_report_relationship`
 --
 ALTER TABLE `patient`
   ADD CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`);
+
+--
+-- Constraints for table `procedures`
+--
+ALTER TABLE `procedures`
+  ADD CONSTRAINT `fk_modalityID` FOREIGN KEY (`machine_id`) REFERENCES `modality` (`machine_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `procedure_relationship`
