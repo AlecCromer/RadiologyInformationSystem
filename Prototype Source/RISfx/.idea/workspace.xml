@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2d026b3-7b8f-4c28-b4fa-2898a4cc612c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VM_Options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/VM_Options.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/Report.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/ScheduleConflict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Model/ScheduleConflict.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Modality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Modality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ScheduleConflict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ScheduleConflict.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,20 +18,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="2618">
               <caret line="173" column="13" selection-start-line="173" selection-start-column="13" selection-end-line="173" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Modality.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
+            <state relative-caret-position="578">
               <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/databaseConnector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -50,11 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="680">
               <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-              <folding>
-                <element signature="e#161#209#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -62,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
+            <state relative-caret-position="2975">
               <caret line="196" column="41" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
             </state>
           </provider>
@@ -141,7 +136,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555653651590" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555688680931" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -178,27 +173,27 @@
       <updated>1555625095305</updated>
       <workItem from="1555625096701" duration="35000" />
       <workItem from="1555649741288" duration="3931000" />
+      <workItem from="1555688192208" duration="330000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3966000" />
+    <option name="totallyTimeSpent" value="4296000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
+      <window_info id="Learn" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15506808" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36078006" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19148937" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4409534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -210,6 +205,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -232,13 +228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="196" column="41" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-816">
@@ -246,27 +235,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="173" column="13" selection-start-line="173" selection-start-column="13" selection-end-line="173" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ScheduleConflict.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
+        <state relative-caret-position="680">
           <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-          <folding>
-            <element signature="e#161#209#0" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AppointmentListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="196" column="41" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/databaseConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Modality.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
+        <state relative-caret-position="578">
           <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppointmentControllers/AddAppointmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="173" column="13" selection-start-line="173" selection-start-column="13" selection-end-line="173" selection-end-column="13" />
         </state>
       </provider>
     </entry>
