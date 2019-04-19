@@ -481,10 +481,9 @@ INSERT INTO `refer` (`referring_id`, `employee_id`, `patient_id`, `procedure_id`
 
 CREATE TABLE `report` (
   `report_id` int(11) NOT NULL,
-  `clinical_indication` varchar(20) NOT NULL,
+  `clinical_indication` varchar(50) NOT NULL,
   `exam` varchar(30) NOT NULL,
-  `isotope` varchar(30) NOT NULL,
-  `report_details` varchar(20) NOT NULL,
+  `report_details` varchar(1000) NOT NULL,
   `employee_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -492,8 +491,8 @@ CREATE TABLE `report` (
 -- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`report_id`, `clinical_indication`, `exam`, `isotope`, `report_details`, `employee_id`) VALUES
-(2, 'cancer', 'x-ray', '', 'It\'s terminal fam', 54382);
+INSERT INTO `report` (`report_id`, `clinical_indication`, `exam`, `report_details`, `employee_id`) VALUES
+(2, 'cancer', 'x-ray', 'It\'s terminal fam', 54382);
 
 -- --------------------------------------------------------
 
