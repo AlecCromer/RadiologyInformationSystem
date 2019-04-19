@@ -64,7 +64,7 @@ public class ReportListController implements Initializable{
         if(pms.contains(2)){
             try {
                 incomplete.setVisible(true);
-                updateTable(getPatientList(Main.getSessionUser().getEmployeeId()));
+                updateTable(getPatientList());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -87,8 +87,14 @@ public class ReportListController implements Initializable{
                 //DOUBLE CLICK ON CELL
                 if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
                     try {
-                        Report item = ReportList.getSelectionModel().getSelectedItem();
-                        ReportFormController.setView(item.getAppointment_id(), item.getImage_id());
+                        if(getSearch()=="Complete"){
+                            Report item = ReportList.getSelectionModel().getSelectedItem();
+                            ReportFormController.setView(item.getAppointment_id(), item.getImage_id(), true);
+                        }else{
+                            Report item = ReportList.getSelectionModel().getSelectedItem();
+                            ReportFormController.setView(item.getAppointment_id(), item.getImage_id(), false);
+                        }
+
 
                     } catch (Exception e) {
                         e.printStackTrace();

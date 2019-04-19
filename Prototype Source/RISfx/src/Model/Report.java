@@ -323,5 +323,15 @@ public class Report {
         updateImageStatus.executeUpdate();
 
     }
+
+    /**
+     * Returns a query for the report details
+     * @param image_id the image id of the selected, completed report
+     * @return ResultSet
+     * @throws Exception if the SQL throws an error
+     */
+    public static ResultSet getReportDetails(String image_id) throws Exception{
+        return databaseConnector.getConnection().prepareStatement("SELECT * FROM report as r, image_report_relationship as irr WHERE r.report_id = irr.report_id AND irr.image_id = '"+image_id+"'").executeQuery();
+    }
 }
 
