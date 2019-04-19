@@ -1,0 +1,1 @@
+Anything in this folder will be marked as trash and should be deleted or someone thinks it should be, in which case the others would vote on that. 
