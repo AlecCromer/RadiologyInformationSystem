@@ -78,12 +78,16 @@ public class AddImageController  implements Initializable {
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
         File chosenfile = fileChooser.showOpenDialog(Main.getPopup());
         Main.popup.setAlwaysOnTop(false);
+        try{
         file = chosenfile.getPath();
-        Image image = new Image("file:" + chosenfile);
-        imageview.setImage(image);
-        uploadImage.setVisible(true);
-    }
+            if (file != null){
+                Image image = new Image("file:" + chosenfile);
+                imageview.setImage(image);
+                uploadImage.setVisible(true);
+            }
+        }catch(Exception e){}
 
+    }
     /**
      * Submits the photo into the database
      * @throws Exception if inserting the image into the database or setting view fails
