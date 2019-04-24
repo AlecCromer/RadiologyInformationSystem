@@ -82,11 +82,11 @@ public class Appointment {
      */
     public static ResultSet queryForBillingAppointments()throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
-                        "FROM `appointments` " +
+                "SELECT appointments.*, CONCAT(patient.first_name, \" \", patient.last_name) AS full_name, procedures.procedure_name" +
+                        " FROM appointments INNER JOIN patient ON patient.patient_id=appointments.patient_id " +
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'")).executeQuery();
+                        "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'\n")).executeQuery();
     }
 
     /**
