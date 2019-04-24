@@ -18,6 +18,12 @@ public class Controller {
     @FXML
     private Button loginButton;
 
+
+    /**
+     * Sets login view as a popup in a weird way. Sets height, width, makes sure it's not resizeable and can't be
+     * maximized. sets left and top border pane to null
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.getOuter().setLeft(null);
         Main.getOuter().setTop(null);

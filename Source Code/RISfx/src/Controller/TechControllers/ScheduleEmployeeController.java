@@ -32,6 +32,11 @@ public class ScheduleEmployeeController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+    /**
+     * Opens ScheduleEmployee,fxml using the setPopupWindow() in main
+     * sets height and width of window.
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.popup.setHeight(430.0);
         Main.popup.setWidth(480.0);
@@ -67,6 +72,13 @@ public class ScheduleEmployeeController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
+    /**
+     * This generates a list of employee objects. It calls Employees.queryAllEmployees() to return a resultSet, then it
+     * iterates through the resultSet using the employee constructor from the Employee class building employee objects.
+     * These get added to this list and returned as an observable list.
+     * @return
+     * @throws Exception
+     */
     private ObservableList<Employee> getEmployeeList() throws Exception {
         ObservableList<Employee> employees = FXCollections.observableArrayList();
         try(ResultSet resultSet = Employee.queryAllEmployees()){
@@ -90,6 +102,11 @@ public class ScheduleEmployeeController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+    /**
+     * This method gets the start time and end time from the fxml boxes where the slider bar time displays.
+     * Then it tries to use Employee.insertNewSchedule() to add a new schedule. The catch statement highlights a field
+     * in red if it's wrong.
+     */
     public void submitNewSchedule(){
         String startTime = (StartField.getText().length()<5) ? "0"+StartField.getText() : StartField.getText();
         String endTime = (EndField.getText().length()<5) ? "0"+EndField.getText() : EndField.getText();

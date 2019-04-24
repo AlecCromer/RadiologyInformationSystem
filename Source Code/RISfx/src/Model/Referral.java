@@ -67,6 +67,13 @@ public class Referral {
       ////////////////////
      //Database Queries//
     ////////////////////
+    /**
+     * Gets unprocessed referrals.
+     * If this descriptor isn't updated it means we missed this when checking documentation.
+     *
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryUnprocessedReferrals()throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT patient.patient_id, patient.first_name AS patient_first_name, patient.last_name AS patient_last_name, patient.home_phone, " +
@@ -160,6 +167,19 @@ public class Referral {
       ////////////////
      //Constructors//
     ////////////////
+    /**
+     * Used in ReferralListController.generateRefferalsList()
+     * @param procedureRequested
+     * @param referrer
+     * @param patient
+     * @param isProcessed
+     * @param urgency
+     * @param height
+     * @param weight
+     * @param heart_rate
+     * @param systolic_pressure
+     * @param diastolic_pressure
+     */
     public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, int height, int weight, int heart_rate, int systolic_pressure, int diastolic_pressure) {
         this.procedureRequested = procedureRequested;
         this.referrer = referrer;
