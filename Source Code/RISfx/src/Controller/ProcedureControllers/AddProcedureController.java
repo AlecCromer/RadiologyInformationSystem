@@ -44,7 +44,7 @@ public class AddProcedureController {
         int procedureLength = Integer.parseInt(procedureLengthEditText.getText());
 
         Procedure.insertNewProcedure(price, procedureName, procedureLength);
-        Main.getOuter().setDisable(false);
+        Main.getOuter().setEffect(null);
         Main.popup.close();
     }
 
@@ -53,7 +53,7 @@ public class AddProcedureController {
      * @throws Exception
      */
     public void cancel() throws Exception{
-        Main.getOuter().setDisable(false);
+        Main.getOuter().setEffect(null);
         Main.popup.close();
     }
 }
