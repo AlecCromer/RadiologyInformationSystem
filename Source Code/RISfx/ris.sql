@@ -2,8 +2,8 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 19, 2019 at 03:44 AM
+-- Host: localhost
+-- Generation Time: Apr 24, 2019 at 08:44 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -11,6 +11,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `ris`
@@ -176,7 +182,7 @@ CREATE TABLE `employees` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `available` varchar(10) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `email` varchar(32) NOT NULL,
   `password` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -189,7 +195,7 @@ INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `available`, 
 (12442, 'Alexander', 'Cromer', 'True', 'cromeralec@gmail.com', '1234'),
 (43552, 'John', 'Cena', 'False', 'johncena@gmail.com', '1234'),
 (45626, 'Chris', 'Pratt', 'False', 'chrispratt@gmail.com', '1234'),
-(52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.', '1234'),
+(52546, 'Bradley', 'Cooper', 'False', 'bradleycooper@gmail.com', '1234'),
 (54382, 'Matthew', 'Johnson', 'True', 'mattJohnson@ung.edu', '1234'),
 (76342, 'Bob', 'Evans', 'true', 'bobevans@gmail.com', '1234'),
 (123567, 'tech', 'nician', 'ok', 'tech', '1234');
@@ -409,13 +415,13 @@ CREATE TABLE `procedures` (
 -- Dumping data for table `procedures`
 --
 
-INSERT INTO `procedures` (`procedure_id`, `procedure_name`, `procedure_length`, `procedure_price`) VALUES
-(1, 'X-Ray', 1, NULL),
-(2, 'CT Scan', 3, NULL),
-(3, 'MRI', 2, NULL),
-(4, 'Heart Test', 50, 500),
-(5, 'Remote', 54, 45),
-(6, 'tes', 5000, 100);
+INSERT INTO `procedures` (`procedure_id`, `machine_id`, `procedure_name`, `procedure_length`, `procedure_price`) VALUES
+(1, NULL, 'X-Ray', 1, 200),
+(2, NULL, 'CT Scan', 3, 600),
+(3, NULL, 'MRI', 2, 1500),
+(4, NULL, 'Heart Test', 1, 500),
+(5, NULL, 'Remote', 2, 45),
+(6, NULL, 'tes', 3, 100);
 
 -- --------------------------------------------------------
 
@@ -626,7 +632,8 @@ ALTER TABLE `patient`
 -- Indexes for table `procedures`
 --
 ALTER TABLE `procedures`
-  ADD PRIMARY KEY (`procedure_id`);
+  ADD PRIMARY KEY (`procedure_id`),
+  ADD KEY `fk_modalityID` (`machine_id`);
 
 --
 -- Indexes for table `procedure_relationship`
@@ -837,3 +844,7 @@ ALTER TABLE `role_relationship`
   ADD CONSTRAINT `role_relationship_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`),
   ADD CONSTRAINT `role_relationship_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
