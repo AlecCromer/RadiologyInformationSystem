@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="644.0" prefWidth="600.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BillingControllers.InvoiceController">
+   <children>
+      <Text layoutX="504.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulting Invoice" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bill To: " AnchorPane.leftAnchor="34.0" AnchorPane.topAnchor="94.0" />
+      <Text fx:id="nameHolder" layoutX="70.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="f_name l_name" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="94.0" />
+      <Text fx:id="addressLineHolder" layoutX="70.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adress line" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="117.0" />
+      <Text fx:id="stateZipHolder" layoutX="70.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State/zip" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="140.0" />
+      <Line endX="509.0" layoutX="98.0" layoutY="78.0" startX="-100.0" strokeWidth="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text layoutX="480.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invoice no." AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="94.0" />
+      <Text fx:id="invoiceID" layoutX="547.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0000" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="94.0" />
+      <Text layoutX="479.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="117.05078125" />
+      <Text fx:id="dateOfAppt" layoutX="515.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/25/1994" AnchorPane.rightAnchor="40.0" />
+      <TableView fx:id="invoiceTable" focusTraversable="false" layoutX="34.0" layoutY="189.0" prefHeight="354.0" prefWidth="532.0" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="189.0">
+        <columns>
+          <TableColumn fx:id="description" prefWidth="258.0" text="Description" />
+          <TableColumn fx:id="quantity" prefWidth="62.0" text="Quantity" />
+            <TableColumn fx:id="price" prefWidth="102.0" text="Unit Price" />
+            <TableColumn fx:id="total" prefWidth="109.0" text="Amount" />
+        </columns>
+      </TableView>
+      <Text layoutX="417.75" layoutY="559.078125" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" AnchorPane.bottomAnchor="81.0" AnchorPane.rightAnchor="150.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="totalAmount" layoutX="509.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$000.00" AnchorPane.bottomAnchor="81.0" AnchorPane.rightAnchor="55.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="sendInvoice" layoutX="515.0" layoutY="599.0" mnemonicParsing="false" onAction="#sendInvoice" text="Send Invoice" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="40.0" />
+   </children>
+</AnchorPane>

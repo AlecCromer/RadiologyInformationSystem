@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Controller.Appointment.*?>
+<?import Controller.AddAppointment.*?>
+<?import javafx.collections.FXCollections?>
+<?import Controller.Appointment?>
+<?import javafx.scene.layout.HBox?>
+
+<GridPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Appointment">
+
+    <ToolBar fx:id="barSearch" prefHeight="42.0" prefWidth="476.0" GridPane.rowIndex="1">
+
+        <items>
+            <!--Label style="-fx-font: NORMAL 20 Tahoma;" text="Appointments" GridPane.rowIndex="0">
+            </Label-->
+            <Button id="search" fx:id="buttonCloseSearch" stylesheets="@../style.css" text="search" />
+            <TextField fx:id="fieldSearch" />
+            <Button fx:id="buttonSearchUp" text="up" />
+            <Button fx:id="buttonSearchDown" text="down" />
+        </items> </ToolBar>
+
+    <TableView fx:id="tableView" GridPane.rowIndex="2">
+        <columns>
+            <TableColumn fx:id="firstnameColumn" text="First Name" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Last Name" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="lastName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email Address" prefWidth="200">
+                <cellValueFactory><PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <Appointment firstName="Jacob" lastName="Smith"
+                             email="jacob.smith@example.com"/>
+                <Appointment firstName="Isabella" lastName="Johnson"
+                        email="isabella.johnson@example.com"/>
+                <Appointment firstName="Ethan" lastName="Williams"
+                        email="ethan.williams@example.com"/>
+                <Appointment firstName="Emma" lastName="Jones"
+                        email="emma.jones@example.com"/>
+                <Appointment firstName="Michael" lastName="Brown"
+                        email="michael.brown@example.com"/>
+            </FXCollections>
+        </items>
+        <sortOrder>
+            <fx:reference source="firstnameColumn"/>
+        </sortOrder>
+    </TableView>
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <TextField fx:id="firstNameField" promptText="First Name"
+                   prefWidth="90"/>
+        <TextField fx:id="lastNameField" promptText="Last Name"
+                   prefWidth="90"/>
+        <TextField fx:id="emailField" promptText="email"
+                   prefWidth="150"/>
+        <!--Button text="Add" onAction="#addAppointment"/-->
+    </HBox>
+
+
+</GridPane>
