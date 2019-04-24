@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -119,12 +120,15 @@ public class InvoiceController implements Initializable {
         return returnList;
     }
 
-    //////////////////
-    //Button Methods//
-    //////////////////
 
-
-    ///////////////////
-    //Form Validation//
-    ///////////////////
+    public void sendInvoice(){
+        Alert rejection = new Alert(Alert.AlertType.INFORMATION);
+        rejection.setTitle("Invoice Complete");
+        rejection.setHeaderText(null);
+        rejection.setContentText("Invoice has been sent");
+        Main.popup.setAlwaysOnTop(false);
+        rejection.showAndWait();
+        Main.popup.setAlwaysOnTop(true);
+        return;
+    }
 }
