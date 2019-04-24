@@ -46,9 +46,8 @@ public class ScheduleEmployeeController implements Initializable {
             StringConverter<Double> stringConverter = new StringConverter<>() {
 
                 @Override
-                public String toString(Double object) {
-
-                    return object.intValue() + ":00";
+                public String toString(Double aDouble) {
+                    return aDouble.intValue() + ":00";
                 }
 
                 @Override
