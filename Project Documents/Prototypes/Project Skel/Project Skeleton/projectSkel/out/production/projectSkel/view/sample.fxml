@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane fx:id="tabPane" prefHeight="603.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+    <tabs>
+        <Tab fx:id="pi" text="Patient Info">
+            <fx:include fx:id="patientinfo" source="patientinfo.fxml" />
+        </Tab>
+        <Tab fx:id="images" text="PACS">
+            <fx:include fx:id="pacs" source="pacs.fxml" />
+        </Tab>
+        <Tab fx:id="wl" text="Work List">
+            <fx:include fx:id="worklist" source="worklist.fxml" />
+        </Tab>
+        <Tab fx:id="appt" text="Appointment">
+            <fx:include fx:id="appointment" source="appointment.fxml" />
+        </Tab>
+        <Tab fx:id="te" text="Tech Entry">
+        <fx:include fx:id="techentry" source="techentry.fxml" />
+    </Tab>
+        <Tab fx:id="fi" text="Files">
+        <fx:include fx:id="files" source="Files.fxml" />
+    </Tab>
+        <Tab fx:id="rr" text="Report Review">
+            <fx:include fx:id="rreview" source="reportreview.fxml" />
+        </Tab>
+    </tabs>
+</TabPane>

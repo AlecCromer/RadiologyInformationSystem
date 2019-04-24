@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.PatientListController">
+   <children>
+      <TableView fx:id="PatientList" layoutY="43.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+        <columns>
+          <TableColumn fx:id="patientID" prefWidth="75.0" text="PatientID" />
+          <TableColumn fx:id="firstname" prefWidth="75.0" text="First Name" />
+            <TableColumn fx:id="lastname" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="dob" prefWidth="49.0" text="DoB" />
+            <TableColumn fx:id="sex" prefWidth="25.0" text="Sex" />
+            <TableColumn fx:id="phoneNumber" prefWidth="84.0" text="P. Number" />
+            <TableColumn fx:id="email" prefWidth="92.0" text="E-mail" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="testButton" mnemonicParsing="false" onAction="#setAddPatientView" text="Add New" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
+      <Text layoutX="19.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient List" underline="true" wrappingWidth="130.931640625" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
