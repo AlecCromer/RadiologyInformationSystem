@@ -9,6 +9,7 @@ import Controller.ReportControllers.ReportListController;
 import Controller.TechControllers.ScheduleEmployeeController;
 import Controller.TechControllers.WorkListController;
 import Controller.Main;
+import Model.Employee;
 import animatefx.animation.Pulse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +31,8 @@ public class MenuController implements Initializable {
      * @param url
      * @param arg1
      */
-    public void initialize(URL url, ResourceBundle arg1) {
+
+    public void initialize(URL url, ResourceBundle arg1)  {
         //Remove all buttons they don't have permission for
         ArrayList<Integer> pms = Main.getSessionUser().getPermissions();
         //Check for Patient List
@@ -53,6 +55,7 @@ public class MenuController implements Initializable {
         //Check for Work List
         if (!(pms.contains(4) || pms.contains(2)|| pms.contains(6))){
             tabsVBox.getChildren().remove(workList);
+
         }
         //Check for Schedule Employee
         if(!(pms.contains(5) || pms.contains(4) || pms.contains(6))){
@@ -65,6 +68,28 @@ public class MenuController implements Initializable {
         //Check for Report List
         if(!(pms.contains(1) || pms.contains(2) || pms.contains(6))){
             tabsVBox.getChildren().remove(reportList);
+
+        }
+        if (pms.contains(5)){
+            try {
+                PatientListController.setView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (pms.contains(4) && !pms.contains(2)){
+            try {
+                WorkListController.setView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            try {
+                PatientListController.setView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
