@@ -1,0 +1,1 @@
+The greek letter lambda in these diagrams are used to denote lambda method calls.

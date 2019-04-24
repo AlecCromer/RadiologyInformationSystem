@@ -243,6 +243,21 @@ public class Appointment {
         ).execute();
     }
 
+    /**
+     * Database query to update the status column to the Needs Report status
+     * @throws Exception
+     */
+    public static void updatePatientStatus(int appointmentId, String newStatus) throws Exception{
+        PreparedStatement state =  databaseConnector.getConnection().prepareStatement(
+                "UPDATE appointments " +
+                        "SET appointments.patient_status = ? " +
+                        "WHERE appointments.appointment_id = ?"
+        );
+        state.setString(1, newStatus);
+        state.setInt(2, appointmentId);
+        state.execute();
+    }
+
 
       ///////////////////
      //Getters/Setters//

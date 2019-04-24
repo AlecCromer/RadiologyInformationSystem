@@ -2,52 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94a403a9-abbc-49ad-9255-d7b5baea6b98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_guigarage_flatter_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_typhon0_AnimateFX_1_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_webjars_font_awesome_5_8_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/Schedule Patient.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/Submit Report.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/billingSequence.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/imageStudySequence.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RISfx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RISfx.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AddAppointmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentFilesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/AppointmentControllers/AppointmentViewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/BillingListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/InvoiceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/BillingControllers/ReportController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/PatientViewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/ProcedureListController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/ProcedureViewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralFormController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReferralControllers/ReferralListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportFormController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ReportControllers/ReportListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/AddImageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/ScheduleEmployeeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/TechEntryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/TechControllers/WorkListController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/databaseConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Appointment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Images.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Modality.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Patient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Procedure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Referral.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/Report.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/ScheduleConflict.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/View/MenuViews/RIS_Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../User Manual/User Manual v3.docx" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -71,24 +38,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-              <folding>
-                <element signature="e#1609#1610#0" expanded="true" />
-                <element signature="e#1660#1661#0" expanded="true" />
-                <element signature="e#1672#1673#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="531">
+              <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VM_Options.txt">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="89" />
+            <state relative-caret-position="299">
+              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -102,11 +73,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Controller/TechControllers/ScheduleEmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Appointment.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="266" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
@@ -141,6 +114,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RISfx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="BillingControllers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -156,7 +136,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556075419827" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556077080278" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -222,7 +202,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1317000" />
+    <option name="totallyTimeSpent" value="2201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -237,7 +217,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Regex" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Sequence" />
+      <window_info anchor="bottom" id="Sequence" weight="0.2567714" />
       <window_info anchor="bottom" id="Educational.CheckDetails" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32936078" />
@@ -246,7 +226,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17009751" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,6 +272,507 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/Kevin/Desktop/CSCI 4400/Git/RadiologyInformationSystem/Source Code/RISfx/src/Controller">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/Controller</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Controller">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Controller</OriginalElement>
+          <nodes>
+            <node x="1876.1228571428587" y="2948.0">Controller.PatientControllers.PatientViewController</node>
+            <node x="2069.6666666666665" y="11.0">Controller.databaseConnector</node>
+            <node x="2093.71128117914" y="2527.0">Controller.AppointmentControllers.AppointmentViewController</node>
+            <node x="3052.686575963719" y="1422.0">Controller.TechControllers.ScheduleEmployeeController</node>
+            <node x="1278.0" y="2527.0">Controller.TechControllers.AddImageController</node>
+            <node x="1138.5" y="1158.0">Controller.ReportControllers.ReportFormController</node>
+            <node x="2086.71128117914" y="2216.5">Controller.AppointmentControllers.AppointmentFilesController</node>
+            <node x="47.75" y="2106.0">Controller.ProcedureControllers.ProcedureListController</node>
+            <node x="0.0" y="1532.5">Controller.BillingControllers.ReportController</node>
+            <node x="1583.4612811791399" y="2948.0">Controller.PatientControllers.NewPatientController</node>
+            <node x="2693.2478571428587" y="2992.0">Controller.ReferralControllers.ReferralFormController</node>
+            <node x="1252.5395238095252" y="3798.0">Controller.TechControllers.WorkListController</node>
+            <node x="2841.6645238095252" y="3732.0">Controller.ReferralControllers.ReferralListController</node>
+            <node x="164.0" y="1444.0">Controller.ProcedureControllers.AddProcedureController</node>
+            <node x="415.75" y="2117.0">Controller.BillingControllers.BillingListController</node>
+            <node x="2312.1228571428587" y="3113.0">Controller.AppointmentControllers.AppointmentListController</node>
+            <node x="1734.4612811791399" y="3710.0">Controller.PatientControllers.PatientListController</node>
+            <node x="1368.6615759637189" y="0.0">Controller.Controller</node>
+            <node x="519.5" y="1367.0">Controller.BillingControllers.InvoiceController</node>
+            <node x="1414.6615759637189" y="284.0">Controller.Main</node>
+            <node x="2506.4446825396835" y="2516.0">Controller.AppointmentControllers.AddAppointmentController</node>
+            <node x="820.5" y="2018.0">Controller.ReportControllers.ReportListController</node>
+            <node x="1379.4612811791399" y="4304.0">Controller.MenuControllers.MenuController</node>
+            <node x="1151.8196825396838" y="3003.0">Controller.TechControllers.TechEntryController</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Controller.AppointmentControllers.AppointmentListController" target="Controller.Main">
+              <point x="-44.5" y="-191.0" />
+              <point x="2445.6228571428587" y="2918.0" />
+              <point x="2481.4978571428587" y="2918.0" />
+              <point x="2481.4978571428587" y="1088.0" />
+              <point x="1643.304433106576" y="1088.0" />
+              <point x="83.14285714285711" y="367.0" />
+            </edge>
+            <edge source="Controller.BillingControllers.InvoiceController" target="Controller.Main">
+              <point x="0.0" y="-191.0" />
+              <point x="659.5" y="1078.0" />
+              <point x="1477.0187188208617" y="1078.0" />
+              <point x="-83.14285714285711" y="367.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientListController" target="Controller.PatientControllers.NewPatientController">
+              <point x="-127.19999999999999" y="-257.0" />
+              <point x="1766.2612811791398" y="3690.0" />
+              <point x="1647.9612811791399" y="3690.0" />
+              <point x="-64.5" y="356.0" />
+            </edge>
+            <edge source="Controller.ProcedureControllers.AddProcedureController" target="Controller.Main">
+              <point x="0.0" y="-114.0" />
+              <point x="290.0" y="1058.0" />
+              <point x="1449.304433106576" y="1058.0" />
+              <point x="-110.85714285714289" y="367.0" />
+            </edge>
+            <edge source="Controller.TechControllers.TechEntryController" target="Controller.TechControllers.AddImageController">
+              <point x="38.0" y="-301.0" />
+              <point x="-64.5" y="180.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentFilesController" target="Controller.Main">
+              <point x="0.0" y="-25.5" />
+              <point x="2184.21128117914" y="1978.0" />
+              <point x="1955.8196825396838" y="1978.0" />
+              <point x="1955.8196825396838" y="1108.0" />
+              <point x="1615.5901473922904" y="1108.0" />
+              <point x="55.42857142857156" y="367.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.NewPatientController" target="Controller.Main">
+              <point x="0.0" y="-356.0" />
+              <point x="1712.4612811791399" y="1138.0" />
+              <point x="1574.0187188208617" y="1138.0" />
+              <point x="13.85714285714289" y="367.0" />
+            </edge>
+            <edge source="Controller.BillingControllers.ReportController" target="Controller.Main">
+              <point x="35.75" y="-25.5" />
+              <point x="107.25" y="1038.0" />
+              <point x="1421.5901473922902" y="1038.0" />
+              <point x="-138.57142857142867" y="367.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentFilesController" target="Controller.Controller">
+              <point x="65.0" y="-25.5" />
+              <point x="2249.21128117914" y="1998.0" />
+              <point x="2223.5531746031747" y="1998.0" />
+              <point x="2223.5531746031747" y="234.0" />
+              <point x="1618.9115759637189" y="234.0" />
+              <point x="107.25" y="92.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientViewController" target="Controller.Main">
+              <point x="-156.0" y="-356.0" />
+              <point x="1928.1228571428587" y="2928.0" />
+              <point x="1944.8196825396838" y="2928.0" />
+              <point x="1944.8196825396838" y="1118.0" />
+              <point x="1601.7330045351475" y="1118.0" />
+              <point x="41.57142857142867" y="367.0" />
+            </edge>
+            <edge source="Controller.Controller" target="Controller.Main">
+              <point x="35.75" y="92.0" />
+              <point x="1547.4115759637189" y="264.0" />
+              <point x="1560.1615759637189" y="264.0" />
+              <point x="0.0" y="-367.0" />
+            </edge>
+            <edge source="Controller.TechControllers.ScheduleEmployeeController" target="Controller.Main">
+              <point x="-78.0" y="-136.0" />
+              <point x="3130.686575963719" y="1048.0" />
+              <point x="1698.7330045351473" y="1048.0" />
+              <point x="138.57142857142844" y="367.0" />
+            </edge>
+            <edge source="Controller.ReportControllers.ReportListController" target="Controller.Main">
+              <point x="-74.25" y="-224.0" />
+              <point x="894.75" y="1098.0" />
+              <point x="1504.7330045351473" y="1098.0" />
+              <point x="-55.42857142857156" y="367.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientViewController" target="Controller.AppointmentControllers.AddAppointmentController">
+              <point x="156.0" y="-356.0" />
+              <point x="2240.1228571428587" y="2928.0" />
+              <point x="2565.778015873017" y="2928.0" />
+              <point x="-118.66666666666663" y="191.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.AppointmentControllers.AppointmentListController">
+              <point x="62.66666666666674" y="-213.0" />
+              <point x="1583.1279478458066" y="4264.0" />
+              <point x="2532.5696825396835" y="4264.0" />
+              <point x="2532.5696825396835" y="3680.0" />
+              <point x="2490.1228571428587" y="3680.0" />
+              <point x="0.0" y="191.0" />
+            </edge>
+            <edge source="Controller.TechControllers.TechEntryController" target="Controller.Main">
+              <point x="-114.0" y="-301.0" />
+              <point x="1189.8196825396838" y="2928.0" />
+              <point x="1128.0" y="2928.0" />
+              <point x="1128.0" y="1108.0" />
+              <point x="1518.5901473922902" y="1108.0" />
+              <point x="-41.57142857142867" y="367.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentListController" target="Controller.databaseConnector">
+              <point x="44.5" y="-191.0" />
+              <point x="2534.6228571428587" y="2918.0" />
+              <point x="2492.4978571428587" y="2918.0" />
+              <point x="2492.4978571428587" y="224.0" />
+              <point x="2223.0833333333335" y="224.0" />
+              <point x="21.916666666666686" y="81.0" />
+            </edge>
+            <edge source="Controller.ReferralControllers.ReferralListController" target="Controller.Main">
+              <point x="41.0" y="-235.0" />
+              <point x="3046.6645238095252" y="3690.0" />
+              <point x="3029.3698412698413" y="3690.0" />
+              <point x="3029.3698412698413" y="1058.0" />
+              <point x="1684.8758616780046" y="1058.0" />
+              <point x="124.71428571428578" y="367.0" />
+            </edge>
+            <edge source="Controller.ReferralControllers.ReferralListController" target="Controller.databaseConnector">
+              <point x="123.0" y="-235.0" />
+              <point x="3128.6645238095252" y="3680.0" />
+              <point x="3040.3698412698413" y="3680.0" />
+              <point x="3040.3698412698413" y="214.0" />
+              <point x="2266.9166666666665" y="214.0" />
+              <point x="65.75" y="81.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.ReferralControllers.ReferralListController">
+              <point x="94.0" y="-213.0" />
+              <point x="1614.4612811791399" y="4274.0" />
+              <point x="3005.6645238095252" y="4274.0" />
+              <point x="0.0" y="235.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientListController" target="Controller.Main">
+              <point x="0.0" y="-257.0" />
+              <point x="1893.4612811791399" y="3690.0" />
+              <point x="1865.6228571428587" y="3690.0" />
+              <point x="1865.6228571428587" y="1128.0" />
+              <point x="1587.8758616780046" y="1128.0" />
+              <point x="27.71428571428578" y="367.0" />
+            </edge>
+            <edge source="Controller.ProcedureControllers.ProcedureListController" target="Controller.ProcedureControllers.AddProcedureController">
+              <point x="87.0" y="-136.0" />
+              <point x="308.75" y="1998.0" />
+              <point x="290.0" y="1998.0" />
+              <point x="0.0" y="114.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.Main">
+              <point x="-62.666666666666515" y="-213.0" />
+              <point x="1457.7946145124733" y="4264.0" />
+              <point x="810.0" y="4264.0" />
+              <point x="810.0" y="1088.0" />
+              <point x="1490.8758616780046" y="1088.0" />
+              <point x="-69.28571428571422" y="367.0" />
+            </edge>
+            <edge source="Controller.Main" target="Controller.databaseConnector">
+              <point x="97.0" y="-367.0" />
+              <point x="1657.1615759637189" y="244.0" />
+              <point x="2091.583333333333" y="244.0" />
+              <point x="-109.58333333333334" y="81.0" />
+            </edge>
+            <edge source="Controller.BillingControllers.BillingListController" target="Controller.BillingControllers.InvoiceController">
+              <point x="84.25" y="-125.0" />
+              <point x="668.5" y="1998.0" />
+              <point x="659.5" y="1998.0" />
+              <point x="0.0" y="191.0" />
+            </edge>
+            <edge source="Controller.TechControllers.ScheduleEmployeeController" target="Controller.databaseConnector">
+              <point x="78.0" y="-136.0" />
+              <point x="3286.686575963719" y="204.0" />
+              <point x="2310.75" y="204.0" />
+              <point x="109.58333333333337" y="81.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentViewController" target="Controller.Main">
+              <point x="72.25" y="-180.0" />
+              <point x="2310.46128117914" y="2491.0" />
+              <point x="2292.21128117914" y="2491.0" />
+              <point x="2292.21128117914" y="1098.0" />
+              <point x="1629.447290249433" y="1098.0" />
+              <point x="69.28571428571422" y="367.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentFilesController" target="Controller.ReportControllers.ReportFormController">
+              <point x="-65.0" y="-25.5" />
+              <point x="2119.21128117914" y="1988.0" />
+              <point x="1353.5" y="1988.0" />
+              <point x="86.0" y="400.0" />
+            </edge>
+            <edge source="Controller.ReferralControllers.ReferralListController" target="Controller.ReferralControllers.ReferralFormController">
+              <point x="-123.0" y="-235.0" />
+              <point x="2882.6645238095252" y="3690.0" />
+              <point x="2886.7478571428587" y="3690.0" />
+              <point x="64.5" y="312.0" />
+            </edge>
+            <edge source="Controller.ReportControllers.ReportFormController" target="Controller.Main">
+              <point x="0.0" y="-400.0" />
+              <point x="1267.5" y="1118.0" />
+              <point x="1532.447290249433" y="1118.0" />
+              <point x="-27.71428571428578" y="367.0" />
+            </edge>
+            <edge source="Controller.TechControllers.WorkListController" target="Controller.Main">
+              <point x="0.0" y="-169.0" />
+              <point x="1446.5395238095252" y="3690.0" />
+              <point x="1546.5" y="3690.0" />
+              <point x="1546.5" y="1138.0" />
+              <point x="1560.1615759637189" y="1138.0" />
+              <point x="0.0" y="367.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentListController" target="Controller.AppointmentControllers.AppointmentViewController">
+              <point x="-133.5" y="-191.0" />
+              <point x="2356.6228571428587" y="2918.0" />
+              <point x="2310.46128117914" y="2918.0" />
+              <point x="72.25" y="180.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientViewController" target="Controller.AppointmentControllers.AppointmentViewController">
+              <point x="52.0" y="-356.0" />
+              <point x="2136.1228571428587" y="2928.0" />
+              <point x="2165.96128117914" y="2928.0" />
+              <point x="-72.25" y="180.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.NewPatientController" target="Controller.PatientControllers.PatientListController">
+              <point x="64.5" y="356.0" />
+              <point x="1776.9612811791399" y="3690.0" />
+              <point x="1829.86128117914" y="3690.0" />
+              <point x="-63.60000000000002" y="-257.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentViewController" target="Controller.AppointmentControllers.AppointmentFilesController">
+              <point x="-72.25" y="-180.0" />
+              <point x="2165.96128117914" y="2491.0" />
+              <point x="2184.21128117914" y="2491.0" />
+              <point x="0.0" y="25.5" />
+            </edge>
+            <edge source="Controller.TechControllers.TechEntryController" target="Controller.ReportControllers.ReportFormController">
+              <point x="-38.0" y="-301.0" />
+              <point x="1265.8196825396838" y="2928.0" />
+              <point x="1267.5" y="2928.0" />
+              <point x="0.0" y="400.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.ProcedureControllers.ProcedureListController">
+              <point x="-125.33333333333326" y="-213.0" />
+              <point x="1395.1279478458066" y="4284.0" />
+              <point x="221.75" y="4284.0" />
+              <point x="0.0" y="136.0" />
+            </edge>
+            <edge source="Controller.Main" target="Controller.Controller">
+              <point x="-97.0" y="-367.0" />
+              <point x="1463.1615759637189" y="264.0" />
+              <point x="1475.9115759637189" y="264.0" />
+              <point x="-35.75" y="92.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AppointmentListController" target="Controller.AppointmentControllers.AddAppointmentController">
+              <point x="133.5" y="-191.0" />
+              <point x="2623.6228571428587" y="2928.0" />
+              <point x="2684.4446825396835" y="2928.0" />
+              <point x="0.0" y="191.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientViewController" target="Controller.databaseConnector">
+              <point x="-52.0" y="-356.0" />
+              <point x="2032.1228571428587" y="2928.0" />
+              <point x="2023.303174603175" y="2928.0" />
+              <point x="2023.303174603175" y="264.0" />
+              <point x="2179.25" y="264.0" />
+              <point x="-21.91666666666663" y="81.0" />
+            </edge>
+            <edge source="Controller.ReportControllers.ReportListController" target="Controller.ReportControllers.ReportFormController">
+              <point x="74.25" y="-224.0" />
+              <point x="1043.25" y="1998.0" />
+              <point x="1181.5" y="1998.0" />
+              <point x="-86.0" y="400.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.PatientControllers.PatientListController">
+              <point x="31.333333333333258" y="-213.0" />
+              <point x="1551.7946145124731" y="4254.0" />
+              <point x="1893.4612811791399" y="4254.0" />
+              <point x="0.0" y="257.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.BillingControllers.BillingListController">
+              <point x="-94.0" y="-213.0" />
+              <point x="1426.4612811791399" y="4274.0" />
+              <point x="584.25" y="4274.0" />
+              <point x="0.0" y="125.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.TechControllers.WorkListController">
+              <point x="0.0" y="-213.0" />
+              <point x="1520.4612811791399" y="4244.0" />
+              <point x="1446.5395238095252" y="4244.0" />
+              <point x="0.0" y="169.0" />
+            </edge>
+            <edge source="Controller.BillingControllers.BillingListController" target="Controller.Main">
+              <point x="-84.25" y="-125.0" />
+              <point x="500.0" y="1998.0" />
+              <point x="509.0" y="1998.0" />
+              <point x="509.0" y="1068.0" />
+              <point x="1463.1615759637189" y="1068.0" />
+              <point x="-97.0" y="367.0" />
+            </edge>
+            <edge source="Controller.TechControllers.WorkListController" target="Controller.databaseConnector">
+              <point x="129.33333333333326" y="-169.0" />
+              <point x="1575.8728571428587" y="3690.0" />
+              <point x="1572.9612811791399" y="3690.0" />
+              <point x="1572.9612811791399" y="1998.0" />
+              <point x="1982.875" y="1998.0" />
+              <point x="1982.875" y="254.0" />
+              <point x="2135.4166666666665" y="254.0" />
+              <point x="-65.75" y="81.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientListController" target="Controller.ReferralControllers.ReferralFormController">
+              <point x="127.20000000000005" y="-257.0" />
+              <point x="2020.66128117914" y="3690.0" />
+              <point x="2757.7478571428587" y="3690.0" />
+              <point x="-64.5" y="312.0" />
+            </edge>
+            <edge source="Controller.BillingControllers.ReportController" target="Controller.Controller">
+              <point x="-35.75" y="-25.5" />
+              <point x="35.75" y="264.0" />
+              <point x="1404.4115759637189" y="264.0" />
+              <point x="-107.25" y="92.0" />
+            </edge>
+            <edge source="Controller.TechControllers.AddImageController" target="Controller.TechControllers.TechEntryController">
+              <point x="64.5" y="180.0" />
+              <point x="1471.5" y="2928.0" />
+              <point x="1417.8196825396838" y="2928.0" />
+              <point x="114.0" y="-301.0" />
+            </edge>
+            <edge source="Controller.ReferralControllers.ReferralListController" target="Controller.AppointmentControllers.AddAppointmentController">
+              <point x="-41.0" y="-235.0" />
+              <point x="2964.6645238095252" y="3690.0" />
+              <point x="3003.186575963719" y="3690.0" />
+              <point x="3003.186575963719" y="2918.0" />
+              <point x="2803.1113492063505" y="2918.0" />
+              <point x="118.66666666666674" y="191.0" />
+            </edge>
+            <edge source="Controller.TechControllers.WorkListController" target="Controller.TechControllers.TechEntryController">
+              <point x="-129.33333333333326" y="-169.0" />
+              <point x="1317.2061904761922" y="3690.0" />
+              <point x="1303.8196825396838" y="3690.0" />
+              <point x="0.0" y="301.0" />
+            </edge>
+            <edge source="Controller.ProcedureControllers.ProcedureListController" target="Controller.Main">
+              <point x="-87.0" y="-136.0" />
+              <point x="134.75" y="1998.0" />
+              <point x="153.5" y="1998.0" />
+              <point x="153.5" y="1048.0" />
+              <point x="1435.447290249433" y="1048.0" />
+              <point x="-124.71428571428578" y="367.0" />
+            </edge>
+            <edge source="Controller.TechControllers.AddImageController" target="Controller.Main">
+              <point x="0.0" y="-180.0" />
+              <point x="1407.0" y="1128.0" />
+              <point x="1546.304433106576" y="1128.0" />
+              <point x="-13.85714285714289" y="367.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.TechControllers.ScheduleEmployeeController">
+              <point x="125.33333333333326" y="-213.0" />
+              <point x="1645.7946145124731" y="4284.0" />
+              <point x="3208.686575963719" y="4284.0" />
+              <point x="0.0" y="136.0" />
+            </edge>
+            <edge source="Controller.AppointmentControllers.AddAppointmentController" target="Controller.Main">
+              <point x="0.0" y="-191.0" />
+              <point x="2684.4446825396835" y="1078.0" />
+              <point x="1657.1615759637189" y="1078.0" />
+              <point x="97.0" y="367.0" />
+            </edge>
+            <edge source="Controller.PatientControllers.PatientListController" target="Controller.PatientControllers.PatientViewController">
+              <point x="63.60000000000002" y="-257.0" />
+              <point x="1957.0612811791398" y="3680.0" />
+              <point x="2084.1228571428587" y="3680.0" />
+              <point x="0.0" y="356.0" />
+            </edge>
+            <edge source="Controller.ReferralControllers.ReferralFormController" target="Controller.Main">
+              <point x="0.0" y="-312.0" />
+              <point x="2822.2478571428587" y="2928.0" />
+              <point x="2872.9446825396835" y="2928.0" />
+              <point x="2872.9446825396835" y="1068.0" />
+              <point x="1671.0187188208617" y="1068.0" />
+              <point x="110.85714285714289" y="367.0" />
+            </edge>
+            <edge source="Controller.MenuControllers.MenuController" target="Controller.ReportControllers.ReportListController">
+              <point x="-31.333333333333258" y="-213.0" />
+              <point x="1489.1279478458066" y="4254.0" />
+              <point x="969.0" y="4254.0" />
+              <point x="0.0" y="224.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.15052631578947367" x="-1858.409090909091" y="1584.4055944055945" />
+          <SelectedNodes>
+            <node>Controller.PatientControllers.PatientViewController</node>
+            <node>Controller.ReferralControllers.ReferralFormController</node>
+            <node>Controller.databaseConnector</node>
+            <node>Controller.AppointmentControllers.AppointmentViewController</node>
+            <node>Controller.TechControllers.WorkListController</node>
+            <node>Controller.TechControllers.ScheduleEmployeeController</node>
+            <node>Controller.TechControllers.AddImageController</node>
+            <node>Controller.ReferralControllers.ReferralListController</node>
+            <node>Controller.ProcedureControllers.AddProcedureController</node>
+            <node>Controller.BillingControllers.BillingListController</node>
+            <node>Controller.AppointmentControllers.AppointmentListController</node>
+            <node>Controller.PatientControllers.PatientListController</node>
+            <node>Controller.Controller</node>
+            <node>Controller.BillingControllers.InvoiceController</node>
+            <node>Controller.Main</node>
+            <node>Controller.AppointmentControllers.AddAppointmentController</node>
+            <node>Controller.ReportControllers.ReportListController</node>
+            <node>Controller.ReportControllers.ReportFormController</node>
+            <node>Controller.AppointmentControllers.AppointmentFilesController</node>
+            <node>Controller.MenuControllers.MenuController</node>
+            <node>Controller.TechControllers.TechEntryController</node>
+            <node>Controller.ProcedureControllers.ProcedureListController</node>
+            <node>Controller.BillingControllers.ReportController</node>
+            <node>Controller.PatientControllers.NewPatientController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
         </state>
       </provider>
     </entry>

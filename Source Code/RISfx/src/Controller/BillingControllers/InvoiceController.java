@@ -122,6 +122,13 @@ public class InvoiceController implements Initializable {
 
 
     public void sendInvoice(){
+        Appointment appt = Main.getAppointmentFocus();
+        appt.setPatientStatus("Billed");
+        try {
+            Appointment.updatePatientStatus(appt.getAppointmentId(), appt.getPatientStatus());
+        }catch (Exception e){
+            System.out.println("Oof");
+        }
         Alert rejection = new Alert(Alert.AlertType.INFORMATION);
         rejection.setTitle("Invoice Complete");
         rejection.setHeaderText(null);
