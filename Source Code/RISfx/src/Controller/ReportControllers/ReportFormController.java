@@ -168,9 +168,9 @@ public class ReportFormController implements Initializable {
      * @throws SQLException if the SQL has an error
      */
     public void submitReport() throws SQLException{
-        if(!findingField.getText().isEmpty() || !clinicalIndication.getText().isEmpty() || !checkRadiologist(NameField.getText())){
+        if(!findingField.getText().isEmpty() || !clinicalIndication.getText().isEmpty() || checkRadiologist(NameField.getText())){
             Report.sendReport(clinicalIndication.getText(), findingField.getText(), getImage_id(), procedureRequested.getText(), radiologistField.getText());
-            Main.getOuter().setDisable(false);
+            Main.getOuter().setEffect(null);
             Main.popup.close();
         }
     }

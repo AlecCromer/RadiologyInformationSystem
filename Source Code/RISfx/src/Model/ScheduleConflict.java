@@ -31,13 +31,6 @@ public class ScheduleConflict {
         return technicianID;
     }
 
-    /**
-     * Used in AddAppointmentController.generateConflictList()
-     * @param conflictLength
-     * @param conflictDateTime
-     * @param technicianID
-     * @param machineID
-     */
     public ScheduleConflict(int conflictLength, LocalDateTime conflictDateTime, int technicianID, int machineID) {
         this.conflictLength = conflictLength;
         this.conflictDateTime = conflictDateTime;
@@ -49,16 +42,6 @@ public class ScheduleConflict {
       ////////////////////
      //Database Queries//
     ////////////////////
-
-    /**
-     * Returns which employees are already scheduled at which times given a date and employeeID, and returns some info
-     * about procedure length.
-     * This is used in AddAppointmentController.generateConflictList()
-     * @param scheduleDate
-     * @param employeeId
-     * @return
-     * @throws Exception
-     */
     public static ResultSet queryConflicts(LocalDate scheduleDate, int employeeId) throws Exception{
         Connection conn = databaseConnector.getConnection();
 

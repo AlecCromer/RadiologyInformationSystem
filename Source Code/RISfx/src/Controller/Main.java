@@ -47,13 +47,6 @@ public class Main extends Application {
     //Called to set the main view
     //sets the right to null in case of expanded view
     //Pushes a node onto our back button list
-
-    /**
-     * Loads whatever fxml file it gets passed the name of into the ris container. Adds the name to the back node list
-     * so the back buttons know where to go. Has 1 boiyoiyoing on the fade in from left.
-     * @param fxmlName
-     * @throws Exception
-     */
     public static void setCenterPane(String fxmlName)throws Exception{
         try {
             backNodeList.add(Main.class.getResource("../View/"+fxmlName));
@@ -66,13 +59,6 @@ public class Main extends Application {
         }
     }
 
-    /**
-     * This sets whatever fxml file gets passed to it to center pane, with the exception that there's a boolean to kill
-     * the animation. This way there's no boiyoiyoing when it reloads the page with a new value.
-     * @param fxmlName
-     * @param fade
-     * @throws Exception
-     */
     public static void setCenterPane(String fxmlName, boolean fade)throws Exception{
         try {
 
@@ -91,11 +77,6 @@ public class Main extends Application {
 
     //Sets the main view to the top of our back button list
     //Pops the top of the back button list
-
-    /**
-     * Loads whatever page is in back one in the backnode list when you press back.
-     * @throws Exception
-     */
     public static void setBackPage() throws Exception{
         RIS_Container.setRight(null);
         popBackNodeList();
@@ -103,13 +84,6 @@ public class Main extends Application {
     }
 
     //Create Popup Window using submitted
-
-    /**
-     * This is the method used for most of the popup windows. Loads the fxml, sets dimensions, forces the popup to always
-     * be on top, sets title, sets icon, sets background blur, and has an animation.
-     * @param fxmlName
-     * @throws Exception
-     */
     public static void setPopupWindow(String fxmlName) throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("../View/" + fxmlName));
         Scene view = new Scene(root, 520, 300);
@@ -123,11 +97,6 @@ public class Main extends Application {
     }
 
     //Determines what all needs to be done when the popup window closes via 'X' button
-
-    /**
-     * If someone closes the window, "Outer.setEffect(bb);" in Main.setPopupWindow() would leave RIS client blurred out.
-     * this removes the effect on window close event.
-     */
     private void closeWindowEvent()
     {
         Outer.setEffect(null);
@@ -185,13 +154,6 @@ public class Main extends Application {
     ////////////////
     //Start Method//
     ////////////////
-
-    /**
-     * Gets the database connection. Loads LoginView.fxml.
-     *
-     * @param stage
-     * @throws Exception
-     */
     @Override
     public void start(Stage stage) throws Exception{
         databaseConnector.getStartConnection();
@@ -212,12 +174,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    /**
-     * Resets dimensions of RIS client, sets to resizable, sets main scene.
-     * Opens ris menu on top of outer and ris tabs on left of outer. Sets center to RIS_Container.
-     * sets stage to max size of screen.
-     * @throws Exception
-     */
     public static void successfulLogin() throws Exception{
         primaryStage.setResizable(true);
         primaryStage.setMaxHeight(4000);
@@ -235,11 +191,6 @@ public class Main extends Application {
     }
 
 
-    /**
-     * On logout, destroys sessionUser, patientFocus, appointmentFocus, backNodeList, and sets RIS_Container to null.
-     * Runs Controller.setView() to return to login
-     * @throws Exception
-     */
     public void logout() throws Exception{
         sessionUser = null;
         patientFocus = null;
@@ -251,11 +202,6 @@ public class Main extends Application {
     }
 
     //Useless but necessary
-
-    /**
-     * Runs some javafx application method. DO NOT DELETE>>>
-     * @param args
-     */
     public static void main(String[] args) {
         launch(args);
     }

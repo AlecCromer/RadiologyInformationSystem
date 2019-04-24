@@ -50,22 +50,10 @@ public class Modality {
         this.summary = summary;
     }
 
-    /**
-     * Gets all records from modality table in database, returns them as resultset.
-     * @return
-     * @throws Exception
-     */
     public static ResultSet queryAllModality() throws Exception{
         return databaseConnector.getConnection().prepareStatement("SELECT * FROM modality").executeQuery();
     }
 
-    /**
-     * Gets machine IDs from procedure where procedure_id = given.
-     * Used in AddAppointmentController.generateTimeSlots()
-     * @param procedure_id
-     * @return
-     * @throws Exception
-     */
     public static int queryMachineIdByProcedureType(int procedure_id) throws Exception{
         ResultSet rs = databaseConnector.getConnection().prepareStatement(
                 "SELECT machine_id FROM procedures WHERE procedure_id = " +procedure_id

@@ -63,7 +63,6 @@ public class PatientListController implements Initializable {
      * @param arg1
      */
     public void initialize(URL url, ResourceBundle arg1) {
-        //setSQLQuery("select title, description, content FROM item");
         pms = Main.getSessionUser().getPermissions();
         if(pms.contains(1)){
             try {
@@ -73,10 +72,11 @@ public class PatientListController implements Initializable {
                 e.printStackTrace();
             }
         }
-        else
+        else {
             try {
                 updateTable();
-            }catch (Exception e){}
+            } catch (Exception e) { }
+        }
         PatientList.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
@@ -89,8 +89,6 @@ public class PatientListController implements Initializable {
                 }
             }
         });
-
-
     }
 
     /**
@@ -99,13 +97,12 @@ public class PatientListController implements Initializable {
      */
     public void updateTable() throws Exception {
         try {
-            PatientList.setItems(getPatientList());
+            fillTable(getPatientList());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             System.out.println("UNABLE TO FILL TABLE");
             e.printStackTrace();
         }
-        fillTable();
     }
 
     /**
@@ -115,8 +112,7 @@ public class PatientListController implements Initializable {
      * @throws Exception
      */
     public void updateTable(ObservableList<Patient> patients) throws Exception {
-        PatientList.setItems(patients);
-        fillTable();
+        fillTable(patients);
     }
 
 
@@ -261,7 +257,7 @@ public class PatientListController implements Initializable {
      * Adds listener to the search field to enable searching of columns
      * @throws Exception
      */
-    private void fillTable() throws Exception {
+    private void fillTable(ObservableList<Patient> patients) throws Exception {
 
         patientID.setCellValueFactory(new PropertyValueFactory<Patient, String>("patientID"));
         firstname.setCellValueFactory(new PropertyValueFactory<Patient, String>("firstname"));
@@ -271,7 +267,7 @@ public class PatientListController implements Initializable {
         phoneNumber.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("phoneNumber"));
         email.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
 
-        FilteredList<Patient> sortedPatients = new FilteredList<>(getPatientList(), p -> true);
+        FilteredList<Patient> sortedPatients = new FilteredList<>(patients, p -> true);
 
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             sortedPatients.setPredicate(patient -> {

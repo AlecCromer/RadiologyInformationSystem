@@ -105,7 +105,7 @@ public class ReferralFormController implements Initializable {
 
         Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText(), Integer.parseInt(height.getText()),  Integer.parseInt(weight.getText()),  Integer.parseInt(heartRate.getText()),  Integer.parseInt(systolicPressure.getText()),  Integer.parseInt(diastolicPressure.getText()));
         Main.popup.close();
-        Main.getOuter().setDisable(false);
+        Main.getOuter().setEffect(null);
         Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
 
     }

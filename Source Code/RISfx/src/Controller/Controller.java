@@ -8,9 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-/**
- * This one isn't in the labeling scheme, it opens the login popup
- */
 public class Controller {
     @FXML
     private TextField usernameTextField;
@@ -21,11 +18,6 @@ public class Controller {
     @FXML
     private Button loginButton;
 
-    /**
-     * Sets login view as a popup in a weird way. Sets height, width, makes sure it's not resizeable and can't be
-     * maximized. sets left and top border pane to null
-     * @throws Exception
-     */
     public static void setView() throws Exception{
         Main.getOuter().setLeft(null);
         Main.getOuter().setTop(null);
@@ -37,15 +29,6 @@ public class Controller {
 
     }
 
-    /**
-     * When login button is pushed, creates an employee object with the password and username, called user
-     * Then does the validLogin method in Employee on the input data.
-     * If the login is successful, it sets the exception label, session user using setSessionUser in Main.
-     * Then it tries to set permissions, then it runs Main.successfulLogin() which inflates the RIS client.
-     *
-     * On failed login it sets the exception text to error.
-     * @param event
-     */
     public void onLoginButtonPushed(ActionEvent event) {
         Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
 
@@ -77,11 +60,6 @@ public class Controller {
         }
     }
 
-    /**
-     * Called for a failed login, it creates a new alert object, sets the rejection texts, and clears the FXML fields
-     * required for login. It also highlights them in red.
-     * @param sceneID
-     */
     private void changeScene(int sceneID) {
         switch (sceneID) {
             case 0: {

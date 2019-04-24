@@ -2,6 +2,8 @@ package Model;
 
 import Controller.Main;
 import Controller.databaseConnector;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -57,6 +59,33 @@ public class Appointment {
         );
     }
 
+    /**
+     * Uses Appointment.queryForBillingAppointments() method to return results set from SQL.
+     * iterates through results set, builds appointment objects using a constructor in Appointment and adds to billingList
+     * eventually returns billingList.
+     */
+    public static ObservableList<Appointment> getBillingList() throws Exception {
+        ResultSet rs = Appointment.queryForBillingAppointments();
+        ObservableList<Appointment> billingList = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            //int appointmentId, int patientId, String patientFullName, String patientStatus, String[] address, float balance
+            Appointment addition = new Appointment(
+                    rs.getInt("appointment_id"),
+                    rs.getInt("patient_id"),
+                    rs.getInt("procedure_id"),
+                    rs.getString("procedure_name"),
+                    rs.getString("full_name"),
+                    rs.getString("patient_status"),
+                    rs.getDate("appointment_date")
+            );
+            addition.setAddress();
+            addition.setBalance();
+            billingList.add(addition);
+        }
+        return billingList;
+    }
+
 
 
       ////////////////////
@@ -82,11 +111,11 @@ public class Appointment {
      */
     public static ResultSet queryForBillingAppointments()throws Exception{
         return (databaseConnector.getConnection().prepareStatement(
-                "SELECT appointments.*, CONCAT(employees.first_name, \" \", employees.last_name) AS full_name, procedures.procedure_name " +
-                        "FROM `appointments` " +
+                "SELECT appointments.*, CONCAT(patient.first_name, \" \", patient.last_name) AS full_name, procedures.procedure_name" +
+                        " FROM appointments INNER JOIN patient ON patient.patient_id=appointments.patient_id " +
                         "INNER JOIN employees ON appointments.employee_id=employees.employee_id " +
                         "INNER JOIN procedures ON appointments.procedure_id=procedures.procedure_id " +
-                        "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'")).executeQuery();
+                        "WHERE appointments.patient_status = 'Signed Out' OR appointments.patient_status = 'Billed'\n")).executeQuery();
     }
 
     /**
@@ -212,6 +241,21 @@ public class Appointment {
                     "SET appointments.patient_status = 'Needs Report' " +
                     "WHERE appointments.appointment_id = " + appointmentId
         ).execute();
+    }
+
+    /**
+     * Database query to update the status column to the Needs Report status
+     * @throws Exception
+     */
+    public static void updatePatientStatus(int appointmentId, String newStatus) throws Exception{
+        PreparedStatement state =  databaseConnector.getConnection().prepareStatement(
+                "UPDATE appointments " +
+                        "SET appointments.patient_status = ? " +
+                        "WHERE appointments.appointment_id = ?"
+        );
+        state.setString(1, newStatus);
+        state.setInt(2, appointmentId);
+        state.execute();
     }
 
 

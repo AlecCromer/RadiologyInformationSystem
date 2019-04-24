@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94a403a9-abbc-49ad-9255-d7b5baea6b98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/Schedule Patient.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/Submit Report.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/billingSequence.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Project Documents/Diagrams/Sequence Diagrams/imageStudySequence.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/MenuControllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/PatientControllers/NewPatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/AddProcedureController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RISfx/Controller/ProcedureControllers/ProcedureViewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../User Manual/User Manual v3.docx" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,12 +24,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3358">
               <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+>>>>>>> parent of 7bec792... javadocs
               <folding>
                 <element signature="e#4715#4716#0" expanded="true" />
                 <element signature="e#4752#4753#0" expanded="true" />
@@ -42,11 +63,37 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ReportControllers/ReportListController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="106">
               <caret line="206" selection-start-line="206" selection-end-line="206" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/InvoiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="129" column="35" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+>>>>>>> parent of 7bec792... javadocs
             </state>
           </provider>
         </entry>
@@ -78,7 +125,10 @@
     </navigator>
     <panes>
       <pane id="Course" />
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> parent of 7bec792... javadocs
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,7 +157,7 @@
               <item name="RISfx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="MenuControllers" type="462c0819:PsiDirectoryNode" />
+              <item name="BillingControllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RISfx" type="b2602c69:ProjectViewProjectNode" />
@@ -127,6 +177,10 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> parent of 7bec792... javadocs
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -136,7 +190,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556077139628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556077080278" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -198,49 +252,64 @@
       <option name="presentableId" value="Default" />
       <updated>1556074080484</updated>
       <workItem from="1556074081875" duration="1317000" />
+<<<<<<< HEAD
       <workItem from="1556093675031" duration="18000" />
       <workItem from="1556145829524" duration="314000" />
+=======
+>>>>>>> parent of 7bec792... javadocs
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="2709000" />
+=======
+    <option name="totallyTimeSpent" value="2201000" />
+>>>>>>> parent of 7bec792... javadocs
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17910448" />
+=======
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
+>>>>>>> parent of 7bec792... javadocs
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Regex" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Sequence" weight="0.2567714" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49295774" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17009751" />
+>>>>>>> parent of 7bec792... javadocs
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Sequence" order="9" weight="0.2567714" />
-      <window_info anchor="bottom" id="Educational.CheckDetails" order="10" />
-      <window_info anchor="bottom" id="Regex" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +335,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="uml://JavaScript-modules-diagram/C:/Users/Kevin/Desktop/CSCI 4400/Git/RadiologyInformationSystem/Source Code/RISfx/src/Controller">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -279,12 +358,17 @@
           <Categories>
             <Category>All</Category>
           </Categories>
-          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureViewController.java" />
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProcedureControllers/ProcedureViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="uml://JAVA/Controller">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -705,7 +789,7 @@
               <point x="0.0" y="224.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.15052631578947367" x="-1858.0" y="1584.0" />
+          <settings layout="Hierarchic Group" zoom="0.15052631578947367" x="-1858.409090909091" y="1584.4055944055945" />
           <SelectedNodes>
             <node>Controller.PatientControllers.PatientViewController</node>
             <node>Controller.ReferralControllers.ReferralFormController</node>
@@ -748,20 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenuControllers/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1054">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BillingControllers/BillingListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -769,8 +839,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Appointment.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-3358">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding>
@@ -793,6 +864,10 @@
             <element signature="e#6219#6220#0" expanded="true" />
             <element signature="e#6254#6255#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="514">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+>>>>>>> parent of 7bec792... javadocs
         </state>
       </provider>
     </entry>

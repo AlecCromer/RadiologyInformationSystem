@@ -116,7 +116,7 @@ else{
      */
     private void exitView() throws Exception{
         Main.popup.close();
-        Main.getOuter().setDisable(false);
+        Main.getOuter().setEffect(null);
         PatientListController.setView();
     }
 

@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -95,7 +96,7 @@ public class InvoiceController implements Initializable {
      * Manually adds the cost of the procedure to the returnList
      * then iterates through items result set, building an item object for each one
      * returns returnList containing procedure price and any additional charge items
-     * @return List of Item objects.
+     * @return
      * @throws Exception
      */
     private ObservableList<Item> getItemList() throws Exception{
@@ -119,12 +120,22 @@ public class InvoiceController implements Initializable {
         return returnList;
     }
 
-    //////////////////
-    //Button Methods//
-    //////////////////
 
-
-    ///////////////////
-    //Form Validation//
-    ///////////////////
+    public void sendInvoice(){
+        Appointment appt = Main.getAppointmentFocus();
+        appt.setPatientStatus("Billed");
+        try {
+            Appointment.updatePatientStatus(appt.getAppointmentId(), appt.getPatientStatus());
+        }catch (Exception e){
+            System.out.println("Oof");
+        }
+        Alert rejection = new Alert(Alert.AlertType.INFORMATION);
+        rejection.setTitle("Invoice Complete");
+        rejection.setHeaderText(null);
+        rejection.setContentText("Invoice has been sent");
+        Main.popup.setAlwaysOnTop(false);
+        rejection.showAndWait();
+        Main.popup.setAlwaysOnTop(true);
+        return;
+    }
 }
