@@ -67,7 +67,6 @@ public class Referral {
       ////////////////////
      //Database Queries//
     ////////////////////
-
     /**
      * Gets unprocessed referrals.
      * If this descriptor isn't updated it means we missed this when checking documentation.
@@ -183,7 +182,6 @@ public class Referral {
       ////////////////
      //Constructors//
     ////////////////
-
     /**
      * Used in ReferralListController.generateRefferalsList()
      * @param procedureRequested

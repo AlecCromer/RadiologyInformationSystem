@@ -61,7 +61,6 @@ public class Item {
 
     }
 
-    //Getters setters
 
     public int getItemID() {
         return itemID;
@@ -92,7 +91,7 @@ public class Item {
         return this.itemCost*this.itemCount;
     }
 
-    //These are constructors
+
 
     /**
      * The compiler says this isn't used, but this is highlighted as if it is. Be wary.
@@ -105,7 +104,6 @@ public class Item {
         this.itemName = itemName;
         this.itemCost = itemCost;
     }
-
     /**
      * Used in TechEntryController.getItemList()
      * @param itemName

@@ -32,7 +32,6 @@ public class ScheduleEmployeeController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
-
     /**
      * Opens ScheduleEmployee,fxml using the setPopupWindow() in main
      * sets height and width of window.
@@ -57,9 +56,8 @@ public class ScheduleEmployeeController implements Initializable {
             StringConverter<Double> stringConverter = new StringConverter<>() {
 
                 @Override
-                public String toString(Double object) {
-
-                    return object.intValue() + ":00";
+                public String toString(Double aDouble) {
+                    return aDouble.intValue() + ":00";
                 }
 
                 @Override
@@ -79,7 +77,6 @@ public class ScheduleEmployeeController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
-
     /**
      * This generates a list of employee objects. It calls Employees.queryAllEmployees() to return a resultSet, then it
      * iterates through the resultSet using the employee constructor from the Employee class building employee objects.
@@ -110,7 +107,6 @@ public class ScheduleEmployeeController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
-
     /**
      * This method gets the start time and end time from the fxml boxes where the slider bar time displays.
      * Then it tries to use Employee.insertNewSchedule() to add a new schedule. The catch statement highlights a field

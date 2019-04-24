@@ -49,7 +49,6 @@ public class ScheduleConflict {
       ////////////////////
      //Database Queries//
     ////////////////////
-
     /**
      * Returns which employees are already scheduled at which times given a date and employeeID, and returns some info
      * about procedure length.
