@@ -67,6 +67,14 @@ public class Referral {
       ////////////////////
      //Database Queries//
     ////////////////////
+
+    /**
+     * Gets unprocessed referrals.
+     * If this descriptor isn't updated it means we missed this when checking documentation.
+     *
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryUnprocessedReferrals()throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT patient.patient_id, patient.first_name AS patient_first_name, patient.last_name AS patient_last_name, patient.home_phone, " +
@@ -84,6 +92,21 @@ public class Referral {
         ).executeQuery();
     }
 
+    /**
+     * Inserts referral with all info and patient vitals.
+     * @param patientID Franky Skullfracture, being referred
+     * @param employeeID Dr. Skeleton, referring
+     * @param procedureID Procedure being referred for
+     * @param urgency How close is this person to dying?
+     * @param referralReason Data entry field collected from physician. Most likely along the lines of "this guy has problem"
+     * @param specialComments List of medications/weight conflicts/yadda yadda that could interfere with procedure
+     * @param height vitals
+     * @param weight vitals
+     * @param heartRate vitals
+     * @param systolicPressure vitals
+     * @param diastolicPressure vitals
+     * @throws Exception
+     */
     public static void insertNewReferral(int patientID, int employeeID, int procedureID, String urgency, String referralReason, String specialComments, int height, int weight, int heartRate, int systolicPressure, int diastolicPressure) throws Exception{
 
         PreparedStatement insertNewReferral = databaseConnector.getConnection().prepareStatement(
@@ -160,6 +183,20 @@ public class Referral {
       ////////////////
      //Constructors//
     ////////////////
+
+    /**
+     * Used in ReferralListController.generateRefferalsList()
+     * @param procedureRequested
+     * @param referrer
+     * @param patient
+     * @param isProcessed
+     * @param urgency
+     * @param height
+     * @param weight
+     * @param heart_rate
+     * @param systolic_pressure
+     * @param diastolic_pressure
+     */
     public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, int height, int weight, int heart_rate, int systolic_pressure, int diastolic_pressure) {
         this.procedureRequested = procedureRequested;
         this.referrer = referrer;
@@ -173,6 +210,17 @@ public class Referral {
         this.diastolic_pressure = diastolic_pressure;
     }
 
+    /**
+     * Never used.
+     * @param procedureRequested
+     * @param referrer
+     * @param patient
+     * @param isProcessed
+     * @param urgency
+     * @param heartRate
+     * @param referralReason
+     * @param comments
+     */
     public Referral(Procedure procedureRequested, Employee referrer, Patient patient, boolean isProcessed, String urgency, String heartRate, String referralReason, String comments) {
         this.procedureRequested = procedureRequested;
         this.referrer = referrer;

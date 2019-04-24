@@ -49,11 +49,19 @@ public class TechEntryController implements Initializable {
     ////////////////
     //Initializers//
     ////////////////
+
+    /**
+     * sets center pane to the TechEntry.fxml view
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.setCenterPane("TechViews/TechEntry.fxml");
     }
 
     @SuppressWarnings("Duplicates")
+    /**
+     * Runs updateTable()
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         updateTable();
         image_list.setOnMouseClicked((MouseEvent event) -> {

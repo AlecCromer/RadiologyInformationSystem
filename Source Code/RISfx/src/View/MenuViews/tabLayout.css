@@ -7,6 +7,7 @@
     -fx-border: none;
     -fx-background-radius: 0;
 
+
 }
 .button:hover
 {
@@ -30,9 +31,8 @@
     -fx-border-insets: 1 1 1 1, 0;
     -fx-border-color: #2D75E8;
     -fx-background-color:   #2D75E8;
+   /* -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );*/
     -fx-text-fill: white;
-    -fx-padding: 8 15 15 15;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
 }
 
 
