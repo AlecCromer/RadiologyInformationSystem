@@ -12,11 +12,21 @@ public class Item {
     private String itemName;
     private float itemCost;
 
-
+    /**
+     * Retrieves all of the items
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryAllItems() throws Exception{
         return databaseConnector.getConnection().prepareStatement("SELECT * FROM items").executeQuery();
     }
 
+    /**
+     * Retrieves the bill for the specified appointment
+     * @param appointment_id
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryBilling(String appointment_id) throws Exception{
         PreparedStatement addressQuery = databaseConnector.getConnection().prepareStatement(
                 "SELECT i.item_name, i.item_cost FROM billing as b, items as i " +
@@ -25,7 +35,12 @@ public class Item {
         return addressQuery.executeQuery();
     }
 
-
+    /**
+     * Adds a new item to the appointment
+     * @param appointment_id
+     * @param itemID
+     * @throws Exception
+     */
     public static void insertNewItem(int appointment_id, int itemID) throws Exception {
         Connection conn = databaseConnector.getConnection();
 

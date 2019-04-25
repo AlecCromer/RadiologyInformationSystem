@@ -179,7 +179,7 @@ public class AddAppointmentController implements Initializable {
     /**
      * Uses ScheduleConflict.queryConflicts() with the date and assigned employeeID to return list of conflicting
      * appointments with above list
-     * @param employeeId
+     * @param employeeId Employee ID
      * @return
      * @throws Exception
      */
@@ -232,8 +232,8 @@ public class AddAppointmentController implements Initializable {
     ///////////////////
 
     /**
-     *
-     * @return
+     * Makes sure that the appointment has an available machine and technician
+     * @return true if allowed
      */
     private Boolean validateAppointment(){
         Appointment selectedTimeSlot = scheduleTime.getSelectionModel().getSelectedItem();

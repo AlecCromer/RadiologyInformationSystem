@@ -50,10 +50,21 @@ public class Modality {
         this.summary = summary;
     }
 
+    /**
+     * Retrieves all of the machines
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryAllModality() throws Exception{
         return databaseConnector.getConnection().prepareStatement("SELECT * FROM modality").executeQuery();
     }
 
+    /**
+     * Retrieves the machine information
+     * @param procedure_id
+     * @return
+     * @throws Exception
+     */
     public static int queryMachineIdByProcedureType(int procedure_id) throws Exception{
         ResultSet rs = databaseConnector.getConnection().prepareStatement(
                 "SELECT machine_id FROM procedures WHERE procedure_id = " +procedure_id

@@ -35,7 +35,7 @@ public class InvoiceController implements Initializable {
     ////////////////
 
     /**
-     * Runs updateTable() to
+     * Intializes the invoice
      * @param url
      * @param arg1
      */
@@ -120,7 +120,9 @@ public class InvoiceController implements Initializable {
         return returnList;
     }
 
-
+    /**
+     * Shows a popup to show that the invoice has been submitted
+     */
     public void sendInvoice(){
         Appointment appt = Main.getAppointmentFocus();
         appt.setPatientStatus("Billed");

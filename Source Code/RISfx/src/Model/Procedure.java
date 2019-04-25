@@ -9,7 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Procedure {
-    //Returns list for procedure combo boxes
+
+    /**
+     * Returns list for procedure combo boxes
+     * @return
+     * @throws Exception
+     */
     public static ObservableList<String> getProcedureList() throws Exception{
         ObservableList<String> rtn = FXCollections.observableArrayList();
 
@@ -38,6 +43,11 @@ public class Procedure {
      //Database Queries//
     ////////////////////
 
+    /**
+     * Retrieves all procedures
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryAllProcedures() throws Exception{
         ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
                 "select * FROM procedures"
@@ -46,6 +56,12 @@ public class Procedure {
         return resultSet;
     }
 
+    /**
+     * Retrieves procedure length
+     * @param procedureId
+     * @return
+     * @throws Exception
+     */
     public static int queryProcedureLength(int procedureId)throws Exception{
         ResultSet procL = databaseConnector.getConnection().prepareStatement(
                 "SELECT procedure_length " +
@@ -55,6 +71,13 @@ public class Procedure {
         return procL.getInt("procedure_length");
     }
 
+    /**
+     * Insert new procedure
+     * @param price
+     * @param procedureName
+     * @param procedureLength
+     * @throws Exception
+     */
     public static void insertNewProcedure(float price, String procedureName, int procedureLength) throws Exception {
         PreparedStatement st = databaseConnector.getConnection().prepareStatement(
                 "INSERT INTO `procedures` (`procedure_length`, `procedure_name`, `procedure_price`) " +

@@ -86,6 +86,13 @@ public class Images {
         return (databaseConnector.getConnection().prepareStatement("SELECT DISTINCT im.imagedata, im.exam_date, im.status, im.image_id FROM image as im, appointments as ap WHERE ap.patient_id = im.patient_id and ap.appointment_date = im.exam_date and ap.appointment_id = '"+appointmentID+"';")).executeQuery();
     }
 
+    /**
+     * constructor to initialize the images
+     * @param imagedata
+     * @param exam_date
+     * @param status
+     * @param image_id
+     */
     public Images(Image imagedata, String exam_date, String status, String image_id) {
         this.exam_date = exam_date;
         this.imagedata = imagedata;

@@ -75,7 +75,7 @@ public class AppointmentViewController implements Initializable {
     //////////////////
 
     /**
-     * ?
+     * Sets the view for appointment report form
      * @param actionEvent
      * @throws Exception
      */
@@ -92,7 +92,7 @@ public class AppointmentViewController implements Initializable {
     }
 
     /**
-     *
+     * Changes the patient's status to either signed in or signed out
      * @throws Exception
      */
     public void checkPatient() throws Exception{

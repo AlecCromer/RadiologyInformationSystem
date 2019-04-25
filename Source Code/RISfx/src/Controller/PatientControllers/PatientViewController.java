@@ -49,10 +49,20 @@ public class PatientViewController implements Initializable {
       ////////////////
      //Initializers//
     ////////////////
+
+    /**
+     * Sets the view to the patient view
+     * @throws Exception
+     */
     public static void setView()throws Exception{
         Main.setCenterPane("PatientViews/PatientView.fxml");
     }
 
+    /**
+     * Initialize the patient view
+     * @param url
+     * @param arg1
+     */
     public void initialize(URL url, ResourceBundle arg1){
         fNameField.setText(Main.getPatientFocus().getFirstname());
         lNameField.setText(Main.getPatientFocus().getLastname());
@@ -91,6 +101,9 @@ public class PatientViewController implements Initializable {
         });
     }
 
+    /**
+     * Updates the appointment table
+     */
     private void updateAppointmentTable(){
         try {
             patientAppointments.setItems(generatePatientAppointmentList());
@@ -116,6 +129,12 @@ public class PatientViewController implements Initializable {
       ///////////////////
      //List Generators//
     ///////////////////
+
+    /**
+     * Creates the appointment list
+     * @return
+     * @throws Exception
+     */
     private ObservableList<Appointment> generatePatientAppointmentList() throws Exception{
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
         try(ResultSet rs = Patient.queryPatientAppointments(Main.getPatientFocus().getPatientID())){
@@ -130,6 +149,12 @@ public class PatientViewController implements Initializable {
         return appointments;
     }
 
+    /**
+     * Generates the appointment date
+     * @param rs
+     * @return
+     * @throws Exception
+     */
     private Appointment generateAppointment(ResultSet rs) throws Exception{
 
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
@@ -147,6 +172,12 @@ public class PatientViewController implements Initializable {
       //////////////////
      //Button Methods//
     //////////////////
+
+    /**
+     * Allows the patient info to be changed
+     * @param actionEvent
+     * @throws Exception
+     */
     public void editPatientInfo(ActionEvent actionEvent) throws Exception {
         if (!EditPatientLock) {
             EditPatientLock = true;
@@ -207,11 +238,22 @@ public class PatientViewController implements Initializable {
       ///////////////////
      //Form Validation//
     ///////////////////
+
+    /**
+     * Formats the date correctly
+     * @param date
+     * @return
+     */
     private String dateFormatter(LocalDate date){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return date.format(format);
     }
 
+    /**
+     * Sends appointment information to the focus
+     * @param selectedItem
+     * @throws Exception
+     */
     private void sendAppointmentToView(Appointment selectedItem) throws Exception{
         int appointmentId = selectedItem.getAppointmentId();
         ResultSet rs = Appointment.queryAppointmentFocus(appointmentId);

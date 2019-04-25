@@ -35,6 +35,10 @@ public class Controller {
 
     }
 
+    /**
+     * The button method when a user presses the login button
+     * @param event
+     */
     public void onLoginButtonPushed(ActionEvent event) {
         Employee user = new Employee(passwordTextField.getText(), usernameTextField.getText());
 
@@ -66,6 +70,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Change the scene after logging in
+     * @param sceneID
+     */
     private void changeScene(int sceneID) {
         switch (sceneID) {
             case 0: {

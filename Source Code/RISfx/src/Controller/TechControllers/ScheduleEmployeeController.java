@@ -44,6 +44,9 @@ public class ScheduleEmployeeController implements Initializable {
     }
 
     @SuppressWarnings("Duplicates")
+    /**
+     * Initializes the schedule employee controller
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         try {
             EmployeeBox.setItems(getEmployeeList());

@@ -36,6 +36,12 @@ public class Patient {
     ////////////////////
     //Database Queries//
     ////////////////////
+
+    /**
+     * Retrives all of the patients
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryAllPatients() throws Exception{
         ResultSet resultSet = databaseConnector.getConnection().prepareStatement(
                 "select * FROM patient"
@@ -44,18 +50,36 @@ public class Patient {
         return resultSet;
     }
 
+    /**
+     * Retrieves patient info froma specific patient ID
+     * @param patientID
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryPatientInfo(int patientID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT * FROM patient " +
                         "WHERE patient_id = " + patientID).executeQuery();
     }
 
+    /**
+     * Retrieves referral info for a specific patient
+     * @param patientID
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryReferralInfo(int patientID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT * FROM refer, employees " +
                         "WHERE employees.employee_id = refer.employee_id AND patient_id = " + patientID).executeQuery();
     }
 
+    /**
+     * Retrieves patient appointments from a specific patient id
+     * @param patientId
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryPatientAppointments(int patientId) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +
@@ -72,6 +96,16 @@ public class Patient {
         ).executeQuery();
     }
 
+    /**
+     * Adds a new patient
+     * @param patientToInsert
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @return
+     * @throws Exception
+     */
     public static int insertNewPatient(Patient patientToInsert, String address, String city, String state, String zip) throws Exception {
         Connection conn = databaseConnector.getConnection();
         int patientID = -1;
@@ -105,6 +139,15 @@ public class Patient {
         return patientID;
     }
 
+    /**
+     * Adds a new address
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @return
+     * @throws Exception
+     */
     private static int insertAddress(String address, String city, String state, String zip) throws Exception{
         PreparedStatement insertAddress = databaseConnector.getConnection().prepareStatement(
                 "INSERT INTO address(street_name, city, state, zip)" +
@@ -112,18 +155,40 @@ public class Patient {
         return prepareAddress(insertAddress, address, city, state, zip).executeUpdate();
     }
 
+    /**
+     * Retrieves an address for a specific city, zip, address, state
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @return
+     * @throws Exception
+     */
     private static ResultSet queryAddress(String address, String city, String state, String zip) throws Exception{
         PreparedStatement addressQuery = databaseConnector.getConnection().prepareStatement(
                 "SELECT address_id FROM address " +
                         "WHERE street_name = ? AND city = ? AND state = ? AND zip = ?");
         return prepareAddress(addressQuery, address, city, state, zip).executeQuery();
     }
+
+    /**
+     * Retrieves address for a given address ID
+     * @param addressID
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryAddress(int addressID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT * FROM `address` WHERE `address_id` = " + addressID
         ).executeQuery();
     }
 
+    /**
+     * Retrieves patients for a specific employee
+     * @param employeeID
+     * @return
+     * @throws Exception
+     */
     public static ResultSet queryPatients(int employeeID) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
         "SELECT DISTINCT * FROM `refer` " +
@@ -132,6 +197,15 @@ public class Patient {
         ) .executeQuery();
     }
 
+    /**
+     * Updates patient info for given information
+     * @param patientToInsert
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @throws Exception
+     */
     public static void updatePatientInfo(Patient patientToInsert, String address, String city, String state, String zip) throws Exception{
         Connection conn = databaseConnector.getConnection();
         if (updateAddress(address, city, state, zip) == 1) {
@@ -159,6 +233,16 @@ public class Patient {
             updateUser.executeUpdate();
         }
     }
+
+    /**
+     * Updates an address for given information
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @return
+     * @throws Exception
+     */
     public static int updateAddress(String address, String city, String state, String zip) throws Exception{
         String[] addr = Main.getPatientFocus().getAddress().split(", ");
         ResultSet rs = queryAddress(addr[0], addr[1], addr[2], addr[3]);
@@ -170,6 +254,16 @@ public class Patient {
         return prepareAddress(insertAddress, address, city, state, zip).executeUpdate();
     }
 
+    /**
+     * Sets the prepared statement for adding the address
+     * @param statement
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @return
+     * @throws Exception
+     */
     private static PreparedStatement prepareAddress(PreparedStatement statement, String address, String city, String state, String zip) throws Exception{
         statement.setString(1, address);
         statement.setString(2, city);

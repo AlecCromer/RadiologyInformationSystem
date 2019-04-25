@@ -33,7 +33,6 @@ public class BillingListController implements Initializable {
 
     /**
      * Sets center pane to BillingList.fxml
-     *
      * @throws Exception
      */
     public static void setView() throws Exception {

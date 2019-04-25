@@ -340,6 +340,11 @@ else{
         }
 
     }
+
+    /**
+     * Checks the validity of specified fields
+     * @return
+     */
     private boolean checkAgain() {
 
         if (fNameField.getText().matches("^(?=.*[a-zA-Z]).*$") && lNameField.getText().matches("^(?=.*[a-zA-Z]).*$")

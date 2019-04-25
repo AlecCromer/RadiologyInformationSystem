@@ -49,11 +49,19 @@ public class TechEntryController implements Initializable {
     ////////////////
     //Initializers//
     ////////////////
+
+    /**
+     * Sets the view for the tech entry
+     * @throws Exception
+     */
     public static void setView() throws Exception{
         Main.setCenterPane("TechViews/TechEntry.fxml");
     }
 
     @SuppressWarnings("Duplicates")
+    /**
+     * Initializes the tech entry controller
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         updateTable();
         image_list.setOnMouseClicked((MouseEvent event) -> {
@@ -84,6 +92,9 @@ public class TechEntryController implements Initializable {
         catch (Exception e){ e.printStackTrace(); }
     }
 
+    /**
+     * Populates of the tables
+     */
     private void updateTable(){
 
         try {
@@ -125,6 +136,10 @@ public class TechEntryController implements Initializable {
         updateTable();
     }
 
+    /**
+     * Changes the view to the add image controller
+     * @throws Exception
+     */
     public void captureImage() throws Exception{
 
         AddImageController.setView(appointmentIDField.getText());
@@ -133,6 +148,11 @@ public class TechEntryController implements Initializable {
     ///////////////////
     //List Generators//
     ///////////////////
+
+    /**
+     * Fills the drop down box for items
+     * @throws Exception
+     */
     private void comboBoxFill() throws Exception{
         ResultSet rs = Item.queryAllItems();
         ObservableList<String> items = FXCollections.observableArrayList();
@@ -147,6 +167,12 @@ public class TechEntryController implements Initializable {
     ///////////////////
     //List Generators//
     ///////////////////
+
+    /**
+     * Retrieves the image list and sets up the table
+     * @return
+     * @throws Exception
+     */
     private ObservableList<Images>  getImageList() throws Exception {
         ResultSet rs = Images.queryImageList(String.valueOf(Main.getAppointmentFocus().getAppointmentId()));
         ObservableList<Images>/*<String>*/ images = FXCollections.observableArrayList();
@@ -173,10 +199,19 @@ public class TechEntryController implements Initializable {
     //////////////////
     //Button Methods//
     //////////////////
+
+    /**
+     * Sets the back page
+     * @throws Exception
+     */
     public void setBackPage() throws Exception {
         Main.setBackPage();
     }
 
+    /**
+     * Adds item to to the billing list
+     * @throws Exception
+     */
     public void addItem() throws Exception{
 
         if(ItemBox.getValue() != null){
