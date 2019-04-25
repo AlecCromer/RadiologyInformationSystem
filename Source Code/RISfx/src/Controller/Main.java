@@ -58,7 +58,11 @@ public class Main extends Application {
         try {
             backNodeList.add(Main.class.getResource("../View/"+fxmlName));
             RIS_Container.setRight(null);
-            RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("/View/"+fxmlName));
+            loader.setClassLoader(Main.class.getClassLoader());
+            Parent root = (Parent)loader.load();
+            RIS_Container.setCenter(root);
             new FadeInRight(RIS_Container).play();
         }
         catch(Exception e){
@@ -76,9 +80,7 @@ public class Main extends Application {
     public static void setCenterPane(String fxmlName, boolean fade)throws Exception{
         try {
 
-            backNodeList.add(Main.class.getResource("../View/"+fxmlName));
-            RIS_Container.setRight(null);
-            RIS_Container.setCenter(FXMLLoader.load(Main.class.getResource("../View/"+fxmlName)));
+            setCenterPane(fxmlName);
             if(fade){
                 new FadeIn(RIS_Container).play();
             }
@@ -111,7 +113,10 @@ public class Main extends Application {
      * @throws Exception
      */
     public static void setPopupWindow(String fxmlName) throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("../View/" + fxmlName));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("/View/"+fxmlName));
+        loader.setClassLoader(Main.class.getClassLoader());
+        Parent root = (Parent)loader.load();
         Scene view = new Scene(root, 520, 300);
         popup.setScene(view);
         popup.setAlwaysOnTop(true);
@@ -194,7 +199,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         databaseConnector.getStartConnection();
-        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../View/LoginView.fxml"));
+        loader.setClassLoader(Main.class.getClassLoader());
+        Parent root = (Parent)loader.load();
 
         primaryStage.setTitle("RIS Clinic");
         primaryStage.setResizable(false);
