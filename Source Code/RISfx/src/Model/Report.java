@@ -172,7 +172,7 @@ public class Report {
      */
     public static ResultSet gatherPatientInfo(int appointment_id, String image_id) throws SQLException {
         return(databaseConnector.getConnection().prepareStatement(
-                "SELECT DISTINCT p.patient_id, CONCAT(p.first_name,\" \", p.last_name) AS name, p.date_of_birth, ap.appointment_date, p.sex, ap.reason_for_referral, ap.special_comments, ap.appointment_id, pr.procedure_name, i.imagedata, ap.patient_sign_in_time \n" +
+                "SELECT DISTINCT p.patient_id, CONCAT(p.first_name,\" \", p.last_name) AS name, p.date_of_birth, ap.appointment_date, p.sex, ap.reason_for_referral, ap.special_comments, ap.appointment_id, pr.procedure_name, i.imagedata, i.status, ap.patient_sign_in_time \n" +
                         "FROM patient as p, employees as e, image as i, appointments as ap, procedures as pr, procedure_relationship as prr\n" +
                         "WHERE pr.procedure_id = prr.procedure_id AND i.patient_id = p.patient_id AND ap.appointment_id = "+ appointment_id + " AND i.image_id = "+ image_id ).executeQuery());
 

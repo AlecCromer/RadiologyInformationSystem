@@ -85,28 +85,31 @@ public class ReferralFormController implements Initializable {
      */
     @SuppressWarnings("Duplicates")
     public void submitNewReferral() throws Exception{
-        checkField();
-        int patientID = Patient.insertNewPatient((new Patient(
-                          patentFirstName.getText(),
-                          patientLastName.getText(),
-                          patientSex.getText(),
-                          patientEmail.getText(),
-                          patientDoB.getValue(),
-                          patientPhone.getText(),
-                          patientInsuranceNumber.getText(),
-                          patientPolicyNumber.getText()
-                  )),
-                  patientStreet.getText(),
-                  patientCity.getText(),
-                  patientState.getText(),
-                  patientZip.getText()
-            );
-        int employeeID = Main.getSessionUser().getEmployeeId();
+        if(checkField()) {
 
-        Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText(), Integer.parseInt(height.getText()),  Integer.parseInt(weight.getText()),  Integer.parseInt(heartRate.getText()),  Integer.parseInt(systolicPressure.getText()),  Integer.parseInt(diastolicPressure.getText()));
-        Main.popup.close();
-        Main.getOuter().setEffect(null);
-        Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
+
+            int patientID = Patient.insertNewPatient((new Patient(
+                            patentFirstName.getText(),
+                            patientLastName.getText(),
+                            patientSex.getText(),
+                            patientEmail.getText(),
+                            patientDoB.getValue(),
+                            patientPhone.getText(),
+                            patientInsuranceNumber.getText(),
+                            patientPolicyNumber.getText()
+                    )),
+                    patientStreet.getText(),
+                    patientCity.getText(),
+                    patientState.getText(),
+                    patientZip.getText()
+            );
+            int employeeID = Main.getSessionUser().getEmployeeId();
+
+            Referral.insertNewReferral(patientID, employeeID, comboSelection, urgencyBox.getValue(), referralReason.getText(), referralComments.getText(), Integer.parseInt(height.getText()), Integer.parseInt(weight.getText()), Integer.parseInt(heartRate.getText()), Integer.parseInt(systolicPressure.getText()), Integer.parseInt(diastolicPressure.getText()));
+            Main.popup.close();
+            Main.getOuter().setEffect(null);
+            Main.getRIS_Container().setCenter(Main.getRIS_Container().getCenter());
+        }
 
     }
 
@@ -117,75 +120,88 @@ public class ReferralFormController implements Initializable {
      *Each field is checked and regex is used to validate the user input to ensure
      * each field has the correct information in it
      */
-     private void checkField(){
+     private boolean checkField(){
+         boolean check = true;
          if (!patentFirstName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(0);
+             check = false;
          }
          else{
              error(1);
          }
          if (!patientLastName.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(2);
+             check = false;
          }
          else{
              error(3);
          }
          if(!patientStreet.getText().matches("^(?=.*[0-9])[a-zA-Z\\d\\s\\-#.+]+.*$")){
              error(4);
+             check =false;
          }
          else{
              error(5);
          }
          if(!patientSex.getText().matches("^(?=.*[a-zA-Z]).*$")){
              error(6);
+             check = false;
          }
          else{
              error(7);
          }
          if (!patientCity.getText().matches("^(?=.*[a-z])+(?=.*[A-Z]).*$")){
              error(8);
+             check =false;
          }
         else{
             error(9);
          }
         if(!patientState.getText().matches("^(?=.*[a-z])(?=.*[A-Z]).*$")){ //Come back to this
             error(10);
+            check = false;
         }
         else{
             error(11);
         }
         if(!patientZip.getText().matches("^(?=^.{5,5}$)(?=.*[0-9]).*$")){
             error(12);
+            check =false;
          }
         else{
             error(13);
         }
         if(!patientPhone.getText().matches("^1?[\\(\\- ]*\\d{3}[\\)-\\. ]*\\d{3}[-\\. ]*\\d{4}$")){ //Was mapping out logic will clean up later
             error(14);
+            check = false;
         }
         else{
             error(15);
         }
         if(!patientEmail.getText().matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")){
             error(16);
+            check = false;
         }
         else{
             error(17);
         }
         if(!patientInsuranceNumber.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")){
             error(18);
+            check = false;
         }
         else{
             error(19);
         }
         if(!patientPolicyNumber.getText().matches("^(?=^.{1,10}$)(?=.*[0-9]).*$")){
             error(20);
+            check = false;
         }
         else{
             error(21);
         }
         if(!heartRate.getText().matches("^[0-9]{1,4}+$")){
             error(22);
+            check = false;
         }
         else{
             error(23);
@@ -193,36 +209,42 @@ public class ReferralFormController implements Initializable {
         //Do conditions need to be added or is this fine as is?
         if(procedureBox.getSelectionModel().isEmpty()){
             error(24);
+            check = false;
         }
         else{
             error(25);
         }
         if(urgencyBox.getSelectionModel().isEmpty()){
             error(26);
+            check = false;
         }
         else {
             error(27);
         }
         if(referralReason.getText().isEmpty()){
             error(28);
+            check = false;
         }
         else{
             error(29);
         }
         if (referralComments.getText().isEmpty()){
             error(30);
+            check = false;
         }
         else{
             error(31);
         }
         if(patientDoB.getValue() == null){
             error(32);
+            check = false;
         }
         else{
             error(33);
         }
          if(!systolicPressure.getText().matches("^[0-9]{1,4}+$")){
              error(34);
+             check = false;
          }
          else{
              error(35);
@@ -230,22 +252,26 @@ public class ReferralFormController implements Initializable {
 
          if(!height.getText().matches("^[0-9]{1,4}+$")){
              error(36);
+             check = false;
          }
          else{
              error(37);
          }
          if(!weight.getText().matches("^[0-9]{1,4}+$")){
              error(38);
+             check = false;
          }
          else{
              error(39);
          }
          if(!diastolicPressure.getText().matches("^[0-9]{1,4}+$")){
              error(40);
+             check = false;
          }
          else{
              error(41);
          }
+         return check;
  }
 
     /**

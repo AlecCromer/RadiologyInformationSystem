@@ -98,7 +98,8 @@ public class ReportFormController implements Initializable {
      * @param arg1 the resources used to localize the root object
      */
     public void initialize(URL url, ResourceBundle arg1){
-        System.out.println(complete);
+        historyField.setDisable(true);
+        reasonField.setDisable(true);
         if(isComplete()){
             try{
                 ResultSet reportDetails = Report.getReportDetails(image_id);
@@ -139,6 +140,7 @@ public class ReportFormController implements Initializable {
                 procedureRequested.setText(rs.getString("procedure_name"));
 
                 InputStream is = rs.getBinaryStream("imagedata");
+
                 Image image = SwingFXUtils.toFXImage(ImageIO.read(is), null);
                 report_image.setImage(image);
 
