@@ -1,0 +1,10 @@
+Controller
+Controller.AppointmentControllers
+Controller.BillingControllers
+Controller.MenuControllers
+Controller.PatientControllers
+Controller.ProcedureControllers
+Controller.ReferralControllers
+Controller.ReportControllers
+Controller.TechControllers
+Model

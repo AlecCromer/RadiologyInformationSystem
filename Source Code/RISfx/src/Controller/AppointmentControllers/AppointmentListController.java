@@ -69,7 +69,7 @@ public class AppointmentListController implements Initializable {
             }
         });
     }
-    
+
     /**
      * Executes getAppointmentList() in this file
      * uses attributes of appointment objects in returned list to populate cell values and add to table

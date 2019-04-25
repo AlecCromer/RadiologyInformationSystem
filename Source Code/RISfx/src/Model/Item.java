@@ -72,11 +72,17 @@ public class Item {
     }
 
 
+
     public Item(int itemID, String itemName, float itemCost) {
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemCost = itemCost;
     }
+    /**
+     * Used in TechEntryController.getItemList()
+     * @param itemName
+     * @param itemCost
+     */
     public Item(String itemName, float itemCost) {
         this.itemName = itemName;
         this.itemCost = itemCost;
