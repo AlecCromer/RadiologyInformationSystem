@@ -202,7 +202,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../View/LoginView.fxml"));
         loader.setClassLoader(Main.class.getClassLoader());
-        Parent root = (Parent)loader.load();
+        Parent root = loader.load();
 
         primaryStage.setTitle("RIS Clinic");
         primaryStage.setResizable(false);
