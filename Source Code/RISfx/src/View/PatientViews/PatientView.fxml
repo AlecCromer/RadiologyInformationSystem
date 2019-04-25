@@ -2,15 +2,26 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="447.0" prefWidth="1326.0" stylesheets="@../allViews.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PatientControllers.PatientViewController">
    <children>
+      <Pane layoutX="20.0" layoutY="201.0" prefHeight="58.0" prefWidth="535.0">
+         <children>
+            <Label fx:id="reflabel" layoutX="14.0" layoutY="6.0" text="Referring Physican:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setBackPage" prefHeight="33.0" prefWidth="42.0" text="Back" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Text layoutX="61.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient View" underline="true" wrappingWidth="97.525390625" AnchorPane.topAnchor="10.0">
          <font>
@@ -52,7 +63,7 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="21.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Procedures" underline="true" wrappingWidth="159.525390625">
+      <Text layoutX="21.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Procedures" underline="true" wrappingWidth="159.525390625">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>

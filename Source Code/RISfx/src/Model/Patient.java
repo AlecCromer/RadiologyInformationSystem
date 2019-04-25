@@ -50,6 +50,12 @@ public class Patient {
                         "WHERE patient_id = " + patientID).executeQuery();
     }
 
+    public static ResultSet queryReferralInfo(int patientID) throws Exception{
+        return databaseConnector.getConnection().prepareStatement(
+                "SELECT * FROM refer, employees " +
+                        "WHERE employees.employee_id = refer.employee_id AND patient_id = " + patientID).executeQuery();
+    }
+
     public static ResultSet queryPatientAppointments(int patientId) throws Exception{
         return databaseConnector.getConnection().prepareStatement(
                 "SELECT appointments.appointment_id, appointments.appointment_date, appointments.patient_sign_in_time, appointments.patient_sign_out_time, appointments.patient_status " +

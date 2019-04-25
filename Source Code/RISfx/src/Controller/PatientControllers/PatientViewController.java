@@ -11,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +35,7 @@ public class PatientViewController implements Initializable {
                                         addressField,  dobField,        sNumberField,
                                         emailField,    InsuranceField,  balanceField, policyField;
     @FXML Button                        EditPatientInfoButton;
+    @FXML Label                         reflabel;
     @FXML TableView<Appointment>        patientAppointments;
     @FXML
     TableColumn<Appointment, Time>      patientSignInTime, patientSignOutTime;
@@ -55,7 +53,7 @@ public class PatientViewController implements Initializable {
         Main.setCenterPane("PatientViews/PatientView.fxml");
     }
 
-    public void initialize(URL url, ResourceBundle arg1) {
+    public void initialize(URL url, ResourceBundle arg1){
         fNameField.setText(Main.getPatientFocus().getFirstname());
         lNameField.setText(Main.getPatientFocus().getLastname());
         pNumberField.setText(String.valueOf(Main.getPatientFocus().getPhoneNumber()));
@@ -64,6 +62,21 @@ public class PatientViewController implements Initializable {
         emailField.setText(Main.getPatientFocus().getEmail());
         InsuranceField.setText(String.valueOf(Main.getPatientFocus().getInsuranceNumber()));
         policyField.setText(String.valueOf(Main.getPatientFocus().getPolicyNumber()));
+        System.out.println(reflabel.getText());
+        try{
+            ResultSet rs = Patient.queryReferralInfo(Main.getPatientFocus().getPatientID());
+            if(rs.next()){
+
+                reflabel.setText("Referring Physician: "+rs.getString("first_name")+ " " + rs.getString("last_name"));
+            }else{
+                reflabel.setText("No referring physician");
+            }
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
         updateAppointmentTable();
         patientAppointments.setOnMouseClicked((MouseEvent event) -> {
             //DOUBLE CLICK ON CELL
