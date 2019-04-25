@@ -80,7 +80,9 @@ else{
 
     }
        public void submitToDB() throws Exception{
-        Patient.insertNewPatient((new Patient(fNameField.getText(), lNameField.getText(), sexField.getText(), emailField.getText(), dobField.getValue(), pNumberField.getText(), insuranceField.getText(), policyField.getText())), addressField.getText(), cityField.getText(), stateField.getText(), zipField.getText()
+        Patient.insertNewPatient((new Patient(fNameField.getText(), lNameField.getText(), sexField.getText(), emailField.getText(),
+                dobField.getValue(), pNumberField.getText(), insuranceField.getText(), policyField.getText())), addressField.getText(),
+                cityField.getText(), stateField.getText(), zipField.getText()
         );
 
         Main.popup.close();
