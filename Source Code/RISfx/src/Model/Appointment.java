@@ -191,15 +191,27 @@ public class Appointment {
      * @throws Exception
      */
     public static void submitNewAppointment(Appointment appointmentToSubmit) throws Exception{
+        String reason = null;
+        String special = null;
+        ResultSet rs = databaseConnector.getConnection().prepareStatement(
+                "SELECT reason_for_referral, special_comments FROM refer WHERE patient_id = " + appointmentToSubmit.getPatientId()
+        ).executeQuery();
+        while(rs.next()){
+
+            reason = rs.getString("reason_for_referral");
+            special = rs.getString("special_comments");
+        }
         PreparedStatement update = databaseConnector.getConnection().prepareStatement(
-                "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`) " +
-                        "VALUES (?, ?, ?, ?, ?, ?);");
+                "INSERT INTO `appointments` (`patient_id`, `appointment_date`, `appointment_time`, `procedure_id`, `machine_id`, `employee_id`,`reason_for_referral`,`special_comments`) " +
+                        "VALUES (?, ?, ?, ?, ?, ?,?,?);");
         update.setInt(1, appointmentToSubmit.getPatientId());
         update.setDate(2, appointmentToSubmit.getAppointmentDate());
         update.setTime(3, appointmentToSubmit.getAppointmentTime());
         update.setInt(4, appointmentToSubmit.getProcedureId());
         update.setInt(5, appointmentToSubmit.getMachineId());
         update.setInt(6, appointmentToSubmit.getEmployeeId());
+        update.setString(7,reason);
+        update.setString(8,special);
         update.executeUpdate();
     }
 
